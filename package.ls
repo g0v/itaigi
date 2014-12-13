@@ -1,0 +1,21 @@
+name: 'react-livescript-seed'
+version: '0.0.0'
+authors:
+  * 'Pomin Wu (pm5) <pomin5@gmail.com>'
+license: 'MIT'
+scripts:
+  republish: 'lsc -cj package.ls && lsc -cj bower.ls'
+  build: 'gulp build'
+  dev: 'gulp dev'
+private: true
+dependencies:
+  "bower": "^1.3.12"
+  "express": "^4.10.6"
+  "connect-livereload": "^0.5.2"
+  "gulp": "^3.8.10"
+  "gulp-bower": "0.0.7"
+  "gulp-concat": "^2.4.2"
+  "gulp-livereload": "^2.1.1"
+  "gulp-livescript": "^2.3.0"
+  "gulp-uglify": "^1.0.2"
+  "tiny-lr": "^0.1.4"
