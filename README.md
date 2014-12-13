@@ -10,4 +10,15 @@ React project seed with LiveScript.  Things included:
 Usage
 -----
 
-        npm i && npm run build
+Install:
+
+        $ npm i && npm run build
+
+Start development server:
+
+        $ npm run dev
+
+License
+-------
+
+MIT License <http://pm5.mit-license.org/>
