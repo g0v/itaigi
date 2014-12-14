@@ -1,14 +1,18 @@
-require! <[express gulp gulp-livescript gulp-concat gulp-uglify tiny-lr gulp-livereload]>
+require! <[express gulp gulp-concat tiny-lr gulp-livereload]>
 
 livereload-server = tiny-lr!
 livereload-port = 35729
 livereload = -> gulp-livereload livereload-server
 
+require! <[gulp-livescript gulp-browserify liveify gulp-uglify]>
+
 gulp.task 'js:app' ->
-  gulp.src 'app/**/*.ls'
+  gulp.src 'app/js/app.ls'
     .pipe gulp-livescript bare: true
-    .pipe gulp-concat 'app.js'
-    .pipe gulp-uglify!
+    .pipe gulp-browserify do
+      transform: <[liveify]>
+      extensions: <[.ls]>
+    #.pipe gulp-uglify!
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
