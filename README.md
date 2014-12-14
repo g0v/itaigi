@@ -5,6 +5,7 @@ React project seed with LiveScript.  Things included:
 * gulp
 * bower
 * react
+* browserify
 * livereload
 
 Usage
@@ -17,6 +18,8 @@ Install:
 Start development server:
 
         $ npm run dev
+
+Put your App/Main/Boot code in `app/js/app.ls`.
 
 License
 -------
