@@ -15,6 +15,7 @@ dependencies:
   "gulp": "^3.8.10"
   "gulp-bower": "0.0.7"
   "gulp-concat": "^2.4.2"
+  "gulp-filter": "^1.0.2"
   "gulp-livereload": "^2.1.1"
   "gulp-livescript": "^2.3.0"
   "gulp-uglify": "^1.0.2"

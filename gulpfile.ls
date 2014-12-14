@@ -1,17 +1,26 @@
-require! <[express gulp gulp-bower gulp-livescript gulp-concat gulp-uglify tiny-lr gulp-livereload]>
+require! <[express gulp gulp-livescript gulp-concat gulp-uglify tiny-lr gulp-livereload]>
 
 livereload-server = tiny-lr!
 livereload-port = 35729
 livereload = -> gulp-livereload livereload-server
-
-gulp.task 'bower' ->
-  gulp-bower!
 
 gulp.task 'js:app' ->
   gulp.src 'app/**/*.ls'
     .pipe gulp-livescript bare: true
     .pipe gulp-concat 'app.js'
     .pipe gulp-uglify!
+    .pipe gulp.dest '_public/js'
+    .pipe livereload!
+
+require! <[gulp-bower gulp-bower-files gulp-filter]>
+
+gulp.task 'bower' ->
+  gulp-bower!
+
+gulp.task 'js:vendor' ->
+  gulp-bower-files!
+    .pipe gulp-filter (.path is /\.js$/)
+    .pipe gulp-concat 'vendor.js'
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
@@ -26,7 +35,7 @@ gulp.task 'template' ->
     .pipe gulp.dest '_public'
     .pipe livereload!
 
-gulp.task 'build' <[bower js:app css template]> ->
+gulp.task 'build' <[bower js:vendor js:app css template]> ->
 
 gulp.task 'watch' ->
   livereload-server.listen livereload-port, ->
