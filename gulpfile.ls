@@ -21,7 +21,7 @@ require! <[gulp-bower gulp-bower-files gulp-filter]>
 gulp.task 'bower' ->
   gulp-bower!
 
-gulp.task 'js:vendor' ->
+gulp.task 'js:vendor' <[bower]> ->
   gulp-bower-files!
     .pipe gulp-filter (.path is /\.js$/)
     .pipe gulp-concat 'vendor.js'
