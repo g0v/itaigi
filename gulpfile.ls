@@ -16,13 +16,13 @@ gulp.task 'js:app' ->
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
-require! <[gulp-bower gulp-bower-files gulp-filter]>
+require! <[gulp-bower main-bower-files gulp-filter]>
 
 gulp.task 'bower' ->
   gulp-bower!
 
 gulp.task 'js:vendor' <[bower]> ->
-  gulp-bower-files!
+  gulp.src main-bower-files!
     .pipe gulp-filter (.path is /\.js$/)
     .pipe gulp-concat 'vendor.js'
     .pipe gulp.dest '_public/js'

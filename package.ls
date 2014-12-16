@@ -16,7 +16,6 @@ dependencies:
   "express": "^4.10.6"
   "gulp": "^3.8.10"
   "gulp-bower": "0.0.7"
-  "gulp-bower-files": "^0.2.7"
   "gulp-browserify": "^0.5.0"
   "gulp-concat": "^2.4.2"
   "gulp-filter": "^1.0.2"
@@ -24,4 +23,5 @@ dependencies:
   "gulp-livescript": "^2.3.0"
   "gulp-uglify": "^1.0.2"
   "liveify": "^1.3.1"
+  "main-bower-files": "^2.4.1"
   "tiny-lr": "^0.1.4"
