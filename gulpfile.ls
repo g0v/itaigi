@@ -39,13 +39,19 @@ gulp.task 'template' ->
     .pipe gulp.dest '_public'
     .pipe livereload!
 
-gulp.task 'build' <[bower js:vendor js:app css template]> ->
+gulp.task 'data' ->
+  gulp.src 'app/**/*.csv'
+    .pipe gulp.dest '_public'
+    .pipe livereload!
+
+gulp.task 'build' <[bower js:vendor js:app css template data]> ->
 
 gulp.task 'watch' ->
   livereload-server.listen livereload-port, ->
     gulp.watch ['app/**/*.ls'] <[js:app]>
     gulp.watch ['app/**/*.css'] <[css]>
     gulp.watch ['app/**/*.html'] <[template]>
+    gulp.watch ['app/**/*.csv'] <[data]>
 
 gulp.task 'dev' <[build watch]> ->
   require! <[express]>
