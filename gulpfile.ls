@@ -28,10 +28,17 @@ gulp.task 'js:vendor' <[bower]> ->
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
-gulp.task 'css' ->
+gulp.task 'css:vendor' <[bower]> ->
+  gulp.src main-bower-files!
+    .pipe gulp-filter (.path is /\.css$/)
+    .pipe gulp-concat 'vendor.css'
+    .pipe gulp.dest '_public/css'
+    .pipe livereload!
+
+gulp.task 'css' <[css:vendor]> ->
   gulp.src 'app/**/*.css'
     .pipe gulp-concat 'app.css'
-    .pipe gulp.dest '_public/css/app.css'
+    .pipe gulp.dest '_public/css'
     .pipe livereload!
 
 gulp.task 'template' ->
