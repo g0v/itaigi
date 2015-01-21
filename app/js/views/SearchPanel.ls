@@ -1,7 +1,7 @@
 {div} = React.DOM
 
 require! <[superagent]>
-SearchBar = React.createFactory require './SearchBar'
+SearchBox = React.createFactory require './SearchBox'
 SearchResult = React.createFactory require './SearchResult'
 {searchPhrase} = require '../actions/AppActionCreators'
 
@@ -14,8 +14,8 @@ module.exports = SearchPanel = React.createClass do
   handleSearch: (event) ->
     searchPhrase @state.query
   render: ->
-    div {id: "search-panel"},
-      SearchBar {
+    div {id: "search-panel", className: "ui center aligned segment"},
+      SearchBox {
         query: @state.query
         handleInput: @handleSearchInput
         handleSubmit: @handleSearch

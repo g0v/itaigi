@@ -20,7 +20,8 @@ TaigiApp = React.createFactory React.createClass do
       div {id: "header"},
         h1 {} "ㄟ⋯⋯那個⋯⋯"
         div {id: "upper-menu"}
-      SearchPanel {phrases: @state.phrases}
+      div {className: "full height"}
+        SearchPanel {phrases: @state.phrases}
 
 <- $
 React.render TaigiApp!, document.getElementById("taigi-app")
