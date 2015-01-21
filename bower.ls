@@ -11,3 +11,5 @@ ignore:
   * 'tests'
 dependencies:
   "react": "~0.12.1"
+  "react-semantic-ui": "~0.2.1"
+  "semantic-ui": "~1.7.3"
