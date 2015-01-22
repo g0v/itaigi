@@ -1,5 +1,5 @@
-name: 'react-livescript-seed'
-version: '0.0.0'
+name: 'g0v-taigi'
+version: '0.0.1'
 authors:
   * 'Pomin Wu <pomin5@gmail.com>'
 license: 'MIT'
