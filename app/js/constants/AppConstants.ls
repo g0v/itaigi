@@ -1,4 +1,3 @@
-'use strict'
 
 module.exports = {[x, x] for x in <[
   SOURCE_VIEW_ACTION

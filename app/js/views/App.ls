@@ -1,8 +1,7 @@
-'use strict'
 
 {div, h1} = React.DOM
 
-SearchPanel = React.createFactory require './SearchPanel'
+SearchPage = React.createFactory require './SearchPage'
 PhraseStore = require '../stores/PhraseStore'
 
 module.exports = App = React.createClass do
@@ -17,8 +16,7 @@ module.exports = App = React.createClass do
   getPhraseState: -> PhraseStore.getAll!
   render: ->
     div {},
-      div {id: "header"},
+      div {id: "header", className: "fixed"},
         h1 {} "ㄟ⋯⋯那個⋯⋯"
-        div {id: "upper-menu"}
-      div {className: "full height"}
-        SearchPanel {phrases: @state.phrases}
+      div {className: "full height container"}
+        SearchPage {phrases: @state.phrases}

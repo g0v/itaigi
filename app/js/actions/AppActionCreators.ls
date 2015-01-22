@@ -1,4 +1,3 @@
-"use strict"
 
 require! <[../constants/AppConstants ../dispatcher/AppDispatcher]>
 
