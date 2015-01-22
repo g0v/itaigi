@@ -1,27 +1,6 @@
 'use strict'
 
-{div, h1} = React.DOM
-
-SearchPanel = React.createFactory require './views/SearchPanel'
-PhraseStore = require './stores/PhraseStore'
-
-TaigiApp = React.createFactory React.createClass do
-  componentWillMount: ->
-    PhraseStore.addChangeListener @_onChange
-    @setState do
-      phrases: @getPhraseState!
-  componentWillUnmount: ->
-    PhraseStore.removeChangeListener @_onChange
-  _onChange: -> @setState do
-    phrases: @getPhraseState!
-  getPhraseState: -> PhraseStore.getAll!
-  render: ->
-    div {},
-      div {id: "header"},
-        h1 {} "ㄟ⋯⋯那個⋯⋯"
-        div {id: "upper-menu"}
-      div {className: "full height"}
-        SearchPanel {phrases: @state.phrases}
+App = React.createFactory require './views/App'
 
 <- $
-React.render TaigiApp!, document.getElementById("taigi-app")
+React.render App!, document.getElementById("taigi-app")
