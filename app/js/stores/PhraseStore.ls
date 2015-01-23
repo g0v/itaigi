@@ -757,7 +757,8 @@ module.exports = PhraseStore = new events.EventEmitter! <<< do
   removeChangeListener: (callback) ->
     @removeListener CHANGE_EVENT, callback
   getAll: ->
-    if _query then _phrases.filter (-> (it["華語"].indexOf _query) >= 0) else _phrases
+    return [] unless _query
+    _phrases.filter (-> (it["華語"].indexOf _query) >= 0)
 
 PhraseStore.dispatchToken = AppDispatcher.register ({action}) ->
   switch action.type
