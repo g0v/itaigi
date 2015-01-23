@@ -41,6 +41,12 @@ gulp.task 'css' <[css:vendor]> ->
     .pipe gulp.dest '_public/css'
     .pipe livereload!
 
+gulp.task 'assets:semantic-ui' <[bower]> ->
+  gulp.src 'bower_components/semantic-ui/dist/themes/**/*'
+    .pipe gulp.dest '_public/css/themes'
+
+gulp.task 'assets' <[assets:semantic-ui]> ->
+
 gulp.task 'template' ->
   gulp.src 'app/**/*.html'
     .pipe gulp.dest '_public'
@@ -51,7 +57,7 @@ gulp.task 'data' ->
     .pipe gulp.dest '_public'
     .pipe livereload!
 
-gulp.task 'build' <[bower js:vendor js:app css template data]> ->
+gulp.task 'build' <[bower js:vendor js:app css assets template data]> ->
 
 gulp.task 'watch' ->
   livereload-server.listen livereload-port, ->
