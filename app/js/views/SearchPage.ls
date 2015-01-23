@@ -9,8 +9,10 @@ module.exports = SearchPanel = React.createClass do
   getInitialState: -> do
     query: ''
   handleSearchInput: (event) ->
-    @setState do
-      query: event.target.value
+    @setState query: event.target.value
+  handleSearchClear: (event) ->
+    <- @setState query: null
+    @handleSearch event
   handleSearch: (event) ->
     searchPhrase @state.query
   render: ->
@@ -19,5 +21,6 @@ module.exports = SearchPanel = React.createClass do
         query: @state.query
         handleInput: @handleSearchInput
         handleSubmit: @handleSearch
+        handleClear: @handleSearchClear
       }
       PhraseBox {phrases: @props.phrases}
