@@ -1,12 +1,8 @@
 
-React project seed with LiveScript.  Things included:
+新台語·運動
+===========
 
-* LiveScript
-* gulp
-* bower
-* react
-* browserify
-* livereload
+* [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 
 Usage
 -----
@@ -18,8 +14,12 @@ Install:
 Start development server:
 
         $ npm run dev
+        # open http://localhost:3000/
 
-Put your App/Main/Boot code in `app/js/app.ls`.
+To Do
+-----
+
+目前做到「查詢->求詞」的 frontend。
 
 License
 -------
