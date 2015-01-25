@@ -28,6 +28,15 @@ gulp.task 'js:vendor' <[bower]> ->
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
+require! <[gulp-stylus]>
+
+gulp.task 'css:app' ->
+  gulp.src 'app/styles/*.styl'
+    .pipe gulp-stylus!
+    .pipe gulp-concat 'app.css'
+    .pipe gulp.dest '_public/css'
+    .pipe livereload!
+
 gulp.task 'css:vendor' <[bower]> ->
   gulp.src main-bower-files!
     .pipe gulp-filter (.path is /\.css$/)
@@ -35,11 +44,7 @@ gulp.task 'css:vendor' <[bower]> ->
     .pipe gulp.dest '_public/css'
     .pipe livereload!
 
-gulp.task 'css' <[css:vendor]> ->
-  gulp.src 'app/**/*.css'
-    .pipe gulp-concat 'app.css'
-    .pipe gulp.dest '_public/css'
-    .pipe livereload!
+gulp.task 'css' <[css:app css:vendor]> ->
 
 gulp.task 'assets:semantic-ui' <[bower]> ->
   gulp.src 'bower_components/semantic-ui/dist/themes/**/*'
@@ -62,7 +67,7 @@ gulp.task 'build' <[bower js:vendor js:app css assets template data]> ->
 gulp.task 'watch' ->
   livereload-server.listen livereload-port, ->
     gulp.watch ['app/**/*.ls'] <[js:app]>
-    gulp.watch ['app/**/*.css'] <[css]>
+    gulp.watch ['app/**/*.styl'] <[css:app]>
     gulp.watch ['app/**/*.html'] <[template]>
     gulp.watch ['app/**/*.csv'] <[data]>
 

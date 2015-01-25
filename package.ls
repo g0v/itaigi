@@ -22,6 +22,7 @@ dependencies:
   "gulp-livereload": "^2.1.1"
   "gulp-livescript": "^2.3.0"
   "gulp-uglify": "^1.0.2"
+  "gulp-stylus": "^2.0.0"
   "liveify": "^1.3.1"
   "main-bower-files": "^2.4.1"
   "react": "~0.12.1"
