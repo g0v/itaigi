@@ -32,12 +32,13 @@ module.exports = App = React.createClass do
   render: ->
     div {},
       div {id: "header", className: "fixed"},
-        h1 {} "ㄟ⋯⋯那個⋯⋯"
-        SearchBox {
-          query: @state.query
-          handleInput: @handleSearchInput
-          handleSubmit: @handleSearch
-          handleClear: @handleSearchClear
-        }
+        div {className: "container"},
+          h1 {} "ㄟ⋯⋯那個⋯⋯"
+          SearchBox {
+            query: @state.query
+            handleInput: @handleSearchInput
+            handleSubmit: @handleSearch
+            handleClear: @handleSearchClear
+          }
       div {className: "full height container"}
         RouteHandler {phrases: @state.phrases}
