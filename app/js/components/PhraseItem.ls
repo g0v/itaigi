@@ -1,4 +1,6 @@
 
+React = require 'react'
+
 {div, p} = React.DOM
 
 module.exports = PhraseItem = React.createClass do

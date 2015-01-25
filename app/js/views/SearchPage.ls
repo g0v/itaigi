@@ -1,4 +1,7 @@
 
+React = require 'react'
+Router = require 'react-router'
+
 {div} = React.DOM
 
 SearchBox = React.createFactory require '../components/SearchBox'
@@ -6,6 +9,7 @@ PhraseBox = React.createFactory require '../components/PhraseBox'
 {searchPhrase} = require '../actions/AppActionCreators'
 
 module.exports = SearchPanel = React.createClass do
+  mixins: [Router.State]
   getInitialState: -> do
     query: ''
   handleSearchInput: (event) ->

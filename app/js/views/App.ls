@@ -1,7 +1,10 @@
 
+React = require 'react'
+Router = require 'react-router'
+RouteHandler = React.createFactory Router.RouteHandler
+
 {div, h1} = React.DOM
 
-SearchPage = React.createFactory require './SearchPage'
 PhraseStore = require '../stores/PhraseStore'
 
 module.exports = App = React.createClass do
@@ -19,4 +22,4 @@ module.exports = App = React.createClass do
       div {id: "header", className: "fixed"},
         h1 {} "ㄟ⋯⋯那個⋯⋯"
       div {className: "full height container"}
-        SearchPage {phrases: @state.phrases}
+        RouteHandler {phrases: @state.phrases}

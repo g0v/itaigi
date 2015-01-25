@@ -24,5 +24,7 @@ dependencies:
   "gulp-uglify": "^1.0.2"
   "liveify": "^1.3.1"
   "main-bower-files": "^2.4.1"
+  "react": "~0.12.1"
+  "react-router": "^0.11.6"
   "superagent": "~0.21.0"
   "tiny-lr": "^0.1.4"

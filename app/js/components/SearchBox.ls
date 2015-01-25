@@ -1,3 +1,6 @@
+
+React = require 'react'
+
 {div, input, button, i} = React.DOM
 
 module.exports = SearchBox = React.createClass do

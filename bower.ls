@@ -1,7 +1,7 @@
 name: 'g0v-taigi'
 version: '0.0.1'
 authors:
-  * 'Pomin Wu <pomin5@gmail.com>'
+  * 'Pomin Wu (pm5) <pomin5@gmail.com>'
 license: 'MIT'
 ignore:
   * '**/.*'
@@ -10,6 +10,5 @@ ignore:
   * 'test'
   * 'tests'
 dependencies:
-  "react": "~0.12.1"
-  "react-semantic-ui": "~0.2.1"
   "semantic-ui": "~1.7.3"
+  "react-semantic-ui": "~0.2.1"

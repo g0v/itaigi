@@ -1,3 +1,6 @@
+
+React = require 'react'
+
 {div} = React.DOM
 
 PhraseItem = React.createFactory require './PhraseItem'
