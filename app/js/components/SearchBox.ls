@@ -8,7 +8,7 @@ module.exports = SearchBox = React.createClass do
     if event.which == 13
       @props.handleSubmit event
   render: ->
-    div {id: "search-box", className: "ui left aligned raised segment"},
+    div {id: "search-box"},
       div {className: "ui action left icon input"},
         if @props.query
           i {className: "remove circle icon", onClick: @props.handleClear}
