@@ -1,6 +1,5 @@
 
 React = require 'react'
-Router = require 'react-router'
 
 {div, a} = React.DOM
 
