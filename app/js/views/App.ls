@@ -2,13 +2,13 @@
 React = require 'react'
 Router = require 'react-router'
 RouteHandler = React.createFactory Router.RouteHandler
-Link = React.createFactory Router.Link
 
 {div, h1, a} = React.DOM
 
 PhraseStore = require '../stores/PhraseStore'
 
 SearchBox = React.createFactory require '../components/SearchBox'
+TabularMenu = React.createFactory require '../components/TabularMenu'
 {searchPhrase} = require '../actions/AppActionCreators'
 
 module.exports = App = React.createClass do
@@ -43,7 +43,5 @@ module.exports = App = React.createClass do
           }
       div {className: "full height container"},
         div {className: "container"},
-          div {className: "ui top attached tabular menu"},
-            Link {className: "item", activeClassName: "active", to: "search"} "怎樣講"
-            Link {className: "item", activeClassName: "active", to: "discuss"} "來討論"
+          TabularMenu!
           RouteHandler {phrases: @state.phrases}
