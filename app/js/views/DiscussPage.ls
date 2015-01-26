@@ -6,4 +6,4 @@ React = require 'react'
 module.exports = DiscussPage = React.createClass do
   render: ->
     div {id: "discuss-page"},
-      iframe {src: "https://g0v.hackpad.com/moed7ct-taigi-neologism"}
+      iframe {id: "discuss-pad", src: "https://g0v.hackpad.com/moed7ct-taigi-neologism"}
