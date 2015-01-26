@@ -13,7 +13,8 @@ App = require './views/App'
 
 routes = Route {handler: App, path: "/"},
   DefaultRoute {handler: SearchPage}
-  Route {handler: DiscussPage, path: "/discuss"}
+  Route {name: "search", path: "/search", handler: SearchPage}
+  Route {name: "discuss", path: "/discuss", handler: DiscussPage}
 
 <- $
 Handler <- Router.run routes

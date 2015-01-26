@@ -2,6 +2,7 @@
 React = require 'react'
 Router = require 'react-router'
 RouteHandler = React.createFactory Router.RouteHandler
+Link = React.createFactory Router.Link
 
 {div, h1, a} = React.DOM
 
@@ -43,5 +44,6 @@ module.exports = App = React.createClass do
       div {className: "full height container"},
         div {className: "container"},
           div {className: "ui top attached tabular menu"},
-            a {className: "active item"} "怎樣講"
+            Link {className: "item", activeClassName: "active", to: "search"} "怎樣講"
+            Link {className: "item", activeClassName: "active", to: "discuss"} "來討論"
           RouteHandler {phrases: @state.phrases}
