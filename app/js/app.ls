@@ -8,10 +8,12 @@ NotFoundRoute = React.createFactory Router.NotFoundRoute
 Redirect = React.createFactory Router.Redirect
 
 SearchPage = require './views/SearchPage'
+DiscussPage = require './views/DiscussPage'
 App = require './views/App'
 
 routes = Route {handler: App, path: "/"},
   DefaultRoute {handler: SearchPage}
+  Route {handler: DiscussPage, path: "/discuss"}
 
 <- $
 Handler <- Router.run routes

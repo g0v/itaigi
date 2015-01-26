@@ -3,7 +3,7 @@ React = require 'react'
 Router = require 'react-router'
 RouteHandler = React.createFactory Router.RouteHandler
 
-{div, h1} = React.DOM
+{div, h1, a} = React.DOM
 
 PhraseStore = require '../stores/PhraseStore'
 
@@ -40,5 +40,8 @@ module.exports = App = React.createClass do
             handleSubmit: @handleSearch
             handleClear: @handleSearchClear
           }
-      div {className: "full height container"}
-        RouteHandler {phrases: @state.phrases}
+      div {className: "full height container"},
+        div {className: "container"},
+          div {className: "ui top attached tabular menu"},
+            a {className: "active item"} "怎樣講"
+          RouteHandler {phrases: @state.phrases}
