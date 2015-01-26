@@ -9,12 +9,14 @@ Redirect = React.createFactory Router.Redirect
 
 SearchPage = require './views/SearchPage'
 DiscussPage = require './views/DiscussPage'
+SubmitPage = require './views/SubmitPage'
 App = require './views/App'
 
 routes = Route {handler: App, path: "/"},
   DefaultRoute {handler: SearchPage}
   Route {name: "search", path: "/search", handler: SearchPage}
   Route {name: "discuss", path: "/discuss", handler: DiscussPage}
+  Route {name: "submit", path: "/submit", handler: SubmitPage}
 
 <- $
 Handler <- Router.run routes
