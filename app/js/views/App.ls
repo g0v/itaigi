@@ -44,4 +44,5 @@ module.exports = App = React.createClass do
       div {className: "full height container"},
         div {className: "container"},
           TabularMenu!
-          RouteHandler {phrases: @state.phrases}
+          div {className: "ui bottom attached segment"},
+            RouteHandler {phrases: @state.phrases}
