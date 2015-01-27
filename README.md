@@ -16,12 +16,7 @@ Start development server:
         $ npm run dev
         # open http://localhost:3000/
 
-To Do
------
-
-目前做到「查詢->求詞」的 frontend。
-
 License
 -------
 
-MIT License <http://pm5.mit-license.org/>
+MIT License <http://g0v.mit-license.org/>
