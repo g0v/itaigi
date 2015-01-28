@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER g0v Contributors
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /app
 RUN apt-get update && \
   apt-get upgrade -y && \
