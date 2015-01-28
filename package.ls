@@ -7,6 +7,7 @@ scripts:
   republish: 'lsc -cj package.ls && lsc -cj bower.ls'
   build: 'gulp build'
   dev: 'gulp dev'
+  docker: 'gulp build && docker build -t g0v-taigi .'
 private: true
 dependencies:
   "bower": "^1.3.12"

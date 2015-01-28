@@ -6,7 +6,8 @@
   "scripts": {
     "republish": "lsc -cj package.ls && lsc -cj bower.ls",
     "build": "gulp build",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "docker": "gulp build && docker build -t g0v-taigi ."
   },
   "private": true,
   "dependencies": {
