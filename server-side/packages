@@ -5,3 +5,4 @@ SQLAlchemy==0.9.8
 pyjade==3.0.0
 flask-admin
 flask-security
+flask-cors
