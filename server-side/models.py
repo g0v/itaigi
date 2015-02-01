@@ -3,10 +3,39 @@
 import json
 
 from sqlalchemy import MetaData, Table, Column, String, Integer
+from flask import Flask, render_template
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.security import Security, SQLAlchemyUserDatastore, \
+    UserMixin, RoleMixin, login_required
 
 
-from server import DB
+DB = SQLAlchemy() 
 
+## User and roles
+
+roles_users = DB.Table('roles_users',
+        DB.Column('users_id', DB.Integer(), DB.ForeignKey('users.id')),
+        DB.Column('roles_id', DB.Integer(), DB.ForeignKey('roles.id')))
+
+class Roles(DB.Model, RoleMixin):
+    id = DB.Column(DB.Integer(), primary_key=True)
+    name = DB.Column(DB.String(80), unique=True)
+    description = DB.Column(DB.String(255))
+
+
+class Users(DB.Model, UserMixin):
+    id = DB.Column(DB.Integer, primary_key=True)
+    email = DB.Column(DB.String(255), unique=True)
+    password = DB.Column(DB.String(255))
+    active = DB.Column(DB.Boolean())
+    confirmed_at = DB.Column(DB.DateTime())
+    roles = DB.relationship('Roles', secondary=roles_users,
+                            backref=DB.backref('users', lazy='dynamic'))
+
+
+
+
+#APP data
 
 # 流水號,華語,漢字,台羅,出處,理由
 class Suggestions(DB.Model):
