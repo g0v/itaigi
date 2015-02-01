@@ -9,6 +9,7 @@ import logging
 from flask import Flask, Response
 from flask import render_template
 from flask import abort, request, jsonify
+from flask.ext.cors import CORS, cross_origin
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.security import Security, SQLAlchemyUserDatastore, \
@@ -24,6 +25,7 @@ logger = logging.getLogger('taigi-neologism')
 app = Flask(__name__)
 app.debug = True
 # app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite'
 
@@ -50,6 +52,7 @@ admin.init_app(app)
 
 # API URLs
 @app.route('/api/suggestions/<question>')
+@cross_origin(send_wildcard=False)
 def api_suggestions(question):
     data = Suggestions.query.filter_by(question=question).all()
     return jsonify({'status':'ok', 'results':[ x.to_dict() for x in data]})
