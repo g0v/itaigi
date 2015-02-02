@@ -16,6 +16,11 @@ Start development server:
         $ npm run dev
         # open http://localhost:3000/
 
+Development
+-----------
+
+Server-side API document: <http://docs.taigineologism.apiary.io/>
+
 License
 -------
 
