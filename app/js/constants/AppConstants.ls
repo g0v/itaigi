@@ -7,4 +7,5 @@ module.exports = {[x, x] for x in <[
   CHANGE_EVENT
 
   SEARCH_PHRASE
-]>}
+]>} 
+
