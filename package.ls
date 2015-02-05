@@ -8,7 +8,7 @@ scripts:
   build: 'gulp build'
   dev: 'gulp dev'
   docker: 'gulp build && docker build -t g0v-taigi .'
-  start: 'gulp build && lsc server.ls'
+  start: 'NODE_ENV=production gulp app'
 private: true
 dependencies:
   "bower": "^1.3.12"

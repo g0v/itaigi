@@ -8,7 +8,7 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "docker": "gulp build && docker build -t g0v-taigi .",
-    "start": "gulp build && lsc server.ls"
+    "start": "gulp app"
   },
   "private": true,
   "dependencies": {
