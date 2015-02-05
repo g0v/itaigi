@@ -1,7 +1,6 @@
 
 React = require 'react'
-Router = require 'react-router'
-RouteHandler = React.createFactory Router.RouteHandler
+SearchPage = require './SearchPage'
 
 {div, h1, a} = React.DOM
 
@@ -45,4 +44,4 @@ module.exports = App = React.createClass do
         div {className: "container"},
           TabularMenu!
           div {className: "ui bottom attached segment"},
-            RouteHandler {phrases: @state.phrases}
+            @props.pageComponent {phrases: @state.phrases}

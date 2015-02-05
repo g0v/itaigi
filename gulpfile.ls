@@ -7,7 +7,7 @@ livereload = -> gulp-livereload livereload-server
 require! <[gulp-livescript gulp-browserify liveify gulp-uglify]>
 
 gulp.task 'js:app' ->
-  gulp.src 'lib/js/app.ls'
+  gulp.src 'src/js/app.ls'
     .pipe gulp-livescript bare: true
     .pipe gulp-browserify do
       transform: <[liveify]>
@@ -31,7 +31,7 @@ gulp.task 'js:vendor' <[bower]> ->
 require! <[gulp-stylus]>
 
 gulp.task 'css:app' ->
-  gulp.src 'lib/styles/*.styl'
+  gulp.src 'src/styles/*.styl'
     .pipe gulp-stylus!
     .pipe gulp-concat 'app.css'
     .pipe gulp.dest '_public/css'
@@ -53,12 +53,12 @@ gulp.task 'assets:semantic-ui' <[bower]> ->
 gulp.task 'assets' <[assets:semantic-ui]> ->
 
 gulp.task 'template' ->
-  gulp.src 'lib/**/*.html'
+  gulp.src 'src/**/*.html'
     .pipe gulp.dest '_public'
     .pipe livereload!
 
 gulp.task 'data' ->
-  gulp.src 'lib/**/*.csv'
+  gulp.src 'src/**/*.csv'
     .pipe gulp.dest '_public'
     .pipe livereload!
 
@@ -66,10 +66,10 @@ gulp.task 'build' <[bower js:vendor js:app css assets template data]> ->
 
 gulp.task 'watch' ->
   livereload-server.listen livereload-port, ->
-    gulp.watch ['lib/**/*.ls'] <[js:app]>
-    gulp.watch ['lib/**/*.styl'] <[css:app]>
-    gulp.watch ['lib/**/*.html'] <[template]>
-    gulp.watch ['lib/**/*.csv'] <[data]>
+    gulp.watch ['src/**/*.ls'] <[js:app]>
+    gulp.watch ['src/**/*.styl'] <[css:app]>
+    gulp.watch ['src/**/*.html'] <[template]>
+    gulp.watch ['src/**/*.csv'] <[data]>
 
 gulp.task 'dev' <[build watch]> ->
   require './app'
