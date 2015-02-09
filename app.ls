@@ -6,7 +6,7 @@ port = 3000
 
 is-dev = process.env.NODE_ENV isnt "production"
 
-routes = require 'src/js/routes'
+routes = require './src/js/routes'
 routes._render = (page) ->
   @res.writeHead 200, 'Content-Type': 'text/html'
   @res.end
