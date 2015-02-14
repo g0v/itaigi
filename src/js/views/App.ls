@@ -1,7 +1,6 @@
 
 React = require 'react'
-Router = require 'react-router'
-RouteHandler = React.createFactory Router.RouteHandler
+SearchPage = require './SearchPage'
 
 {div, h1, a} = React.DOM
 
@@ -12,6 +11,8 @@ TabularMenu = React.createFactory require '../components/TabularMenu'
 {searchPhrase} = require '../actions/AppActionCreators'
 
 module.exports = App = React.createClass do
+  getInitialState: -> do
+    query: ''
   componentWillMount: ->
     PhraseStore.addChangeListener @_onChange
     @setState do
@@ -21,8 +22,6 @@ module.exports = App = React.createClass do
   _onChange: -> @setState do
     phrases: @getPhraseState!
   getPhraseState: -> PhraseStore.getAll!
-  getInitialState: -> do
-    query: ''
   handleSearchInput: (event) ->
     @setState query: event.target.value
   handleSearchClear: (event) ->
@@ -43,6 +42,6 @@ module.exports = App = React.createClass do
           }
       div {className: "full height container"},
         div {className: "container"},
-          TabularMenu!
+          TabularMenu {router: @props.router}
           div {className: "ui bottom attached segment"},
-            RouteHandler {phrases: @state.phrases}
+            @props.pageComponent {phrases: @state.phrases}

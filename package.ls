@@ -8,10 +8,12 @@ scripts:
   build: 'gulp build'
   dev: 'gulp dev'
   docker: 'gulp build && docker build -t g0v-taigi .'
+  start: 'NODE_ENV=production gulp app'
 private: true
 dependencies:
   "bower": "^1.3.12"
   "connect-livereload": "^0.5.2"
+  "director": "^1.2.8"
   "events": "^1.0.2"
   "express": "^4.10.6"
   "flux": "^2.0.1"
@@ -27,6 +29,5 @@ dependencies:
   "liveify": "^1.3.1"
   "main-bower-files": "^2.4.1"
   "react": "~0.12.1"
-  "react-router": "^0.11.6"
   "superagent": "~0.21.0"
   "tiny-lr": "^0.1.4"
