@@ -1,6 +1,5 @@
 
-require! <[events ../dispatcher/AppDispatcher ../constants/AppConstants]>
-
+require! <[./Store events ../dispatcher/AppDispatcher ../constants/AppConstants]>
 
 var _query
 var _phrases
@@ -26,15 +25,7 @@ fetch_phrases = ->
       PhraseStore.emitChange!
     console.log(data)
 
-
-
-module.exports = PhraseStore = new events.EventEmitter! <<< do
-  emitChange: ->
-    @emit AppConstants.CHANGE_EVENT
-  addChangeListener: (callback) ->
-    @on AppConstants.CHANGE_EVENT, callback
-  removeChangeListener: (callback) ->
-    @removeListener CHANGE_EVENT, callback
+module.exports = PhraseStore = Store <<< do
   getAll: ->
     return _phrases
 
@@ -43,5 +34,4 @@ PhraseStore.dispatchToken = AppDispatcher.register ({action}) ->
     | AppConstants.SEARCH_PHRASE =>
       _query := action.query
       fetch_phrases!
-      # PhraseStore.emitChange
   true
