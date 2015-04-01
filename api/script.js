@@ -28,6 +28,7 @@ app.controller("IntroController",
 				$scope.listType='外語請教條列表';
 				$scope.info=data;
 				$scope.questionList=data['列表'];
+				$scope.suggestedQuestionList=[];
 		})
 			.catch(function(data, status) {
 			console.error('外語請教條列表 error');
