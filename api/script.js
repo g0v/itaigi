@@ -41,6 +41,7 @@ app.controller("IntroController",
 				$scope.listType='搜尋結果';
 				$scope.info=data;
 				$scope.questionList=data['資料'];
+				$scope.suggestedQuestionList=data['其他建議'];
 		})
 			.catch(function(data, status) {
 			console.error('揣外語請教條 error');
