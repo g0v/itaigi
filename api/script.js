@@ -1,7 +1,7 @@
 // Code goes here
 
 
-網址='/json/'
+網址='/'
 var app = angular.module('app',[]);
 
 app.config(function($httpProvider) {
@@ -36,7 +36,7 @@ app.controller("IntroController",
 	}
 
 	$scope.searchList=function(){
-		$http.get(網址+'揣/外語請教條',{params:{'關鍵字':$scope.keyword}})
+		$http.get(網址+'揣/外語請教條',{'params':{'關鍵字':$scope.keyword}})
 			.success(function(data){
 				console.log('揣外語請教條 success');
 				$scope.listType='搜尋結果';
@@ -50,7 +50,7 @@ app.controller("IntroController",
 	}
 	
 	$scope.viewQuestion= function(編號){
-		$http.get(網址+'資料內容/'+編號)
+		$http.get(網址+'資料內容',{'params':{'平臺項目編號':編號}})
 			.success(function(data){
 				console.log('資料內容 success');
 					$scope.info=data;
