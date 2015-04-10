@@ -76,16 +76,32 @@ app.controller("IntroController",
 
 	$scope.textSuggestion='一工工';
 	$scope.addTextSuggestion= function(外語請教條項目編號,種類,文本資料){
-		$http.post(網址+'加資料/外語新詞文本',{'params':{
-			'外語請教條項目編號':外語請教條項目編號,
-			'來源':"自己",
-			'種類':種類,
-			'語言腔口':'閩南語',
-			'著作所在地':'臺灣',
-			'著作年':new Date().getFullYear().toString(),
-			'屬性':'{}',
-			'文本資料':文本資料,
-			}})
+		data = {
+				'外語請教條項目編號':外語請教條項目編號,
+				'來源':"自己",
+				'種類':種類,
+				'語言腔口':'閩南語',
+				'著作所在地':'臺灣',
+				'著作年':new Date().getFullYear().toString(),
+				'屬性':'{}',
+				'文本資料':文本資料,
+				};
+		$http({
+		    method: 'POST',
+		    url: 網址+'加資料/外語新詞文本',
+//		    data: data,
+		    'data': data,
+		    
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded',
+		    	},
+	    transformRequest: function(obj) {
+	        var str = [];
+	        for(var p in obj)
+	        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+	        return str.join("&");
+	    },
+		})
+		//$http.post(網址+'加資料/外語新詞文本',{'params':})
 		.success(function(data){
 			console.log('外語新詞文本 success');
 				$scope.info=data;
