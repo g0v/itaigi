@@ -11,15 +11,17 @@ app.config(function($httpProvider) {
 
 app.controller("IntroController", 
 		['$scope','$http', function($scope,$http){
-			
+	
 	$scope.info = [];
+
+	$scope.email = '';
 	
 	$scope.listType='列表';
 	$scope.questionList = [];
 	$scope.suggestedQuestionList = [];
 	$scope.questionContent = [];
 	
-	$scope.keyword='美';
+	$scope.keyword='漂亮';
 	
 	$scope.showList=function(){
 		$http.get(網址+'列表/外語請教條')
@@ -60,5 +62,37 @@ app.controller("IntroController",
 			console.error('資料內容 error');
 		});
 	}
-	
+
+	$http.get(網址+'看csrf')
+		.success(function(data){
+			console.log('看csrf success');
+				$scope.info=data;
+				
+				$http.defaults.headers.post['X-CSRFToken']=data['csrftoken'];
+		})
+		.catch(function(data, status) {
+				console.error('看csrf error');
+			});
+
+	$scope.textSuggestion='一工工';
+	$scope.addTextSuggestion= function(外語請教條項目編號,種類,文本資料){
+		$http.post(網址+'加資料/外語新詞文本',{'params':{
+			'外語請教條項目編號':外語請教條項目編號,
+			'來源':"自己",
+			'種類':種類,
+			'語言腔口':'閩南語',
+			'著作所在地':'臺灣',
+			'著作年':new Date().getFullYear().toString(),
+			'屬性':'{}',
+			'文本資料':文本資料,
+			}})
+		.success(function(data){
+			console.log('外語新詞文本 success');
+				$scope.info=data;
+				$scope.viewQuestion(外語請教條項目編號);
+	})
+		.catch(function(data, status) {
+		console.error('外語新詞文本 error');
+	});
+	};
 }]);

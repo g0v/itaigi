@@ -16,7 +16,9 @@
 			ng-click='showList()'/> |
 			<input type='text' ng-model='keyword' placeholder="搜尋關鍵字"/>
 			<input type='button' value='搜尋' 
-				ng-click='searchList()'/> 
+				ng-click='searchList()'/>
+			<a href='/accounts/facebook/login?next=/api' ng-if='email==""'>登入</a>
+			<a href='/accounts/logout?next=/api' ng-if='email!=""'>登出{{email}}</a>
 		<h2>{{listType}}</h2>
 				<ul>
 							<li ng-repeat='question in questionList'>
@@ -45,6 +47,9 @@
 								語言腔口：{{questionContent["語言腔口"]}}<br/>
 								外語語言：{{questionContent["外語語言"]}}<br/>
 								外語資料：{{questionContent["外語資料"]}}<br/>
+								<input type='text' ng-model='textSuggestion' placeholder="建議文本"/>
+								<input type='button' ng-click='addTextSuggestion(questionContent["外語請教條項目編號"],
+									questionContent["種類"],textSuggestion)'/>
 				<ul>
 							<li ng-repeat='video in questionContent["新詞影音"]'>
 									<input type='button' ng-click=''/></li>
@@ -55,6 +60,7 @@
 											來源：{{textContent["來源"]}}<br/>
 											收錄時間：{{textContent["收錄時間"]}}<br/>
 											文本資料：{{textContent["文本資料"]}}<br/>
+											音標：{{textContent["文本資料"]}}<br/>
 				</ul>
 			</div>
 		 </div>
