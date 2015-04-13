@@ -5,7 +5,7 @@
 var app = angular.module('app',[]);
 
 app.config(function($httpProvider) {
-		//Enable cross domain calls
+		// Enable cross domain calls
 		$httpProvider.defaults.useXDomain = true;
 });
 
@@ -63,12 +63,14 @@ app.controller("IntroController",
 		});
 	}
 
+	$scope.csrftoken='';
 	$http.get(網址+'看csrf')
 		.success(function(data){
 			console.log('看csrf success');
 				$scope.info=data;
+				$scope.csrftoken=data['csrftoken'];
 				
-				$http.defaults.headers.post['X-CSRFToken']=data['csrftoken'];
+//				$http.defaults.headers.post['X-CSRFToken']=data['csrftoken'];
 		})
 		.catch(function(data, status) {
 				console.error('看csrf error');
@@ -78,7 +80,7 @@ app.controller("IntroController",
 	$scope.addTextSuggestion= function(外語請教條項目編號,種類,文本資料){
 		data = {
 				'外語請教條項目編號':外語請教條項目編號,
-				'來源':"自己",
+				'來源':JSON.stringify("自己"),
 				'種類':種類,
 				'語言腔口':'閩南語',
 				'著作所在地':'臺灣',
@@ -89,10 +91,11 @@ app.controller("IntroController",
 		$http({
 		    method: 'POST',
 		    url: 網址+'加資料/外語新詞文本',
-//		    data: data,
+// data: data,
 		    'data': data,
 		    
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded',
+		    	'X-CSRFToken':$scope.csrftoken,
 		    	},
 	    transformRequest: function(obj) {
 	        var str = [];
@@ -101,7 +104,7 @@ app.controller("IntroController",
 	        return str.join("&");
 	    },
 		})
-		//$http.post(網址+'加資料/外語新詞文本',{'params':})
+		// $http.post(網址+'加資料/外語新詞文本',{'params':})
 		.success(function(data){
 			console.log('外語新詞文本 success');
 				$scope.info=data;
