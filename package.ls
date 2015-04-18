@@ -11,6 +11,7 @@ scripts:
   start: 'NODE_ENV=production gulp app'
 private: true
 dependencies:
+  "LiveScript": "^1.3.0"
   "bower": "^1.3.12"
   "connect-livereload": "^0.5.2"
   "events": "^1.0.2"
