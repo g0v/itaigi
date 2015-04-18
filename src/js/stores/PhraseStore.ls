@@ -1,29 +1,19 @@
 
-require! <[./Store events ../dispatcher/AppDispatcher ../constants/AppConstants]>
+require! <[./Store events ../dispatcher/AppDispatcher ../constants/AppConstants superagent]>
 
 var _query
 var _phrases
-_phrases := []
-/*
-{
-    "流水號": "",
-    "華語": "要衝",
-    "漢字": "要衝",
-    "台羅": "iau3-tshiong",
-    "出處": "台文華文線頂辭典",
-    "理由": ""
-  }
-*/
 
-SERVER_URL = "http://localhost:8001"
+token = (t) ->
+  (req) ->
+    req.set 'X-CSRFToken', t
+    req
 
-fetch_phrases = ->
-  url = SERVER_URL + '/api/suggestions/' + _query
-  jQuery.get url,'', (data,) ->
-    if data.status == 'ok'
-      _phrases := data.results
-      PhraseStore.emitChange!
-    console.log(data)
+var CSRF, fetch_phrases
+
+_phrases := {}
+
+SERVER_URL = "http://private-a4d9-taigineologism.apiary-mock.com"
 
 module.exports = PhraseStore = Store <<< do
   getAll: ->
@@ -35,3 +25,18 @@ PhraseStore.dispatchToken = AppDispatcher.register ({action}) ->
       _query := action.query
       fetch_phrases!
   true
+
+err, res <- superagent SERVER_URL + '/看csrf'
+return console.log err if err
+
+CSRF = res.csrftoken
+
+fetch_phrases := ->
+  url = SERVER_URL + '/揣/外語請教條?關鍵字=' + _query
+  superagent url
+    .use token CSRF
+    .end (err, data) ->
+      return console.log err if err
+      if data.ok
+        _phrases := data.body
+        PhraseStore.emitChange!
