@@ -1,4 +1,4 @@
-name: 'g0v-taigi'
+name: 'taigi-neologism'
 version: '0.0.1'
 authors:
   * 'Pomin Wu (pm5) <pomin5@gmail.com>'
