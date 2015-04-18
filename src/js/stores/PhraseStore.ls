@@ -13,7 +13,7 @@ var CSRF, fetch_phrases
 
 _phrases := {}
 
-SERVER_URL = "http://private-a4d9-taigineologism.apiary-mock.com"
+SERVER_URL = "%{API_URL}"
 
 module.exports = PhraseStore = Store <<< do
   getAll: ->

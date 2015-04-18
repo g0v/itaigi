@@ -4,7 +4,14 @@ livereload-server = tiny-lr!
 livereload-port = 35729
 livereload = -> gulp-livereload livereload-server
 
-require! <[gulp-livescript gulp-browserify liveify gulp-uglify]>
+try
+  require! <[./conf]>
+catch
+  conf ||= do
+    # API mock server
+    API_URL: 'http://private-a4d9-taigineologism.apiary-mock.com'
+
+require! <[gulp-livescript gulp-browserify liveify gulp-uglify gulp-replace]>
 
 gulp.task 'js:app' ->
   gulp.src 'src/js/app.ls'
@@ -13,6 +20,7 @@ gulp.task 'js:app' ->
       transform: <[liveify]>
       extensions: <[.ls]>
     #.pipe gulp-uglify!
+    .pipe gulp-replace /\%\{(.*?)\}/g (,v) -> conf[v]
     .pipe gulp.dest '_public/js'
     .pipe livereload!
 
