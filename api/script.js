@@ -24,7 +24,7 @@ app.controller("IntroController",
 	$scope.keyword='漂亮';
 	
 	$scope.showList=function(){
-		$http.get(網址+'列表/外語請教條')
+		$http.get(網址+'平臺項目列表/看列表')
 			.success(function(data){
 				console.log('外語請教條列表success');
 				$scope.listType='外語請教條列表';
@@ -38,7 +38,7 @@ app.controller("IntroController",
 	}
 
 	$scope.searchList=function(){
-		$http.get(網址+'揣/外語請教條',{'params':{'關鍵字':$scope.keyword}})
+		$http.get(網址+'平臺項目列表/揣列表',{'params':{'關鍵字':$scope.keyword}})
 			.success(function(data){
 				console.log('揣外語請教條 success');
 				$scope.listType='搜尋結果';
@@ -52,7 +52,7 @@ app.controller("IntroController",
 	}
 	
 	$scope.viewQuestion= function(編號){
-		$http.get(網址+'資料內容',{'params':{'平臺項目編號':編號}})
+		$http.get(網址+'平臺項目/看對應內容',{'params':{'平臺項目編號':編號}})
 			.success(function(data){
 				console.log('資料內容 success');
 					$scope.info=data;
@@ -64,7 +64,7 @@ app.controller("IntroController",
 	}
 
 	$scope.csrftoken='';
-	$http.get(網址+'看csrf')
+	$http.get(網址+'csrf/看')
 		.success(function(data){
 			console.log('看csrf success');
 				$scope.info=data;
@@ -90,7 +90,7 @@ app.controller("IntroController",
 				};
 		$http({
 		    method: 'POST',
-		    url: 網址+'加資料/外語新詞文本',
+		    url: 網址+'平臺項目/加外語新詞文本',
 // data: data,
 		    'data': data,
 		    
