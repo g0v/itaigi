@@ -40,12 +40,12 @@
 				
 							<h2>外語請教條內容</h2>
 								外語請教條項目編號：{{questionContent["外語請教條項目編號"]}}<br/>
-								收錄者：{{questionContent['內容']["收錄者"]}}<br/>
-								來源：{{questionContent['內容']["來源"]}}<br/>
-								收錄時間：{{questionContent['內容']["收錄時間"]}}<br/>
-								種類：{{questionContent['內容']["種類"]}}<br/>
-								語言腔口：{{questionContent['內容']["語言腔口"]}}<br/>
-								屬性內容：{{textContent['內容']["屬性內容"]}}<br/>
+								收錄者：{{questionContent['詳細']["收錄者"]}}<br/>
+								來源：{{questionContent['詳細']["來源"]}}<br/>
+								收錄時間：{{questionContent['詳細']["收錄時間"]}}<br/>
+								種類：{{questionContent['詳細']["種類"]}}<br/>
+								語言腔口：{{questionContent['詳細']["語言腔口"]}}<br/>
+								屬性內容：{{questionContent['詳細']["屬性內容"]}}<br/>
 								外語語言：{{questionContent["外語語言"]}}<br/>
 								外語資料：{{questionContent["外語資料"]}}<br/>
 								<input type='text' ng-model='textSuggestion' placeholder="建議文本"/>
@@ -57,11 +57,11 @@
 				</ul>
 				<ul>
 							<li ng-repeat='textContent in questionContent["新詞文本"]'>
-											收錄者：{{textContent['內容']["收錄者"]}}<br/>
-											來源：{{textContent['內容']["來源"]}}<br/>
-											收錄時間：{{textContent['內容']["收錄時間"]}}<br/>
+											收錄者：{{textContent['詳細']["收錄者"]}}<br/>
+											來源：{{textContent['詳細']["來源"]}}<br/>
+											收錄時間：{{textContent['詳細']["收錄時間"]}}<br/>
 											文本資料：{{textContent["文本資料"]}}<br/>
-											屬性內容：{{textContent['內容']["屬性內容"]}}<br/>
+											屬性內容：{{textContent['詳細']["屬性內容"]}}<br/>
 				</ul>
 			</div>
 		 </div>

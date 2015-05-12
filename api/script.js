@@ -56,7 +56,7 @@ app.controller("IntroController",
 		$http.get(網址+'平臺項目/看詳細內容',{'params':{'平臺項目編號':資料[編號欄位名]}})
 		.success(function(data){
 			console.log('詳細內容 success');
-			資料['內容']=data;
+			資料['詳細']=data;
 			$scope.info=data;
 	})
 	};
