@@ -14,7 +14,7 @@ app.controller("IntroController",
 	
 	$scope.info = [];
 
-	$scope.email = '';
+	$scope.user_id = '無登入';
 	
 	$scope.listType='列表';
 	$scope.questionList = [];
@@ -22,6 +22,17 @@ app.controller("IntroController",
 	$scope.questionContent = [];
 	
 	$scope.keyword='漂亮';
+	
+
+	$http.get(網址+'使用者/看編號')
+		.success(function(data){
+			console.error('使用者/看編號 ok');
+			$scope.user_id = data['使用者編號'];
+		})
+			.catch(function(data, status) {
+			console.error('使用者/看編號 error');
+		});
+	
 	
 	$scope.showList=function(){
 		$http.get(網址+'平臺項目列表/看列表')
@@ -43,7 +54,7 @@ app.controller("IntroController",
 				console.log('揣外語請教條 success');
 				$scope.listType='搜尋結果';
 				$scope.info=data;
-				$scope.questionList=data['資料'];
+				$scope.questionList=data['列表'];
 				$scope.suggestedQuestionList=data['其他建議'];
 		})
 			.catch(function(data, status) {

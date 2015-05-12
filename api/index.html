@@ -17,8 +17,13 @@
 			<input type='text' ng-model='keyword' placeholder="搜尋關鍵字"/>
 			<input type='button' value='搜尋' 
 				ng-click='searchList()'/>
-			<a href='/accounts/facebook/login?next=/api' ng-if='email==""'>登入</a>
-			<a href='/accounts/logout?next=/api' ng-if='email!=""'>登出{{email}}</a>
+				<br/>
+			使用者編號：{{user_id}}
+			<a href='/accounts/facebook/login?next=/api' ng-if='user_id=="無登入"'>登入</a>
+			<form method='post' action='/accounts/logout/?next=/api' ng-if='user_id!="無登入"'>
+			<input type='hidden' name='csrfmiddlewaretoken' value='{{csrftoken}}' />
+				<input type='submit' value='登出'>
+			</form> 
 		<h2>{{listType}}</h2>
 				<ul>
 							<li ng-repeat='question in questionList'>
