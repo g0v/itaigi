@@ -24,6 +24,9 @@
 			<input type='hidden' name='csrfmiddlewaretoken' value='{{csrftoken}}' />
 				<input type='submit' value='登出'>
 			</form> 
+			<input type='text' ng-model='questionText' placeholder="新問題"/>
+			<input type='button' value='問新問題' 
+				ng-click='addQuestion("字詞","華語",questionText)'/>
 		<h2>{{listType}}</h2>
 				<ul>
 							<li ng-repeat='question in questionList'>
@@ -55,7 +58,7 @@
 								外語資料：{{questionContent["外語資料"]}}<br/>
 								<input type='text' ng-model='textSuggestion' placeholder="建議文本"/>
 								<input type='button' ng-click='addTextSuggestion(questionContent["外語請教條項目編號"],
-									questionContent["種類"],textSuggestion)'/>
+									questionContent["詳細"]["種類"],textSuggestion)'/>
 				<ul>
 							<li ng-repeat='video in questionContent["新詞影音"]'>
 									<input type='button' ng-click=''/></li>

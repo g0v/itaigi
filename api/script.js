@@ -102,6 +102,44 @@ app.controller("IntroController",
 				console.error('看csrf error');
 			});
 
+
+	$scope.addQuestion= function(種類,外語語言,外語資料){
+		data = {
+				'來源':JSON.stringify("自己"),
+				'種類':種類,
+				'語言腔口':'閩南語',
+				'著作所在地':'臺灣',
+				'著作年':new Date().getFullYear().toString(),
+				'屬性':'{}',
+				'外語語言':外語語言,
+				'外語資料':外語資料,
+				};
+		$http({
+		    method: 'POST',
+		    url: 網址+'平臺項目/加外語請教條',
+		    'data': data,
+		    
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded',
+		    	'X-CSRFToken':$scope.csrftoken,
+		    	},
+	    transformRequest: function(obj) {
+	        var str = [];
+	        for(var p in obj)
+	        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+	        return str.join("&");
+	    },
+		})
+		// $http.post(網址+'加資料/外語新詞文本',{'params':})
+		.success(function(data){
+			console.log('加外語請教條 success');
+				$scope.info=data;
+				$scope.viewQuestion(data['平臺項目編號']);
+	})
+		.catch(function(data, status) {
+		console.error('加外語請教條 error');
+	});
+	};
+	
 	$scope.textSuggestion='一工工';
 	$scope.addTextSuggestion= function(外語請教條項目編號,種類,文本資料){
 		data = {
