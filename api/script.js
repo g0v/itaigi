@@ -50,13 +50,28 @@ app.controller("IntroController",
 			console.error('揣外語請教條 error');
 		});
 	}
-	
+
+	下載詳細資料 =function (資料,編號欄位名)
+	{
+		$http.get(網址+'平臺項目/看詳細內容',{'params':{'平臺項目編號':資料[編號欄位名]}})
+		.success(function(data){
+			console.log('詳細內容 success');
+			資料['內容']=data;
+			$scope.info=data;
+	})
+	};
 	$scope.viewQuestion= function(編號){
 		$http.get(網址+'平臺項目/看對應內容',{'params':{'平臺項目編號':編號}})
 			.success(function(data){
 				console.log('資料內容 success');
 					$scope.info=data;
 					$scope.questionContent=data;
+					下載詳細資料($scope.questionContent,"外語請教條項目編號");
+					angular.forEach($scope.questionContent["新詞文本"], function(textContent) {
+
+					    console.log(1223);
+						下載詳細資料(textContent,"新詞文本項目編號");
+					});
 		})
 			.catch(function(data, status) {
 			console.error('資料內容 error');
