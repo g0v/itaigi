@@ -26,13 +26,14 @@ PhraseStore.dispatchToken = AppDispatcher.register ({action}) ->
       fetch_phrases!
   true
 
-err, res <- superagent SERVER_URL + '/看csrf'
+console.log SERVER_URL
+err, res <- superagent SERVER_URL + '/csrf/看'
 return console.log err if err
 
 CSRF = res.csrftoken
 
 fetch_phrases := ->
-  url = SERVER_URL + '/揣/外語請教條?關鍵字=' + _query
+  url = SERVER_URL + '/平臺項目列表/揣列表?關鍵字=' + _query
   superagent url
     .use token CSRF
     .end (err, data) ->

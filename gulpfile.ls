@@ -9,7 +9,7 @@ try
 catch
   conf ||= do
     # API mock server
-    API_URL: 'http://private-a4d9-taigineologism.apiary-mock.com'
+    API_URL: 'http://127.0.0.1:8000'
 
 require! <[gulp-livescript gulp-browserify liveify gulp-uglify gulp-replace]>
 
