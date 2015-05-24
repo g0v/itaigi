@@ -2,12 +2,13 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import request from 'superagent-bluebird-promise'
 import {RouteHandler} from 'react-router'
+import Phrase from '../Phrase/Phrase.jsx'
 
 class App extends React.Component {
     static propTypes = {}
     static contextTypes = { router: React.PropTypes.func }
     render() {
-        var {top15} = this.props
+        let {top15} = this.props
         return (
             <div className="App">
                 最新十五筆請教條：
@@ -16,6 +17,8 @@ class App extends React.Component {
                     let { 種類, 外語語言, 外語資料, 語言腔口, 外語請教條項目編號 } = p
                     return <li key={ 外語請教條項目編號 }>
                         { 種類 } - { 外語語言 } - { 外語資料 } - { 語言腔口 }
+                        <br />
+                        <Phrase 平臺項目編號={ 外語請教條項目編號 } />
                     </li>
                 }) }
                 </ol>

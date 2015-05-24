@@ -8,7 +8,7 @@ if (/production/.test(process.env.NODE_ENV)) {
 }
 else {
     plugins = [ new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin() ];
-    entries.push('webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server');
+    entries.push('webpack-dev-server/client?http://localhost:9999', 'webpack/hot/only-dev-server');
     loaders.unshift('react-hot');
 
 }
