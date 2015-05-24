@@ -1,12 +1,13 @@
 // Code goes here
 
 
-網址='/'
+網址='http://localhost:8000/'
 var app = angular.module('app',[]);
 
 app.config(function($httpProvider) {
 		// Enable cross domain calls
 		$httpProvider.defaults.useXDomain = true;
+                $httpProvider.defaults.withCredentials = true;
 });
 
 app.controller("IntroController", 

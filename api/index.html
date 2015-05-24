@@ -19,7 +19,7 @@
 				ng-click='searchList()'/>
 				<br/>
 			使用者編號：{{user_id}}
-			<a href='/accounts/facebook/login?next=/api' ng-if='user_id=="無登入"'>登入</a>
+			<a href='http://localhost:8000/accounts/facebook/login?next=/api' ng-if='user_id=="無登入"'>登入</a>
 			<form method='post' action='/accounts/logout/?next=/api' ng-if='user_id!="無登入"'>
 			<input type='hidden' name='csrfmiddlewaretoken' value='{{csrftoken}}' />
 				<input type='submit' value='登出'>
