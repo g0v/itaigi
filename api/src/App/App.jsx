@@ -1,7 +1,6 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import request from 'superagent-bluebird-promise'
-import './App.css'
 import {RouteHandler} from 'react-router'
 
 class App extends React.Component {
@@ -14,7 +13,7 @@ class App extends React.Component {
                 最新十五筆請教條：
                 <ol>
                 { top15.map((p)=>{
-                    var { 種類, 外語語言, 外語資料, 語言腔口, 外語請教條項目編號 } = p
+                    let { 種類, 外語語言, 外語資料, 語言腔口, 外語請教條項目編號 } = p
                     return <li key={ 外語請教條項目編號 }>
                         { 種類 } - { 外語語言 } - { 外語資料 } - { 語言腔口 }
                     </li>
