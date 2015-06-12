@@ -12,7 +12,8 @@ app.config(function($httpProvider) {
 
 app.controller("IntroController", 
 		['$scope','$http', function($scope,$http){
-	
+	$scope.serverDomain=網址;
+			
 	$scope.info = [];
 
 	$scope.user_id = '無登入';
@@ -27,7 +28,7 @@ app.controller("IntroController",
 
 	$http.get(網址+'使用者/看編號')
 		.success(function(data){
-			console.error('使用者/看編號 ok');
+			console.log('使用者/看編號 ok');
 			$scope.user_id = data['使用者編號'];
 		})
 			.catch(function(data, status) {
@@ -80,9 +81,11 @@ app.controller("IntroController",
 					$scope.questionContent=data;
 					下載詳細資料($scope.questionContent,"外語請教條項目編號");
 					angular.forEach($scope.questionContent["新詞文本"], function(textContent) {
-
-					    console.log(1223);
 						下載詳細資料(textContent,"新詞文本項目編號");
+					});
+					angular.forEach($scope.questionContent["新詞影音"], function(audioContent) {
+//						下載詳細資料(audioContent,"新詞影音項目編號");
+						audioContent['影音資料網址']=(網址+audioContent['影音資料網址'].substr(1));
 					});
 		})
 			.catch(function(data, status) {
@@ -144,45 +147,37 @@ app.controller("IntroController",
 	$scope.voice_file='';
 
 	$scope.addVoiceSuggestion=function (外語請教條項目編號,種類){
-		var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
-		var formData = new FormData();
-
-		formData.append("外語請教條項目編號", 外語請教條項目編號);
-		formData.append("來源", JSON.stringify("自己"));
-		formData.append("種類", 種類);
-		formData.append("語言腔口", '閩南語');
-		formData.append("著作所在地", '臺灣');
-		formData.append("著作年", new Date().getFullYear().toString());
-		formData.append("屬性", '{}');
-		formData.append("影音資料",new Blob(aFileParts, {type : 'text/html'}));
-		
-		$http({
-			method: 'POST',
-			url: 網址+'平臺項目/加新詞影音',
-			headers: {
-				'Content-Type': undefined,//重要！！！！！
-				'X-CSRFToken':$scope.csrftoken,
-			},
-			data: 
-				formData
-			,
-//			transformRequest: formData
-			transformRequest:angular.identity,
-//		    transformRequest: function(obj) {
-//		        var str = [];
-//		        for(var p in obj)
-//		        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-//		        return str.join("&");
-//		    },
-		})
-			.success(function(data){
-				console.log('新詞影音 success');
-				$scope.info=data;
-				$scope.viewQuestion(外語請教條項目編號);
+		recorder && recorder.exportWAV(function(audioBlob){
+			var formData = new FormData();
+	
+			formData.append("外語請教條項目編號", 外語請教條項目編號);
+			formData.append("來源", JSON.stringify("自己"));
+			formData.append("種類", 種類);
+			formData.append("語言腔口", '閩南語');
+			formData.append("著作所在地", '臺灣');
+			formData.append("著作年", new Date().getFullYear().toString());
+			formData.append("屬性", '{}');
+			formData.append("影音資料",audioBlob);
+			
+			$http({
+				method: 'POST',
+				url: 網址+'平臺項目/加新詞影音',
+				headers: {
+					'Content-Type': undefined,//重要！！！！！
+					'X-CSRFToken':$scope.csrftoken,
+				},
+				data:formData,
+				transformRequest:angular.identity,
 			})
-			.catch(function(data, status) {
-				console.error('新詞影音 error');
-			});
+				.success(function(data){
+					console.log('新詞影音 success');
+					$scope.info=data;
+					$scope.viewQuestion(外語請教條項目編號);
+				})
+				.catch(function(data, status) {
+					console.error('新詞影音 error');
+				});
+		});
 	};
 		
 		
@@ -224,4 +219,78 @@ app.controller("IntroController",
 			console.error('外語新詞文本 error');
 		});
 	};
+
+	__log= function (e, data) {
+//	    log.innerHTML += "\n" + e + " " + (data || '');
+	    console.log( e + " " + (data || ''));
+	  }
+
+	  var audio_context;
+	  var recorder;
+
+	  startUserMedia=function (stream) {
+	    var input = audio_context.createMediaStreamSource(stream);
+	    __log('Media stream created.');
+
+	    // Uncomment if you want the audio to feedback directly
+	    //input.connect(audio_context.destination);
+	    //__log('Input connected to audio context destination.');
+	    
+	    recorder = new Recorder(input);
+	    __log('Recorder initialised.');
+	  }
+	  $scope.recording=false;
+	$scope.startRecording=  function (button) {
+			recorder && recorder.clear();
+	    recorder && recorder.record();
+	    $scope.recording=true;
+//	    button.disabled = true;
+//	    button.nextElementSibling.disabled = false;
+	    __log('Recording...');
+	  }
+
+	$scope.stopRecording= function (button) {
+	    recorder && recorder.stop();
+	    $scope.recording=false;
+//	    button.disabled = true;
+//	    button.previousElementSibling.disabled = false;
+	    __log('Stopped recording.');
+	    
+	    // create WAV download link using audio data blob
+	    createDownloadLink();
+	    
+	  }
+
+	 createDownloadLink= function () {
+	    recorder && recorder.exportWAV(function(blob) {
+	      var url = URL.createObjectURL(blob);
+	      var au = document.getElementById('audio');
+	      var hf = document.getElementById('audio_a');
+	      
+	      au.controls = true;
+	      au.src = url;
+	      hf.href = url;
+	      hf.download = new Date().toISOString() + '.wav';
+	      hf.innerHTML = hf.download;
+	    });
+	  }
+
+	  window.onload = function init() {
+	    try {
+	      // webkit shim
+	      window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+	      window.URL = window.URL || window.webkitURL;
+	      
+	      audio_context = new AudioContext;
+	      __log('Audio context set up.');
+	      __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+	    } catch (e) {
+	      alert('No web audio support in this browser!');
+	    }
+	    
+	    navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+	      __log('No live audio input: ' + e);
+	    });
+	  };
 }]);
