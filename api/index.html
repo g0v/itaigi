@@ -60,11 +60,8 @@
 								外語語言：{{questionContent["外語語言"]}}<br/>
 								外語資料：{{questionContent["外語資料"]}}<br/>
 								<form id='sui2'>
-								<input type='file' ng-model='voice_file'/>
 								<input type='button' ng-click='addVoiceSuggestion(questionContent["外語請教條項目編號"],
-									questionContent["詳細"]["種類"])' value='send by buffer '/>
-								<input type='button' ng-click='addVoiceSuggestionByFormdata(question,Content["外語請教條項目編號"],
-									questionContent["詳細"]["種類"])' value='send by formdata'/>
+									questionContent["詳細"]["種類"])' value='送新詞影音 by formdata'/>
 								</form>
 								
 								<input type='text' ng-model='textSuggestion' placeholder="建議文本"/>

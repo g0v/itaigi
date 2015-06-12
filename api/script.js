@@ -145,44 +145,6 @@ app.controller("IntroController",
 
 	$scope.addVoiceSuggestion=function (外語請教條項目編號,種類){
 		var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
-		data = {
-				'外語請教條項目編號':外語請教條項目編號,
-				'來源':JSON.stringify("自己"),
-				'種類':種類,
-				'語言腔口':'閩南語',
-				'著作所在地':'臺灣',
-				'著作年':new Date().getFullYear().toString(),
-				'屬性':'{}',
-				'影音資料':new Blob(aFileParts, {type : 'text/html'}),
-				};
-		$http({
-			method: 'POST',
-			url: 網址+'平臺項目/加新詞影音',
-			'data': data,
-			headers:
-			{
-				'Content-Type': 'application/x-www-form-urlencoded',
-				'X-CSRFToken':$scope.csrftoken,
-			},
-			transformRequest: function(obj) {
-				var str = [];
-				for(var p in obj)
-					str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-				return str.join("&");
-			},
-		})
-		// $http.post(網址+'加資料/外語新詞文本',{'params':})
-		.success(function(data){
-			console.log('新詞影音 success');
-			$scope.info=data;
-			$scope.viewQuestion(外語請教條項目編號);
-		})
-		.catch(function(data, status) {
-			console.error('新詞影音 error');
-		});
-	};
-	$scope.addVoiceSuggestionByFormdata=function (外語請教條項目編號,種類,檔案){
-		var aFileParts = ['<a id="a"><b id="b">hey!</b></a>'];
 		var formData = new FormData();
 
 		formData.append("外語請教條項目編號", 外語請教條項目編號);
@@ -198,9 +160,7 @@ app.controller("IntroController",
 			method: 'POST',
 			url: 網址+'平臺項目/加新詞影音',
 			headers: {
-//				'Content-Type': 'multipart/form-data; boundary=------------------------WebKitFormBoundaryZkD0EhyzN3EyfPAJ',
-//				'Content-Type': false,
-				'Content-Type': undefined,
+				'Content-Type': undefined,//重要！！！！！
 				'X-CSRFToken':$scope.csrftoken,
 			},
 			data: 
