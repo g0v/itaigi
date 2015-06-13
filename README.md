@@ -54,8 +54,10 @@ Start development server:
 
 ## Backend
 
-The backend runs on Python 3.0 and is maintained in another repository:
+The backend runs on Python 3.3+ and is maintained in another repository:
 <https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-thai5>
+
+[API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
 
 Development
 -----------
