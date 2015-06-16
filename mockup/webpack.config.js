@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var plugins = [];
-var entries = [ './src/app' ];
+var entries = [ './src' ];
 var loaders = [ 'babel?stage=0' ];
 
     plugins = [ new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin() ];
