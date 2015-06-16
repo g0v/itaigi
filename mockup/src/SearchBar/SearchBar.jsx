@@ -8,10 +8,20 @@ class SearchBar extends React.Component {
     q: this.props.q || ''
   }
 
-  keyPress (evt) {
-    console.log(evt.key)
-    var q = this.state.q + evt.key
+  handleKeyDown (evt) {
+    if (evt.keyCode === 13) {
+      this.handleSubmit(evt)
+      return
+    }
+  }
+
+  handleKeyUp (evt) {
+    var q = evt.target.value
     this.setState({q})
+  }
+
+  handleSubmit (evt) {
+    this.props.onSubmit(this.state.q)
   }
 
   render () {
@@ -19,10 +29,10 @@ class SearchBar extends React.Component {
         <div className='SearchBar'>
           <input type='text'
             placeholder='A... 怎麼講'
-            value={this.state.q}
-            onKeyPress={this.keyPress.bind(this)}/>
+            onKeyDown={this.handleKeyDown.bind(this)}
+            onKeyUp={this.handleKeyUp.bind(this)}/>
           <button className='SearchBar-submit'
-            onSubmit={this.props.onSubmit}>找</button>
+            onClick={this.handleSubmit.bind(this)}>找</button>
         </div>
       )
   }
