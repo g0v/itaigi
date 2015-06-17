@@ -8,8 +8,8 @@ import AppBar from '../AppBar/AppBar'
 import SearchBar from '../SearchBar/SearchBar'
 
 class App extends React.Component {
-  query (evt) {
-    console.log(evt)
+  query (q) {
+    this.setState({q})
   }
 
   render () {
@@ -19,7 +19,7 @@ class App extends React.Component {
           <SearchBar
             onSubmit={this.query.bind(this)}
             {...this.props}/>
-          <RouteHandler/>
+          <RouteHandler {...this.state} {...this.props}/>
         </div>
       )
   }

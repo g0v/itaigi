@@ -1,10 +1,14 @@
 
 import React from 'react'
-import Router, {Route} from 'react-router'
+import Router, {Route, DefaultRoute} from 'react-router'
 import App from './App/App'
+import Kong from './Kong/Kong'
 
 const routes = (
   <Route handler={App} path='/'>
+    <Route name='kong' path='k/:k'>
+      <DefaultRoute handler={Kong}/>
+    </Route>
   </Route>
 )
 
