@@ -1,0 +1,17 @@
+
+.container {
+  width: 1110px;
+  margin: 0 auto;
+}
+
+.main.container {
+  display: flex;
+}
+
+.main.content {
+  width: 740px;
+}
+
+.right.column {
+  width: 370px;
+}

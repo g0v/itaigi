@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
 
   render () {
     return (
-        <div className='search ui action input'>
+        <div className='search ui action input container'>
           <input type='text'
             placeholder='A... 那個'
             onKeyDown={this.handleKeyDown.bind(this)}

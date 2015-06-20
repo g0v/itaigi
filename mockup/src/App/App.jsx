@@ -8,6 +8,8 @@ import Navigation from '../Navigation/Navigation'
 import AppBar from '../AppBar/AppBar'
 import SearchBar from '../SearchBar/SearchBar'
 
+import './App.css'
+
 class App extends React.Component {
 
   kong (k) {
@@ -16,12 +18,31 @@ class App extends React.Component {
 
   render () {
     return (
-        <div className='app container'>
-          <AppBar/>
-          <SearchBar
-            handleSubmit={this.kong.bind(this)}
-            {...this.props}/>
-          <RouteHandler {...this.props}/>
+        <div className='app background'>
+
+          <header className='app header'>
+            <AppBar/>
+            <SearchBar
+              handleSubmit={this.kong.bind(this)}
+              {...this.props}/>
+          </header>
+
+          <div className='main container'>
+            <div className='main content'>
+              <RouteHandler {...this.props}/>
+            </div>
+
+            <aside className='right column'>
+              <div className='ui segment'>
+                來討論<br/>
+                還不會
+              </div>
+            </aside>
+          </div>
+
+          <footer>
+          </footer>
+
         </div>
       )
   }

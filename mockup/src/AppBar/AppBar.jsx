@@ -6,7 +6,7 @@ import Transmit from 'react-transmit'
 class AppBar extends React.Component {
   render () {
     return (
-      <div className='ui app bar'>
+      <div className='ui app bar container'>
         <h1 className='ui app header'>i.taigi</h1>
         <div className='ui logo shape'>i.taigi;</div>
         <div className='ui social menu'>social networks</div>

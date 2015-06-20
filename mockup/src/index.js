@@ -9,6 +9,7 @@ const routes = (
     <Route name='kong' path='k/:k'>
       <DefaultRoute handler={Kong}/>
     </Route>
+    <DefaultRoute handler={Kong}/>
   </Route>
 )
 
