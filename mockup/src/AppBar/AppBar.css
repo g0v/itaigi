@@ -1,0 +1,21 @@
+.app.bar {
+  display: flex;
+}
+
+.app.bar .title {
+  margin: 0;
+  width: 170px;
+  height: 72px;
+}
+
+.app.bar .logo {
+  background-image: url(./images/logo.png);
+  position: absolute;
+  width: 170px;
+  height: 72px;
+}
+
+.app.bar .logo u {
+  position: relative;
+  left: -99999px;
+}

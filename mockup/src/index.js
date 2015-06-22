@@ -5,7 +5,7 @@ import App from './App/App'
 import Kong from './Kong/Kong'
 
 const routes = (
-  <Route handler={App} path='/'>
+  <Route name='app' handler={App} path='/'>
     <Route name='kong' path='k/:k'>
       <DefaultRoute handler={Kong}/>
     </Route>
