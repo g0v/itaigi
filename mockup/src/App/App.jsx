@@ -22,12 +22,14 @@ class App extends React.Component {
 
           <header className='app header'>
             <AppBar/>
-            <SearchBar
-              handleSubmit={this.kong.bind(this)}
-              {...this.props}/>
           </header>
 
           <div className='main container'>
+            <nav className='navigation'>
+              <SearchBar
+                handleSubmit={this.kong.bind(this)}
+                {...this.props}/>
+            </nav>
             <div className='main content'>
               <RouteHandler {...this.props}/>
             </div>
@@ -40,7 +42,12 @@ class App extends React.Component {
             </aside>
           </div>
 
-          <footer>
+          <footer className='app footer'>
+            <ul className='ui menu container'>
+              <li className='item'>授權條款</li>
+              <li className='item'>g0v</li>
+              <li className='item'>關於本計劃</li>
+            </ul>
           </footer>
 
         </div>

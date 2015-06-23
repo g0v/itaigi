@@ -3,19 +3,38 @@ body {
   margin: 0;
 }
 
-.container {
-  width: 1110px;
+.app.background {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.app .container {
+  width: 960px;
   margin: 0 auto;
 }
 
-.main.container {
+.app .main.container {
   display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  align-content: flex-start;
 }
 
-.main.content {
-  width: 740px;
+.navigation {
+  height: 50px;
+  margin: 2em 0;
 }
 
-.right.column {
-  width: 370px;
+.app .main.content {
+  width: 640px;
+}
+
+.app .right.column {
+  width: 320px;
+}
+
+.app .app.header,
+.app .app.footer {
+  background: #ccc;
 }
