@@ -26,7 +26,9 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit (evt) {
-    this.props.handleSubmit(this.state.q)
+    if (this.state.q !== '') {
+      this.props.handleSubmit(this.state.q)
+    }
   }
 
   render () {
