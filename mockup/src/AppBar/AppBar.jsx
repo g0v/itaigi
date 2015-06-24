@@ -16,13 +16,21 @@ class AppBar extends React.Component {
             </i>
           </Link>
         </h1>
-        <div className='ui social menu segment'>
-          <ul>
-            <li className='item'>F</li>
-            <li className='item'>G</li>
-            <li className='item'>T</li>
-          </ul>
-        </div>
+        <ul className='ui main menu'>
+          <li className='item'>
+            <Link>怎樣講</Link>
+          </li>
+          <li className='item'>來討論</li>
+          <li className='item'>還不會</li>
+          <li className='item'>好工具</li>
+          <li className='item'>名人堂</li>
+        </ul>
+        <ul className='ui social menu'>
+          <li className='item'>F</li>
+          <li className='item'>G</li>
+          <li className='item'>T</li>
+          <li className='item'>R</li>
+        </ul>
       </div>
       )
   }

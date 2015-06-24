@@ -1,8 +1,10 @@
 .app.bar {
   display: flex;
+  justify-content: space-between;
 }
 
 .app.bar .title {
+  display: block;
   margin: 0;
   width: 170px;
   height: 72px;
