@@ -18,7 +18,7 @@ class AppBar extends React.Component {
         </h1>
         <ul className='ui main menu'>
           <li className='item'>
-            <Link>怎樣講</Link>
+            怎樣講
           </li>
           <li className='item'>來討論</li>
           <li className='item'>還不會</li>

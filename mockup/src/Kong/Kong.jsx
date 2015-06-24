@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Transmit from 'react-transmit'
+import Tzi from '../Tzi/Tzi'
 
 class Kong extends React.Component {
   render () {
