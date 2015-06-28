@@ -36,5 +36,13 @@ body {
 
 .app .app.header,
 .app .app.footer {
-  background: #ccc;
+  background: #fff;
 }
+
+body {
+  background: #f1efeb;
+}
+
+/*h2 {*/
+  /*color: rgba(251, 66, 75, 0.8);*/
+/*}*/
