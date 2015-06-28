@@ -39,7 +39,7 @@ class SearchBar extends React.Component {
             onKeyDown={this.handleKeyDown.bind(this)}
             onKeyUp={this.handleKeyUp.bind(this)}/>
           <button
-            className='ui button'
+            className='ui teal button'
             onClick={this.handleSubmit.bind(this)}>台語怎樣講</button>
         </div>
       )
