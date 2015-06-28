@@ -42,8 +42,8 @@ class App extends React.Component {
             </aside>
           </div>
 
-          <footer className='app footer'>
-            <ul className='ui menu container'>
+          <footer className='app footer inverted'>
+            <ul className='ui menu container inverted'>
               <li className='item'>授權條款</li>
               <li className='item'>g0v</li>
               <li className='item'>關於本計劃</li>
