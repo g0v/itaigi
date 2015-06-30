@@ -26,11 +26,12 @@ class AppBar extends React.Component {
           <li className='item'><Link to='mia'>名人堂</Link></li>
         </ul>
         <ul className='ui social menu'>
-          <li className='item'>F</li>
-          <li className='item'>G</li>
-          <li className='item'>T</li>
-          <li className='item'>R</li>
+          <li className='item'><a href="#">F</a></li>
+          <li className='item'><a href="#">G</a></li>
+          <li className='item'><a href="#">T</a></li>
+          <li className='item'><a href="#">R</a></li>
         </ul>
+        <div></div>
       </div>
       )
   }
