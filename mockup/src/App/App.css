@@ -34,9 +34,12 @@ body {
   width: 320px;
 }
 
-.app .app.header,
-.app .app.footer {
+.app .app.header {
   background: #fff;
+}
+
+.app .app.footer {
+  background: #1b1c1d;
 }
 
 body {
