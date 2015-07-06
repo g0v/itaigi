@@ -1,17 +1,46 @@
 'use strict'
 
 import React from 'react'
+import Router from 'react-router'
 import Transmit from 'react-transmit'
 
 class SearchBar extends React.Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      q: this.props.q || ''
+    }
+  }
+
+  handleKeyDown (evt) {
+    if (evt.keyCode === 13) {
+      this.handleSubmit(evt)
+      return
+    }
+  }
+
+  handleKeyUp (evt) {
+    var q = evt.target.value
+    this.setState({q})
+  }
+
+  handleSubmit (evt) {
+    if (this.state.q !== '') {
+      this.props.handleSubmit(this.state.q)
+    }
+  }
+
   render () {
     return (
-        <div className='SearchBar'>
+        <div className='search ui action input container'>
           <input type='text'
-            placeholder='A... 怎麼講'
-            value={this.props.q}
-            />
-          <button className='SearchBar-submit'>找</button>
+            placeholder='A... 那個'
+            onKeyDown={this.handleKeyDown.bind(this)}
+            onKeyUp={this.handleKeyUp.bind(this)}/>
+          <button
+            className='ui teal button'
+            onClick={this.handleSubmit.bind(this)}>台語怎樣講</button>
         </div>
       )
   }
