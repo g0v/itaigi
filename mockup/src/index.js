@@ -7,7 +7,7 @@ import Lun from './Lun/Lun'
 
 const routes = (
   <Route name='app' handler={App} path='/'>
-    <Route name='kong' path='k/:k' handler={Kong}/>
+    <Route name='kong' path='k/:k?' handler={Kong}/>
     <Route name='lun' path='l' handler={Lun}/>
     <Route name='the' path='t' handler={Kong}/>
     <Route name='iong' path='iong' handler={Kong}/>
