@@ -6,7 +6,6 @@ import {RouteHandler} from 'react-router'
 import Navigation from '../Navigation/Navigation'
 
 import AppBar from '../AppBar/AppBar'
-import SearchBar from '../SearchBar/SearchBar'
 
 import './App.css'
 
@@ -25,13 +24,11 @@ class App extends React.Component {
           </header>
 
           <div className='main container'>
-            <nav className='navigation'>
-              <SearchBar
-                handleSubmit={this.kong.bind(this)}
-                {...this.props}/>
-            </nav>
+            <nav className='navigation'></nav>
             <div className='main content'>
-              <RouteHandler {...this.props}/>
+              <RouteHandler
+                handleKong={this.kong.bind(this)}
+                {...this.props}/>
             </div>
 
             <aside className='right column'>
