@@ -3,6 +3,11 @@ import React from 'react'
 import Transmit from 'react-transmit'
 
 class Lun extends React.Component {
+  componentWillMount () {
+    this.props.handleUIColumn(<div className='ui segment'>
+          uoeuntoehunoetuhoetnuh
+        </div>)
+  }
   render () {
     return (
         <div className='lun'>

@@ -11,8 +11,23 @@ import './App.css'
 
 class App extends React.Component {
 
+  constructor () {
+    super()
+    this.state = {
+      ui: {}
+    }
+  }
+
   kong (k) {
     this.props.routerNavigation.transitionTo('kong', {k})
+  }
+
+  nav (nav) {
+    this.setState({ ui: {nav} })
+  }
+
+  column (column) {
+    this.setState({ ui: {column} })
   }
 
   render () {
@@ -24,18 +39,17 @@ class App extends React.Component {
           </header>
 
           <div className='main container'>
-            <nav className='navigation'></nav>
+            <nav className='navigation'>{this.state.ui.nav}</nav>
             <div className='main content'>
               <RouteHandler
                 handleKong={this.kong.bind(this)}
+                handleUINav={this.nav.bind(this)}
+                handleUIColumn={this.column.bind(this)}
                 {...this.props}/>
             </div>
 
             <aside className='right column'>
-              <div className='ui segment'>
-                來討論<br/>
-                還不會
-              </div>
+              {this.state.ui.column}
             </aside>
           </div>
 

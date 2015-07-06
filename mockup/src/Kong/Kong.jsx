@@ -5,6 +5,13 @@ import SearchBar from '../SearchBar/SearchBar'
 import Su from '../Su/Su'
 
 class Kong extends React.Component {
+  componentWillMount () {
+    this.props.handleUIColumn(<div className='ui segment'>
+          來討論<br/>
+          還不會
+        </div>)
+  }
+
   render () {
     return (
         <div className='kong'>
