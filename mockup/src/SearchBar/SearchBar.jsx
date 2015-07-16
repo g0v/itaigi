@@ -36,6 +36,7 @@ class SearchBar extends React.Component {
         <div className='search ui action input container'>
           <input type='text'
             placeholder='A... 那個'
+            defaultValue={this.props.defaultValue}
             onKeyDown={this.handleKeyDown.bind(this)}
             onKeyUp={this.handleKeyUp.bind(this)}/>
           <button
