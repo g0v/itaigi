@@ -2,7 +2,7 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 
-class Mia extends React.Component {
+class Lun extends React.Component {
   componentWillMount () {
     this.props.handleUIColumn(<div className='ui segment'>
           uoeuntoehunoetuhoetnuh
@@ -10,7 +10,7 @@ class Mia extends React.Component {
   }
   render () {
     return (
-        <div className='mia'>
+        <div className='lun'>
           <div className='ui forum segment'>
             林說，我可以自豪地說，阿....不會吧???嘿!你今天買報紙了沒?快拿出你預藏的安全小剪刀，鋼鐵車??3人清理化糞池，女愛吃青蛙鍋，染料恐致癌，【更多鴨鴨資訊在這裡】鴨鴨復活了，夠浪漫，AV女優大學開講，真有心...世界最矮的男人，恐龍新物種，中天新聞處罰戴立綱停彭華幹通告。
             近谷內不生煙，自由永遠尋不到我們；但在這春夏間美秀的山中或鄉間你要是有機會獨身閒逛時，與我境遇相似或更不如的當不在少數，後來怎樣她們干涉了你，在這裏，她的忍耐，想起怎不可傷？
@@ -28,4 +28,4 @@ class Mia extends React.Component {
   }
 }
 
-export default Transmit.createContainer(Mia, {})
+export default Transmit.createContainer(Lun, {})
