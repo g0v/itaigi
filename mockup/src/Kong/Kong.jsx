@@ -36,7 +36,7 @@ class Kong extends React.Component {
           <div className='kong content'>
             <div className='ui segment'>
             <h3>沒有人</h3>
-            <button>求講法</button>
+            <button className='ui button'>求講法</button>
             </div>
             <h3>我就是沒有人，我來講</h3>
             <ABo/>
