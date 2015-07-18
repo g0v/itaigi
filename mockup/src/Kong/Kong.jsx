@@ -57,7 +57,40 @@ class Kong extends React.Component {
       )
     }
 
-    const suList = this.props.suList.map((item) => <Su suData={item}/>)
+    const kongData = {
+      "新詞影音": [ ],
+      "外語語言": "華語",
+      "外語資料": "一點點",
+      "新詞文本": [
+        {
+          "新詞文本項目編號": "13742",
+          "文本資料": "一屑仔"
+        },
+        {
+          "新詞文本項目編號": "13743",
+          "文本資料": "一寡仔"
+        },
+        {
+          "新詞文本項目編號": "13744",
+          "文本資料": "一點仔"
+        },
+        {
+          "新詞文本項目編號": "13745",
+          "文本資料": "厘"
+        },
+        {
+          "新詞文本項目編號": "13746",
+          "文本資料": "淡薄仔"
+        },
+        {
+          "新詞文本項目編號": "13747",
+          "文本資料": "微微仔"
+        }
+      ],
+      "外語項目編號": "191"
+    }
+
+    const suList = kongData['新詞文本'].map((d) => <Su suId={d['新詞文本項目編號']} suText={d['文本資料']}/>)
     return (
         <div className='main container'>
           <nav className='navigation'>
@@ -87,12 +120,5 @@ class Kong extends React.Component {
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    suList ({params}) {
-      if (undefined === params) {
-        return Promise.all([])
-      }
-      return superagent.get('http://127.0.0.1:8000/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E5%88%97%E8%A1%A8/%E6%8F%A3%E5%88%97%E8%A1%A8?%E9%97%9C%E9%8D%B5%E5%AD%97=' + params.k)
-        .then((res) => Promise.all(res.body['列表'].map((d) => Su.getQuery('suData', {suId: +d['外語項目編號']}))) )
-    }
   }
 })

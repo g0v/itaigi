@@ -1,33 +1,41 @@
 
 import React from 'react'
 import Transmit from 'react-transmit'
-
+import LaiLik from '../LaiLik/LaiLik'
 import superagent from 'superagent-bluebird-promise'
 
 class Su extends React.Component {
+  componentWillMount () { this.props.setQueryParams(this.props) }
   render () {
-    //const data = {
-      //"新詞文本": [
-        //{
-          //"文本資料": "落空逝",
-          //"新詞文本項目編號": "8161"
-        //}
-      //],
-      //"外語資料": "白走一趟",
-      //"外語項目編號": "8160",
-      //"外語語言": "華語",
-      //"新詞影音": [ ]
-    //}
-    const suData = this.props.suData
+
+    const suId = 192
+    const suText = '一屑仔'
+    const suData = {
+      "收錄者": "1",
+      "著作所在地": "臺灣",
+      "語言腔口": "閩南語",
+      "種類": "字詞",
+      "版權": "會使公開",
+      "來源": "2",
+      "推薦用字": "否",
+      "著作年": "2014",
+      "屬性內容":
+      {
+        "音標": "tsi̍t-sut-á"
+      },
+      "收錄時間": "2015-07-18 14:27:11"
+    }
+
+    //const suData = this.props.suData
     return (
         <div className='su item'>
           <div className='content'>
-            <a className='header'>{suData['新詞文本'][0]['文本資料']}</a>
-            <div className='content'>{suData['外語資料']}</div>
+            <a className='header'>{suText}</a>
+            <div className='content'>{suData['屬性內容']['音標']}</div>
             <div className='list'>
               <div className='item'>
                 <i className='right triangle icon'></i>
-                <div className='content'>出處：XXX</div>
+                <LaiLik laiLikId={suData['來源']}/>
               </div>
             </div>
             <ul className='ui secondary menu'>
@@ -42,12 +50,12 @@ class Su extends React.Component {
 }
 
 export default Transmit.createContainer(Su, {
-  queryParams: {
-    suId: 8160
-  },
   queries: {
-    suData (queryParams) {
-      return superagent.get('http://127.0.0.1:8000/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE/%E7%9C%8B%E5%B0%8D%E6%87%89%E5%85%A7%E5%AE%B9?%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E7%B7%A8%E8%99%9F=' + queryParams.suId)
+    suData ({suId}) {
+      if (! suId) {
+        return Promise.all([])
+      }
+      return superagent.get('http://127.0.0.1:8000/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE/%E7%9C%8B%E8%A9%B3%E7%B4%B0%E5%85%A7%E5%AE%B9?%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E7%B7%A8%E8%99%9F=' + suId)
         .then((res) => res.body, (err) => console.log(err))
     }
   }
