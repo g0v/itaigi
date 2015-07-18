@@ -9,6 +9,12 @@ import TakKang from '../TakKang/TakKang'
 import superagent from 'superagent-bluebird-promise'
 
 class Kong extends React.Component {
+
+  componentWillMount() { this.props.setQueryParams(this.props) }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params === this.props.params) return
+    this.props.setQueryParams(nextProps)
+  }
   render () {
     if (! this.props.params.k) {
       return (
@@ -51,7 +57,7 @@ class Kong extends React.Component {
       )
     }
 
-    const suList = this.props.suList.map((data) => <Su suData={data}/>)
+    const suList = this.props.suList.map((item) => <Su suData={item}/>)
     return (
         <div className='main container'>
           <nav className='navigation'>
@@ -81,8 +87,11 @@ class Kong extends React.Component {
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    suList (queryParams) {
-      return superagent.get('http://127.0.0.1:8000/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E5%88%97%E8%A1%A8/%E6%8F%A3%E5%88%97%E8%A1%A8?%E9%97%9C%E9%8D%B5%E5%AD%97=一刀兩斷')
+    suList ({params}) {
+      if (undefined === params) {
+        return Promise.all([])
+      }
+      return superagent.get('http://127.0.0.1:8000/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E5%88%97%E8%A1%A8/%E6%8F%A3%E5%88%97%E8%A1%A8?%E9%97%9C%E9%8D%B5%E5%AD%97=' + params.k)
         .then((res) => Promise.all(res.body['列表'].map((d) => Su.getQuery('suData', {suId: +d['外語項目編號']}))) )
     }
   }
