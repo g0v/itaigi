@@ -7,6 +7,9 @@ import Su from '../Su/Su'
 import ABo from '../ABo/ABo'
 import TakKang from '../TakKang/TakKang'
 import superagent from 'superagent-bluebird-promise'
+import Debug from 'debug'
+
+var debug = Debug('Kong')
 
 class Kong extends React.Component {
 
@@ -57,7 +60,7 @@ class Kong extends React.Component {
       )
     }
 
-    console.log(this.props.kongData)
+    debug(this.props.kongData)
     var suList = this.props.kongData['新詞文本'] ? this.props.kongData['新詞文本'].map((d) => <Su suId={d['新詞文本項目編號']} suText={d['文本資料']} key={d['新詞文本項目編號']}/>) : []
     return (
         <div className='main container'>
