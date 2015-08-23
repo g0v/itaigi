@@ -8,6 +8,9 @@ import The from './The/The'
 import Iong from './Iong/Iong'
 import Mia from './Mia/Mia'
 
+import Debug from 'debug'
+Debug.enable('itaigi:*')
+
 const routes = (
   <Route name='app' handler={App} path='/'>
     <Route name='kong' path='k/:k?' handler={Kong}/>

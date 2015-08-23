@@ -3,6 +3,9 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import LaiLik from '../LaiLik/LaiLik'
 import superagent from 'superagent-bluebird-promise'
+import Debug from 'debug'
+
+var debug = Debug('item:Su')
 
 class Su extends React.Component {
 
@@ -12,10 +15,11 @@ class Su extends React.Component {
     suData: React.PropTypes.instanceOf(Object).isRequired
   }
 
-  componentWillMount () { this.props.setQueryParams(this.props) }
+  componentWillMount () { debug(this.props); this.props.setQueryParams(this.props) }
 
   render () {
     const {suText, suData} = this.props
+    debug(suData)
     return (
         <div className='su item'>
           <div className='content'>
