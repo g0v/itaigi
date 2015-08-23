@@ -5,31 +5,17 @@ import LaiLik from '../LaiLik/LaiLik'
 import superagent from 'superagent-bluebird-promise'
 
 class Su extends React.Component {
+
+  static propTypes = {
+    setQueryParams: React.PropTypes.instanceOf(Function).isRequired,
+    suText: React.PropTypes.string.isRequired,
+    suData: React.PropTypes.instanceOf(Object).isRequired
+  }
+
   componentWillMount () { this.props.setQueryParams(this.props) }
+
   render () {
-
-    //const suId = 192
-    //const suText = '一屑仔'
-    //const suData = {
-      //"收錄者": "1",
-      //"著作所在地": "臺灣",
-      //"語言腔口": "閩南語",
-      //"種類": "字詞",
-      //"版權": "會使公開",
-      //"來源": "2",
-      //"推薦用字": "否",
-      //"著作年": "2014",
-      //"屬性內容":
-      //{
-        //"音標": "tsi̍t-sut-á"
-      //},
-      //"收錄時間": "2015-07-18 14:27:11"
-    //}
-
-    const suId = this.props.suId
-    const suText = this.props.suText
-    const suData = this.props.suData
-
+    const {suText, suData} = this.props
     return (
         <div className='su item'>
           <div className='content'>
@@ -55,8 +41,8 @@ class Su extends React.Component {
 export default Transmit.createContainer(Su, {
   queries: {
     suData ({suId}) {
-      if (! suId) {
-        return Promise.all([])
+      if (!suId) {
+        return Promise.resolve({})
       }
       return superagent.get('http://db.itaigi.tw/平臺項目/看詳細內容?平臺項目編號=' + suId)
         .then((res) => res.body, (err) => console.log(err))
