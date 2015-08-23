@@ -57,40 +57,8 @@ class Kong extends React.Component {
       )
     }
 
-    const kongData = {
-      "新詞影音": [ ],
-      "外語語言": "華語",
-      "外語資料": "一點點",
-      "新詞文本": [
-        {
-          "新詞文本項目編號": "13742",
-          "文本資料": "一屑仔"
-        },
-        {
-          "新詞文本項目編號": "13743",
-          "文本資料": "一寡仔"
-        },
-        {
-          "新詞文本項目編號": "13744",
-          "文本資料": "一點仔"
-        },
-        {
-          "新詞文本項目編號": "13745",
-          "文本資料": "厘"
-        },
-        {
-          "新詞文本項目編號": "13746",
-          "文本資料": "淡薄仔"
-        },
-        {
-          "新詞文本項目編號": "13747",
-          "文本資料": "微微仔"
-        }
-      ],
-      "外語項目編號": "191"
-    }
-
-    const suList = kongData['新詞文本'].map((d) => <Su suId={d['新詞文本項目編號']} suText={d['文本資料']}/>)
+    console.log(this.props.kongData)
+    var suList = this.props.kongData['新詞文本'] ? this.props.kongData['新詞文本'].map((d) => <Su suId={d['新詞文本項目編號']} suText={d['文本資料']}/>) : []
     return (
         <div className='main container'>
           <nav className='navigation'>
@@ -120,5 +88,14 @@ class Kong extends React.Component {
 
 export default Transmit.createContainer(Kong, {
   queries: {
+    kongData ({params}) {
+      if (params === undefined) {
+        return Promise.resolve({})
+      }
+      return superagent.get('http://db.itaigi.tw/平臺項目列表/揣列表?關鍵字=' + params.k)
+        .then(({body}) => body['列表'][0]['外語項目編號'])
+        .then((id) => superagent.get('http://db.itaigi.tw/平臺項目/看對應內容?平臺項目編號=' + id))
+        .then(({body}) => body)
+    }
   }
 })
