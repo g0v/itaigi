@@ -58,8 +58,7 @@ export default Transmit.createContainer(Su, {
       if (! suId) {
         return Promise.all([])
       }
-      console.log(suId)
-      return superagent.get('http://db.itaigi.tw/%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE/%E7%9C%8B%E8%A9%B3%E7%B4%B0%E5%85%A7%E5%AE%B9?%E5%B9%B3%E8%87%BA%E9%A0%85%E7%9B%AE%E7%B7%A8%E8%99%9F=' + suId)
+      return superagent.get('http://db.itaigi.tw/平臺項目/看詳細內容?平臺項目編號=' + suId)
         .then((res) => res.body, (err) => console.log(err))
     }
   }
