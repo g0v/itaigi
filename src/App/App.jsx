@@ -32,7 +32,8 @@ class App extends React.Component {
             <ul className='ui menu container inverted'>
               <li className='item'><a href='https://g0v.hackpad.com/moed7ct-taigi-neologism'>Hackpad</a></li>
               <li className='item'>授權條款</li>
-              <li className='item'>g0v</li>
+              <li className='item'><a href='https://g0v.tw/'>g0v</a></li>
+              <li className='item'><a href='https://github.com/g0v/taigi-neologism'>g0v</a></li>
             </ul>
           </footer>
         </div>
