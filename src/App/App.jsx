@@ -30,9 +30,9 @@ class App extends React.Component {
             {...this.props}/>
           <footer className='app footer inverted'>
             <ul className='ui menu container inverted'>
+              <li className='item'><a href='https://g0v.hackpad.com/moed7ct-taigi-neologism'>Hackpad</a></li>
               <li className='item'>授權條款</li>
               <li className='item'>g0v</li>
-              <li className='item'>關於本計劃</li>
             </ul>
           </footer>
         </div>
