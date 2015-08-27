@@ -19,7 +19,17 @@ class Kong extends React.Component {
     this.props.setQueryParams(nextProps)
   }
 
-  renderTsheBo () {
+  renderTshueSiann () {
+    return (
+        <div className='kong content'>
+          <div className='ui segment'>
+          <h3>欲找啥？</h3>
+          </div>
+        </div>
+      )
+  }
+
+  renderTshueBo () {
     return (
         <div className='kong content'>
           <div className='ui segment'>
@@ -62,7 +72,9 @@ class Kong extends React.Component {
               handleSubmit={this.props.handleKong.bind(this)}
               {...this.props}/>
           </nav>
-          {this.props.kongData['結果'] >= 0 ? this.renderSu() : this.renderTsheBo()}
+          {this.props.kongData['結果'] === 0 ? this.renderSu()
+          : this.props.kongData['結果'] === - 1 ? this.renderTshueBo()
+          : this.renderTshueSiann()}
           <aside className='right column'>
             <div className='ui segment'>
               <Link to='lun' params={{k: this.props.params.k}}>來討論</Link>
