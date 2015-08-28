@@ -5,21 +5,19 @@ import LaiLik from '../LaiLik/LaiLik'
 import superagent from 'superagent-bluebird-promise'
 import Debug from 'debug'
 
-var debug = Debug('item:Su')
+var debug = Debug('itaigi:Su')
 
 class Su extends React.Component {
 
-  static propTypes = {
-    setQueryParams: React.PropTypes.instanceOf(Function).isRequired,
-    suText: React.PropTypes.string.isRequired,
-    suData: React.PropTypes.instanceOf(Object).isRequired
+  componentWillMount () { this.props.setQueryParams(this.props) }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.params === this.props.params) return
+    this.props.setQueryParams(nextProps)
   }
-
-  componentWillMount () { debug(this.props); this.props.setQueryParams(this.props) }
 
   render () {
     const {suText, suData} = this.props
-    debug(suData)
+    debug(this.props)
     return (
         <div className='su item'>
           <div className='content'>
@@ -49,7 +47,8 @@ export default Transmit.createContainer(Su, {
         return Promise.resolve({})
       }
       return superagent.get('http://db.itaigi.tw/平臺項目/看詳細內容?平臺項目編號=' + suId)
-        .then((res) => res.body, (err) => console.log(err))
+        .then((res) => res.body)
+        .catch((err) => console.log(err))
     }
   }
 })
