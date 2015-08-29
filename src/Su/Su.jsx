@@ -18,6 +18,9 @@ class Su extends React.Component {
   render () {
     const {suText, suData} = this.props
     debug(this.props)
+    if (suData['結果'] == -2) {
+      return <div className='su item'></div>
+    }
     return (
         <div className='su item'>
           <div className='content'>
@@ -44,10 +47,14 @@ export default Transmit.createContainer(Su, {
   queries: {
     suData ({suId}) {
       if (!suId) {
-        return Promise.resolve({})
+        return Promise.resolve({
+          '結果': -2
+        })
       }
       return superagent.get('http://db.itaigi.tw/平臺項目/看詳細內容?平臺項目編號=' + suId)
-        .then((res) => res.body)
+        .then((res) => Object.assign({
+          '結果': 0
+        }, res.body))
         .catch((err) => console.log(err))
     }
   }
