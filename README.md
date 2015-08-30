@@ -15,9 +15,9 @@
   -  整個檔案的說明，說明整個檔案想要規劃的方向和內容
 -	Scenario
   - 使用網站的情境的說明，同一個檔案可以有許多Scenario
-  
+
   大家可以用Feature和Scenario先勾勒出整個網站的設計。如果行有餘力，可以規劃更詳細一點，像是滑鼠點圖片等等，這邊有四個語法：
-  
+
 - Given
   - 這個情境的初使條件
 -	When
@@ -63,6 +63,14 @@ Development
 -----------
 
 Server-side API document: <http://docs.taigineologism.apiary.io/>
+
+
+TODO
+----
+
+- [ ] Facebook 登入
+- [ ] 投票
+- [ ] 各詞條討論
 
 
 License
