@@ -37,10 +37,9 @@ pip install django-behave
 behave 功能試驗
 ```
 
-Usage
------
+## Usage
 
-## Frontend
+### Frontend
 
 Install:
 
@@ -49,10 +48,10 @@ Install:
 
 Start development server:
 
-        $ npm run dev
+        $ npm start
         # open http://localhost:3000/
 
-## Backend
+### Backend
 
 The backend runs on Python 3.3+ and is maintained in another repository:
 <https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-thai5>
