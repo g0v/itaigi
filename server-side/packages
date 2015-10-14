@@ -1,8 +1,0 @@
-Flask==0.10.1
-Flask-SQLAlchemy==2.0
-Jinja2
-SQLAlchemy==0.9.8
-pyjade==3.0.0
-flask-admin
-flask-security
-flask-cors
