@@ -30,10 +30,13 @@ The backend runs on Python 3.4+ and is maintained in `server-side` directory.
 ```python3
 virtualenv venv --python python3 # 設置環境檔
 . venv/bin/activate # 載入環境
-pip install tai5-uan5_gian5-gi2_phing5-tai5 xlrd git+https://github.com/conrado/libavwrapper@master#egg=libavwrapper
+pip install tai5-uan5_gian5-gi2_phing5-tai5 xlrd psycopg2 git+https://github.com/conrado/libavwrapper@master#egg=libavwrapper
 python manage.py migrate #建立資料庫欄位
 sudo apt-get install libav-tools -y # 安裝avconv for Ubuntu
 ```
+
+### Postgres設定
+詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
 
 #### 匯入資料
 ```bash
