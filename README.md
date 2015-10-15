@@ -4,6 +4,57 @@
 
 * [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 
+
+## Usage
+
+[API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
+
+### Frontend
+
+Install:
+
+        $ npm i && npm run build
+
+
+Start development server:
+
+        $ npm start
+        # open http://localhost:3000/
+
+### Backend
+
+The backend runs on Python 3.4+ and is maintained in `server-side` directory.
+以下指令請在裡面執行
+
+#### 環境設定
+```python3
+virtualenv venv --python python3 # 設置環境檔
+. venv/bin/activate # 載入環境
+pip install tai5-uan5_gian5-gi2_phing5-tai5 xlrd git+https://github.com/conrado/libavwrapper@master#egg=libavwrapper
+python manage.py migrate #建立資料庫欄位
+sudo apt-get install libav-tools -y # 安裝avconv for Ubuntu
+```
+
+#### 匯入資料
+```bash
+echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+```
+完整匯入需等待一段時間，等待途中可以繼續做其他事
+若只需試驗，可中途中斷
+
+### 跑服務
+```python3
+python manage.py runserver
+```
+
+TODO
+----
+詳見[issue](https://github.com/g0v/taigi-neologism/issues)
+
+- [ ] Facebook 登入
+- [ ] 投票
+- [ ] 各詞條討論
+
 歡迎非工程師的大家一起參與網站規劃
 -----------
 請大家進`功能試驗`資料夾新增、編寫feature檔案
@@ -31,45 +82,11 @@
 
 註：`功能試驗/steps`裡面是工程師用的東西，不重要不需要看懂XD
 
-##執行與實作（工程師依照大家的網站規範來設計）
+## 執行與實作（工程師依照大家的網站規範來設計）
 ```bash
 pip install django-behave
 behave 功能試驗
 ```
-
-## Usage
-
-### Frontend
-
-Install:
-
-        $ npm i && npm run build
-
-
-Start development server:
-
-        $ npm start
-        # open http://localhost:3000/
-
-### Backend
-
-The backend runs on Python 3.3+ and is maintained in another repository:
-<https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-thai5>
-
-[API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
-
-Development
------------
-
-Server-side API document: <http://docs.taigineologism.apiary.io/>
-
-
-TODO
-----
-
-- [ ] Facebook 登入
-- [ ] 投票
-- [ ] 各詞條討論
 
 
 License
