@@ -1,6 +1,7 @@
 build/
 node_modules
 
+*.pyc
 venv
 db.sqlite3
 
