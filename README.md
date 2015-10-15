@@ -23,8 +23,8 @@ Start development server:
 
 ### Backend
 
-The backend runs on Python 3.4+ and is maintained in `server-side` directory.
-以下指令請在裡面執行
+後端程式使用Python 3.4+，並放在`server-side/`資料夾.
+以下指令請在`server-side/`裡面執行
 
 #### 環境設定
 ```python3
@@ -46,8 +46,13 @@ echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 若只需試驗，可中途中斷
 
 ### 跑服務
-```python3
+開發用，程式碼若有修改會重新載入
+```bash
 python manage.py runserver
+```
+上機用，支援多線程
+```bash
+gunicorn itaigi.wsgi
 ```
 
 ### 設定FB登入
