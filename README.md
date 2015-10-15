@@ -58,14 +58,30 @@ The backend runs on Python 3.3+ and is maintained in another repository:
 
 [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
 
-Development
------------
+#### 環境設定
+```python3
+virtualenv venv --python python3 # 設置環境檔
+. venv/bin/activate # 載入環境
+pip install tai5-uan5_gian5-gi2_phing5-tai5 xlrd git+https://github.com/conrado/libavwrapper@master#egg=libavwrapper
+python manage.py migrate #建立資料庫欄位
+sudo apt-get install libav-tools -y # 安裝avconv for Ubuntu
+```
 
-Server-side API document: <http://docs.taigineologism.apiary.io/>
+#### 匯入資料
+```bash
+echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+```
+完整匯入需等待一段時間，等待途中可以繼續做其他事
+若只需試驗，可中途中斷
 
+### 跑服務
+```python3
+python manage.py runserver
+```
 
 TODO
 ----
+詳見[issue](https://github.com/g0v/taigi-neologism/issues)
 
 - [ ] Facebook 登入
 - [ ] 投票
