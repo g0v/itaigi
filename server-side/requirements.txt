@@ -1,0 +1,17 @@
+Django==1.8.5
+defusedxml==0.4.1
+django-allauth==0.23.0
+django-cors-headers==1.1.0
+gunicorn==19.3.0
+oauthlib==1.0.3
+psycopg2==2.6.1
+python-dateutil==2.4.1
+python3-openid==3.0.7
+requests==2.8.1
+requests-oauthlib==0.5.0
+six==1.10.0
+tai5-uan5-gian5-gi2-kang1-ku7==0.5.9
+tai5-uan5-gian5-gi2-phing5-tai5==0.0.1
+tai5-uan5-gian5-gi2-tsu1-liau7-khoo3==3.1.4
+xlrd==0.9.4
+-e git+https://github.com/conrado/libavwrapper@master#egg=libavwrapper
