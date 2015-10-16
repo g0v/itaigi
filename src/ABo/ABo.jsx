@@ -7,6 +7,7 @@ class ABo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      華語關鍵字: this.props.華語關鍵字 || '',
       漢字: this.props.漢字 || '',
       音標: this.props.音標 || ''
     }
@@ -24,8 +25,38 @@ class ABo extends React.Component {
   
   handleSubmit (evt) {
     if (this.state.漢字 !== '') {
+    	console.log(this.state.華語關鍵字)
       console.log(this.state.漢字)
       console.log(this.state.音標)
+		var 外語內容 = {
+				'來源':JSON.stringify("自己"),
+				'種類':'字詞',
+				'語言腔口':'臺語',
+				'著作所在地':'臺灣',
+				'著作年':new Date().getFullYear().toString(),
+				'屬性':'{}',
+				'外語語言':'華語',
+				'外語資料':this.state.華語關鍵字,
+				};
+				// `外語內容` post to  url: 網址+'平臺項目/加外語請教條',
+				/*var 外語請教條項目編號=外語結果['平臺項目編號']
+				
+		var 建議新詞文本 = {
+				'外語請教條項目編號':外語請教條項目編號,
+				'來源':JSON.stringify("自己"),
+				'種類':'字詞',
+				'語言腔口':'閩南語',
+				'著作所在地':'臺灣',
+				'著作年':new Date().getFullYear().toString(),
+				'文本資料':this.state.漢字,
+				};
+        if (this.state.音標 !== '') {
+				建議新詞文本['屬性']=JSON.stringify({'音標':this.state.音標})
+				}
+				else{
+				建議新詞文本['屬性']=JSON.stringify({})
+				}
+				*/
     }
   }
  
