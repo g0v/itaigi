@@ -3,9 +3,9 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import {Link} from 'react-router'
-import './AppBar.css'
+import './ToLam.css'
 
-class AppBar extends React.Component {
+class ToLam extends React.Component {
   render () {
     return (
       <div className='app bar container'>
@@ -37,4 +37,4 @@ class AppBar extends React.Component {
   }
 }
 
-export default Transmit.createContainer(AppBar, { query: {} })
+export default Transmit.createContainer(ToLam, { query: {} })

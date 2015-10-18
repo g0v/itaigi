@@ -4,7 +4,7 @@ import React from 'react'
 import Router from 'react-router'
 import Transmit from 'react-transmit'
 
-class SearchBar extends React.Component {
+class Tshue extends React.Component {
 
   constructor (props) {
     super(props)
@@ -47,4 +47,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default Transmit.createContainer(SearchBar, { query: {} })
+export default Transmit.createContainer(Tshue, { query: {} })

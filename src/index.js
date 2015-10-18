@@ -2,12 +2,12 @@
 import React from 'react'
 import Router, {Route, DefaultRoute} from 'react-router'
 import App from './App/App'
-import Kong from './Kong/Kong'
+import Kong from './Iah/Kong/Kong'
 import Home from './Home/Home'
-import Lun from './Lun/Lun'
-import The from './The/The'
-import Iong from './Iong/Iong'
-import Mia from './Mia/Mia'
+import Lun from './Iah/Lun/Lun'
+import The from './Iah/The/The'
+import Iong from './Iah/Iong/Iong'
+import Mia from './Iah/Mia/Mia'
 
 import Debug from 'debug'
 Debug.enable('itaigi:*')

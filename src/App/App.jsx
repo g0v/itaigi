@@ -5,7 +5,7 @@ import Transmit from 'react-transmit'
 import {RouteHandler} from 'react-router'
 import Navigation from '../Navigation/Navigation'
 
-import AppBar from '../AppBar/AppBar'
+import ToLam from '../GuanKiann/ToLam/ToLam'
 
 import './App.css'
 
@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
         <div className='app background'>
           <header className='app header'>
-            <AppBar/>
+            <ToLam/>
           </header>
           <RouteHandler
             handleKong={this.kong.bind(this)}
