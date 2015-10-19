@@ -1,8 +1,15 @@
 
 import React from 'react'
 import Transmit from 'react-transmit'
+import superagent from 'superagent-bluebird-promise'
 
 class ABo extends React.Component {
+  componentWillMount () { this.props.setQueryParams(this.props) }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.params === this.props.params) return
+    this.props.setQueryParams(nextProps)
+  }
+  
   constructor (props) {
     super(props)
     this.state = {
@@ -24,6 +31,7 @@ class ABo extends React.Component {
   
   handleSubmit (evt) {
     if (this.state.漢字 !== '') {
+    	console.log(this.props.csrftoken)
     	console.log(this.state.華語關鍵字)
       console.log(this.state.漢字)
       console.log(this.state.音標)
@@ -37,6 +45,13 @@ class ABo extends React.Component {
 				'外語語言':'華語',
 				'外語資料':this.state.華語關鍵字,
 				};
+		superagent.post('http://db.itaigi.tw/平臺項目/加外語')
+		  .set('Content-Type', 'application/x-www-form-urlencoded')
+		  .set('X-CSRFToken',this.props.csrftoken)
+		  
+ 		 .send(外語內容)
+ 		 .then(({body}) => body['列表'][0]['外語項目編號'])
+		
 				// `外語內容` post to  url: 網址+'平臺項目/加外語請教條',
 				/*var 外語請教條項目編號=外語結果['平臺項目編號']
 				
@@ -81,4 +96,11 @@ class ABo extends React.Component {
   }
 }
 
-export default Transmit.createContainer(ABo, { queries: {} })
+export default Transmit.createContainer(ABo, {
+  queries: {
+    csrftoken ({params}) {
+      return superagent.get('http://db.itaigi.tw/csrf/看')
+        .then(({body}) => body['csrftoken'])
+    }
+  }
+})
