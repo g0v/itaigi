@@ -3,7 +3,6 @@ import React from 'react'
 import Transmit from 'react-transmit'
 
 class ABo extends React.Component {
-
   constructor (props) {
     super(props)
     this.state = {

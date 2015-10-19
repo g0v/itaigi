@@ -2,10 +2,10 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import {Link} from 'react-router'
-import SearchBar from '../SearchBar/SearchBar'
-import Su from '../Su/Su'
-import ABo from '../ABo/ABo'
-import TakKang from '../TakKang/TakKang'
+import Tshue from '../../GuanKiann/Tshue/Tshue'
+import Su from '../../GuanKiann/Su/Su'
+import ABo from '../../GuanKiann/ABo/ABo'
+import TakKang from '../../GuanKiann/TakKang/TakKang'
 import superagent from 'superagent-bluebird-promise'
 import Debug from 'debug'
 
@@ -67,7 +67,7 @@ class Kong extends React.Component {
     return (
         <div className='main container'>
           <nav className='navigation'>
-            <SearchBar
+            <Tshue
               defaultValue={this.props.params.k}
               handleSubmit={this.props.handleKong.bind(this)}
               {...this.props}/>
