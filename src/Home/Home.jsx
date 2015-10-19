@@ -1,8 +1,8 @@
 
 import React from 'react'
 import Transmit from 'react-transmit'
-import SearchBar from '../SearchBar/SearchBar'
-import TakKang from '../TakKang/TakKang'
+import Tshue from '../GuanKiann/Tshue/Tshue'
+import TakKang from '../GuanKiann/TakKang/TakKang'
 import Debug from 'debug'
 
 var debug = Debug('itaigi:Home')
@@ -19,7 +19,7 @@ class Home extends React.Component {
     return (
       <div className='main container'>
         <nav className='navigation'>
-          <SearchBar
+          <Tshue
             handleSubmit={this.props.handleKong.bind(this)}
             {...this.props}/>
         </nav>

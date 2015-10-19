@@ -32,6 +32,7 @@
     "json-loader": "^0.5.1",
     "postcss-loader": "^0.4.3",
     "react-hot-loader": "^1.2.2",
+    "strict-loader": "^0.1.2",
     "style-loader": "^0.11.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.2",

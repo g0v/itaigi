@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var WebpackNotifierPlugin = require('webpack-notifier');
 var plugins = [];
 var entries = [ './src' ];
-var loaders = [ 'babel?stage=0' ];
+var loaders = [ 'babel?stage=0', 'strict' ];
 
 plugins = [ new webpack.HotModuleReplacementPlugin(), new webpack.NoErrorsPlugin(), new WebpackNotifierPlugin() ];
 entries.push('webpack-dev-server/client?http://localhost:3000', 'webpack/hot/only-dev-server');

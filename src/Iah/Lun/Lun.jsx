@@ -2,7 +2,7 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import {Link} from 'react-router'
-import SearchBar from '../SearchBar/SearchBar'
+import Tshue from '../../GuanKiann/Tshue/Tshue'
 
 class Lun extends React.Component {
   render () {
@@ -22,7 +22,7 @@ class Lun extends React.Component {
     return (
         <div className='main container'>
           <nav className='navigation'>
-            <SearchBar
+            <Tshue
               defaultValue={this.props.params.k}
               handleSubmit={this.props.handleKong.bind(this)}
               {...this.props}/>
