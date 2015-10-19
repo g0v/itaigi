@@ -33,7 +33,7 @@ class App extends React.Component {
               <li className='item'><a href='https://g0v.hackpad.com/moed7ct-taigi-neologism'>Hackpad</a></li>
               <li className='item'>授權條款</li>
               <li className='item'><a href='https://g0v.tw/'>g0v</a></li>
-              <li className='item'><a href='https://github.com/g0v/taigi-neologism'>GitHub</a></li>
+              <li className='item'><a href='https://github.com/g0v/itaigi'>GitHub</a></li>
             </ul>
           </footer>
         </div>
