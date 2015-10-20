@@ -39,7 +39,7 @@ class Kong extends React.Component {
           <button className='ui button'>求講法</button>
           </div>
           <h3>我就是沒有人，我來講</h3>
-          <ABo/>
+          <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
         </div>
       )
   }
@@ -52,8 +52,8 @@ class Kong extends React.Component {
             <h3>{this.props.kongData['關鍵字'] || '找什麼？'}</h3>
             <button className='ui button'>求講法</button>
           </div>
-          <h3>我就是沒有人，我來講</h3>
-          <ABo/>
+          <h3>啊無咧？</h3>
+          <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
         </div>
       )
     }
