@@ -59,8 +59,8 @@ class Kong extends React.Component {
     }
     return (
       <div className='kongHuat'>
-        {this.props.kongData['內容']['列表'].map((k) => (
-          <GuaGi id={k['外語項目編號']} key={k['外語項目編號']}></GuaGi>
+        {this.props.kongData['內容']['列表'].map((g) => (
+          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}></GuaGi>
         ))}
       </div>
     )
@@ -68,7 +68,10 @@ class Kong extends React.Component {
 
   renderKianGi () {
     return (
-      <div className='kiangGi'>
+      <div className='kianGi'>
+        {this.props.kongData['內容']['其他建議'].map((g) => (
+          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}></GuaGi>
+        ))}
       </div>
     )
   }
@@ -87,6 +90,7 @@ class Kong extends React.Component {
             {this.props.kongData['結果'] >= 0 ? this.renderKiatKo()
             : this.props.kongData['結果'] === - 1 ? this.renderTshoGoo()
             : this.renderTshueSiann()}
+            {this.props.kongData['結果'] >= 0 ? this.renderKianGi() : []}
           </div>
           <aside className='right column'>
             <div className='ui segment'>
