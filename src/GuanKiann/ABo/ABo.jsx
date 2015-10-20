@@ -45,21 +45,21 @@ class ABo extends React.Component {
 				'外語語言':'華語',
 				'外語資料':this.state.華語關鍵字,
 				};
-		var 外語請教條項目編號=superagent.post('http://db.itaigi.tw/平臺項目/加外語')
+		superagent.post('http://db.itaigi.tw/平臺項目/加外語')
+		  .withCredentials()
 		  .set('Content-Type', 'application/x-www-form-urlencoded')
 		  .set('X-CSRFToken',this.props.csrftoken)
-		  .withCredentials()
  		  .send(外語內容)
- 		  .then(({body}) => body['平臺項目編號'])
-          .catch(({body}) => body['平臺項目編號'])
-		console.log(外語請教條項目編號)
+ 		  .then(({body}) => (this.加外語新詞文本(body['平臺項目編號'])))
+          .catch(({res}) => (this.加外語新詞文本(JSON.parse(res.text)['平臺項目編號'])) )
 		console.log(2)
-		console.log(外語請教條項目編號['平臺項目編號'])
-				// `外語內容` post to  url: 網址+'平臺項目/加外語請教條',
-				/*var 外語請教條項目編號=外語結果['平臺項目編號']
-				
+		}
+	}
+	加外語新詞文本 (外語項目編號) {
+		console.log('外語項目編號')
+		console.log(外語項目編號)
 		var 建議新詞文本 = {
-				'外語請教條項目編號':外語請教條項目編號,
+				'外語請教條項目編號':外語項目編號,
 				'來源':JSON.stringify("自己"),
 				'種類':'字詞',
 				'語言腔口':'閩南語',
@@ -73,8 +73,7 @@ class ABo extends React.Component {
 				else{
 				建議新詞文本['屬性']=JSON.stringify({})
 				}
-				*/
-    }
+				
   }
  
   render () {
@@ -103,7 +102,7 @@ export default Transmit.createContainer(ABo, {
   queries: {
     csrftoken ({params}) {
       return superagent.get('http://db.itaigi.tw/csrf/看')
-		  .withCredentials()
+		.withCredentials()
         .then(({body}) => body['csrftoken'])
     }
   }
