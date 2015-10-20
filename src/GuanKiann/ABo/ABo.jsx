@@ -52,7 +52,6 @@ class ABo extends React.Component {
  		  .send(外語內容)
  		  .then(({body}) => (this.加外語新詞文本(body['平臺項目編號'])))
           .catch(({res}) => (this.加外語新詞文本(JSON.parse(res.text)['平臺項目編號'])) )
-		console.log(2)
 		}
 	}
 	加外語新詞文本 (外語項目編號) {
@@ -66,7 +65,7 @@ class ABo extends React.Component {
 				'著作所在地':'臺灣',
 				'著作年':new Date().getFullYear().toString(),
 				'文本資料':this.state.漢字,
-				};
+				}
         if (this.state.音標 !== '') {
 				建議新詞文本['屬性']=JSON.stringify({'音標':this.state.音標})
 				}
@@ -74,6 +73,14 @@ class ABo extends React.Component {
 				建議新詞文本['屬性']=JSON.stringify({})
 				}
 				
+		superagent.post('http://db.itaigi.tw/平臺項目/加外語新詞文本')
+		  .withCredentials()
+		  .set('Content-Type', 'application/x-www-form-urlencoded')
+		  .set('X-CSRFToken',this.props.csrftoken)
+ 		  .send(建議新詞文本)
+ 		  .then(({body}) => (console.log('sui2')))
+          .catch(() => (null))
+		console.log(22)
   }
  
   render () {
