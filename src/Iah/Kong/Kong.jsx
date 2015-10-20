@@ -45,6 +45,7 @@ class Kong extends React.Component {
   }
 
   renderKiatKo () {
+    console.log(this.props.kongData['結果'])
     if (this.props.kongData['結果'] === 0) {
       return (
         <div className='tshueBo'>
@@ -52,7 +53,7 @@ class Kong extends React.Component {
             <h3>{this.props.kongData['關鍵字'] || '找什麼？'}</h3>
             <button className='ui button'>求講法</button>
           </div>
-          <h3>啊無咧？</h3>
+          <h3>我就是沒有人，我來講</h3>
           <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
         </div>
       )
@@ -62,6 +63,8 @@ class Kong extends React.Component {
         {this.props.kongData['內容']['列表'].map((g) => (
           <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}></GuaGi>
         ))}
+      <h3>啊無咧？</h3>
+      <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
       </div>
     )
   }

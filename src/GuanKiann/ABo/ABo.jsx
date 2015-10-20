@@ -58,10 +58,10 @@ class ABo extends React.Component {
 		console.log('外語項目編號')
 		console.log(外語項目編號)
 		var 建議新詞文本 = {
-				'外語請教條項目編號':外語項目編號,
+				'外語項目編號':外語項目編號,
 				'來源':JSON.stringify("自己"),
 				'種類':'字詞',
-				'語言腔口':'閩南語',
+				'語言腔口':'臺語',
 				'著作所在地':'臺灣',
 				'著作年':new Date().getFullYear().toString(),
 				'文本資料':this.state.漢字,
@@ -79,8 +79,7 @@ class ABo extends React.Component {
 		  .set('X-CSRFToken',this.props.csrftoken)
  		  .send(建議新詞文本)
  		  .then(({body}) => (console.log('sui2')))
-          .catch(() => (null))
-		console.log(22)
+          .catch((a) => (console.log(a)))
   }
  
   render () {
