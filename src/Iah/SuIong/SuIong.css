@@ -1,0 +1,51 @@
+
+body {
+  margin: 0;
+}
+
+.app.background {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+.app .container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.app .main.container {
+  display: flex;
+  flex-flow: row wrap;
+  flex-grow: 1;
+  align-content: flex-start;
+}
+
+.navigation {
+  height: 50px;
+  margin: 2em 0;
+}
+
+.app .content {
+  width: 640px;
+}
+
+.app .right.column {
+  width: 320px;
+}
+
+.app .app.header {
+  background: #fff;
+}
+
+.app .app.footer {
+  background: #1b1c1d;
+}
+
+body {
+  background: #f1efeb;
+}
+
+/*h2 {*/
+  /*color: rgba(251, 66, 75, 0.8);*/
+/*}*/
