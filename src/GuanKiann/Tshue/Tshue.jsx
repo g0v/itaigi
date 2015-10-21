@@ -13,7 +13,7 @@ class Tshue extends React.Component {
   }
 
   handleKeyDown (evt) {
-    if (evt.keyCode === 13) {
+    if (evt.keyCode === 13 || this.state.q.length >= 2) {
       this.handleSubmit(evt)
       return
     }
