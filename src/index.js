@@ -1,7 +1,6 @@
 
 import React from 'react'
-import Router, {Route, DefaultRoute} from 'react-router'
-import App from './App/App'
+import Router, {Route, DefaultRoute, RouteHandler} from 'react-router'
 import HuanGing from './Iah/HuanGing/HuanGing'
 import SuIong from './Iah/SuIong/SuIong'
 import Kong from './Iah/Kong/Kong'
@@ -9,13 +8,20 @@ import Lun from './Iah/Lun/Lun'
 import The from './Iah/The/The'
 import Iong from './Iah/Iong/Iong'
 import Mia from './Iah/Mia/Mia'
+import './app.css'
 
 import Debug from 'debug'
 Debug.enable('itaigi:*')
 
+class App extends React.Component {
+  render () {
+    return <RouteHandler {...this.props}/>
+  }
+}
+
 const routes = (
   <Route name='app' handler={App} path='/'>
-    <DefaultRoute name='huanging' handler={HuanGing}/>
+    <DefaultRoute name='huanging' handler={HuanGing} path='h'/>
     <Route name='suiong' handler={SuIong} path='/'>
       <Route name='kong' path='k/?:k?' handler={Kong}/>
       <Route name='lun' path='l/?:k?' handler={Lun}/>
