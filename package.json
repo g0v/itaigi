@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rm build/* && webpack && (echo 'itaigi.tw' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
+    "build": "mkdir -p build;rm -f build/* && webpack && (echo 'itaigi.tw' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
     "deploy": "npm run build && gh-pages -d build/"
   },
   "repository": {
