@@ -17,12 +17,12 @@ class ToLam extends React.Component {
         </h1>
         <ul className='ui main menu'>
           <li className='item'>
-            <Link to='kong' params={{k: ''}}>怎樣講</Link>
+            <Link to='/k' params={{k: ''}}>怎樣講</Link>
           </li>
-          <li className='item'><Link to='lun'>來討論</Link></li>
-          <li className='item'><Link to='the'>還不會</Link></li>
-          <li className='item'><Link to='iong'>好工具</Link></li>
-          <li className='item'><Link to='mia'>名人堂</Link></li>
+          <li className='item'><Link to='/l'>來討論</Link></li>
+          <li className='item'><Link to='/t'>還不會</Link></li>
+          <li className='item'><Link to='/iong'>好工具</Link></li>
+          <li className='item'><Link to='/mia'>名人堂</Link></li>
         </ul>
         <ul className='ui social menu'>
           <li className='item'><a href="#">F</a></li>
