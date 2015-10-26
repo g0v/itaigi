@@ -17,9 +17,9 @@ Debug.enable('itaigi:*')
 
 const root = document.getElementById('app')
 
-if (window.location.pathname === '/') {
-  render(<HuanGing/>, root)
-} else {
+//if (window.location.pathname === '/') {
+  //render(<HuanGing/>, root)
+//} else {
   let history = createBrowserHistory()
   render(
     <Router history={history}>
@@ -32,4 +32,4 @@ if (window.location.pathname === '/') {
         <Route path='mia' component={Mia}/>
       </Route>
     </Router>, root)
-}
+//}
