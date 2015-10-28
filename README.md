@@ -72,6 +72,26 @@ key：db4f3fa26d26890e720d17a83ff5a6fe
 最後左下角choose all site
 其他欄位隨便填
 
+### google sheet匯入資料庫
+參考[Obtain OAuth2 credentials from Google Developers Console](http://gspread.readthedocs.org/en/latest/oauth2.html)
+
+1. 申請服務
+2. 開啟Drive API
+3. 用Service Account得到一個`服務帳戶json`，假設叫做`itaigi-sui2.json`
+
+#### 設定google development
+假設`服務帳戶json`得到`itaigi-sui2.json`
+```bash
+python manage.py 加sheet的json 臺語 itaigi-sui2.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
+```
+
+#### 設定crontab
+```bash
+echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> phing5thai5/settings.py # 設定django-kronos
+python manage.py installtasks
+crontab -l
+```
+
 TODO
 ----
 詳見[issue](https://github.com/g0v/taigi-neologism/issues)

@@ -150,3 +150,8 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERSION': 'v2.3',
     }
 }
+
+# django-kronos，定時掠google sheet正規化資料
+INSTALLED_APPS += (
+    'kronos',
+)
