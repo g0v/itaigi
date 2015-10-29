@@ -88,7 +88,7 @@ python manage.py 加sheet的json 臺語 itaigi-sui2.json https://docs.google.com
 
 #### 設定crontab
 ```bash
-echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> phing5thai5/settings.py # 設定django-kronos
+echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> itaigi/settings.py # 設定django-kronos
 python manage.py installtasks
 crontab -l
 ```
