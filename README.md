@@ -32,7 +32,8 @@ virtualenv venv --python python3 # 設置環境檔
 . venv/bin/activate # 載入環境
 pip install -r requirements.txt # 裝相關python套件
 python manage.py migrate #建立資料庫欄位
-sudo apt-get install libav-tools -y # 安裝avconv for Ubuntu
+sudo apt-get install -y libav-tools # 安裝avconv for Ubuntu
+sudo apt-get install -y libffi-dev # 為了連google oauth2
 ```
 
 ### Postgres設定
@@ -90,6 +91,15 @@ python manage.py 加sheet的json 臺語 itaigi-sui2.json https://docs.google.com
 echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> phing5thai5/settings.py # 設定django-kronos
 python manage.py installtasks
 crontab -l
+```
+
+### 無完整的簡單佈署流程
+```
+sudo apt-get install -y libffi-dev # 為了連google oauth2
+git pull
+pip install -r requirements.txt 
+python manage.py migrate
+python manage.py 加sheet的json 臺語 itaigi-9.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 ```
 
 TODO
