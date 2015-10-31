@@ -52,6 +52,6 @@
     "webpack-notifier": "^1.2.1"
   },
   "engines": {
-    "node": "^1.6.0"
+    "node": "^4.2.1"
   }
 }
