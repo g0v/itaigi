@@ -41,6 +41,7 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-hot-loader": "^1.2.2",
+    "react-modal": "^0.6.1",
     "react-router": "^1.0.0-rc3",
     "react-transmit": "^2.6.3",
     "strict-loader": "^0.1.2",
