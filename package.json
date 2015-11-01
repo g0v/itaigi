@@ -45,6 +45,7 @@
     "react-transmit": "^2.6.3",
     "strict-loader": "^0.1.2",
     "style-loader": "^0.11.0",
+    "superagent": "^1.4.0",
     "superagent-bluebird-promise": "^2.1.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.2",
