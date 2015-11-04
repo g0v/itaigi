@@ -107,16 +107,17 @@ class Kong extends React.Component {
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    kongData ({params}) {
+    kongData (props) {
+      let {params, 後端網址} = props
       if (params === undefined || params.k === undefined) {
         return Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字'
         })
       }
-      return superagent.get('http://db.itaigi.tw/平臺項目列表/揣列表?關鍵字=' + params.k)
+      return superagent.get(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k)
         //.then(({body}) => body['列表'][0]['外語項目編號'])
-        //.then((id) => superagent.get('http://db.itaigi.tw/平臺項目/看對應內容?平臺項目編號=' + id))
+        //.then((id) => superagent.get(後端網址 + '平臺項目/看對應內容?平臺項目編號=' + id))
         .then(({body}) => ({
           '關鍵字': params.k,
           '結果': body['列表'].length,
