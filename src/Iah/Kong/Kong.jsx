@@ -39,7 +39,8 @@ class Kong extends React.Component {
           <button className='ui button'>求講法</button>
           </div>
           <h3>我就是沒有人，我來講</h3>
-          <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
+          <ABo 華語關鍵字={this.props.kongData['關鍵字']}
+            後端網址={this.props.後端網址}/>
         </div>
       )
   }
@@ -54,17 +55,20 @@ class Kong extends React.Component {
             <button className='ui button'>求講法</button>
           </div>
           <h3>我就是沒有人，我來講</h3>
-          <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
+          <ABo 華語關鍵字={this.props.kongData['關鍵字']}
+            後端網址={this.props.後端網址}/>
         </div>
       )
     }
     return (
       <div className='kongHuat'>
         {this.props.kongData['內容']['列表'].map((g) => (
-          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}></GuaGi>
+          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}
+            後端網址={this.props.後端網址}></GuaGi>
         ))}
       <h3>啊無咧？</h3>
-      <ABo 華語關鍵字={this.props.kongData['關鍵字']}/>
+      <ABo 華語關鍵字={this.props.kongData['關鍵字']}
+        後端網址={this.props.後端網址}/>
       </div>
     )
   }
@@ -73,7 +77,8 @@ class Kong extends React.Component {
     return (
       <div className='kianGi'>
         {this.props.kongData['內容']['其他建議'].map((g) => (
-          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}></GuaGi>
+          <GuaGi id={g['外語項目編號']} key={g['外語項目編號']}
+          後端網址={this.props.後端網址}></GuaGi>
         ))}
       </div>
     )
@@ -107,16 +112,16 @@ class Kong extends React.Component {
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    kongData ({params}) {
+    kongData ({params, 後端網址}) {
       if (params === undefined || params.k === undefined) {
         return Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字'
         })
       }
-      return superagent.get('http://db.itaigi.tw/平臺項目列表/揣列表?關鍵字=' + params.k)
+      return superagent.get(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k)
         //.then(({body}) => body['列表'][0]['外語項目編號'])
-        //.then((id) => superagent.get('http://db.itaigi.tw/平臺項目/看對應內容?平臺項目編號=' + id))
+        //.then((id) => superagent.get(後端網址 + '平臺項目/看對應內容?平臺項目編號=' + id))
         .then(({body}) => ({
           '關鍵字': params.k,
           '結果': body['列表'].length,

@@ -45,7 +45,7 @@ class ABo extends React.Component {
 				'外語語言':'華語',
 				'外語資料':this.state.華語關鍵字,
 				};
-		superagent.post('http://db.itaigi.tw/平臺項目/加外語')
+		superagent.post(this.props.後端網址 + '平臺項目/加外語')
 		  .withCredentials()
 		  .set('Content-Type', 'application/x-www-form-urlencoded')
 		  .set('X-CSRFToken',this.props.csrftoken)
@@ -73,7 +73,7 @@ class ABo extends React.Component {
 				建議新詞文本['屬性']=JSON.stringify({})
 				}
 				
-		superagent.post('http://db.itaigi.tw/平臺項目/加外語新詞文本')
+		superagent.post(this.props.後端網址 + '平臺項目/加外語新詞文本')
 		  .withCredentials()
 		  .set('Content-Type', 'application/x-www-form-urlencoded')
 		  .set('X-CSRFToken',this.props.csrftoken)
@@ -107,7 +107,7 @@ class ABo extends React.Component {
 export default Transmit.createContainer(ABo, {
   queries: {
     csrftoken ({params}) {
-      return superagent.get('http://db.itaigi.tw/csrf/看')
+      return superagent.get(this.props.後端網址 + 'csrf/看')
 		.withCredentials()
         .then(({body}) => body['csrftoken'])
     }

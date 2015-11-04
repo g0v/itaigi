@@ -23,7 +23,8 @@ class GuaGi extends React.Component {
     var suList = this.props.guaGiData['內容']['新詞文本'].map((d) =>
       <Su suId={d['新詞文本項目編號']}
         suText={d['文本資料']}
-        key={d['新詞文本項目編號']}/>
+        key={d['新詞文本項目編號']}
+        後端網址={this.props.後端網址}/>
     )
     return (
         <div className='guaGi'>
@@ -39,7 +40,7 @@ class GuaGi extends React.Component {
 
 export default Transmit.createContainer(GuaGi, {
   queries: {
-    guaGiData ({id}) {
+    guaGiData ({id, 後端網址}) {
       debug('抓外語資料 %s', id)
       if (id === undefined) {
         return Promise.resolve({
@@ -47,7 +48,7 @@ export default Transmit.createContainer(GuaGi, {
           '訊息': '沒有提供 ID'
         })
       }
-      return superagent.get('http://db.itaigi.tw/平臺項目/看對應內容?平臺項目編號=' + id)
+      return superagent.get(後端網址 + '平臺項目/看對應內容?平臺項目編號=' + id)
         .then((res) => ({
           id,
           '結果': 0,

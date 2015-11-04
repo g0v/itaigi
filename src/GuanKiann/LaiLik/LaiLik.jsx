@@ -23,11 +23,11 @@ class LaiLik extends React.Component {
 
 export default Transmit.createContainer(LaiLik, {
   queries: {
-    laiLikData ({laiLikId}) {
+    laiLikData ({laiLikId, 後端網址}) {
       if (!laiLikId) {
         return Promise.resolve({})
       }
-      return superagent.get('http://db.itaigi.tw/平臺項目來源/看內容?來源編號=' + laiLikId)
+      return superagent.get(後端網址 + '平臺項目來源/看內容?來源編號=' + laiLikId)
         .then((res) => res.body)
         .catch((err) => console.log(err))
     }

@@ -16,7 +16,7 @@ class Su extends React.Component {
   }
 
   render () {
-    const {suText, suData} = this.props
+    const {suText, suData, 後端網址} = this.props
     debug(this.props)
     if (suData['結果'] == -2) {
       return <div className='su item'></div>
@@ -29,7 +29,7 @@ class Su extends React.Component {
             <div className='list'>
               <div className='item'>
                 <i className='right triangle icon'></i>
-                <LaiLik laiLikId={suData['來源']}/>
+                <LaiLik laiLikId={suData['來源']} 後端網址={後端網址}/>
               </div>
             </div>
             <ul className='ui secondary menu'>
@@ -45,13 +45,13 @@ class Su extends React.Component {
 
 export default Transmit.createContainer(Su, {
   queries: {
-    suData ({suId}) {
+    suData ({suId, 後端網址}) {
       if (!suId) {
         return Promise.resolve({
           '結果': -2
         })
       }
-      return superagent.get('http://db.itaigi.tw/平臺項目/看詳細內容?平臺項目編號=' + suId)
+      return superagent.get(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId)
         .then((res) => Object.assign({
           '結果': 0
         }, res.body))
