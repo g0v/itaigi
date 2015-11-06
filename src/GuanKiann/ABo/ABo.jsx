@@ -109,7 +109,7 @@ export default Transmit.createContainer(ABo, {
     csrftoken ({後端網址}) {
       return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()
-        .then(({body}) => body['csrftoken'])
+        .then((body) => body['csrftoken'])
     }
   }
 })
