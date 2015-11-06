@@ -2,6 +2,7 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import superagent from 'superagent-bluebird-promise'
+import TingJip from '../../GuanKiann/BingTsheh/TingJip'
 
 class ABo extends React.Component {
   componentWillMount () { this.props.setQueryParams(this.props) }
@@ -85,6 +86,7 @@ class ABo extends React.Component {
   render () {
     return (
         <div className='ui segment'>
+          <TingJip 後端網址={this.props.後端網址}/>
           <div className='abo ui input'>
             <input placeholder='漢字' type='text'
               onKeyUp={this.handle漢字KeyUp.bind(this)}/>
