@@ -6,7 +6,7 @@ import superagent from 'superagent-bluebird-promise'
 class ABo extends React.Component {
   componentWillMount () { this.props.setQueryParams(this.props) }
   componentWillReceiveProps (nextProps) {
-    if (nextProps.params === this.props.params) return
+    if (nextProps.後端網址 === this.props.後端網址) return
     this.props.setQueryParams(nextProps)
   }
   
@@ -106,8 +106,8 @@ class ABo extends React.Component {
 
 export default Transmit.createContainer(ABo, {
   queries: {
-    csrftoken ({params}) {
-      return superagent.get(this.props.後端網址 + 'csrf/看')
+    csrftoken ({後端網址}) {
+      return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()
         .then(({body}) => body['csrftoken'])
     }
