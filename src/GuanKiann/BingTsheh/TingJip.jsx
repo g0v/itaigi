@@ -28,14 +28,35 @@ class TingJip extends React.Component {
 	   }(document, 'script', 'facebook-jssdk'))
   }
 	   
-	   
+  postForm(action, data) {
+	    var f = document.createElement('form');
+	    f.method = 'POST';
+	    f.action = action;
+
+	    for (var key in data) {
+	        var d = document.createElement('input');
+	        d.type = 'hidden';
+	        d.name = key;
+	        d.value = data[key];
+	        f.appendChild(d);
+	    }
+	    document.body.appendChild(f);
+	    f.submit();
+	}
+  
 	loginFB(evt) {
 	    FB.login(function (response) {
 	        if (response.authResponse) {
-	            FB.api('/me', function(response) {
-	               document.getElementById('fb-me').innerHTML = JSON.stringify(response);
-	             });
-	            //onLoginSuccess(response, nextUrl);
+	            let data = {
+	                next: nextUrl || '',
+	                process: 'login',
+	                access_token: response.authResponse.accessToken,
+	                expires_in: response.authResponse.expiresIn,
+	                csrfmiddlewaretoken: this.props.csrfToken
+	            };
+
+	            this.postForm(this.props.allauth.loginByTokenUrl, data);
+	            
 	        } else if (response && response.status 
 	                   && ["not_authorized", "unknown"].indexOf(response.status) > -1) {
 	            console.log("self.onLoginCanceled.call(self, response);");
@@ -50,12 +71,6 @@ class TingJip extends React.Component {
     console.log('csrftoken')
     return (
         <div className='ui segment'>
-        
-        
-          <a title="Facebook"  
-             href="javascript:allauth.facebook.login('', 'authenticate', 'login')">Facebook</a>
-           <textarea></textarea>
-
            <button
            onClick={this.loginFB.bind(this)}
            >送出sui2</button>           
@@ -71,7 +86,7 @@ export default Transmit.createContainer(TingJip, {
 		.withCredentials()
         .then((body) => body['csrftoken'])
     },
-    fbLoginCode ({後端網址}) {
+    allauth ({後端網址}) {
       return superagent.get(後端網址 + 'FB登入SDK')
 		.withCredentials()
         .then((body) => body.text.trim())
