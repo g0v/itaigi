@@ -10,10 +10,44 @@ class TingJip extends React.Component {
     this.props.setQueryParams(nextProps)
   }
   
+  init () {
+  
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '590065061070994',
+	      xfbml      : true,
+	      version    : 'v2.5'
+	    });
+	  };
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "http://connect.facebook.net/zh_TW/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'))
+  }
+	   
+	   
+	loginFB(evt) {
+	    FB.login(function (response) {
+	        if (response.authResponse) {
+	            FB.api('/me', function(response) {
+	               document.getElementById('fb-me').innerHTML = JSON.stringify(response);
+	             });
+	            //onLoginSuccess(response, nextUrl);
+	        } else if (response && response.status 
+	                   && ["not_authorized", "unknown"].indexOf(response.status) > -1) {
+	            console.log("self.onLoginCanceled.call(self, response);");
+	        } else {
+	            console.log("self.onLoginError.call(self, response);");
+	        }
+	    }, {scope: "email"});
+	}
+	   
   render () {
-    const {fbLoginCode} = this.props
+	  this.init()
     console.log('csrftoken')
-    console.log(fbLoginCode)
     return (
         <div className='ui segment'>
         
@@ -21,7 +55,10 @@ class TingJip extends React.Component {
           <a title="Facebook"  
              href="javascript:allauth.facebook.login('', 'authenticate', 'login')">Facebook</a>
            <textarea></textarea>
-           
+
+           <button
+           onClick={this.loginFB.bind(this)}
+           >送出sui2</button>           
         </div>
       )
   }
