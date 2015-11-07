@@ -3,6 +3,9 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import superagent from 'superagent-bluebird-promise'
 import TingJip from '../../GuanKiann/BingTsheh/TingJip'
+import Debug from 'debug'
+
+var debug = Debug('itaigi:ABo')
 
 class ABo extends React.Component {
   componentWillMount () { this.props.setQueryParams(this.props) }
@@ -84,6 +87,7 @@ class ABo extends React.Component {
   }
  
   render () {
+	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.後端網址)
     return (
         <div className='ui segment'>
           <TingJip 後端網址={this.props.後端網址}/>
@@ -109,6 +113,8 @@ class ABo extends React.Component {
 export default Transmit.createContainer(ABo, {
   queries: {
     csrftoken ({後端網址}) {
+    debug('後端網址 %s',後端網址)
+      if(!後端網址) return new Promise((cb)=>cb(''))
       return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()
         .then((body) => body['csrftoken'])
