@@ -3,6 +3,7 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import {Link} from 'react-router'
 import './ToLam.css'
+import Logo from './images/logo.svg'
 
 class ToLam extends React.Component {
   render () {
@@ -11,7 +12,7 @@ class ToLam extends React.Component {
         <h1 className='title segment'>
           <Link to='app'>
             <i className='logo'>
-              <u>i taigi</u>
+              <img src={Logo}/>
             </i>
           </Link>
         </h1>

@@ -11,13 +11,14 @@
 }
 
 .app.bar .logo {
-  background-image: url(./images/logo.png);
   position: absolute;
   width: 170px;
-  height: 72px;
+  height: 48px;
+  top: 10px;
+  left: 14px;
 }
 
-.app.bar .logo u {
-  position: relative;
-  left: -99999px;
+.app.bar .logo img {
+  width: 100%;
+  height: 100%;
 }
