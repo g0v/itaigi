@@ -1,6 +1,7 @@
 .app.bar {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .app.bar .title {
@@ -15,10 +16,8 @@
   width: 170px;
   height: 48px;
   top: 10px;
-  left: 14px;
 }
 
 .app.bar .logo img {
-  width: 100%;
   height: 100%;
 }
