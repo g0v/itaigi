@@ -13,7 +13,7 @@ class ABo extends React.Component {
     if (nextProps.後端網址 === this.props.後端網址) return
     this.props.setQueryParams(nextProps)
   }
-  
+
   constructor (props) {
     super(props)
     this.state = {
@@ -22,17 +22,17 @@ class ABo extends React.Component {
       音標: this.props.音標 || ''
     }
   }
-  
+
   handle漢字KeyUp (evt) {
     var q = evt.target.value
     this.setState({漢字:q})
   }
-  
+
   handle音標KeyUp (evt) {
     var q = evt.target.value
     this.setState({音標:q})
   }
-  
+
   handleSubmit (evt) {
     if (this.state.漢字 !== '') {
     	console.log(this.props.csrftoken)
@@ -76,7 +76,7 @@ class ABo extends React.Component {
 				else{
 				建議新詞文本['屬性']=JSON.stringify({})
 				}
-				
+
 		superagent.post(this.props.後端網址 + '平臺項目/加外語新詞文本')
 		  .withCredentials()
 		  .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -85,7 +85,7 @@ class ABo extends React.Component {
  		  .then(({body}) => (console.log('sui2')))
           .catch((a) => (console.log(a)))
   }
- 
+
   render () {
 	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.後端網址)
     return (
@@ -117,7 +117,7 @@ export default Transmit.createContainer(ABo, {
       if(!後端網址) return new Promise((cb)=>cb(''))
       return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()
-        .then((body) => body['csrftoken'])
+        .then(({body}) => body['csrftoken'])
     }
   }
 })
