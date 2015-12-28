@@ -125,6 +125,7 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -150,6 +151,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERSION': 'v2.3',
     }
 }
+
 
 # django-kronos，定時掠google sheet正規化資料
 INSTALLED_APPS += (
