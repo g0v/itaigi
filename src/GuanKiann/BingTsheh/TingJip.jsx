@@ -3,13 +3,7 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import superagent from 'superagent-bluebird-promise'
 
-class TingJip extends React.Component {
-  componentWillMount () { this.props.setQueryParams(this.props) }
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.後端網址 === this.props.後端網址) return
-    this.props.setQueryParams(nextProps)
-  }
-  
+class TingJip extends React.Component {  
   init () {
   
 	  window.fbAsyncInit = function() {
@@ -50,7 +44,7 @@ class TingJip extends React.Component {
 	}
 	getLoginCallback (response) {
         console.log(this.props)
-        let {後端網址, csrfToken} = this.props
+        let {後端網址, csrftoken} = this.props
         let postForm = this.postForm
 		return function(response)
 		{
@@ -60,7 +54,7 @@ class TingJip extends React.Component {
 	                process: 'login',
 	                access_token: response.authResponse.accessToken,
 	                expires_in: response.authResponse.expiresIn,
-	                csrfmiddlewaretoken: csrfToken
+	                csrfmiddlewaretoken: csrftoken
 	            }
 	            console.log(postForm)
 	            postForm(後端網址+'accounts/facebook/login/token/', data);
@@ -74,11 +68,11 @@ class TingJip extends React.Component {
 		}
     }
   render () {
-	  this.init()
+	this.init()
     console.log('csrftoken')
     return (
         <div className='ui segment'>
-           <textarea value='sui2'>ss</textarea>
+           <textarea value='sui2'></textarea>
            <button
            onClick={this.loginFB.bind(this)}
            >送出sui2</button>           
@@ -86,13 +80,3 @@ class TingJip extends React.Component {
       )
   }
 }
-
-export default Transmit.createContainer(TingJip, {
-  queries: {
-    csrftoken ({後端網址}) {
-      return superagent.get(後端網址 + 'csrf/看')
-		.withCredentials()
-        .then((body) => body['csrftoken'])
-    },
-  }
-})

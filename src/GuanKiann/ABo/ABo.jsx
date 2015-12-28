@@ -90,7 +90,8 @@ class ABo extends React.Component {
 	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.後端網址)
     return (
         <div className='ui segment'>
-          <TingJip 後端網址={this.props.後端網址}/>
+          <TingJip 後端網址={this.props.後端網址}
+            csrftoken={this.props.csrftoken}/>
           <div className='abo ui input'>
             <input placeholder='漢字' type='text'
               onKeyUp={this.handle漢字KeyUp.bind(this)}/>
