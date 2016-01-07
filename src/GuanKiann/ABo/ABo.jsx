@@ -47,7 +47,7 @@ class ABo extends React.Component {
 				'著作年':new Date().getFullYear().toString(),
 				'屬性':'{}',
 				'外語語言':'華語',
-				'外語資料':this.state.華語關鍵字,
+				'外語資料':this.props.華語關鍵字,
 				};
 		superagent.post(this.props.後端網址 + '平臺項目/加外語')
 		  .withCredentials()
@@ -55,7 +55,9 @@ class ABo extends React.Component {
 		  .set('X-CSRFToken',this.props.csrftoken)
  		  .send(外語內容)
  		  .then(({body}) => (this.加外語新詞文本(body['平臺項目編號'])))
-          .catch(({res}) => (this.加外語新詞文本(JSON.parse(res.text)['平臺項目編號'])) )
+      .catch(res => {
+        window.open(this.props.後端網址 + 'accounts/facebook/login', '_blank')
+      })
 		}
 	}
 	加外語新詞文本 (外語項目編號) {
