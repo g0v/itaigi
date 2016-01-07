@@ -3,9 +3,9 @@ import React from 'react'
 import Transmit from 'react-transmit'
 import superagent from 'superagent-bluebird-promise'
 
-class TingJip extends React.Component {  
+export default class TingJip extends React.Component {
   init () {
-  
+
 	  window.fbAsyncInit = function() {
 	    FB.init({
 	      appId      : '590065061070994',
@@ -21,7 +21,7 @@ class TingJip extends React.Component {
 	     fjs.parentNode.insertBefore(js, fjs);
 	   }(document, 'script', 'facebook-jssdk'))
   }
-	   
+
   postForm (action, data) {
 	  console.log(action)
 	    var f = document.createElement('form');
@@ -38,7 +38,7 @@ class TingJip extends React.Component {
 	    document.body.appendChild(f);
 	    f.submit();
 	}
-  
+
 	loginFB(evt) {
 	    FB.login(this.getLoginCallback(), {scope: "email"});
 	}
@@ -58,8 +58,8 @@ class TingJip extends React.Component {
 	            }
 	            console.log(postForm)
 	            postForm(後端網址+'accounts/facebook/login/token/', data);
-	            
-	        } else if (response && response.status 
+
+	        } else if (response && response.status
 	                   && ["not_authorized", "unknown"].indexOf(response.status) > -1) {
 	            console.log("self.onLoginCanceled.call(self, response);");
 	        } else {
@@ -72,10 +72,10 @@ class TingJip extends React.Component {
     console.log('csrftoken')
     return (
         <div className='ui segment'>
-           <textarea value='sui2'></textarea>
+           <textarea></textarea>
            <button
            onClick={this.loginFB.bind(this)}
-           >送出sui2</button>           
+           >送出sui2</button>
         </div>
       )
   }
