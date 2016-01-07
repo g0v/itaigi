@@ -15,7 +15,7 @@ class The extends React.Component {
                 <h3>這些詞還沒有人會用台語講</h3>
                 <div>la-baar</div>
                 <h3>我就是沒有人，我來講</h3>
-                <ABo/>
+                <ABo 後端網址={this.props.後端網址}/>
               </div>
             </div>
           </div>
