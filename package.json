@@ -1,6 +1,6 @@
 {
   "name": "itaigi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "itaigi",
   "scripts": {
     "start": "node devServer.js",
