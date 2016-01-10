@@ -2,7 +2,8 @@
 import React from 'react'
 import Transmit from 'react-transmit'
 import LaiLik from '../LaiLik/LaiLik'
-import superagent from 'superagent-bluebird-promise'
+import Promise from 'bluebird'
+var superagent = require('superagent-promise')(require('superagent'), Promise)
 import Debug from 'debug'
 
 var debug = Debug('itaigi:Su')

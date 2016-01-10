@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/g0v/taigi-neologism.git"
+    "url": "https://github.com/g0v/itaigi.git"
   },
   "keywords": [
     "g0v"
@@ -17,22 +17,18 @@
   "author": "itaigi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/g0v/taigi-neologism/issues"
+    "url": "https://github.com/g0v/itaigi/issues"
   },
-  "homepage": "https://github.com/g0v/taigi-neologism",
-  "dependencies": {
-  },
+  "homepage": "https://github.com/g0v/itaigi",
+  "dependencies": {},
   "devDependencies": {
-    "autoprefixer-core": "^5.2.0",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.1",
     "babel-preset-stage-0": "^6.3.13",
-    "bluebird": "^2.9.27",
-    "caching-fetch": "^1.0.8",
-    "classnames": "^2.1.1",
+    "bluebird": "^3.1.1",
     "css-loader": "^0.11.0",
     "debug": "^2.2.0",
     "eventsource-polyfill": "^0.9.6",
@@ -40,9 +36,7 @@
     "file-loader": "^0.8.1",
     "gh-pages": "^0.3.1",
     "history": "^1.12.6",
-    "html-loader": "^0.3.0",
     "json-loader": "^0.5.1",
-    "moment": "^2.9.0",
     "postcss-loader": "^0.4.3",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
@@ -52,14 +46,14 @@
     "react-transmit": "^2.6.3",
     "strict-loader": "^0.1.2",
     "style-loader": "^0.11.0",
-    "superagent": "^1.4.0",
-    "superagent-bluebird-promise": "^2.1.0",
+    "superagent": "^1.6.1",
+    "superagent-promise": "^1.1.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.2",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
   },
   "engines": {
-    "node": "^4.2.1"
+    "node": "^5.2.0"
   }
 }

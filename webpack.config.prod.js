@@ -1,10 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/index'
+    './src'
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -44,11 +44,7 @@ module.exports = {
     {
       test: /\.json$/,
       loader: 'json-loader'
-    },
-    {
-      test: /\.html$/,
-      loader: 'html-loader'
     }
     ]
   }
-};
+}

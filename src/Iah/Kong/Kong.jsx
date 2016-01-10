@@ -7,7 +7,8 @@ import Su from '../../GuanKiann/Su/Su'
 import ABo from '../../GuanKiann/ABo/ABo'
 import TakKang from '../../GuanKiann/TakKang/TakKang'
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi'
-import superagent from 'superagent-bluebird-promise'
+import Promise from 'bluebird'
+var superagent = require('superagent-promise')(require('superagent'), Promise)
 import Debug from 'debug'
 
 var debug = Debug('itaigi:Kong')

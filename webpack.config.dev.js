@@ -1,12 +1,12 @@
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
-    './src/index'
+    './src'
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -37,11 +37,7 @@ module.exports = {
     {
       test: /\.json$/,
       loader: 'json-loader'
-    },
-    {
-      test: /\.html$/,
-      loader: 'html-loader'
     }
     ]
   }
-};
+}

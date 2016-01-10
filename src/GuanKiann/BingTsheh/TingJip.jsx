@@ -1,7 +1,8 @@
 
 import React from 'react'
 import Transmit from 'react-transmit'
-import superagent from 'superagent-bluebird-promise'
+import Promise from 'bluebird'
+var superagent = require('superagent-promise')(require('superagent'), Promise)
 
 export default class TingJip extends React.Component {
   init () {
