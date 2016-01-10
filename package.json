@@ -4,6 +4,7 @@
   "description": "itaigi",
   "scripts": {
     "start": "node devServer.js",
+    "test": "standard --parser babel-eslint",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && (echo 'itaigi.tw' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
     "deploy": "npm run build && gh-pages -d build/"
   },
@@ -20,7 +21,9 @@
     "url": "https://github.com/g0v/itaigi/issues"
   },
   "homepage": "https://github.com/g0v/itaigi",
-  "dependencies": {},
+  "dependencies": {
+    "babel-eslint": "^4.1.6"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
@@ -44,6 +47,7 @@
     "react-modal": "^0.6.1",
     "react-router": "^1.0.0-rc3",
     "react-transmit": "^2.6.3",
+    "standard": "^5.4.1",
     "strict-loader": "^0.1.2",
     "style-loader": "^0.11.0",
     "superagent": "^1.6.1",

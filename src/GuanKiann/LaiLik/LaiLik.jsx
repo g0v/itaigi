@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Transmit from 'react-transmit'
 import Promise from 'bluebird'
@@ -8,23 +7,26 @@ import Debug from 'debug'
 var debug = Debug('itaigi:LaiLik')
 
 class LaiLik extends React.Component {
-  componentWillMount () { this.props.setQueryParams(this.props) }
-  componentWillReceiveProps (nextProps) {
+  componentWillMount() { this.props.setQueryParams(this.props) }
+  componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return
     this.props.setQueryParams(nextProps)
   }
 
-  render () {
+  render() {
     debug(this.props)
     return (
-        <div className='content'>出處：{this.props.laiLikData['名']}</div>
-      )
+    <div className='content'>
+      出處：
+      {this.props.laiLikData['名']}
+    </div>
+    )
   }
 }
 
 export default Transmit.createContainer(LaiLik, {
   queries: {
-    laiLikData ({laiLikId, 後端網址}) {
+    laiLikData({laiLikId, 後端網址}) {
       if (!laiLikId) {
         return Promise.resolve({})
       }

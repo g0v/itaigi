@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Transmit from 'react-transmit'
 import Su from '../Su/Su'
@@ -21,21 +20,21 @@ class GuaGi extends React.Component {
     if (this.props.guaGiData['結果'] < 0) {
       return <div></div>
     }
-    var suList = this.props.guaGiData['內容']['新詞文本'].map((d) =>
-      <Su suId={d['新詞文本項目編號']}
-        suText={d['文本資料']}
-        key={d['新詞文本項目編號']}
-        後端網址={this.props.後端網址}/>
+    var suList = this.props.guaGiData['內容']['新詞文本'].map((d) => <Su
+      suId={d['新詞文本項目編號']}
+      suText={d['文本資料']}
+      key={d['新詞文本項目編號']}
+      後端網址={this.props.後端網址} />
     )
     return (
-        <div className='guaGi'>
-          <div className='ui su segment'>
-            <div className='ui very relaxed list'>
-              {suList}
-            </div>
-          </div>
+    <div className='guaGi'>
+      <div className='ui su segment'>
+        <div className='ui very relaxed list'>
+          {suList}
         </div>
-      )
+      </div>
+    </div>
+    )
   }
 }
 
@@ -55,12 +54,12 @@ export default Transmit.createContainer(GuaGi, {
           '結果': 0,
           '內容': res.body
         }))
-        .catch((err) => ({
-          id,
-          '結果': -1,
-          '訊息': '發生錯誤',
-          '內容': err
-        }))
+      .catch((err) => ({
+        id,
+        '結果': -1,
+        '訊息': '發生錯誤',
+        '內容': err
+      }))
     }
   }
 })

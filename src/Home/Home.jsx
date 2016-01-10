@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Transmit from 'react-transmit'
 import Tshue from '../GuanKiann/Tshue/Tshue'
@@ -9,25 +8,23 @@ var debug = Debug('itaigi:Home')
 
 class Home extends React.Component {
 
-  componentWillMount () { this.props.setQueryParams(this.props) }
-  componentWillReceiveProps (nextProps) {
+  componentWillMount() { this.props.setQueryParams(this.props) }
+  componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return
     this.props.setQueryParams(nextProps)
   }
 
-  render () {
+  render() {
     return (
-      <div className='main container'>
-        <nav className='navigation'>
-          <Tshue
-            handleSubmit={this.props.handleKong.bind(this)}
-            {...this.props}/>
-        </nav>
-        <div className='content'>
-          <TakKang/>
-        </div>
+    <div className='main container'>
+      <nav className='navigation'>
+        <Tshue handleSubmit={this.props.handleKong.bind(this)} {...this.props}/>
+      </nav>
+      <div className='content'>
+        <TakKang/>
       </div>
-      )
+    </div>
+    )
   }
 }
 

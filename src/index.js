@@ -1,8 +1,6 @@
-
 import React from 'react'
-import {render} from 'react-dom'
-import Router, {Route, IndexRoute} from 'react-router'
-import HuanGing from './Iah/HuanGing/HuanGing'
+import { render } from 'react-dom'
+import Router, { Route, IndexRoute } from 'react-router'
 import App from './App/App'
 import Kong from './Iah/Kong/Kong'
 import Lun from './Iah/Lun/Lun'
@@ -17,19 +15,19 @@ Debug.enable('itaigi:*')
 
 const root = document.getElementById('app')
 
-//if (window.location.pathname === '/') {
-  //render(<HuanGing/>, root)
-//} else {
-  let history = createBrowserHistory()
-  render(
-    <Router history={history}>
-      <Route path='/' component={App}>
-        <IndexRoute component={Kong}/>
-        <Route path='k(/:k)' component={Kong}/>
-        <Route path='l(/:k)' component={Lun}/>
-        <Route path='t(/:k)' component={The}/>
-        <Route path='iong' component={Iong}/>
-        <Route path='mia' component={Mia}/>
-      </Route>
-    </Router>, root)
-//}
+// if (window.location.pathname === '/') {
+// render(<HuanGing/>, root)
+// } else {
+let history = createBrowserHistory()
+render(
+  <Router history={history}>
+    <Route path='/' component={App}>
+      <IndexRoute component={Kong} />
+      <Route path='k(/:k)' component={Kong} />
+      <Route path='l(/:k)' component={Lun} />
+      <Route path='t(/:k)' component={The} />
+      <Route path='iong' component={Iong} />
+      <Route path='mia' component={Mia} />
+    </Route>
+  </Router>, root)
+  // }
