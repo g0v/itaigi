@@ -32,6 +32,8 @@ class ABo extends React.Component {
     this.setState({音標:q})
   }
 
+  登入 (evt) {
+  }
   handleSubmit (evt) {
     if (this.state.漢字 !== '') {
     	console.log(this.props.csrftoken)
@@ -89,6 +91,7 @@ class ABo extends React.Component {
 
   render () {
 	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.後端網址)
+	let {後端網址}=this.props
     return (
         <div className='ui segment'>
           <div className='abo ui input'>
@@ -105,6 +108,9 @@ class ABo extends React.Component {
           <button
             className='ui button'
             onClick={this.handleSubmit.bind(this)}>送出</button>
+          <form action={後端網址+'accounts/facebook/login/'}>
+            <input type="submit" value="登入 & 送出"/>
+	      </form>
         </div>
       )
   }
