@@ -98,7 +98,7 @@ class ABo extends React.Component {
   }
   render無登入鈕仔 () {
     return (
-      <form action={後端網址+'accounts/facebook/login/'}>
+      <form action={this.props.後端網址+'accounts/facebook/login/'}>
         <input type="submit" value="登入 & 送出"/>
       </form>
     )
@@ -138,7 +138,7 @@ export default Transmit.createContainer(ABo, {
         .then(({body}) => body['csrftoken'])
     },
     編號 ({後端網址}) {
-      if(!後端網址) return new Promise((cb)=>cb(''))
+      if(!後端網址) return new Promise((cb)=>cb('無登入'))
       return superagent.get(後端網址 + '使用者/看編號')
 		.withCredentials()
         .then(({body}) => body['使用者編號'])
