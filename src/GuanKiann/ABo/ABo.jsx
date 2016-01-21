@@ -89,8 +89,24 @@ class ABo extends React.Component {
           .catch((a) => (console.log(a)))
   }
 
+  render有登入鈕仔 () {
+    return (
+          <button
+            className='ui button'
+            onClick={this.handleSubmit.bind(this)}>送出</button>
+    )
+  }
+  render無登入鈕仔 () {
+    return (
+      <form action={後端網址+'accounts/facebook/login/'}>
+        <input type="submit" value="登入 & 送出"/>
+      </form>
+    )
+  }
+  
   render () {
-	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.後端網址)
+	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.編號)
+	debug(this.props.編號)
 	let {後端網址}=this.props
     return (
         <div className='ui segment'>
@@ -105,12 +121,8 @@ class ABo extends React.Component {
           <div className='abo ui input'>
             <input placeholder='提供者' type='text'/>
           </div>
-          <button
-            className='ui button'
-            onClick={this.handleSubmit.bind(this)}>送出</button>
-          <form action={後端網址+'accounts/facebook/login/'}>
-            <input type="submit" value="登入 & 送出"/>
-	      </form>
+          {this.props.編號 == '無登入' ? this.render無登入鈕仔()
+            : this.render有登入鈕仔() }
         </div>
       )
   }
@@ -124,6 +136,12 @@ export default Transmit.createContainer(ABo, {
       return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()
         .then(({body}) => body['csrftoken'])
+    },
+    編號 ({後端網址}) {
+      if(!後端網址) return new Promise((cb)=>cb(''))
+      return superagent.get(後端網址 + '使用者/看編號')
+		.withCredentials()
+        .then(({body}) => body['使用者編號'])
     }
   }
 })
