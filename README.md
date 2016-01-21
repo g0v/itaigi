@@ -2,28 +2,31 @@
 新台語·運動
 ===========
 
+* [網站](http://itaigi.tw)
 * [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
-
-
-## Usage
-
-[API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
+* [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
 
 ### Frontend
 
 Install:
 
-        $ npm i && npm run build
+        $ npm i
 
 
 Start development server:
 
         $ npm start
         # open http://localhost:3000/
+        
+佈署:
+
+        $ npm run deploy        
+        
 
 ### Backend
 
-後端程式使用Python 3.4+，並放在`server-side/`資料夾.
+後端使用使用[臺灣言語平臺](https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-tai5)。
+環境要求Python 3.4+，並放在`server-side/`資料夾.
 以下指令請在`server-side/`裡面執行
 
 #### 環境設定
