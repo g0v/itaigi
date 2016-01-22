@@ -38,7 +38,9 @@ class ABo extends React.Component {
     this.setState({ 音標: q });
   }
 
-  handleSubmit(evt) {
+  登入 (evt) {
+  }
+  handleSubmit (evt) {
     if (this.state.漢字 !== '') {
       var 外語內容 = {
         '來源': JSON.stringify('自己'),
@@ -89,24 +91,47 @@ class ABo extends React.Component {
       .catch((a) => (console.log(a)));
   }
 
-  render() {
-    debug('this.props.csrftoken %s %s', this.props.csrftoken, this.props.後端網址);
+  render有登入鈕仔 () {
     return (
-    <div className='ui segment'>
-      <div className='abo ui input'>
-        <input placeholder='漢字' type='text' onKeyUp={this.handle漢字KeyUp.bind(this)} />
-      </div>
-      <div className='abo ui input'>
-        <input placeholder='台羅音標' type='text' onKeyUp={this.handle音標KeyUp.bind(this)} />
-      </div>
-      <div className='abo ui input'>
-        <input placeholder='提供者' type='text' />
-      </div>
-      <button className='ui button' onClick={this.handleSubmit.bind(this)}>
-        送出
-      </button>
-    </div>
-    );
+          <button
+            className='ui button'
+            onClick={this.handleSubmit.bind(this)}>送出</button>
+    )
+  }
+  render無登入鈕仔 () {
+    return (
+      <form method='get' action={this.props.後端網址+'accounts/facebook/login' }>
+        <input type="submit" value="登入 & 送出"/>
+        <input type="hidden" name="next"
+          value={'/%E5%B0%8E%E5%90%91?%E7%B6%B2%E5%9D%80='
+            + '//itaigi.tw/k/'+this.props.華語關鍵字
+            + '?'
+            + encodeURI('%E6%BC%A2%E5%AD%97='+this.state.漢字
+            + '&'+ '%E9%9F%B3%E6%A8%99='+this.state.音標)} />
+      </form>
+    )
+    // %E6%BC%A2%E5%AD%97 漢字
+    // %E9%9F%B3%E6%A8%99 音標
+  }
+
+  render () {
+	debug('this.props.csrftoken %s %s',this.props.csrftoken,this.props.編號)
+	debug(this.props.編號)
+	let {後端網址}=this.props
+    return (
+        <div className='ui segment'>
+          <div className='abo ui input'>
+            <input placeholder='漢字' type='text'
+              onKeyUp={this.handle漢字KeyUp.bind(this)}/>
+          </div>
+          <div className='abo ui input'>
+            <input placeholder='台羅音標' type='text'
+              onKeyUp={this.handle音標KeyUp.bind(this)}/>
+          </div>
+          {this.props.編號 == '無登入' ? this.render無登入鈕仔()
+            : this.render有登入鈕仔() }
+        </div>
+      )
   }
 }
 
@@ -116,8 +141,14 @@ export default Transmit.createContainer(ABo, {
       debug('後端網址 %s', 後端網址);
       if (!後端網址) return new Promise((cb) => cb(''));
       return superagent.get(後端網址 + 'csrf/看')
-        .withCredentials()
-        .then(({ body }) => body.csrftoken);
+		.withCredentials()
+        .then(({body}) => body['csrftoken'])
     },
-  },
-});
+    編號 ({後端網址}) {
+      if(!後端網址) return new Promise((cb)=>cb('無登入'))
+      return superagent.get(後端網址 + '使用者/看編號')
+		.withCredentials()
+        .then(({body}) => body['使用者編號'])
+    }
+  }
+})
