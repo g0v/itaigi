@@ -17,11 +17,11 @@ Start development server:
 
         $ npm start
         # open http://localhost:3000/
-        
+
 佈署:
 
-        $ npm run deploy        
-        
+        $ npm run deploy
+
 
 ### Backend
 
@@ -70,7 +70,7 @@ email和密碼隨意輸入
 1. 用瀏覽器進入 /admin
 2. 輸入剛剛的email和密碼
 3. social application
-provider：FB 
+provider：FB
 id：590065061070994
 key：db4f3fa26d26890e720d17a83ff5a6fe
 最後左下角choose all site
@@ -100,10 +100,17 @@ crontab -l
 ```
 sudo apt-get install -y libffi-dev # 為了連google oauth2
 git pull
-pip install -r requirements.txt 
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py 加sheet的json 臺語 itaigi-9.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 ```
+
+開發
+----
+
+* JavaScript Style: [Airbnb](https://github.com/airbnb/javascript)
+  - `npm test` 檢查
+  - `npm run reformat` 自動重排
 
 TODO
 ----
