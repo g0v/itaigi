@@ -98,10 +98,18 @@ class ABo extends React.Component {
   }
   render無登入鈕仔 () {
     return (
-      <form action={this.props.後端網址+'accounts/facebook/login/'}>
+      <form method='get' action={this.props.後端網址+'accounts/facebook/login' }>
         <input type="submit" value="登入 & 送出"/>
+        <input type="hidden" name="next"
+          value={'/%E5%B0%8E%E5%90%91?%E7%B6%B2%E5%9D%80='
+            + '//itaigi.tw/k/'+this.props.華語關鍵字
+            + '?'
+            + encodeURI('%E6%BC%A2%E5%AD%97='+this.state.漢字
+            + '&'+ '%E9%9F%B3%E6%A8%99='+this.state.音標)} />
       </form>
     )
+    // %E6%BC%A2%E5%AD%97 漢字
+    // %E9%9F%B3%E6%A8%99 音標
   }
   
   render () {
@@ -117,9 +125,6 @@ class ABo extends React.Component {
           <div className='abo ui input'>
             <input placeholder='台羅音標' type='text'
               onKeyUp={this.handle音標KeyUp.bind(this)}/>
-          </div>
-          <div className='abo ui input'>
-            <input placeholder='提供者' type='text'/>
           </div>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
