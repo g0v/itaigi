@@ -1,31 +1,31 @@
-import React from 'react'
-import Router from 'react-router'
-import Transmit from 'react-transmit'
+import React from 'react';
+import Router from 'react-router';
+import Transmit from 'react-transmit';
 
 class Tshue extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      q: this.props.q || ''
-    }
+      q: this.props.q || '',
+    };
   }
 
   handleKeyDown(evt) {
     if (evt.keyCode === 13 || this.state.q.length >= 2) {
-      this.handleSubmit(evt)
-      return
+      this.handleSubmit(evt);
+      return;
     }
   }
 
   handleKeyUp(evt) {
-    var q = evt.target.value
-    this.setState({q})
+    var q = evt.target.value;
+    this.setState({ q });
   }
 
   handleSubmit(evt) {
     if (this.state.q !== '') {
-      this.props.handleSubmit(this.state.q)
+      this.props.handleSubmit(this.state.q);
     }
   }
 
@@ -42,8 +42,8 @@ class Tshue extends React.Component {
         台語怎樣講
       </button>
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(Tshue, { query: {} })
+export default Transmit.createContainer(Tshue, { query: {} });

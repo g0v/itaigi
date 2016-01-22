@@ -1,12 +1,12 @@
-import React from 'react'
-import Transmit from 'react-transmit'
+import React from 'react';
+import Transmit from 'react-transmit';
 
 class Mia extends React.Component {
   propTypes = {
     params: React.PropTypes.object,
-    handleKong: React.PropTypes.func
+    handleKong: React.PropTypes.func,
   }
-  render () {
+  render() {
     return (
     <div className='main container'>
       <div className='mia'>
@@ -19,8 +19,8 @@ class Mia extends React.Component {
         </div>
       </div>
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(Mia, {})
+export default Transmit.createContainer(Mia, {});

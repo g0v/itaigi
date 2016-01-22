@@ -1,17 +1,18 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import Tshue from '../GuanKiann/Tshue/Tshue'
-import TakKang from '../GuanKiann/TakKang/TakKang'
-import Debug from 'debug'
+import React from 'react';
+import Transmit from 'react-transmit';
+import Tshue from '../GuanKiann/Tshue/Tshue';
+import TakKang from '../GuanKiann/TakKang/TakKang';
+import Debug from 'debug';
 
-var debug = Debug('itaigi:Home')
+var debug = Debug('itaigi:Home');
 
 class Home extends React.Component {
 
-  componentWillMount() { this.props.setQueryParams(this.props) }
+  componentWillMount() { this.props.setQueryParams(this.props); }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return
-    this.props.setQueryParams(nextProps)
+    if (nextProps.params === this.props.params) return;
+    this.props.setQueryParams(nextProps);
   }
 
   render() {
@@ -24,8 +25,8 @@ class Home extends React.Component {
         <TakKang/>
       </div>
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(Home, { queries: {} })
+export default Transmit.createContainer(Home, { queries: {} });

@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export default class HuangGing {
-  render () {
+  render() {
     return (
     <div className='huanGing'>
       ehyhey
     </div>
-    )
+    );
   }
 }

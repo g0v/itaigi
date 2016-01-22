@@ -1,5 +1,5 @@
-import React from 'react'
-import Transmit from 'react-transmit'
+import React from 'react';
+import Transmit from 'react-transmit';
 
 class TakKang extends React.Component {
   render() {
@@ -7,8 +7,8 @@ class TakKang extends React.Component {
     <div className='takkang ui segment'>
       台語每日一句或一段：文字圖+聲音檔
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(TakKang, { queries: {} })
+export default Transmit.createContainer(TakKang, { queries: {} });

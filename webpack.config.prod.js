@@ -1,51 +1,51 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src'
+    './src',
   ],
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     loaders: [
       {
         test: /\.jsx?/,
         loaders: ['babel', 'strict'],
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loader: 'style-loader!css-loader!postcss-loader',
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader?limit=1'
+        loader: 'url-loader?limit=1',
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
-      }
-    ]
-  }
-}
+        loader: 'json-loader',
+      },
+    ],
+  },
+};
