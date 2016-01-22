@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export default class Iong extends React.Component {
-  render () {
+  render() {
     return (
     <div className='main container'>
       <div className='iong'>
@@ -14,6 +14,6 @@ export default class Iong extends React.Component {
         </div>
       </div>
     </div>
-    )
+    );
   }
 }

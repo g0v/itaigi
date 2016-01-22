@@ -1,8 +1,8 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import { Link } from 'react-router'
-import './ToLam.css'
-import Logo from './images/logo.svg'
+import React from 'react';
+import Transmit from 'react-transmit';
+import { Link } from 'react-router';
+import './ToLam.css';
+import Logo from './images/logo.svg';
 
 class ToLam extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class ToLam extends React.Component {
       <h1 className='title segment'><Link to='app'> <i className='logo'><img src={Logo}/></i> </Link></h1>
       <ul className='ui main menu'>
         <li className='item'>
-          <Link to='/k' params={{k: ''}}> 怎樣講
+          <Link to='/k' params={{ k: '' }}> 怎樣講
           </Link>
         </li>
         <li className='item'>
@@ -47,8 +47,8 @@ class ToLam extends React.Component {
       </ul>
       <div></div>
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(ToLam, { query: {} })
+export default Transmit.createContainer(ToLam, { query: {} });

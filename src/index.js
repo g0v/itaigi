@@ -1,24 +1,24 @@
-import React from 'react'
-import { render } from 'react-dom'
-import Router, { Route, IndexRoute } from 'react-router'
-import App from './App/App'
-import Kong from './Iah/Kong/Kong'
-import Lun from './Iah/Lun/Lun'
-import The from './Iah/The/The'
-import Iong from './Iah/Iong/Iong'
-import Mia from './Iah/Mia/Mia'
-import createBrowserHistory from 'history/lib/createBrowserHistory'
-import './app.css'
+import React from 'react';
+import { render } from 'react-dom';
+import Router, { Route, IndexRoute } from 'react-router';
+import App from './App/App';
+import Kong from './Iah/Kong/Kong';
+import Lun from './Iah/Lun/Lun';
+import The from './Iah/The/The';
+import Iong from './Iah/Iong/Iong';
+import Mia from './Iah/Mia/Mia';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+import './app.css';
 
-import Debug from 'debug'
-Debug.enable('itaigi:*')
+import Debug from 'debug';
+Debug.enable('itaigi:*');
 
-const root = document.getElementById('app')
+const root = document.getElementById('app');
 
 // if (window.location.pathname === '/') {
 // render(<HuanGing/>, root)
 // } else {
-let history = createBrowserHistory()
+let history = createBrowserHistory();
 render(
   <Router history={history}>
     <Route path='/' component={App}>
@@ -29,5 +29,6 @@ render(
       <Route path='iong' component={Iong} />
       <Route path='mia' component={Mia} />
     </Route>
-  </Router>, root)
+  </Router>, root);
+
   // }

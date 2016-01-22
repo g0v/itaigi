@@ -1,12 +1,12 @@
-import React from 'react'
-import ToLam from '../GuanKiann/ToLam/ToLam'
-import FBTest from '../FBTest/FBTest'
+import React from 'react';
+import ToLam from '../GuanKiann/ToLam/ToLam';
+import FBTest from '../FBTest/FBTest';
 
-import './App.css'
+import './App.css';
 
 export default class App extends React.Component {
   kong(k) {
-    this.props.history.replaceState(null, '/k/' + k)
+    this.props.history.replaceState(null, '/k/' + k);
   }
 
   render() {
@@ -16,7 +16,7 @@ export default class App extends React.Component {
         <ToLam/>
       </header>
       {React.cloneElement(this.props.children,
-      {handleKong: this.kong.bind(this), 後端網址: 'http://db.itaigi.tw/'}
+      { handleKong: this.kong.bind(this), 後端網址: 'http://db.itaigi.tw/' }
     )}
       <FBTest/>
       <footer className='app footer inverted'>
@@ -36,11 +36,11 @@ export default class App extends React.Component {
         </ul>
       </footer>
     </div>
-    )
+    );
   }
 }
 
 App.propTypes = {
   history: React.PropTypes.object,
-  children: React.PropTypes.object
-}
+  children: React.PropTypes.object,
+};

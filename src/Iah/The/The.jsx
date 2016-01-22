@@ -1,17 +1,17 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import { Link } from 'react-router'
-import Tshue from '../../GuanKiann/Tshue/Tshue'
-import ABo from '../../GuanKiann/ABo/ABo'
+import React from 'react';
+import Transmit from 'react-transmit';
+import { Link } from 'react-router';
+import Tshue from '../../GuanKiann/Tshue/Tshue';
+import ABo from '../../GuanKiann/ABo/ABo';
 
 class The extends React.Component {
   propTypes = {
     params: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func
+    handleKong: React.PropTypes.func,
   }
 
-  render () {
+  render() {
     if (!this.props.params.k) {
       return (
       <div className='main container'>
@@ -26,8 +26,9 @@ class The extends React.Component {
           </div>
         </div>
       </div>
-      )
+      );
     }
+
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -44,15 +45,15 @@ class The extends React.Component {
       </div>
       <aside className='right column'>
         <div className='ui segment'>
-          <Link to='kong' params={{k: this.props.params.k}}> 怎樣講
+          <Link to='kong' params={{ k: this.props.params.k }}> 怎樣講
           </Link>
-          <Link to='lun' params={{k: this.props.params.k}}> 來討論
+          <Link to='lun' params={{ k: this.props.params.k }}> 來討論
           </Link>
         </div>
       </aside>
     </div>
-    )
+    );
   }
 }
 
-export default Transmit.createContainer(The, {})
+export default Transmit.createContainer(The, {});

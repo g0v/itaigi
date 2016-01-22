@@ -1,26 +1,28 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import LaiLik from '../LaiLik/LaiLik'
-import Promise from 'bluebird'
-var superagent = require('superagent-promise')(require('superagent'), Promise)
-import Debug from 'debug'
+import React from 'react';
+import Transmit from 'react-transmit';
+import LaiLik from '../LaiLik/LaiLik';
+import Promise from 'bluebird';
+var superagent = require('superagent-promise')(require('superagent'), Promise);
+import Debug from 'debug';
 
-var debug = Debug('itaigi:Su')
+var debug = Debug('itaigi:Su');
 
 class Su extends React.Component {
 
-  componentWillMount() { this.props.setQueryParams(this.props) }
+  componentWillMount() { this.props.setQueryParams(this.props); }
+
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return
-    this.props.setQueryParams(nextProps)
+    if (nextProps.params === this.props.params) return;
+    this.props.setQueryParams(nextProps);
   }
 
   render() {
-    const {suText, suData, 後端網址} = this.props
-    debug(this.props)
-    if (suData['結果'] == -2) {
-      return <div className='su item'></div>
+    const { suText, suData, 後端網址 } = this.props;
+    debug(this.props);
+    if (suData.結果 == -2) {
+      return <div className='su item'></div>;
     }
+
     return (
     <div className='su item'>
       <div className='content'>
@@ -28,12 +30,12 @@ class Su extends React.Component {
           {suText}
         </a>
         <div className='content'>
-          {suData['屬性內容'] ? suData['屬性內容']['音標'] : ''}
+          {suData.屬性內容 ? suData.屬性內容.音標 : ''}
         </div>
         <div className='list'>
           <div className='item'>
             <i className='right triangle icon'></i>
-            <LaiLik laiLikId={suData['來源']} 後端網址={後端網址} />
+            <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
           </div>
         </div>
         <ul className='ui secondary menu'>
@@ -49,23 +51,24 @@ class Su extends React.Component {
         </ul>
       </div>
     </div>
-    )
+    );
   }
 }
 
 export default Transmit.createContainer(Su, {
   queries: {
-    suData({suId, 後端網址}) {
+    suData({ suId, 後端網址 }) {
       if (!suId) {
         return Promise.resolve({
-          '結果': -2
-        })
+          '結果': -2,
+        });
       }
+
       return superagent.get(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId)
         .then((res) => Object.assign({
-            '結果': 0
+            '結果': 0,
           }, res.body))
-        .catch((err) => console.log(err))
-    }
-  }
-})
+        .catch((err) => console.log(err));
+    },
+  },
+});
