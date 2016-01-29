@@ -10,7 +10,7 @@ class ABo extends React.Component {
   state = {
     漢字: this.props.漢字 || '',
     音標: this.props.音標 || '',
-  }
+  };
 
   propTypes = {
     setQueryParams: React.PropTypes.func,
@@ -19,7 +19,7 @@ class ABo extends React.Component {
     音標: React.PropTypes.string,
     華語關鍵字: React.PropTypes.string,
     csrftoken: React.PropTypes.string,
-  }
+  };
 
   componentWillMount() { this.props.setQueryParams(this.props); }
 

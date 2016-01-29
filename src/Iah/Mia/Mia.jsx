@@ -5,7 +5,7 @@ class Mia extends React.Component {
   propTypes = {
     params: React.PropTypes.object,
     handleKong: React.PropTypes.func,
-  }
+  };
   render() {
     return (
     <div className='main container'>

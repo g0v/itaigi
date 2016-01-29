@@ -9,7 +9,7 @@ class The extends React.Component {
     params: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
     handleKong: React.PropTypes.func,
-  }
+  };
 
   render() {
     if (!this.props.params.k) {

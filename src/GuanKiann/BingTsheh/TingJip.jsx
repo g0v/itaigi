@@ -4,15 +4,15 @@ export default class TingJip extends React.Component {
   propTypes = {
     後端網址: React.PropTypes.string,
     csrftoken: React.PropTypes.string,
-  }
+  };
   init() {
-    window.fbAsyncInit = (function() {
+    window.fbAsyncInit = (function () {
       FB.init({
         appId: '590065061070994',
         xfbml: true,
         version: 'v2.5',
       });
-    })(function(d, s, id) {
+    })(function (d, s, id) {
 
       var js;
       var fjs = d.getElementsByTagName(s)[0];
@@ -50,7 +50,7 @@ export default class TingJip extends React.Component {
     console.log(this.props);
     let { 後端網址, csrftoken } = this.props;
     let postForm = this.postForm;
-    return function(response) {
+    return function (response) {
       if (response.authResponse) {
         let data = {
           next: '',

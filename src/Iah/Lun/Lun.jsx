@@ -7,7 +7,7 @@ class Lun extends React.Component {
   propTypes = {
     params: React.PropTypes.object,
     handleKong: React.PropTypes.func,
-  }
+  };
   render() {
     if (!this.props.params.k) {
       return (

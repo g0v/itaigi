@@ -17,7 +17,7 @@ class Kong extends React.Component {
     kongData: React.PropTypes.object,
     '後端網址': React.PropTypes.object,
     handleKong: React.PropTypes.func,
-  }
+  };
 
   componentWillMount() { this.props.setQueryParams(this.props); }
 
