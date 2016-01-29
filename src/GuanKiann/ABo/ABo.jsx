@@ -88,7 +88,7 @@ class ABo extends React.Component {
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
       .send(建議新詞文本)
-      .then(({ body }) => (console.log('sui2')))
+      .then(({ body }) => (alert('台語阿肥會先幫忙改成正規用字再送出喔')))
       .catch((a) => (console.log(a)));
   }
 
