@@ -4,19 +4,31 @@ import FBTest from '../FBTest/FBTest';
 
 import './App.css';
 
-export default class App extends React.Component {
+import Transmit from 'react-transmit';
+import { Promise } from 'bluebird';
+var superagent = require('superagent-promise')(require('superagent'), Promise);
+import Debug from 'debug';
+var debug = Debug('itaigi:App');
+
+
+var 後端網址='http://db.itaigi.tw/';
+
+class App extends React.Component {
   kong(k) {
     this.props.history.replaceState(null, '/k/' + k);
   }
 
   render() {
+    console.log('1750');
+    console.log(this.props.csrftoken);
+    console.log('1751');
     return (
     <div className='app background'>
       <header className='app header'>
         <ToLam/>
       </header>
       {React.cloneElement(this.props.children,
-      { handleKong: this.kong.bind(this), 後端網址: 'http://db.itaigi.tw/' }
+      { handleKong: this.kong.bind(this), 後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號 }
     )}
       <FBTest/>
       <footer className='app footer inverted'>
@@ -44,3 +56,25 @@ App.propTypes = {
   history: React.PropTypes.object,
   children: React.PropTypes.object,
 };
+
+
+
+
+export default Transmit.createContainer(App, {
+  queries: {
+    csrftoken() {
+      debug('後端網址 %s', 後端網址);
+      if (!後端網址) return new Promise((cb) => cb(''));
+      return superagent.get(後端網址 + 'csrf/看')
+		.withCredentials()
+        .then(({ body }) => body.csrftoken);
+    },
+
+    編號() {
+      if (!後端網址) return new Promise((cb)=>cb('無登入'));
+      return superagent.get(後端網址 + '使用者/看編號')
+		.withCredentials()
+        .then(({ body }) => body.使用者編號);
+    },
+  },
+});
