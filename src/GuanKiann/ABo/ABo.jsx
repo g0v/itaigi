@@ -138,7 +138,8 @@ class ABo extends React.Component {
   }
 }
 
-export default Transmit.createContainer(ABo, {
+export default Transmit.createContainer(ABo, {});
+/*
   queries: {
     csrftoken({ 後端網址 }) {
       debug('後端網址 %s', 後端網址);
@@ -147,7 +148,6 @@ export default Transmit.createContainer(ABo, {
 		.withCredentials()
         .then(({ body }) => body.csrftoken);
     },
-
     編號({ 後端網址 }) {
       if (!後端網址) return new Promise((cb)=>cb('無登入'));
       return superagent.get(後端網址 + '使用者/看編號')
@@ -156,3 +156,4 @@ export default Transmit.createContainer(ABo, {
     },
   },
 });
+*/
