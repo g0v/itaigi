@@ -10,8 +10,7 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
 
-
-var 後端網址='http://db.itaigi.tw/';
+var 後端網址 = 'http://db.itaigi.tw/';
 
 class App extends React.Component {
   kong(k) {
@@ -56,9 +55,6 @@ App.propTypes = {
   history: React.PropTypes.object,
   children: React.PropTypes.object,
 };
-
-
-
 
 export default Transmit.createContainer(App, {
   queries: {

@@ -17,7 +17,7 @@ class FBTest extends React.Component {
 
   componentDidMount() {
     var _this = this;
-    window.fbAsyncInit = function () {
+    window.fbAsyncInit = function() {
       FB.init({
         appId: '612719925532636',
         xfbml: true,
@@ -28,7 +28,7 @@ class FBTest extends React.Component {
         method: 'fql.query',
         query: 'SELECT object_id, name FROM album WHERE owner="1661026360846388"',
       },
-        function (albums) {
+        function(albums) {
           if (albums && !albums.error) {
             var images = [];
             var name_album = albums[0].name;
@@ -36,8 +36,8 @@ class FBTest extends React.Component {
               method: 'fql.query',
               query: 'SELECT object_id, src_big FROM photo WHERE album_object_id=' + albums[0].object_id,
             },
-              function (photos) {
-                photos.forEach(function (item) {
+              function(photos) {
+                photos.forEach(function(item) {
                   item.name_album = name_album;
                   return item;
                 });
@@ -52,7 +52,7 @@ class FBTest extends React.Component {
       );
     }.bind(this)
 
-    ;(function (d, s, id) {
+    ;(function(d, s, id) {
       var js;
       var fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
