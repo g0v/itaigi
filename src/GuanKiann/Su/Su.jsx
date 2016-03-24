@@ -3,6 +3,7 @@ import Transmit from 'react-transmit';
 import LaiLik from '../LaiLik/LaiLik';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
+import SoundsMapping from './SoundsMapping';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:Su');
@@ -32,6 +33,9 @@ class Su extends React.Component {
         <div className='content'>
           {suData.屬性內容 ? suData.屬性內容.音標 : ''}
         </div>
+        <audio controls>
+          <source src={"http://t.moedict.tw/" + SoundsMapping.map(suData.屬性內容.音標.normalize()) + ".ogg"} type='audio/ogg' />
+        </audio>
         <div className='list'>
           <div className='item'>
             <i className='right triangle icon'></i>
