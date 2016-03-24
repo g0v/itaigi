@@ -2,17 +2,20 @@ import React from 'react';
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
-import Debug from 'debug';
-
-var debug = Debug('itaigi:ABo');
+import debug from 'debug';
+var log = debug('itaigi:ABo');
 
 class ABo extends React.Component {
-  state = {
-    漢字: this.props.漢字 || '',
-    音標: this.props.音標 || '',
-  };
 
-  propTypes = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      漢字: this.props.漢字 || '',
+      音標: this.props.音標 || ''
+    };
+  }
+
+  static propTypes = {
     setQueryParams: React.PropTypes.func,
     後端網址: React.PropTypes.string,
     漢字: React.PropTypes.string,
@@ -118,17 +121,17 @@ class ABo extends React.Component {
   }
 
   render() {
-    debug('this.props.csrftoken %s %s', this.props.csrftoken, this.props.編號);
-    debug(this.props.編號);
     let { 後端網址 } = this.props;
     return (
         <div className='ui segment'>
           <div className='abo ui input'>
             <input placeholder='漢字' type='text'
+              defaultValue={this.props.漢字}
               onKeyUp={this.handle漢字KeyUp.bind(this)}/>
           </div>
           <div className='abo ui input'>
             <input placeholder='台羅音標' type='text'
+              defaultValue={this.props.音標}
               onKeyUp={this.handle音標KeyUp.bind(this)}/>
           </div>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
@@ -142,7 +145,7 @@ export default Transmit.createContainer(ABo, {});
 /*
   queries: {
     csrftoken({ 後端網址 }) {
-      debug('後端網址 %s', 後端網址);
+      log('後端網址 %s', 後端網址);
       if (!後端網址) return new Promise((cb) => cb(''));
       return superagent.get(後端網址 + 'csrf/看')
 		.withCredentials()

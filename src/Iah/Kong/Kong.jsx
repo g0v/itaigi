@@ -11,11 +11,11 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  propTypes = {
+  static propTypes = {
     setQueryParams: React.PropTypes.func,
     params: React.PropTypes.object,
     kongData: React.PropTypes.object,
-    '後端網址': React.PropTypes.object,
+    '後端網址': React.PropTypes.string,
     handleKong: React.PropTypes.func,
   };
 
@@ -47,7 +47,7 @@ class Kong extends React.Component {
         </button>
       </div>
       <h3>我就是沒有人，我來講</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} />
+      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
     </div>
     );
   }
@@ -64,7 +64,7 @@ class Kong extends React.Component {
           </button>
         </div>
         <h3>我就是沒有人，我來講</h3>
-        <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} />
+        <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
       </div>
       );
     }
@@ -75,7 +75,7 @@ class Kong extends React.Component {
       <GuaGi id={g.外語項目編號} key={g.外語項目編號} 後端網址={this.props.後端網址}/>
     ))}
       <h3>啊無咧？</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} />
+      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
     </div>
     );
   }
