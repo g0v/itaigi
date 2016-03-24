@@ -11,7 +11,7 @@ class ABo extends React.Component {
     super(props);
     this.state = {
       漢字: this.props.漢字 || '',
-      音標: this.props.音標 || ''
+      音標: this.props.音標 || '',
     };
   }
 
@@ -95,7 +95,7 @@ class ABo extends React.Component {
       .catch((a) => (console.log(a)));
     this.setState({
       漢字: '',
-      音標: ''
+      音標: '',
     });
   }
 
@@ -125,7 +125,7 @@ class ABo extends React.Component {
   }
 
   render() {
-    let {後端網址} = this.props;
+    let { 後端網址 } = this.props;
     return (
         <div className='ui segment'>
           <div className='abo ui input'>
