@@ -6,6 +6,13 @@ import ToLam from '../GuanKiann/ToLam/ToLam';
 
 class FBTest extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      href: '',
+    };
+  }
+
   componentDidMount() {
     var _this = this;
     window.fbAsyncInit = function() {
