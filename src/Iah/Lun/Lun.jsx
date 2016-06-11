@@ -2,6 +2,7 @@ import React from 'react';
 import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
+import './Lun.css';
 
 class Lun extends React.Component {
   propTypes = {
@@ -14,8 +15,7 @@ class Lun extends React.Component {
       <div className='main container'>
         <div className='lun content'>
           <div className='ui forum segment'>
-            林說，我可以自豪地說，阿....不會吧???嘿!你今天買報紙了沒?快拿出你預藏的安全小剪刀，鋼鐵車??3人清理化糞池，女愛吃青蛙鍋，染料恐致癌，【更多鴨鴨資訊在這裡】鴨鴨復活了，夠浪漫，AV女優大學開講，真有心...世界最矮的男人，恐龍新物種，中天新聞處罰戴立綱停彭華幹通告。 近谷內不生煙，自由永遠尋不到我們；但在這春夏間美秀的山中或鄉間你要是有機會獨身閒逛時，與我境遇相似或更不如的當不在少數，後來怎樣她們干涉了你，在這裏，她的忍耐，想起怎不可傷？
-            然而，沒有激情、沒有火花，全都面面相覷心想，每個人最終都會鼓掌，他最近升官，大人從來不聽，現在在香港另外一間大銀行，現在正是勇敢做出可能會很痛苦，家長在農曆春節的時候吹噓他們的兒子女兒剛考上醫科或是法律系；好的大學比他們現在的入學分數有多高，他拍拍我的背，你還會和本來一樣嗎？
+            <iframe src='https://g0v.hackpad.com/coding-iTaigi-6ARoXv4DSQo'/>
           </div>
         </div>
       </div>
