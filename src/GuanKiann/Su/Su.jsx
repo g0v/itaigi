@@ -34,7 +34,7 @@ class Su extends React.Component {
           {suData.屬性內容 ? suData.屬性內容.音標 : ''}
         </div>
         <audio controls>
-          <source src={"http://t.moedict.tw/" + SoundsMapping.map(suData.屬性內容.音標 ? suData.屬性內容.normalize(): '') + ".ogg"} type='audio/ogg' />
+          <source src={"http://t.moedict.tw/" + SoundsMapping.map(suData.屬性內容.音標 ? suData.屬性內容.音標 : '') + ".ogg"} type='audio/ogg' />
         </audio>
         <div className='list'>
           <div className='item'>
