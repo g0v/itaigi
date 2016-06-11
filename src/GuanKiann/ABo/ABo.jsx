@@ -1,7 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
-import Recorder from '../../GuanKiann/Su/Recorder.jsx'
+import LokIm from '../../GuanKiann/LokIm/LokIm.jsx'
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 var log = debug('itaigi:ABo');
@@ -139,7 +139,7 @@ class ABo extends React.Component {
               value={this.state.音標}
               onChange={this.handle音標KeyUp.bind(this)}/>
           </div>
-          <Recorder className='abo ui inline'/>
+          <LokIm className='abo ui inline'/>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
         </div>
