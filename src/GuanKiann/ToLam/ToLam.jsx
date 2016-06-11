@@ -8,7 +8,7 @@ class ToLam extends React.Component {
   render() {
     return (
     <div className='app bar container'>
-      <h1 className='title segment'><Link to='app'> <i className='logo'><img src={Logo}/></i> </Link></h1>
+      <h1 className='title segment'><Link to='/'> <i className='logo'><img src={Logo}/></i> </Link></h1>
       <ul className='ui main menu'>
         <li className='item'>
           <Link to='/k' params={{ k: '' }}> 怎樣講
