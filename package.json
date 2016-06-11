@@ -22,7 +22,9 @@
     "url": "https://github.com/g0v/itaigi/issues"
   },
   "homepage": "https://github.com/g0v/itaigi",
-  "dependencies": {},
+  "dependencies": {
+    "raw-loader": "^0.5.1"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-jscs": "^2.0.5",
