@@ -135,7 +135,7 @@ class ABo extends React.Component {
               onChange={this.handle漢字KeyUp.bind(this)}/>
           </div>
           <div className='abo ui input'>
-            <input placeholder='台羅音標' type='text'
+            <input placeholder='台羅' type='text'
               value={this.state.音標}
               onChange={this.handle音標KeyUp.bind(this)}/>
           </div>
