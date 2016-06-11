@@ -41,13 +41,13 @@ class Recorder extends React.Component {
     }
 
     navigator.getUserMedia({audio: true}, this.startUserMedia.bind(this), function(e) {
-      __log('No live audio input: ' + e);
+      console.log('No live audio input: ' + e);
     });
 
     // TODO:
     // this.encoderWorker = new MyWorker();
   }
-    
+
   handleMicClick() {
     console.log("record!")
     this.recorder.clear()
@@ -68,7 +68,7 @@ class Recorder extends React.Component {
     this.audioElement.play()
 
   }
- 
+
   renderPlay() {
     if(this.state && this.state.recording) {
       return <button className='ui icon button' onClick={this.handlePlayClick.bind(this)}>
@@ -81,13 +81,13 @@ class Recorder extends React.Component {
 
   render() {
     return (
-      <div className='ui input'> 
+      <div className='ui input'>
       <button className='ui icon button' onClick={this.handleMicClick.bind(this)}><i className='ui unmute icon'/> </button>
       <button className='ui icon button' onClick={this.handleStopClick.bind(this)}><i className='ui stop icon'/> </button>
       <audio ref={(r) => this.audioElement = r} src='' />
       {this.renderPlay()}
-      </div> 
-    ) 
+      </div>
+    )
   }
 }
 
