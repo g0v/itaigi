@@ -22,7 +22,7 @@ class GuaGi extends React.Component {
       return <div></div>;
     }
 
-    var suList = this.props.guaGiData.內容.新詞文本.map((d) => <Su
+    var suList = this.props.guaGiData.內容.新詞文本.filter((d)=>(d.推薦用字=='是')).map((d) => <Su
       suId={d.新詞文本項目編號}
       suText={d.文本資料}
       key={d.新詞文本項目編號}
