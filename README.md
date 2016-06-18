@@ -5,6 +5,7 @@
 * [網站](http://itaigi.tw)
 * [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
+* [正規化工作表](https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk)
 
 ### Frontend
 
