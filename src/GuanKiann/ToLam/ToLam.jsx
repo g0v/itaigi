@@ -33,16 +33,16 @@ class ToLam extends React.Component {
       </ul>
       <ul className='ui social menu'>
         <li className='item'>
-          <a href="#">F</a>
+          <a href="#"><i className="fa fa-facebook-square fa-2x"></i></a>
         </li>
         <li className='item'>
-          <a href="#">G</a>
+          <a href="#"><i className="fa fa-google-plus-square fa-2x"></i></a>
         </li>
         <li className='item'>
-          <a href="#">T</a>
+          <a href="#"><i className="fa fa-twitter-square fa-2x"></i></a>
         </li>
         <li className='item'>
-          <a href="#">R</a>
+          <a href="#"><i className="fa fa-rss-square fa-2x"></i></a>
         </li>
       </ul>
       <div></div>
