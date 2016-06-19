@@ -72,7 +72,9 @@ class Kong extends React.Component {
     return (
     <div className='kongHuat'>
       {this.props.kongData.內容.列表.map((g) => (
-      <GuaGi id={g.外語項目編號} key={g.外語項目編號} 後端網址={this.props.後端網址}/>
+      <GuaGi id={g.外語項目編號}
+        key={g.外語項目編號} 新詞文本={g.新詞文本}
+        後端網址={this.props.後端網址}/>
     ))}
       <h3>啊無咧？</h3>
       <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
@@ -125,9 +127,6 @@ export default Transmit.createContainer(Kong, {
       }
 
       return superagent.get(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k)
-
-        // .then(({body}) => body.列表[0].外語項目編號)
-        // .then((id) => superagent.get(後端網址 + '平臺項目/看對應內容?平臺項目編號=' + id))
         .then(({ body }) => ({
           '關鍵字': params.k,
           '結果': body.列表.length,
