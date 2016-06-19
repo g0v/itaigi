@@ -86,7 +86,9 @@ class Kong extends React.Component {
     return (
         <div className='kianGi'>
         {this.props.kongData.內容.其他建議.map((g) =>
-            <GuaGi id={g.外語項目編號} key={g.外語項目編號} 後端網址={this.props.後端網址}/>
+            <GuaGi id={g.外語項目編號}
+              key={g.外語項目編號} 新詞文本={g.新詞文本}
+              後端網址={this.props.後端網址}/>
             )}
         </div>
         );
