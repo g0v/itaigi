@@ -11,17 +11,28 @@
 
 Install:
 
-        $ npm i
+If in ubuntu 14.04
+```bash
+$ sudo apt-get install npm nodejs-legacy
+```
 
+```bash
+$ npm i
+```
+If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
 Start development server:
 
-        $ npm start
-        # open http://localhost:3000/
+```bash
+$ npm start
+```
+then open http://localhost:3000/
 
 佈署:
 
-        $ npm run deploy
+```bash
+$ npm run deploy
+```
 
 
 ### Backend
