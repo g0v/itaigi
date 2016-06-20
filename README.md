@@ -11,24 +11,28 @@
 
 Install:
 
+#### Install npm
+[安裝 NPM](https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst)
+
 If in ubuntu 14.04
 ```bash
 $ sudo apt-get install npm nodejs-legacy
 ```
 
+#### Install packages
 ```bash
 $ npm i
 ```
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
-Start development server:
+#### Start development server:
 
 ```bash
 $ npm start
 ```
 then open http://localhost:3000/
 
-佈署:
+#### 佈署:
 
 ```bash
 $ npm run deploy
@@ -50,7 +54,7 @@ pip install -r requirements.txt # 裝相關python套件
 python manage.py migrate #建立資料庫欄位
 sudo apt-get install -y libav-tools # 安裝avconv for Ubuntu
 ```
-以上即已建立開發用簡單的 sqlite db(/server-side/db.sqlite3)，如欲使用 postgres 請參考[Postgres設定](https://github.com/g0v/itaigi#postgres設定)
+以上即已建立開發用簡單的 sqlite db(/server-side/db.sqlite3)，如欲使用 postgres 請參考[Postgres設定](https://github.com/g0v/itaigi#postgres設定optional)
 
 #### Postgres設定(optional)
 詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
