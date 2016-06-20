@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from curses.ascii import isupper
 import os
+
+from django.conf import settings
 import xlrd
 
 
@@ -45,11 +47,9 @@ def 走():
         '收錄者': 1,
         '來源': 資料庫.來源內容(),
         '版權': '會使公開',
-        # 		'種類':'字詞',
-        '語言腔口': '臺語',
+        '語言腔口': settings.MOTHER_TONGUE,
         '著作所在地': '臺灣',
         '著作年': '2014',
-        # 		'屬性':self.詞屬性,
     }
     for 漢字, 音標, 華語 in 資料庫.資料():
         if len(音標) > 0 and isupper(音標[0]):

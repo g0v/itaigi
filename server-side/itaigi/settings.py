@@ -85,6 +85,8 @@ INSTALLED_APPS += (
     '臺灣言語資料庫',
     '臺灣言語平臺',
 )
+MOTHER_TONGUE = '臺語'
+FOREIGN_LANGUAGE = '華語'
 
 # 使用者上傳檔案
 MEDIA_ROOT = os.path.join(BASE_DIR, "資料庫影音檔案")
