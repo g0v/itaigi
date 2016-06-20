@@ -3,6 +3,7 @@ from curses.ascii import isupper
 import os
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import transaction
 import xlrd
 
@@ -47,7 +48,10 @@ def 走():
             '著作所在地': '臺灣',
             '著作年': '2014',
         }
+        a = 0
         for 漢字, 音標, 華語 in 資料庫.資料():
+            a += 1
+            print(a)
             if len(音標) > 0 and isupper(音標[0]):
                 種類 = '語句'
             else:
@@ -67,10 +71,11 @@ def 走():
                     }
                     外語內容.update(公家內容)
                     try:
-                        外語平臺項目 = 平臺項目表.找外語資料(外語內容)
-                    except:
                         外語平臺項目 = 平臺項目表.加外語資料(外語內容)
-                    文本平臺項目 = 平臺項目表.外語翻母語(外語平臺項目.編號(), 閩南語內容)
+                        外語平臺項目編號 = 外語平臺項目.編號()
+                    except ValidationError as 錯誤:
+                        外語平臺項目編號 = 錯誤.平臺項目編號
+                    文本平臺項目 = 平臺項目表.外語翻母語(外語平臺項目編號, 閩南語內容)
                     文本平臺項目.設為推薦用字()
             else:
                 pass
