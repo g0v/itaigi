@@ -14,10 +14,14 @@
 .app.bar .logo {
   position: absolute;
   width: 170px;
-  height: 48px;
+  height: 72px;
   top: 10px;
 }
 
 .app.bar .logo img {
   height: 100%;
+}
+
+.ui.right.item {
+  padding-top: 10px
 }
