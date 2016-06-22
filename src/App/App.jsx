@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
     <div className='app background'>
       <header className='app header'>
-        <ToLam/>
+        <ToLam pathname={this.props.location.pathname}/>
       </header>
       {React.cloneElement(this.props.children,
       { handleKong: this.kong.bind(this), 後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號 }
