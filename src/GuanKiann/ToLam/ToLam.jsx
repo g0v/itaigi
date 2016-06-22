@@ -6,6 +6,12 @@ import Logo from './images/logo.svg';
 
 class ToLam extends React.Component {
   render() {
+    var path = this.props.pathname;
+    var menu_item_class = function(prefix) {
+        if (path.startsWith(prefix) || (path === '/' && prefix === '/k'))
+          return "item active";
+        return "item";
+    }
     return (
     <div className='app bar container'>
       <h1 className='title segment'>
@@ -14,19 +20,16 @@ class ToLam extends React.Component {
         </Link>
       </h1>
       <div className='ui labeled icon menu'>
-        <Link className='item' to='/k' params={{ k: '' }}>
+        <Link className={menu_item_class('/k')} to='/k' params={{ k: '' }}>
           <i className="sound icon"></i>怎樣講
         </Link>
-        <Link className='item' to='/l'>
-          <i className="comments outline icon"></i>來討論
-        </Link>
-        <Link className='item' to='/t'>
+        <Link className={menu_item_class('/t')} to='/t'>
           <i className="unmute icon"></i>我很會
         </Link>
-        <Link className='item' to='/iong'>
+        <Link className={menu_item_class('/iong')} to='/iong'>
           <i className="configure icon"></i>好工具
         </Link>
-        <Link className='item' to='/mia'>
+        <Link className={menu_item_class('/mia')} to='/mia'>
           <i className="flag icon"></i>名人堂
         </Link>
       </div>
