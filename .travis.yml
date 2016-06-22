@@ -1,0 +1,33 @@
+sudo: false
+language: python
+python:
+- '3.4'
+- '3.5'
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.9
+      - g++-4.9
+      - python3-dev
+      - zlib1g-dev
+      - libbz2-dev
+      - liblzma-dev
+      - libboost-all-dev
+      - libyaml-dev
+      - libxslt1-dev
+      - libav-tools  
+      - libmp3lame0
+      - libavcodec-extra-53
+install:
+- cd server-side
+- pip install -r requirements.txt
+branches:
+  only:
+  - master
+script:
+- python manage.py migrate
+- echo '{"type":"service_account","project_id":"itaigi-1106","private_key_id":"b8549347e35f88e719851dfa6df58bea8cb34aae","private_key":"-----BEGINPRIVATEKEY-----MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCik+m7kU7Y/2RAIcbtyHUSFXtx6FHCLZ0FLoHcxykP/Ul1Rmr9u0EXfuJif8vLu81ilSWHuDwt1crLKPSzwIstc9siq00W3+w8IvONXT0jcFnwtNXkvI2BQfwgjCkE+sednx4uGF0fGyBiRdiLgPCrThi0BxSmKEcgeKFFRk5SnyM7BSTCPUftzqO98WoUGgPMv8XobD/IeH8kSgEEPn6QLi0/ltGWbBPjev07Di0B3VljtBNt84aEBuPViiucH7W8U1Ext3A5Yu7n1pfQBxWnYtbM62x3/Bydi//53xJPv216xEQUFMq/UISr7x5vb7RyuykTexoJspT8/SNdeesfAgMBAAECggEAOdcNzOGBf8o8zGQ39djfbbOe24Ofssmvl2xYX0er4DhorgSDhAneupE10X1N8Am8pFoTpBlzr4rkPysvA9R4r48MY2U2Y/D+htaYd664VadfGDf98Qb0AQyMurei0Fa4NeeqQRQB7VMlTlEzHU6eURPTzhjGy+aAh5jjJ1Y//zx1Ulvkon/VaRChYpj78gr9i8fisuj9IWwuAha8QuIokoCug9/YOHm8LJ0fQJDgJ/GeKGksjlfG63XMOjw91J2YQ3c9Zdszasb8Q6wXnxD6Ly56rQMMKyWrosDkCApHZhBCt1+aTA6fnwiiQ4EVe1aze8fmsy+8jzE/KvOyOYjs4QKBgQDX922PSwNktFPAsDyz6qF0CjZki7FrLk626+eq+NMejIuGwQGqAtyhbQwztq77lqJXPf57D0GmDrFNv4zsus81rBGlIgYRfNHyhHHiloz6r3XUFNqAnivFa7pA+oFXAVCK0/hct/5xTuKaFEe25RGf0kBrAiS+7tJi6NmrQ35IywKBgQDAtvPHjN9qs+bmLiKy93Wq3vrhyuyiKE//UBeEctIP5l85e6h6RWh8AtNRVoUK7/nl+S75kQWHAUtQFGctCjVv2JLS34IDGekNfLr4pf4cMkk3/17dBrjbj1DQr7eBxQQy+3ISiQFyoU7Dl2XHldQDpasoOnZJjKX6WBe640UgfQKBgQCQIM9cNuqf1Xyjdro8NBTl1T7xoQyZhAECMLOeNYrns1IWb05GALzvelAPXxauTpwu7u+bftYIFXwcb/6DqjRJFHl+JBO6rfuLBvreBi01y80t6XDdLzH1Aez+GnAg+X6f99CjSCOlyMiPnYMyuvMlHvLgt0CAr+92FQHXOybXOwKBgFtW21hbRpE2T1wNxdh5PUYNhW97VIjO/ouOFHdsTG/Iyp1eJM4/E3SjijDlBw3WC+WaI0+aErqYPG/qG7TXP9iRF5Xm5aI+p50C30N2uWf31Yg6+2VbCEbYOH+QqTNSg9j+IGT0lsET/1bo7Q6ZzvEjlmnsu5/Ej+6Fzkl/6oWpAoGADvbaGWpC3WU+mIZfxzWl9H/ZPlrAWgbFckZvFsT1c69WBjrFKQjKuoeMlV62zEottaD/HfbNz2vey/Nb5041M2IMt1keZPCGv1q23CRIBHpcjtLNwwi883lxHma8DnKAQjERYkauWzAUy1HbuEOAg0YwIgGVUF0eX93HAegIvPQ=-----ENDPRIVATEKEY-----","client_email":"232370060540-p505q6g6usec1oih6vdoccb4h39s42r0@developer.gserviceaccount.com","client_id":"232370060540-p505q6g6usec1oih6vdoccb4h39s42r0.apps.googleusercontent.com","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/232370060540-p505q6g6usec1oih6vdoccb4h39s42r0%40developer.gserviceaccount.com"}' > itaigi-b8549347e35f.json
+- python manage.py 加sheet的json 臺語 itaigi-b8549347e35f.json https://docs.google.com/spreadsheets/d/1zN7Dtrn5b7nCdhUnfP6qNDnMpcQ7xcmfoT7s9k6rjeQ/edit#gid=0
+- python manage.py 顯示全部sheet狀態
