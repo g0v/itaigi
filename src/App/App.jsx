@@ -11,7 +11,8 @@ import Debug from 'debug';
 var debug = Debug('itaigi:App');
 
 var 後端網址 = 'http://db.itaigi.tw/';
-後端網址 = 'http://localhost:8000/';
+// 後端網址 = 'http://private-f0474-tai5uan5gian5gi2phing5thai5.apiary-mock.com/';
+// 後端網址 = 'http://localhost:8000/';
 
 class App extends React.Component {
   kong(k) {
