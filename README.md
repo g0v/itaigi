@@ -5,22 +5,38 @@
 * [網站](http://itaigi.tw)
 * [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
+* [正規化工作表](https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk)
 
 ### Frontend
 
 Install:
 
-        $ npm i
+#### Install npm
+[安裝 NPM](https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst)
 
+If in ubuntu 14.04
+```bash
+$ sudo apt-get install npm nodejs-legacy
+```
 
-Start development server:
+#### Install packages
+```bash
+$ npm i
+```
+If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
-        $ npm start
-        # open http://localhost:3000/
+#### Start development server:
 
-佈署:
+```bash
+$ npm start
+```
+then open http://localhost:3000/
 
-        $ npm run deploy
+#### 佈署:
+
+```bash
+$ npm run deploy
+```
 
 
 ### Backend
@@ -31,18 +47,19 @@ Start development server:
 
 #### 環境設定
 ```python3
+sudo apt-get install -y python3-dev libffi-dev # 為了編譯, 連google oauth2
 virtualenv venv --python python3 # 設置環境檔
 . venv/bin/activate # 載入環境
 pip install -r requirements.txt # 裝相關python套件
 python manage.py migrate #建立資料庫欄位
 sudo apt-get install -y libav-tools # 安裝avconv for Ubuntu
-sudo apt-get install -y libffi-dev # 為了連google oauth2
 ```
+以上即已建立開發用簡單的 sqlite db(/server-side/db.sqlite3)，如欲使用 postgres 請參考[Postgres設定](https://github.com/g0v/itaigi#postgres設定optional)
 
-### Postgres設定
+#### Postgres設定(optional)
 詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
 
-#### 匯入資料
+### 匯入資料
 ```bash
 echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 ```
@@ -82,11 +99,13 @@ key：db4f3fa26d26890e720d17a83ff5a6fe
 1. 申請服務
 2. 開啟Drive API
 3. 用Service Account得到一個`服務帳戶json`，假設叫做`itaigi-sui2.json`
+4. 將`itaigi-sui2.json`放到 server-side/
 
 #### 設定google development
 假設`服務帳戶json`得到`itaigi-sui2.json`
 ```bash
 python manage.py 加sheet的json 臺語 itaigi-sui2.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
+python manage.py 顯示全部sheet狀態
 ```
 
 #### 設定crontab
@@ -94,6 +113,10 @@ python manage.py 加sheet的json 臺語 itaigi-sui2.json https://docs.google.com
 echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> itaigi/settings.py # 設定django-kronos
 python manage.py installtasks
 crontab -l
+```
+##### 人工做一擺
+```bash
+python manage.py 整理全部sheet到資料庫
 ```
 
 ### 無完整的簡單佈署流程
