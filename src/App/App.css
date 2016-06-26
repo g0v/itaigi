@@ -26,14 +26,6 @@ body {
   margin: 2em 0;
 }
 
-.app .content {
-  width: 640px;
-}
-
-.app .right.column {
-  width: 320px;
-}
-
 .app .app.header {
   background: #fff;
 }
@@ -45,7 +37,3 @@ body {
 body {
   background: #f1efeb;
 }
-
-/*h2 {*/
-  /*color: rgba(251, 66, 75, 0.8);*/
-/*}*/

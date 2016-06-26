@@ -1,4 +1,7 @@
 import React from 'react';
+
+import './HuatIm.css';
+
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);

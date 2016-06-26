@@ -25,22 +25,21 @@ class Su extends React.Component {
     }
 
     return (
-    <div className='su item'>
+    <div className='su card'>
       <div className='content'>
-        <a className='header'>
+        <div className='left floated'>
+          <div className='header green'>
           {suText}
-        </a>
-        <div className='content'>
+          </div>
+          <div className='meta'>
           {suData.屬性內容 ? suData.屬性內容.音標 : ''}
-        </div>
-          <HuatIm suData={suData} />
-        <div className='list'>
-          <div className='item'>
-            <i className='right triangle icon'></i>
-            <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
           </div>
         </div>
-        <ul className='ui secondary menu'>
+          <HuatIm suData={suData} />
+        <div className='description'>
+            <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
+        </div>
+        <ul>
           <li className='item'>
             <i className='thumbs outline up icon'></i>按呢講好 (124)
           </li>

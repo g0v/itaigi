@@ -31,16 +31,15 @@ class Tshue extends React.Component {
 
   render() {
     return (
-    <div className='search ui action input container'>
+    <div className='ui action input big container'>
       <input
-    type='text'
-    placeholder='A... 那個'
-    defaultValue={this.props.defaultValue}
-    onKeyDown={this.handleKeyDown.bind(this)}
-    onKeyUp={this.handleKeyUp.bind(this)} />
-      <button className='ui teal button' onClick={this.handleSubmit.bind(this)}>
-        台語怎樣講&nbsp;&nbsp;<i className="fa fa-search fa-1x"></i>
-      </button>
+        type='text'
+        placeholder='A... 那個'
+        defaultValue={this.props.defaultValue}
+        onKeyDown={this.handleKeyDown.bind(this)}
+        onKeyUp={this.handleKeyUp.bind(this)}
+      />
+      <div className="ui button big teal" onClick={this.handleSubmit.bind(this)}>台語怎麼講</div>
     </div>
     );
   }
