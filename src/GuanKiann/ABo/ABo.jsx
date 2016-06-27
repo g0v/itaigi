@@ -2,6 +2,7 @@ import React from 'react';
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 import LokIm from '../../GuanKiann/LokIm/LokIm.jsx'
+import APui from './APui'
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 var log = debug('itaigi:ABo');
@@ -13,6 +14,7 @@ class ABo extends React.Component {
     this.state = {
       漢字: this.props.漢字 || '',
       音標: this.props.音標 || '',
+      modalIsOpen: false
     };
   }
 
@@ -80,13 +82,21 @@ class ABo extends React.Component {
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
       .send(建議新詞文本)
-      .then(({ body }) => (alert('台語阿肥會先幫忙改成正規用字再送出喔')))
+      .then(({ body }) => (this.openModal()))
       .catch((a) => (console.log(a)));
     this.setState({
       漢字: '',
       音標: '',
     });
   }
+
+ openModal(){
+    this.setState({modalIsOpen:true})
+ }
+
+closeModal(){
+    this.setState({modalIsOpen:false})
+ }
 
   render有登入鈕仔() {
     return (
@@ -135,6 +145,9 @@ class ABo extends React.Component {
           <LokIm className='abo ui inline'/>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
+
+            <APui modalIsOpen={this.state.modalIsOpen} 
+              closeModal={this.closeModal.bind(this)}/>
         </div>
       );
   }
