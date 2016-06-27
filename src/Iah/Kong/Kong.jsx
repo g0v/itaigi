@@ -107,12 +107,6 @@ class Kong extends React.Component {
         : this.renderTshueSiann()}
         {this.props.kongData.結果 >= 0 ? this.renderKianGi() : []}
       </div>
-      <aside className='right column'>
-        <div className='ui segment'>
-          <Link to='lun' params={{ k: this.props.params.k }}> 來討論
-          </Link>
-        </div>
-      </aside>
     </div>
     );
   }

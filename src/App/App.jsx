@@ -33,16 +33,16 @@ class App extends React.Component {
       <footer className='app footer inverted'>
         <ul className='ui menu container inverted'>
           <li className='item'>
-            <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism'>Hackpad</a>
+            <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism' target="_blank">Hackpad</a>
           </li>
           <li className='item'>
             授權條款
           </li>
           <li className='item'>
-            <a href='https://g0v.tw/'>g0v</a>
+            <a href='https://g0v.tw/' target="_blank">g0v</a>
           </li>
           <li className='item'>
-            <a href='https://github.com/g0v/itaigi'>GitHub</a>
+            <a href='https://github.com/g0v/itaigi' target="_blank">GitHub</a>
           </li>
         </ul>
       </footer>

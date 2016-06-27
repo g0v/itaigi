@@ -29,7 +29,7 @@ class GuaGi extends React.Component {
     return (
     <div className='guaGi'>
       <div className='ui su segment'>
-        <div className='ui very relaxed list'>
+        <div className='ui cards'>
           {suList}
         </div>
       </div>
