@@ -32,7 +32,7 @@ class Su extends React.Component {
           {suText}
           </div>
           <div className='meta'>
-          {suData.屬性內容 ? suData.屬性內容.音標 : ''}
+          {suData.音標資料 ? suData.音標資料 : ''}
           </div>
         </div>
           <HuatIm suData={suData} />
