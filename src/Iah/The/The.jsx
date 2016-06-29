@@ -25,7 +25,13 @@ class The extends React.Component {
 
   顯示選單()
   {
-      let 無建議的外語列表=this.props.外語列表.列表.map((guaGi)=>(<div key={guaGi.外語項目編號}>{guaGi.外語資料}</div>))
+      let 無建議的外語列表=this.props.外語列表.列表.map(
+        (guaGi)=>(
+          <div key={guaGi.外語項目編號}>
+            <button onClick={this.props.欲提供講法.bind(this,guaGi.外語資料)}>{guaGi.外語資料}</button>
+          </div>
+          )
+        )
       return (
       <div className='main container'>
         <div className='the content'>
