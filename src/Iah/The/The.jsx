@@ -16,7 +16,7 @@ class The extends React.Component {
 
   render() {
     if (!this.props.params.k) {
-      let 無建議的外語列表=this.props.外語列表.列表.map((guaGi)=>(<div>{guaGi.外語資料}</div>))
+      let 無建議的外語列表=this.props.外語列表.列表.map((guaGi)=>(<div key={guaGi.外語項目編號}>{guaGi.外語資料}</div>))
       return (
       <div className='main container'>
         <div className='the content'>
@@ -63,6 +63,11 @@ class The extends React.Component {
 export default Transmit.createContainer(The, {
   queries: {
     外語列表 ({ 後端網址 }) {
+      if (後端網址 === undefined) {
+        return Promise.resolve({
+          '列表': [],
+        });
+      }
       return superagent.get(後端網址 + '平臺項目列表/揣無建議的外語')
         .then(({ body }) => (body))
       .catch((err) => ({
