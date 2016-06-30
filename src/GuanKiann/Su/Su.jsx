@@ -19,7 +19,7 @@ class Su extends React.Component {
   }
 
   render() {
-    const { suText, suData, 後端網址 } = this.props;
+    const { suText, suIm, suData, 後端網址 } = this.props;
     debug(this.props);
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
@@ -33,7 +33,7 @@ class Su extends React.Component {
           {suText}
           </div>
           <div className='meta'>
-          {suData.音標資料 ? suData.音標資料 : ''}
+            {suIm}
           </div>
         </div>
           <HuatIm suData={suData} />
