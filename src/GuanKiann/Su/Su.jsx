@@ -2,6 +2,7 @@ import React from 'react';
 import Transmit from 'react-transmit';
 import LaiLik from '../LaiLik/LaiLik';
 import HuatIm from '../HuatIm/HuatIm';
+import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
@@ -23,7 +24,7 @@ class Su extends React.Component {
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
-
+    let 按呢講的外語=this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi 外語={外語}/>))
     return (
     <div className='su card'>
       <div className='content'>
@@ -38,6 +39,7 @@ class Su extends React.Component {
           <HuatIm suData={suData} />
         <div className='description'>
             <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
+            對應華語詞：{按呢講的外語}
         </div>
         <ul>
           <li className='item'>
@@ -69,6 +71,16 @@ export default Transmit.createContainer(Su, {
         .then((res) => Object.assign({
             '結果': 0,
           }, res.body))
+        .catch((err) => console.log(err));
+    },
+    按呢講的外語列表({ suText, 後端網址 }) {
+      if (!suText) {
+        return Promise.resolve({
+          '結果': -2,
+        });
+      }
+      return superagent.get(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText)
+        .then(({body}) => body.列表)
         .catch((err) => console.log(err));
     },
   },
