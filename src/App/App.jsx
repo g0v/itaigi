@@ -11,24 +11,32 @@ import Debug from 'debug';
 var debug = Debug('itaigi:App');
 
 var 後端網址 = 'http://db.itaigi.tw/';
+// 後端網址 = 'http://private-f0474-tai5uan5gian5gi2phing5thai5.apiary-mock.com/';
+// 後端網址 = 'http://localhost:8000/';
 
 class App extends React.Component {
   kong(k) {
     this.props.history.replaceState(null, '/k/' + k);
   }
 
+  欲提供講法(外語) {
+    this.props.history.replaceState(null, '/t/' + 外語);
+  }
+
   render() {
-    console.log('1750');
-    console.log(this.props.csrftoken);
-    console.log('1751');
     return (
     <div className='app background'>
       <header className='app header'>
         <ToLam pathname={this.props.location.pathname}/>
       </header>
-      {React.cloneElement(this.props.children,
-      { handleKong: this.kong.bind(this), 後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號 }
-    )}
+        { React.cloneElement(
+          this.props.children,
+          {
+            handleKong: this.kong.bind(this), 
+            欲提供講法: this.欲提供講法.bind(this),
+            後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號
+          }
+        )}
       <FBTest/>
       <footer className='app footer inverted'>
         <ul className='ui menu container inverted'>

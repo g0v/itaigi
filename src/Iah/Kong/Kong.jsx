@@ -3,6 +3,7 @@ import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
+import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
@@ -57,12 +58,7 @@ class Kong extends React.Component {
     if (this.props.kongData.結果 === 0) {
       return (
       <div className='tshueBo'>
-        <div className='ui segment'>
-          <h3>{this.props.kongData.關鍵字 || '找什麼？'}</h3>
-          <button className='ui button'>
-            求講法
-          </button>
-        </div>
+        <KiuKongHuat 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
         <h3>我就是沒有人，我來講</h3>
         <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
       </div>
