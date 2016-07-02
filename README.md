@@ -1,6 +1,7 @@
 
 新台語·運動
 ===========
+[![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi#info=devDependencies)
 
 * [網站](http://itaigi.tw)
 * [專案 Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
