@@ -1,10 +1,6 @@
 import React from 'react';
 
 export default class TingJip extends React.Component {
-  propTypes = {
-    後端網址: React.PropTypes.string,
-    csrftoken: React.PropTypes.string,
-  }
   init() {
     window.fbAsyncInit = (function () {
       FB.init({
@@ -82,4 +78,9 @@ export default class TingJip extends React.Component {
     </div>
     );
   }
-};;;;;
+}
+
+TingJip.propTypes = {
+    後端網址: React.PropTypes.string,
+    csrftoken: React.PropTypes.string,
+  };

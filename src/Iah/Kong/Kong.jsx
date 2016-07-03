@@ -12,14 +12,6 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  static propTypes = {
-    setQueryParams: React.PropTypes.func,
-    params: React.PropTypes.object,
-    kongData: React.PropTypes.object,
-    '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func,
-  }
-
   componentWillMount() { this.props.setQueryParams(this.props); }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +40,10 @@ class Kong extends React.Component {
         </button>
       </div>
       <h3>我就是沒有人，我來講</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
+      <ABo 華語關鍵字={this.props.kongData.關鍵字}
+        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+      />
     </div>
     );
   }
@@ -58,9 +53,13 @@ class Kong extends React.Component {
     if (this.props.kongData.結果 === 0) {
       return (
       <div className='tshueBo'>
-        <KiuKongHuat 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
+        <KiuKongHuat 華語關鍵字={this.props.kongData.關鍵字}
+          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
         <h3>我就是沒有人，我來講</h3>
-        <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
+        <ABo 華語關鍵字={this.props.kongData.關鍵字}
+          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+          編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        />
       </div>
       );
     }
@@ -73,7 +72,10 @@ class Kong extends React.Component {
         後端網址={this.props.後端網址}/>
     ))}
       <h3>啊無咧？</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
+      <ABo 華語關鍵字={this.props.kongData.關鍵字}
+       後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+       編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+       />
     </div>
     );
   }
@@ -95,7 +97,10 @@ class Kong extends React.Component {
     return (
     <div className='main container'>
       <nav className='navigation'>
-        <Tshue defaultValue={this.props.params.k} handleSubmit={this.props.handleKong.bind(this)} {...this.props}/>
+        <Tshue
+          defaultValue={this.props.params.k}
+          handleSubmit={this.props.handleKong.bind(this)}
+          {...this.props}/>
       </nav>
       <div className='kong content'>
         {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
@@ -107,6 +112,14 @@ class Kong extends React.Component {
     );
   }
 }
+
+Kong.propTypes = {
+    setQueryParams: React.PropTypes.func,
+    params: React.PropTypes.object,
+    kongData: React.PropTypes.object,
+    '後端網址': React.PropTypes.string,
+    handleKong: React.PropTypes.func,
+  };
 
 export default Transmit.createContainer(Kong, {
   queries: {

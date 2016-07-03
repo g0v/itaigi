@@ -6,12 +6,6 @@ import debug from 'debug';
 
 class KiuKongHuat extends React.Component {
 
-  static propTypes = {
-    華語關鍵字: React.PropTypes.string,
-    後端網址: React.PropTypes.string,
-    csrftoken: React.PropTypes.string,
-  }
-
   問外語(evt) {
     var 外語內容 = {
       '外語資料': this.props.華語關鍵字,
@@ -39,5 +33,11 @@ class KiuKongHuat extends React.Component {
       );
   }
 }
+
+KiuKongHuat.propTypes = {
+  華語關鍵字: React.PropTypes.string,
+  後端網址: React.PropTypes.string,
+  csrftoken: React.PropTypes.string,
+};
 
 export default Transmit.createContainer(KiuKongHuat, {});

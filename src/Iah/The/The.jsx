@@ -6,12 +6,6 @@ import ABo from '../../GuanKiann/ABo/ABo';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 class The extends React.Component {
-  propTypes = {
-    params: React.PropTypes.object,
-    '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func,
-  }
-
   componentWillMount() { this.props.setQueryParams(this.props); }
 
   render() {
@@ -64,6 +58,12 @@ class The extends React.Component {
     );
   }
 }
+
+The.propTypes = {
+    params: React.PropTypes.object,
+    '後端網址': React.PropTypes.string,
+    handleKong: React.PropTypes.func,
+  };
 
 export default Transmit.createContainer(The, {
   queries: {

@@ -18,15 +18,6 @@ class ABo extends React.Component {
     };
   }
 
-  static propTypes = {
-    setQueryParams: React.PropTypes.func,
-    後端網址: React.PropTypes.string,
-    漢字: React.PropTypes.string,
-    音標: React.PropTypes.string,
-    華語關鍵字: React.PropTypes.string,
-    csrftoken: React.PropTypes.string,
-  }
-
   componentWillMount() { this.props.setQueryParams(this.props); }
 
   componentWillReceiveProps(nextProps) {
@@ -42,9 +33,6 @@ class ABo extends React.Component {
   handle音標KeyUp(evt) {
     var q = evt.target.value;
     this.setState({ 音標: q });
-  }
-
-  登入(evt) {
   }
 
   handleSubmit(evt) {
@@ -152,5 +140,14 @@ class ABo extends React.Component {
       );
   }
 }
+
+ABo.propTypes = {
+  setQueryParams: React.PropTypes.func,
+  後端網址: React.PropTypes.string,
+  漢字: React.PropTypes.string,
+  音標: React.PropTypes.string,
+  華語關鍵字: React.PropTypes.string,
+  csrftoken: React.PropTypes.string,
+};
 
 export default Transmit.createContainer(ABo, {});

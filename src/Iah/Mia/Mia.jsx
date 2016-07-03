@@ -2,10 +2,6 @@ import React from 'react';
 import Transmit from 'react-transmit';
 
 class Mia extends React.Component {
-  propTypes = {
-    params: React.PropTypes.object,
-    handleKong: React.PropTypes.func,
-  }
   render() {
     return (
     <div className='main container'>
@@ -18,5 +14,10 @@ class Mia extends React.Component {
     );
   }
 }
+
+Mia.propTypes = {
+  params: React.PropTypes.object,
+  handleKong: React.PropTypes.func,
+};
 
 export default Transmit.createContainer(Mia, {});
