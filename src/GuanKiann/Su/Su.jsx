@@ -50,12 +50,12 @@ class Su extends React.Component {
       });
     if (evt === '按呢講好')
       this.setState({
-        按呢講好: (this.state.按呢講好 || this.props.suData.按呢講好)+1,
+        按呢講好: this.props.suData.按呢講好+1,
         voted: evt
       });
     else if (evt === '按呢無好')
       this.setState({
-        按呢無好: (this.state.按呢無好 || this.props.suData.按呢無好)+1,
+        按呢無好: this.props.suData.按呢無好+1,
         voted: evt
       });
   }
@@ -66,7 +66,7 @@ class Su extends React.Component {
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
-    let 按呢講的外語=this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi 外語={外語}/>))
+    let 按呢講的外語=this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>))
     var voted = function(suId) {
         if (cookie.load('vote_'+suId))
           return "disabled";

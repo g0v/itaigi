@@ -20,7 +20,7 @@ class ToLam extends React.Component {
         </Link>
       </h1>
       <div className='ui labeled icon menu'>
-        <Link className={menu_item_class('/k')} to='/k' params={{ k: '' }}>
+        <Link className={menu_item_class('/k')} to='/k'>
           <i className="sound icon"></i>怎樣講
         </Link>
         <Link className={menu_item_class('/t')} to='/t'>
