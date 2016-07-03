@@ -1,14 +1,14 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import { Link } from 'react-router'
-import Tshue from '../../GuanKiann/Tshue/Tshue'
-import './Lun.css'
+import React from 'react';
+import Transmit from 'react-transmit';
+import { Link } from 'react-router';
+import Tshue from '../../GuanKiann/Tshue/Tshue';
+import './Lun.css';
 
 class Lun extends React.Component {
   propTypes = {
     params: React.PropTypes.object,
     handleKong: React.PropTypes.func,
-  };
+  }
   render() {
     if (!this.props.params.k) {
       return (

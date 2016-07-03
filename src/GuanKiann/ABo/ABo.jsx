@@ -1,11 +1,11 @@
-import React from 'react'
-import Transmit from 'react-transmit'
-import { Promise } from 'bluebird'
-import LokIm from '../../GuanKiann/LokIm/LokIm.jsx'
-import APui from './APui'
-var superagent = require('superagent-promise')(require('superagent'), Promise)
-import debug from 'debug'
-var log = debug('itaigi:ABo')
+import React from 'react';
+import Transmit from 'react-transmit';
+import { Promise } from 'bluebird';
+import LokIm from '../../GuanKiann/LokIm/LokIm.jsx';
+import APui from './APui';
+var superagent = require('superagent-promise')(require('superagent'), Promise);
+import debug from 'debug';
+var log = debug('itaigi:ABo');
 
 class ABo extends React.Component {
 
@@ -14,7 +14,7 @@ class ABo extends React.Component {
     this.state = {
       漢字: this.props.漢字 || '',
       音標: this.props.音標 || '',
-      modalIsOpen: false
+      modalIsOpen: false,
     };
   }
 
@@ -25,7 +25,7 @@ class ABo extends React.Component {
     音標: React.PropTypes.string,
     華語關鍵字: React.PropTypes.string,
     csrftoken: React.PropTypes.string,
-  };
+  }
 
   componentWillMount() { this.props.setQueryParams(this.props); }
 
@@ -90,13 +90,13 @@ class ABo extends React.Component {
     });
   }
 
- openModal(){
-    this.setState({modalIsOpen:true})
- }
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
 
-closeModal(){
-    this.setState({modalIsOpen:false})
- }
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   render有登入鈕仔() {
     return (
@@ -121,7 +121,7 @@ closeModal(){
               + encodeURI('%E6%BC%A2%E5%AD%97=' + this.state.漢字
               + '&' + '%E9%9F%B3%E6%A8%99=' + this.state.音標)} />
         </form>
-      </div> 
+      </div>
     );
 
     // %E6%BC%A2%E5%AD%97 漢字
@@ -146,7 +146,7 @@ closeModal(){
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
 
-            <APui modalIsOpen={this.state.modalIsOpen} 
+            <APui modalIsOpen={this.state.modalIsOpen}
               closeModal={this.closeModal.bind(this)}/>
         </div>
       );
