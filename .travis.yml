@@ -5,7 +5,8 @@ node_js:
 - '5'
 - '6'
 env:
-  - CXX=g++-4.8
+- TSI2_LING7='build'
+- TSI2_LING7='test'
 addons:
   apt:
     sources:
@@ -16,5 +17,5 @@ branches:
   only:
   - master
 script:
-- npm test
-- npm run build
+- echo npm run $TSI2_LING7
+- npm run $TSI2_LING7
