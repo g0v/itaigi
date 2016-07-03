@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Router, { Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './App/App';
 import Kong from './Iah/Kong/Kong';
 import Lun from './Iah/Lun/Lun';
@@ -18,7 +18,7 @@ const root = document.getElementById('app');
 // if (window.location.pathname === '/') {
 // render(<HuanGing/>, root)
 // } else {
-let history = createBrowserHistory();
+let history = browserHistory;
 render(
   <Router history={history}>
     <Route path='/' component={App}>

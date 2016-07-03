@@ -16,11 +16,11 @@ var 後端網址 = 'http://db.itaigi.tw/';
 
 class App extends React.Component {
   kong(k) {
-    this.props.history.replaceState(null, '/k/' + k);
+    this.props.history.replace('/k/' + k);
   }
 
   欲提供講法(外語) {
-    this.props.history.replaceState(null, '/t/' + 外語);
+    this.props.history.replace('/t/' + 外語);
   }
 
   render() {
