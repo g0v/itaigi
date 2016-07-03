@@ -17,9 +17,8 @@ class Su extends React.Component {
     this.state = {
       按呢講好: props.suData.按呢講好,
       按呢無好: props.suData.按呢無好,
-      voted: cookie.load('vote_'+props.suId),
+      voted: cookie.load('vote_' + props.suId),
     };
-    debug(this.state);
   }
 
   componentWillMount() {
@@ -32,32 +31,33 @@ class Su extends React.Component {
   }
 
   投票(evt) {
-    if (cookie.load('vote_'+this.props.suId)) {
-        alert('這句投過了!');
-        return
+    if (cookie.load('vote_' + this.props.suId)) {
+      alert('這句投過了!');
+      return;
     }
+
     var 票 = {
-      '平臺項目編號': this.props.suId,
-      'decision': evt,
+      平臺項目編號: this.props.suId,
+      decision: evt,
     };
     superagent.post(this.props.後端網址 + '平臺項目/投票')
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
       .send(票)
-      .then(({body}) => {if (body.success) cookie.save('vote_'+body.suId, evt, { path: '/' });})
+      .then(({ body }) => {if (body.success) cookie.save('vote_' + body.suId, evt, { path: '/' });})
       .catch(res => {
         console.log(res);
       });
     if (evt === '按呢講好')
       this.setState({
-        按呢講好: this.props.suData.按呢講好+1,
-        voted: evt
+        按呢講好: this.props.suData.按呢講好 + 1,
+        voted: evt,
       });
     else if (evt === '按呢無好')
       this.setState({
-        按呢無好: this.props.suData.按呢無好+1,
-        voted: evt
+        按呢無好: this.props.suData.按呢無好 + 1,
+        voted: evt,
       });
   }
 
@@ -88,25 +88,35 @@ class Su extends React.Component {
         <div className='ui list'>
           <div className='item'>
             <i className='thumbs outline up icon'></i>
-            <div className="content">
-              按呢講好<span className="ui yellow circular label">{this.state.按呢講好 || suData.按呢講好}</span>
-              <div className={"ui button left pointing label green"+(this.state.voted ? " disabled" : "")} onClick={this.投票.bind(this, '按呢講好')}>
+            <div className='content'>
+              按呢講好<span className='ui yellow circular label'>{this.state.按呢講好 || suData.按呢講好}</span>
+              <div
+                className={
+                  'ui button left pointing label green'
+                  + (this.state.voted ? ' disabled' : '')
+                }
+                onClick={this.投票.bind(this, '按呢講好')}>
               +1
               </div>
             </div>
           </div>
           <div className='item'>
             <i className='thumbs outline down icon'></i>
-            <div className="content">
-              按呢怪怪<span className="ui orange circular label">{this.state.按呢無好 || suData.按呢無好}</span>
-              <div className={"ui button left pointing label teal"+(this.state.voted ? " disabled" : "")} onClick={this.投票.bind(this, '按呢無好')}>
+            <div className='content'>
+              按呢怪怪<span className='ui orange circular label'>{this.state.按呢無好 || suData.按呢無好}</span>
+              <div
+                className={
+                  'ui button left pointing label teal'
+                  + (this.state.voted ? ' disabled' : '')
+                }
+                onClick={this.投票.bind(this, '按呢無好')}>
               +1
               </div>
             </div>
           </div>
           <div className='item'>
             <i className='comments outline icon'></i>
-            <div className="content">
+            <div className='content'>
               討論 (6)
             </div>
           </div>
