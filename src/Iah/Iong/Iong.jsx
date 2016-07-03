@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class Iong extends React.Component {
   render() {

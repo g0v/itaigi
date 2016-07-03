@@ -1,5 +1,5 @@
-import React from 'react';
-import Transmit from 'react-transmit';
+import React from 'react'
+import Transmit from 'react-transmit'
 
 class Mia extends React.Component {
   propTypes = {

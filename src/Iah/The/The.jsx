@@ -1,9 +1,9 @@
-import React from 'react';
-import Transmit from 'react-transmit';
-import { Link } from 'react-router';
-import Tshue from '../../GuanKiann/Tshue/Tshue';
-import ABo from '../../GuanKiann/ABo/ABo';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
+import React from 'react'
+import Transmit from 'react-transmit'
+import { Link } from 'react-router'
+import Tshue from '../../GuanKiann/Tshue/Tshue'
+import ABo from '../../GuanKiann/ABo/ABo'
+var superagent = require('superagent-promise')(require('superagent'), Promise)
 
 class The extends React.Component {
   propTypes = {
@@ -80,4 +80,3 @@ export default Transmit.createContainer(The, {
     },
   },
 });
-

@@ -7,11 +7,12 @@ import Logo from './images/logo.svg';
 class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
-    var menu_item_class = function(prefix) {
+    var menu_item_class = function (prefix) {
         if (path.startsWith(prefix) || (path === '/' && prefix === '/k'))
-          return "item active";
-        return "item";
-    }
+          return 'item active';
+        return 'item';
+      };
+
     return (
     <div className='app bar container'>
       <h1 className='title segment'>
@@ -35,10 +36,12 @@ class ToLam extends React.Component {
       </div>
       <div className="ui right item">
         <div className="menu">
-          <a className="item" href="https://www.facebook.com/ukauitaigi/" target="_blank">
+          <a className="item"
+             href="https://www.facebook.com/ukauitaigi/" target="_blank">
             <i className="facebook square icon big"></i>
           </a>
-          <a className="item" href="https://plus.google.com/103323777656269234410/posts" target="_blank">
+          <a className="item"
+            href="https://plus.google.com/103323777656269234410/posts" target="_blank">
             <i className="google plus square icon big"></i>
           </a>
           <a className="item" href="#" target="_blank">

@@ -1,15 +1,15 @@
-import React from 'react';
-import Transmit from 'react-transmit';
-import { Link } from 'react-router';
-import Tshue from '../../GuanKiann/Tshue/Tshue';
-import ABo from '../../GuanKiann/ABo/ABo';
-import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
-import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
-import Debug from 'debug';
+import React from 'react'
+import Transmit from 'react-transmit'
+import { Link } from 'react-router'
+import Tshue from '../../GuanKiann/Tshue/Tshue'
+import ABo from '../../GuanKiann/ABo/ABo'
+import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat'
+import GuaGi from '../../GuanKiann/GuaGi/GuaGi'
+import Promise from 'bluebird'
+var superagent = require('superagent-promise')(require('superagent'), Promise)
+import Debug from 'debug'
 
-var debug = Debug('itaigi:Kong');
+var debug = Debug('itaigi:Kong')
 
 class Kong extends React.Component {
   static propTypes = {

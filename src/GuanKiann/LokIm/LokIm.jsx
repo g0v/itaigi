@@ -38,7 +38,7 @@ class LokIm extends React.Component {
       alert('No web audio support in this browser!');
     }
 
-    navigator.getUserMedia({ audio: true }, this.startUserMedia.bind(this), function(e) {
+    navigator.getUserMedia({ audio: true }, this.startUserMedia.bind(this), function (e) {
       console.log('No live audio input: ' + e);
     });
 
@@ -78,8 +78,12 @@ class LokIm extends React.Component {
   render() {
     return (
       <div className='ui input'>
-      <button className='ui icon button' onClick={this.handleMicClick.bind(this)}><i className='ui unmute icon'/> </button>
-      <button className='ui icon button' onClick={this.handleStopClick.bind(this)}><i className='ui stop icon'/> </button>
+      <button className='ui icon button' onClick={this.handleMicClick.bind(this)}>
+        <i className='ui unmute icon'/>
+      </button>
+      <button className='ui icon button' onClick={this.handleStopClick.bind(this)}>
+         <i className='ui stop icon'/>
+      </button>
       <audio ref={(r) => this.audioElement = r} src='' />
       {this.renderPlay()}
       </div>

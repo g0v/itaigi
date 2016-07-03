@@ -1,11 +1,11 @@
-import React from 'react';
-import Transmit from 'react-transmit';
-import { Promise } from 'bluebird';
+import React from 'react'
+import Transmit from 'react-transmit'
+import { Promise } from 'bluebird'
 import LokIm from '../../GuanKiann/LokIm/LokIm.jsx'
 import APui from './APui'
-var superagent = require('superagent-promise')(require('superagent'), Promise);
-import debug from 'debug';
-var log = debug('itaigi:ABo');
+var superagent = require('superagent-promise')(require('superagent'), Promise)
+import debug from 'debug'
+var log = debug('itaigi:ABo')
 
 class ABo extends React.Component {
 
