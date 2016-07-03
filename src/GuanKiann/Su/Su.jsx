@@ -19,6 +19,7 @@ class Su extends React.Component {
       按呢無好: props.suData.按呢無好,
       voted: cookie.load('vote_'+props.suId),
     };
+    debug(this.state);
   }
 
   componentWillMount() {
@@ -66,12 +67,8 @@ class Su extends React.Component {
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
-    let 按呢講的外語=this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>))
-    var voted = function(suId) {
-        if (cookie.load('vote_'+suId))
-          return "disabled";
-        return "";
-    }
+
+    let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
     <div className='su card'>
       <div className='content'>
@@ -93,7 +90,7 @@ class Su extends React.Component {
             <i className='thumbs outline up icon'></i>
             <div className="content">
               按呢講好<span className="ui yellow circular label">{this.state.按呢講好 || suData.按呢講好}</span>
-              <div className={"ui button left pointing label green "+(voted(suId) || this.state.voted ? "disabled" : "")} onClick={this.投票.bind(this, '按呢講好')}>
+              <div className={"ui button left pointing label green"+(this.state.voted ? " disabled" : "")} onClick={this.投票.bind(this, '按呢講好')}>
               +1
               </div>
             </div>
@@ -102,7 +99,7 @@ class Su extends React.Component {
             <i className='thumbs outline down icon'></i>
             <div className="content">
               按呢怪怪<span className="ui orange circular label">{this.state.按呢無好 || suData.按呢無好}</span>
-              <div className={"ui button left pointing label teal "+(voted(suId) || this.state.voted ? "disabled" : "")} onClick={this.投票.bind(this, '按呢無好')}>
+              <div className={"ui button left pointing label teal"+(this.state.voted ? " disabled" : "")} onClick={this.投票.bind(this, '按呢無好')}>
               +1
               </div>
             </div>
@@ -135,14 +132,16 @@ export default Transmit.createContainer(Su, {
           }, res.body))
         .catch((err) => console.log(err));
     },
+
     按呢講的外語列表({ suText, 後端網址 }) {
       if (!suText) {
         return Promise.resolve({
           '結果': -2,
         });
       }
+
       return superagent.get(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText)
-        .then(({body}) => body.列表)
+        .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },
   },

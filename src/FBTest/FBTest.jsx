@@ -15,17 +15,17 @@ class FBTest extends React.Component {
 
   componentDidMount() {
     var _this = this;
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       FB.init({
         appId: '252264671778664',
         xfbml: true,
         version: 'v2.5',
       });
 
-      FB.getLoginStatus(function(response){
-        FB.api('/ukauitaigi/feed',function(feed){
-          var postID=feed.data[0].id.split('_')[1];
-          FB.api('/'+postID+'?fields=source',function(photo){
+      FB.getLoginStatus(function (response) {
+        FB.api('/ukauitaigi/feed', function (feed) {
+          var postID = feed.data[0].id.split('_')[1];
+          FB.api('/' + postID + '?fields=source', function (photo) {
             _this.getFacebookResponse(photo);
           });
         });
@@ -33,7 +33,7 @@ class FBTest extends React.Component {
 
     }.bind(this)
 
-    ;(function(d, s, id) {
+    ;(function (d, s, id) {
       var js;
       var fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
@@ -56,7 +56,7 @@ class FBTest extends React.Component {
   }
 
   getFacebookResponse(photo) {
-    this.setState({href:'http://facebook.com/'+photo.id,src:photo.source});
+    this.setState({ href: 'http://facebook.com/' + photo.id, src: photo.source });
   }
 
   render() {
