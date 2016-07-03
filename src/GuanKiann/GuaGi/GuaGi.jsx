@@ -20,6 +20,7 @@ class GuaGi extends React.Component {
     if (!this.props.新詞文本) {
       return <div></div>;
     }
+
     var suList = this.props.新詞文本.map((d) => <Su
       suId={d.新詞文本項目編號}
       suText={d.文本資料}

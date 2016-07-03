@@ -22,7 +22,8 @@ export default class HuatIm extends React.Component {
 
     return (
       <audio controls>
-        <source src={'http://t.moedict.tw/' + SoundsMapping.map(this.props.suData.屬性內容.音標) + '.ogg'} type='audio/ogg' />
+        <source type='audio/ogg'
+          src={'http://t.moedict.tw/' + SoundsMapping.map(this.props.suData.屬性內容.音標) + '.ogg'} />
       </audio>
     );
   }
