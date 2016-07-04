@@ -49,6 +49,7 @@
     "react-modal": "^1.4.0",
     "react-router": "^2.5.2",
     "react-transmit": "^2.6.3",
+    "react-cookie": "^0.4.7",
     "strict-loader": "^1.1.0",
     "style-loader": "^0.13.1",
     "superagent": "^2.0.0",
