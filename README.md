@@ -48,7 +48,7 @@ $ npm run deploy
 
 #### 環境設定
 ```python3
-sudo apt-get install -y python3-dev libffi-dev # 為了編譯, 連google oauth2
+sudo apt-get install -y python3-dev libffi-dev rabbitmq-server # 為了編譯, 連google oauth2, message queue
 virtualenv venv --python python3 # 設置環境檔
 . venv/bin/activate # 載入環境
 pip install -r requirements.txt # 裝相關python套件
