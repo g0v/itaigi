@@ -48,7 +48,7 @@ $ npm run deploy
 
 #### 環境設定
 ```python3
-sudo apt-get install -y python3-dev libffi-dev rabbitmq-server # 為了編譯, 連google oauth2, message queue
+sudo apt-get install -y python3-dev libffi-dev libxml2-dev libxslt1-dev rabbitmq-server # 為了編譯, 連google oauth2, message queue
 virtualenv venv --python python3 # 設置環境檔
 . venv/bin/activate # 載入環境
 pip install -r requirements.txt # 裝相關python套件
@@ -71,11 +71,13 @@ echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 開發用，程式碼若有修改會重新載入
 ```bash
 python manage.py runserver
+celery -A itaigi worker -l info
 ```
 上機用，支援多線程
 ```bash
 gunicorn itaigi.wsgi
 ```
+需要 Process Control System 將 celery 跑在系統背景，例如使用 [supervisor](http://supervisord.org/)
 
 ### 設定FB登入
 #### 增加管理員帳號
