@@ -111,17 +111,6 @@ python manage.py 加sheet的json itaigi-sui2.json https://docs.google.com/spread
 python manage.py 顯示全部sheet狀態
 ```
 
-#### 設定crontab
-```bash
-echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> itaigi/settings.py # 設定django-kronos
-python manage.py installtasks
-crontab -l
-```
-##### 人工做一擺
-```bash
-python manage.py 整理全部sheet到資料庫
-```
-
 ### 無完整的簡單佈署流程
 ```
 sudo apt-get install -y libffi-dev # 為了連google oauth2
