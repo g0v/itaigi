@@ -72,6 +72,7 @@ echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 ```bash
 python manage.py runserver
 celery -A itaigi worker -l info
+celery -A itaigi beat -l info
 ```
 上機用，支援多線程
 ```bash
