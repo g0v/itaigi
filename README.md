@@ -68,16 +68,24 @@ echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 若只需試驗，可中途中斷
 
 ### 跑服務
-開發用，程式碼若有修改會重新載入
+需同時開`django`跟`celery`兩個服務，可用[screen](https://blog.gtwang.org/linux/screen-command-examples-to-manage-linux-terminals/)
+
+#### 開發用
+程式碼若有修改`django`會重新載入，`celery`需重新啟動
 ```bash
 python manage.py runserver
+```
+```bash
 celery -A itaigi worker -l info
 ```
-上機用，支援多線程
+
+#### 上機用
+支援多線程
 ```bash
 gunicorn itaigi.wsgi
+celery -A itaigi worker -l info
 ```
-需要 Process Control System 將 celery 跑在系統背景，例如使用 [supervisor](http://supervisord.org/)
+可考慮 Process Control System 將 `celery` 跑在系統背景，例如使用 [supervisor](http://supervisord.org/)
 
 ### 設定FB登入
 #### 增加管理員帳號
@@ -128,7 +136,7 @@ sudo apt-get install -y libffi-dev # 為了連google oauth2
 git pull
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py 加sheet的json 臺語 itaigi-9.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
+python manage.py 加sheet的json itaigi-9.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 ```
 
 開發
