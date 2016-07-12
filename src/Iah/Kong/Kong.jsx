@@ -70,6 +70,7 @@ class Kong extends React.Component {
       <GuaGi id={g.外語項目編號}
         key={g.外語項目編號} 新詞文本={g.新詞文本}
         csrftoken={this.props.csrftoken}
+        location={this.props.location}
         後端網址={this.props.後端網址}/>
     ))}
       <h3>啊無咧？</h3>
