@@ -72,6 +72,7 @@ echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 ```bash
 python manage.py runserver
 celery -A itaigi worker -l info
+celery -A itaigi beat -l info
 ```
 上機用，支援多線程
 ```bash
@@ -109,17 +110,6 @@ email 和密碼隨意輸入，待會需用此帳密登入
 ```bash
 python manage.py 加sheet的json itaigi-sui2.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 python manage.py 顯示全部sheet狀態
-```
-
-#### 設定crontab
-```bash
-echo "KRONOS_PREFIX = 'source `echo $VIRTUAL_ENV`/bin/activate && '" >> itaigi/settings.py # 設定django-kronos
-python manage.py installtasks
-crontab -l
-```
-##### 人工做一擺
-```bash
-python manage.py 整理全部sheet到資料庫
 ```
 
 ### 無完整的簡單佈署流程
