@@ -57,18 +57,8 @@ sudo apt-get install -y libav-tools # 安裝avconv for Ubuntu
 ```
 以上即已建立開發用簡單的 sqlite db(/server-side/db.sqlite3)，如欲使用 postgres 請參考[Postgres設定](https://github.com/g0v/itaigi#postgres設定optional)
 
-#### Postgres設定(optional)
-詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
-
-### 匯入資料
-```bash
-echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
-```
-完整匯入需等待一段時間，等待途中可以繼續做其他事
-若只需試驗，可中途中斷
-
 ### 跑服務
-需同時開`django`跟`celery`兩個服務，可用[screen](https://blog.gtwang.org/linux/screen-command-examples-to-manage-linux-terminals/)
+需同時開`django`、`celery worker`跟`celery beat`三個服務，可用[screen](https://blog.gtwang.org/linux/screen-command-examples-to-manage-linux-terminals/)
 
 #### 開發用
 程式碼若有修改`django`會重新載入，`celery`需重新啟動
@@ -85,8 +75,19 @@ celery -A itaigi beat -l info
 ```bash
 gunicorn itaigi.wsgi
 celery -A itaigi worker -l info
+celery -A itaigi beat -l info
 ```
 可考慮 Process Control System 將 `celery` 跑在系統背景，例如使用 [supervisor](http://supervisord.org/)
+
+#### Postgres設定(optional)
+詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
+
+### 匯入資料
+```bash
+echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+```
+完整匯入需等待一段時間，等待途中可以繼續做其他事
+若只需試驗，可中途中斷
 
 ### 設定FB登入
 #### 增加管理員帳號
