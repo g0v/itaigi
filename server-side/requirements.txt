@@ -4,7 +4,6 @@ defusedxml==0.4.1
 Django==1.9.7
 django-allauth==0.25.2
 django-cors-headers==1.1.0
-django-kronos==0.9
 gspread==0.3.0
 gunicorn==19.6.0
 htsengine==0.2.4
@@ -22,7 +21,6 @@ pyOpenSSL==16.0.0
 pypi-bleualign==0.1.1.1
 pypi-kenlm==0.1.20160618
 pypi-libavwrapper==0.0.1
-python-crontab==2.0.2
 python-dateutil==2.5.3
 python3-openid==3.0.10
 PyYAML==3.11
