@@ -73,9 +73,9 @@ class Su extends React.Component {
     <div className='su card'>
       <div className='content'>
         <div className='left floated'>
-          <div className='header green'>
+          <h3 className='header green'>
           {suText}
-          </div>
+          </h3>
           <div className='meta'>
             {suIm}
           </div>
@@ -83,13 +83,16 @@ class Su extends React.Component {
         <HuatIm suData={suData} />
         <div className='description'>
             <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
-            對應華語詞：{按呢講的外語}
+            對應華語詞：
+            <span className='ui horizontal list'>
+              {按呢講的外語}
+            </span>
         </div>
         <div className='ui list'>
           <div className='item'>
             <i className='thumbs outline up icon'></i>
             <div className='content'>
-              按呢講好<span className='ui yellow circular label'>{this.state.按呢講好 || suData.按呢講好}</span>
+              按呢講好 <span className='ui yellow circular label'>{this.state.按呢講好 || suData.按呢講好}</span>
               <div
                 className={
                   'ui button left pointing label green'
@@ -103,7 +106,7 @@ class Su extends React.Component {
           <div className='item'>
             <i className='thumbs outline down icon'></i>
             <div className='content'>
-              按呢怪怪<span className='ui orange circular label'>{this.state.按呢無好 || suData.按呢無好}</span>
+              按呢怪怪 <span className='ui orange circular label'>{this.state.按呢無好 || suData.按呢無好}</span>
               <div
                 className={
                   'ui button left pointing label teal'
@@ -114,13 +117,17 @@ class Su extends React.Component {
               </div>
             </div>
           </div>
-          <div className='item'>
-            <i className='comments outline icon'></i>
-            <div className='content'>
-              討論 (6)
-            </div>
-          </div>
         </div>
+      </div>
+      <div className='extra content'>
+        <span className='left floated'>
+          <i className='comments outline icon'></i>
+          討論 (6)
+        </span>
+        <a className='right floated plus'>
+          <i className='plus icon'></i>
+          加入討論
+        </a>
       </div>
     </div>
     );
