@@ -83,47 +83,30 @@ class Su extends React.Component {
         <HuatIm suData={suData} />
         <div className='description'>
             <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
-            對應華語詞：
+            華語：
             <span className='ui horizontal list'>
               {按呢講的外語}
             </span>
         </div>
-        <div className='ui list'>
-          <div className='item'>
-            <i className='thumbs outline up icon'></i>
-            <div className='content'>
-              按呢講好 <span className='ui yellow circular label'>{this.state.按呢講好 || suData.按呢講好}</span>
-              <div
-                className={
-                  'ui button left pointing label green'
-                  + (this.state.voted ? ' disabled' : '')
-                }
-                onClick={this.投票.bind(this, '按呢講好')}>
-              +1
-              </div>
-            </div>
-          </div>
-          <div className='item'>
-            <i className='thumbs outline down icon'></i>
-            <div className='content'>
-              按呢怪怪 <span className='ui orange circular label'>{this.state.按呢無好 || suData.按呢無好}</span>
-              <div
-                className={
-                  'ui button left pointing label teal'
-                  + (this.state.voted ? ' disabled' : '')
-                }
-                onClick={this.投票.bind(this, '按呢無好')}>
-              +1
-              </div>
-            </div>
-          </div>
+        <br/>
+        <div className='ui compact menu'>
+          <a className={
+              'item'
+              + (this.state.voted ? ' disabled' : '')}
+          onClick={this.投票.bind(this, '按呢講好')}>
+          <i className='icon heart'></i>
+          按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || suData.按呢講好}</span>
+          </a>
+          <a className={
+              'item'
+              + (this.state.voted ? ' disabled' : '')}
+          onClick={this.投票.bind(this, '按呢無好')}>
+          <i className='icon help circle'></i>
+          按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
+          </a>
         </div>
       </div>
       <div className='extra content'>
-        <span className='left floated'>
-          <i className='comments outline icon'></i>
-          討論 (6)
-        </span>
         <a className='right floated plus'>
           <i className='plus icon'></i>
           加入討論

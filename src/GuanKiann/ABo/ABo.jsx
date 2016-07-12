@@ -88,21 +88,22 @@ class ABo extends React.Component {
 
   render有登入鈕仔() {
     return (
-          <button
-            className='ui button'
-            onClick={this.handleSubmit.bind(this)}>送出</button>
+      <button
+        className='ui positive button'
+        onClick={this.handleSubmit.bind(this)}>送出</button>
     );
   }
 
   render無登入鈕仔() {
     return (
-      <div>
-          <button
-            className='ui button'
-            onClick={this.handleSubmit.bind(this)}>匿名送出</button>
+      <div className='ui buttons'>
+        <button
+          className='ui button'
+          onClick={this.handleSubmit.bind(this)}>匿名送出</button>
+        <div className='or'></div>
         <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
-          <input type="submit" className='ui button' value="登入 & 送出"/>
-          <input type="hidden" name="next"
+          <input type='submit' className='ui positive button' value='登入 & 送出'/>
+          <input type='hidden' name='next'
             value={'/%E5%B0%8E%E5%90%91?%E7%B6%B2%E5%9D%80='
               + '//itaigi.tw/k/' + this.props.華語關鍵字
               + '?'
@@ -119,16 +120,24 @@ class ABo extends React.Component {
   render() {
     let { 後端網址 } = this.props;
     return (
-        <div className='ui segment'>
-          <div className='abo ui input'>
-            <input placeholder='漢字' type='text'
-              value={this.state.漢字}
-              onChange={this.handle漢字KeyUp.bind(this)}/>
-          </div>
-          <div className='abo ui input'>
-            <input placeholder='台羅' type='text'
-              value={this.state.音標}
-              onChange={this.handle音標KeyUp.bind(this)}/>
+        <div className='ui form segment'>
+          <div className='fields'>
+            <div className='field'>
+                <label>漢字</label>
+                <div className='abo ui input'>
+                <input placeholder='漢字' type='text'
+                    value={this.state.漢字}
+                    onChange={this.handle漢字KeyUp.bind(this)}/>
+                </div>
+            </div>
+            <div className='field'>
+                <label>台羅</label>
+                <div className='abo ui input'>
+                <input placeholder='台羅' type='text'
+                    value={this.state.音標}
+                    onChange={this.handle音標KeyUp.bind(this)}/>
+                </div>
+            </div>
           </div>
           <LokIm className='abo ui inline'/>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()

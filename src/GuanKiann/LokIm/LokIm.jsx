@@ -72,7 +72,7 @@ class LokIm extends React.Component {
         <i className='play icon'/>
       </button>;
     } else
-      return <div> rien </div>;
+      return <div></div>;
   }
 
   render() {

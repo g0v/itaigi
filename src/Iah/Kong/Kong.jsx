@@ -5,6 +5,7 @@ import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
+import Disqus from '../../Disqus/Disqus';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
@@ -70,7 +71,6 @@ class Kong extends React.Component {
       <GuaGi id={g.外語項目編號}
         key={g.外語項目編號} 新詞文本={g.新詞文本}
         csrftoken={this.props.csrftoken}
-        location={this.props.location}
         後端網址={this.props.後端網址}/>
     ))}
       <h3>啊無咧？</h3>
@@ -78,6 +78,7 @@ class Kong extends React.Component {
        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
        />
+      <Disqus location={this.props.location}/>
     </div>
     );
   }
