@@ -31,10 +31,15 @@ If you meet some problem during `npm i` and finally succeed, you might need `rm 
 ```bash
 $ npm start
 ```
-then open http://localhost:3000/
+then open <http://localhost:3000/>
+
+
+#### Coding style
+JavaScript Style: [Airbnb](https://github.com/airbnb/javascript)
+  - `npm test` 檢查
+  - `npm run reformat` 自動重排
 
 #### 佈署:
-
 ```bash
 $ npm run deploy
 ```
@@ -129,13 +134,6 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py 加sheet的json itaigi-9.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 ```
-
-開發
-----
-
-* JavaScript Style: [Airbnb](https://github.com/airbnb/javascript)
-  - `npm test` 檢查
-  - `npm run reformat` 自動重排
 
 
 歡迎非工程師的大家一起參與網站規劃
