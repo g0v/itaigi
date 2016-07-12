@@ -137,13 +137,6 @@ python manage.py 加sheet的json itaigi-9.json https://docs.google.com/spreadshe
   - `npm test` 檢查
   - `npm run reformat` 自動重排
 
-TODO
-----
-詳見[issue](https://github.com/g0v/taigi-neologism/issues)
-
-- [ ] Facebook 登入
-- [ ] 投票
-- [ ] 各詞條討論
 
 歡迎非工程師的大家一起參與網站規劃
 -----------
