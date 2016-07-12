@@ -85,17 +85,17 @@ gunicorn itaigi.wsgi
 ```bash
 python manage.py createsuperuser
 ```
-email和密碼隨意輸入
+email 和密碼隨意輸入，待會需用此帳密登入
 
 #### 登入管理員並且設定FB app
-1. 用瀏覽器進入 /admin
-2. 輸入剛剛的email和密碼
-3. social application
-provider：FB
-id：590065061070994
-key：db4f3fa26d26890e720d17a83ff5a6fe
-最後左下角choose all site
-其他欄位隨便填
+1. 用瀏覽器進入 http://localhost:8000/admin
+2. 輸入剛剛的 email 和密碼登入
+3. 點選 SOCIAL ACCOUNTS 分類下的 Social applications 的 +Add
+  1. provider：FB
+  2. Client id：2055788134646727
+  3. Secret key：880d339384674341c8bf1e62d8c8e0aa
+  4. 左下角 choose all site
+  5. 其他欄位隨便填
 
 ### google sheet匯入資料庫
 參考[Obtain OAuth2 credentials from Google Developers Console](http://gspread.readthedocs.org/en/latest/oauth2.html)
