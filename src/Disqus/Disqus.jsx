@@ -17,7 +17,7 @@ class Disqus extends React.Component {
         title={decodeURI(pathname)}
         url={'http://itaigi.tw' + decodeURI(pathname)}/>
     );
-    }
+  }
 }
 
 export default Transmit.createContainer(Disqus, {
