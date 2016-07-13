@@ -1,6 +1,7 @@
 
 新台語·運動
 ===========
+[![Build Status](https://travis-ci.org/g0v/itaigi.svg?branch=master)](https://travis-ci.org/g0v/itaigi)
 [![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi#info=devDependencies)
 
 * [網站](http://itaigi.tw)
