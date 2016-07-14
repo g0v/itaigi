@@ -173,3 +173,9 @@ CELERYBEAT_SCHEDULE = {
         'args': ()
     },
 }
+
+
+try:
+    from .local_settings import SECRET_KEY, DATABASES
+except ImportError:
+    SECRET_KEY, DATABASES
