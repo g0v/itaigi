@@ -73,44 +73,38 @@ class Su extends React.Component {
     <div className='su card'>
       <div className='content'>
         <div className='left floated'>
-          <h3 className='header green'>
+          <h2 className='ui header'>
           {suText}
-          </h3>
+          </h2>
           <div className='meta'>
             {suIm}
           </div>
         </div>
         <HuatIm suData={suData} />
         <div className='description'>
-            <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
-            華語：
-            <span className='ui horizontal list'>
-              {按呢講的外語}
-            </span>
+          <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
+          華語：
+          <span className='ui horizontal list large'>
+            {按呢講的外語}
+          </span>
         </div>
         <br/>
-        <div className='ui compact menu'>
+        <div className='ui compact menu large'>
           <a className={
-              'item'
-              + (this.state.voted ? ' disabled' : '')}
-          onClick={this.投票.bind(this, '按呢講好')}>
-          <i className='icon heart'></i>
-          按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || suData.按呢講好}</span>
+            'item'
+            + (this.state.voted ? ' disabled' : '')}
+            onClick={this.投票.bind(this, '按呢講好')}>
+            <i className='icon heart'></i>
+            按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || suData.按呢講好}</span>
           </a>
           <a className={
-              'item'
-              + (this.state.voted ? ' disabled' : '')}
-          onClick={this.投票.bind(this, '按呢無好')}>
-          <i className='icon help circle'></i>
-          按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
+            'item'
+            + (this.state.voted ? ' disabled' : '')}
+            onClick={this.投票.bind(this, '按呢無好')}>
+            <i className='icon help circle'></i>
+            按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
           </a>
         </div>
-      </div>
-      <div className='extra content'>
-        <a className='right floated plus'>
-          <i className='plus icon'></i>
-          加入討論
-        </a>
       </div>
     </div>
     );

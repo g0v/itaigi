@@ -68,7 +68,7 @@ class Kong extends React.Component {
         <h3 className='ui horizontal divider header'>
           <i className='outline comments icon'></i>
           來討論
-          <span className='ui pink header'> {this.props.kongData.關鍵字}</span>
+          「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
         </h3>
         <Disqus pathname={this.props.location.pathname}/>
       </div>
@@ -94,7 +94,7 @@ class Kong extends React.Component {
       <h3 className='ui horizontal divider header'>
         <i className='outline comments icon'></i>
         來討論
-        <span className='ui pink header'> {this.props.kongData.關鍵字}</span>
+        「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
       </h3>
       <Disqus pathname={this.props.location.pathname}/>
     </div>
