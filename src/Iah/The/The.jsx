@@ -20,24 +20,27 @@ class The extends React.Component {
   {
     let 無建議的外語列表 = this.props.外語列表.列表.map(
       (guaGi)=>(
-        <div key={guaGi.外語項目編號}>
-            <button onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>{guaGi.外語資料}</button>
-          </div>
-        )
-      );
+        <button key={guaGi.外語項目編號}
+          className='ui button basic primary large'
+          onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>
+          {guaGi.外語資料}
+        </button>
+    )
+    );
     return (
     <div className='main container'>
-        <div className='the content'>
-          <div className='ui forum segment'>
-            <h3>這些詞還沒有人會用台語講</h3>
-            <div>
-              {無建議的外語列表}
-            </div>
-            <h3>我就是沒有人，我來講</h3>
-            <ABo 後端網址={this.props.後端網址} />
+      <div className='the content'>
+        <div className='ui forum segment'>
+          <h3>
+            <i className='spinner icon'></i>
+            這些詞還沒有人會用台語講
+          </h3>
+          <div>
+            {無建議的外語列表}
           </div>
         </div>
       </div>
+    </div>
     );
   }
 
@@ -47,7 +50,10 @@ class The extends React.Component {
       <div className='main container'>
         <div className='the content'>
           <div className='ui forum segment'>
-            <h3>我就是沒有人，我知道「{this.props.params.k}」的講法</h3>
+            <h3 className='ui header'>
+              <i className='cloud upload icon'></i>
+              我會曉，「{this.props.params.k}」會使按呢講
+            </h3>
             <ABo 華語關鍵字={this.props.params.k}
               後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
               編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
