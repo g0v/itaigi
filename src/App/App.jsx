@@ -1,6 +1,7 @@
 import React from 'react';
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import FBTest from '../FBTest/FBTest';
+import Disqus from '../Disqus/Disqus';
 
 import './App.css';
 
@@ -39,6 +40,9 @@ class App extends React.Component {
           }
         )}
       <FBTest/>
+      <div className='ui container'>
+        <Disqus pathname={this.props.location.pathname}/>
+      </div>
       <footer className='app footer inverted'>
         <ul className='ui menu container inverted'>
           <li className='item'>

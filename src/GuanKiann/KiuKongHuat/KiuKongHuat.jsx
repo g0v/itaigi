@@ -26,7 +26,8 @@ class KiuKongHuat extends React.Component {
     return (
       <div className='ui segment'>
         <h3>{this.props.華語關鍵字 || '找什麼？'}</h3>
-        <button className='ui button' onClick={this.問外語.bind(this)}>
+        <button className='ui button large olive' onClick={this.問外語.bind(this)}>
+          <i className='student icon'></i>
           求講法
         </button>
       </div>
