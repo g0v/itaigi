@@ -11,7 +11,7 @@ class TuiIngHuaGi extends React.Component {
   render() {
     const { 外語 } = this.props;
     return (
-    <span key={外語.外語項目編號}> {外語.外語資料} </span>
+    <a className='item' href={'/k/' + 外語.外語資料} key={外語.外語項目編號}> {外語.外語資料} </a>
     );
   }
 }

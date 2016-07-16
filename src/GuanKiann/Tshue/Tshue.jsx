@@ -39,7 +39,11 @@ class Tshue extends React.Component {
         onKeyDown={this.handleKeyDown.bind(this)}
         onKeyUp={this.handleKeyUp.bind(this)}
       />
-      <div className="ui button big teal" onClick={this.handleSubmit.bind(this)}>台語怎麼講</div>
+      <div className='ui button big teal'
+        onClick={this.handleSubmit.bind(this)}>
+        <i className='translate icon'></i>
+        台語怎麼講
+      </div>
     </div>
     );
   }

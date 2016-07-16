@@ -5,6 +5,7 @@ import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
+import Disqus from '../../Disqus/Disqus';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
@@ -35,11 +36,12 @@ class Kong extends React.Component {
       <div className='ui segment'>
         <h3>找「{this.props.kongData.關鍵字}」錯了嗎？</h3>
         {this.props.kongData.內容}
-        <button className='ui button'>
+        <button className='ui button large olive'>
+          <i className='student icon'></i>
           求講法
         </button>
       </div>
-      <h3>我就是沒有人，我來講</h3>
+      <h3>我會曉，會使按呢講</h3>
       <ABo 華語關鍵字={this.props.kongData.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
@@ -55,11 +57,20 @@ class Kong extends React.Component {
       <div className='tshueBo'>
         <KiuKongHuat 華語關鍵字={this.props.kongData.關鍵字}
           後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
-        <h3>我就是沒有人，我來講</h3>
+        <h3 className='ui horizontal divider header'>
+          <i className='cloud upload icon'></i>
+          我會曉，會使按呢講
+        </h3>
         <ABo 華語關鍵字={this.props.kongData.關鍵字}
           後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
           編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
         />
+        <h3 className='ui horizontal divider header'>
+          <i className='outline comments icon'></i>
+          來討論
+          「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
+        </h3>
+        <Disqus pathname={this.props.location.pathname}/>
       </div>
       );
     }
@@ -67,30 +78,43 @@ class Kong extends React.Component {
     return (
     <div className='kongHuat'>
       {this.props.kongData.內容.列表.map((g) => (
-      <GuaGi id={g.外語項目編號}
-        key={g.外語項目編號} 新詞文本={g.新詞文本}
-        csrftoken={this.props.csrftoken}
-        後端網址={this.props.後端網址}/>
-    ))}
-      <h3>啊無咧？</h3>
+        <GuaGi id={g.外語項目編號}
+          key={g.外語項目編號} 新詞文本={g.新詞文本}
+          csrftoken={this.props.csrftoken}
+          後端網址={this.props.後端網址}/>
+      ))}
+      <h3 className='ui horizontal divider header'>
+        <i className='cloud upload icon'></i>
+        閣會使按呢講，我來做伙添
+      </h3>
       <ABo 華語關鍵字={this.props.kongData.關鍵字}
        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
        />
+      <h3 className='ui horizontal divider header'>
+        <i className='outline comments icon'></i>
+        來討論
+        「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
+      </h3>
+      <Disqus pathname={this.props.location.pathname}/>
     </div>
     );
   }
 
   renderKianGi() {
     return (
-        <div className='kianGi'>
-        {this.props.kongData.內容.其他建議.map((g) =>
-            <GuaGi id={g.外語項目編號}
-              key={g.外語項目編號} 新詞文本={g.新詞文本}
-              後端網址={this.props.後端網址}/>
-            )}
-        </div>
-        );
+    <div className='kianGi'>
+      <h3 className='ui horizontal divider header'>
+        <i className='book icon'></i>
+        相關的詞
+      </h3>
+      {this.props.kongData.內容.其他建議.map((g) =>
+        <GuaGi id={g.外語項目編號}
+          key={g.外語項目編號} 新詞文本={g.新詞文本}
+          後端網址={this.props.後端網址}/>
+      )}
+    </div>
+    );
   }
 
   render() {
@@ -105,9 +129,9 @@ class Kong extends React.Component {
       </nav>
       <div className='kong content'>
         {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
-      : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
+        : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
         : this.renderTshueSiann()}
-        {this.props.kongData.結果 >= 0 ? this.renderKianGi() : []}
+        {this.props.kongData.結果 > 0 ? this.renderKianGi() : []}
       </div>
     </div>
     );
