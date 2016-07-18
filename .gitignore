@@ -1,6 +1,7 @@
 build/
 node_modules
 server-side/*.json
+*.log
 
 *.pyc
 venv
