@@ -7,7 +7,7 @@
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && (echo 'itaigi.tw' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
-    "deploy": "npm run build && gh-pages -d build/",
+    "deploy": "npm run build && rm node_modules/gh-pages/.cache/ -rf && gh-pages -d build/",
     "deploy-tshi3": "npm run build && rm node_modules/gh-pages/.cache/ -rf && gh-pages -r https://github.com/g0v-frontend-test/itaigi-tshi3.git -d build/",
     "deploy-giam7": "npm run build && rm node_modules/gh-pages/.cache/ -rf && gh-pages -r https://github.com/g0v-frontend-test/itaigi-tshi3.git -d build/",    
     "deploy-test": "npm run build && rm node_modules/gh-pages/.cache/ -rf && gh-pages -r https://github.com/g0v-frontend-test/itaigi-test.git -d build/"

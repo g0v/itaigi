@@ -34,13 +34,22 @@ $ npm start
 ```
 then open <http://localhost:3000/>
 
-
 #### Coding style
 JavaScript Style: [Airbnb](https://github.com/airbnb/javascript)
   - `npm test` 檢查
   - `npm run reformat` 自動重排
 
-#### 佈署:
+
+#### 佈署試驗機
+請揀其中一臺試驗機，注意Pull request有人佇用無
+```bash
+$ npm run deploy-tshi3
+$ npm run deploy-giam7
+$ npm run deploy-test
+```
+
+
+#### 佈署正式機
 ```bash
 $ npm run deploy
 ```
