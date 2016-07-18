@@ -76,12 +76,10 @@ class Su extends React.Component {
           <h2 className='ui header'>
           {suText}
           </h2>
-          <div className='meta'>
-            {suIm}
-          </div>
         </div>
         <HuatIm suData={suData} />
         <div className='description'>
+          {suIm}
           <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
           華語：
           <span className='ui horizontal list large'>
