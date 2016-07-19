@@ -28,6 +28,7 @@ render(
       <Route path='t(/:k)' component={The} />
       <Route path='iong' component={Iong} />
       <Route path='mia' component={Mia} />
+      <Route path='*' component={Kong} />
     </Route>
   </Router>, root);
 
