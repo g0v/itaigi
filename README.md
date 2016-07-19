@@ -44,9 +44,16 @@ JavaScript Style: [Airbnb](https://github.com/airbnb/javascript)
 請揀其中一臺試驗機，注意Pull request有人佇用無
 ```bash
 $ npm run deploy-tshi3
+```
+對應到<http://tshi3.itaigi.tw/>
+```bash
 $ npm run deploy-giam7
+```
+對應到<http://giam7.itaigi.tw/>
+```bash
 $ npm run deploy-test
 ```
+對應到<http://test.itaigi.tw/>
 
 
 #### 佈署正式機
