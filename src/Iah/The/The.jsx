@@ -25,7 +25,7 @@ class The extends React.Component {
           onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>
           {guaGi.外語資料}
         </button>
-    )
+      )
     );
     return (
     <div className='main container'>
@@ -33,7 +33,9 @@ class The extends React.Component {
         <div className='ui forum segment'>
           <h3>
             <i className='spinner icon'></i>
-            這些詞還沒有人會用台語講
+            {this.props.外語列表.列表.length > 0
+              ? '這些詞還沒有人會用台語講'
+              : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'}
           </h3>
           <div>
             {無建議的外語列表}
