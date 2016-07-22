@@ -46,13 +46,14 @@ $ npm run deploy
 ```
 
 
-### Backend
-
-後端使用使用[臺灣言語平臺](https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-tai5)。
-環境要求Python 3.4+，並放在`server-side/`資料夾.
-以下指令請在`server-side/`裡面執行
+### 後端
+後端的設定較麻煩，若只是要改前端，可以不用架後端，直接用線上機就行。
+若需要試新功能，可以改[apiary](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)，並改前端的[後端網址](https://github.com/g0v/itaigi/blob/master/src/App/App.jsx#L14)就可以運作了
 
 #### 環境設定
+後端使用[臺灣言語平臺](https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-tai5)。
+環境要求Python 3.4+，並放在`server-side/`資料夾.
+以下指令請在`server-side/`裡面執行
 ```python3
 sudo apt-get install -y python3-dev libffi-dev libxml2-dev libxslt1-dev rabbitmq-server # 為了編譯, 連google oauth2, message queue
 virtualenv venv --python python3 # 設置環境檔
