@@ -21,14 +21,20 @@ class Kong extends React.Component {
   }
 
   renderTshueSiann() {
+    var hot = ['寶可夢', '討厭', '水母', '手腳不乾淨', '煩'];
     return (
     <div className='kong content'>
-      <div className='ui segment'>
-        <Link
-            className='ui button basic primary large'
-            to='/k/寶可夢'>
-            寶可夢
-        </Link>
+      <div className='ui inverted segment'>
+        <span className='header large'>熱門詞：</span>
+        {hot.map(function(su, i){
+          return (
+            <Link
+              className='ui inverted button basic teal large'
+              to={'/k/' + su}>
+              {su}
+            </Link>
+          )
+        })}
       </div>
     </div>
     );
