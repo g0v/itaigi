@@ -4,7 +4,7 @@ let list = [
     links: [
       {
         title: '萌典',
-        link: 'https://www.moedict.tw/%E7%99%BC%E7%A9%8E',
+        link: 'https://www.moedict.tw/\'發穎',
       },
       {
         title: '教育部《臺灣閩南語常用詞辭典》',
