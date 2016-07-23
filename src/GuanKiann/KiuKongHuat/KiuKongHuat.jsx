@@ -3,8 +3,16 @@ import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
+import SangTshut from './SangTshut';
 
 class KiuKongHuat extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: false,
+    };
+  }
 
   問外語(evt) {
     var 外語內容 = {
@@ -15,10 +23,18 @@ class KiuKongHuat extends React.Component {
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
       .send(外語內容)
-      .then(({ body }) => (alert('問大家「' + this.props.華語關鍵字 + '」了喲～～')))
+      .then(({ body }) => (this.openModal()))
       .catch(res => {
         console.log(res);
       });
+  }
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   render() {
@@ -30,6 +46,8 @@ class KiuKongHuat extends React.Component {
           <i className='student icon'></i>
           求講法
         </button>
+        <SangTshut modalIsOpen={this.state.modalIsOpen}
+          closeModal={this.closeModal.bind(this)}/>
       </div>
       );
   }
