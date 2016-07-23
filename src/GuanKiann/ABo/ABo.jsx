@@ -50,9 +50,9 @@ class ABo extends React.Component {
         .catch(res => {
           window.open(this.props.後端網址 + 'accounts/facebook/login', '_blank');
         });
-    this.setState({
-      送出中: true,
-    });
+      this.setState({
+        送出中: true,
+      });
     }
   }
 
@@ -83,7 +83,7 @@ class ABo extends React.Component {
 
   closeModal() {
     this.setState({
-    modalIsOpen: false,
+      modalIsOpen: false,
       漢字: '',
       音標: '',
       送出中: false,
@@ -93,7 +93,7 @@ class ABo extends React.Component {
   render有登入鈕仔() {
     return (
       <button
-        className={ 'ui positive button large' + (this.state.送出中? ' disabled':'') }
+        className={ 'ui positive button large' + (this.state.送出中 ? ' disabled' : '') }
         onClick={this.handleSubmit.bind(this)}>送出</button>
     );
   }
@@ -102,7 +102,7 @@ class ABo extends React.Component {
     return (
       <div className='ui buttons'>
         <button
-          className={ 'ui button large' + (this.state.送出中 ? ' disabled':'') }
+          className={ 'ui button large' + (this.state.送出中 ? ' disabled' : '') }
           onClick={this.handleSubmit.bind(this)}>匿名送出</button>
         <div className='or'></div>
         <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
