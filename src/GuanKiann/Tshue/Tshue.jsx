@@ -31,7 +31,7 @@ class Tshue extends React.Component {
 
   render() {
     return (
-    <div className='ui action input big container'>
+    <div className='ui action input huge container'>
       <input
         type='text'
         placeholder='輸入華語，點一下「台語怎麼講」'
@@ -39,7 +39,7 @@ class Tshue extends React.Component {
         onKeyDown={this.handleKeyDown.bind(this)}
         onKeyUp={this.handleKeyUp.bind(this)}
       />
-      <div className='ui button big teal'
+      <div className='ui button huge teal'
         onClick={this.handleSubmit.bind(this)}>
         <i className='translate icon'></i>
         台語怎麼講
