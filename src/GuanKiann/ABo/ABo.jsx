@@ -15,6 +15,7 @@ class ABo extends React.Component {
       漢字: this.props.漢字 || '',
       音標: this.props.音標 || '',
       modalIsOpen: false,
+      送出中: false,
     };
   }
 
@@ -49,12 +50,14 @@ class ABo extends React.Component {
         .catch(res => {
           window.open(this.props.後端網址 + 'accounts/facebook/login', '_blank');
         });
+      this.setState({
+        送出中: true,
+      });
     }
   }
 
   加外語新詞文本(外語項目編號) {
-    console.log('外語項目編號');
-    console.log(外語項目編號);
+    debug(外語項目編號);
     var 建議新詞文本 = {
       '外語項目編號': 外語項目編號,
       '文本資料': this.state.漢字,
@@ -71,11 +74,7 @@ class ABo extends React.Component {
       .set('X-CSRFToken', this.props.csrftoken)
       .send(建議新詞文本)
       .then(({ body }) => (this.openModal()))
-      .catch((a) => (console.log(a)));
-    this.setState({
-      漢字: '',
-      音標: '',
-    });
+      .catch((a) => (debug(a)));
   }
 
   openModal() {
@@ -83,13 +82,18 @@ class ABo extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({
+      modalIsOpen: false,
+      漢字: '',
+      音標: '',
+      送出中: false,
+    });
   }
 
   render有登入鈕仔() {
     return (
       <button
-        className='ui positive button large'
+        className={ 'ui positive button large' + (this.state.送出中 ? ' disabled' : '') }
         onClick={this.handleSubmit.bind(this)}>送出</button>
     );
   }
@@ -98,7 +102,7 @@ class ABo extends React.Component {
     return (
       <div className='ui buttons'>
         <button
-          className='ui button large'
+          className={ 'ui button large' + (this.state.送出中 ? ' disabled' : '') }
           onClick={this.handleSubmit.bind(this)}>匿名送出</button>
         <div className='or'></div>
         <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
