@@ -141,7 +141,7 @@ class Kong extends React.Component {
         {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
         : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
         : this.renderTshueSiann()}
-        {this.props.kongData.結果 > 0 ? this.renderKianGi() : []}
+        {this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ? this.renderKianGi() : []}
       </div>
     </div>
     );
