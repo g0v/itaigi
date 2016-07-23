@@ -3,7 +3,7 @@ import Router from 'react-router';
 import Transmit from 'react-transmit';
 
 class Tshue extends React.Component {
-
+  // Tshue should be only one cause the id.
   constructor(props) {
     super(props);
     this.state = {
@@ -12,20 +12,31 @@ class Tshue extends React.Component {
   }
 
   handleKeyDown(evt) {
-    if (evt.keyCode === 13 || this.state.q.length >= 2) {
+    if (evt.keyCode === 13) {
       this.handleSubmit(evt);
       return;
     }
   }
 
-  handleKeyUp(evt) {
-    var q = evt.target.value;
-    this.setState({ q });
-  }
-
   handleSubmit(evt) {
     if (this.state.q !== '') {
       this.props.handleSubmit(this.state.q);
+    }
+  }
+
+  componentWillMount() {
+    this.timer = setInterval(this.sensorThinkTime.bind(this), 2000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  sensorThinkTime() {
+    var q = document.querySelector('#Tshue').value;
+    if (q !== this.state.q) {
+      this.setState({ q });
+      this.handleSubmit.bind(this)();
     }
   }
 
@@ -37,7 +48,7 @@ class Tshue extends React.Component {
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
-        onKeyUp={this.handleKeyUp.bind(this)}
+        id='Tshue'
       />
       <div className='ui button huge teal'
         onClick={this.handleSubmit.bind(this)}>
