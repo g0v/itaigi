@@ -7,6 +7,7 @@ import './App.css';
 
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
+import { Link } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
@@ -53,7 +54,7 @@ class App extends React.Component {
             <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism' target="_blank">Hackpad</a>
           </li>
           <li className='item'>
-            授權條款
+            <Link to='/about'>關於本站</Link>
           </li>
           <li className='item'>
             <a href='https://g0v.tw/' target="_blank">g0v</a>

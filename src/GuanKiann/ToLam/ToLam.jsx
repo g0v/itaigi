@@ -40,13 +40,9 @@ class ToLam extends React.Component {
              href="https://www.facebook.com/ukauitaigi/" target="_blank">
             <i className="facebook square icon big"></i>
           </a>
-          <a className="item"
-            href="https://plus.google.com/103323777656269234410/posts" target="_blank">
-            <i className="google plus square icon big"></i>
-          </a>
-          <a className="item" href="#" target="_blank">
-            <i className="twitter square icon big"></i>
-          </a>
+          <Link className="item" to="/about">
+            <i className="info circle icon big"></i>
+          </Link>
         </div>
       </div>
     </div>
