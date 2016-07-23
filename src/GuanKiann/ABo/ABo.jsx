@@ -123,9 +123,9 @@ class ABo extends React.Component {
         <div className='ui form segment'>
           <div className='fields'>
             <div className='field'>
-                <label>漢字</label>
+                <label>臺語漢字</label>
                 <div className='abo ui input large'>
-                <input placeholder='漢字' type='text'
+                <input placeholder='臺語漢字' type='text'
                     value={this.state.漢字}
                     onChange={this.handle漢字KeyUp.bind(this)}/>
                 </div>

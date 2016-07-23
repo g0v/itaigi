@@ -78,14 +78,14 @@ class LokIm extends React.Component {
   render() {
     return (
       <div className='ui input'>
-      <button className='ui icon button large' onClick={this.handleMicClick.bind(this)}>
+{/*   <button className='ui icon button large' onClick={this.handleMicClick.bind(this)}>
         <i className='ui unmute icon'/>
       </button>
       <button className='ui icon button large' onClick={this.handleStopClick.bind(this)}>
          <i className='ui stop icon'/>
       </button>
       <audio ref={(r) => this.audioElement = r} src='' />
-      {this.renderPlay()}
+      {this.renderPlay()}	# issue 126	*/}
       </div>
     );
   }
