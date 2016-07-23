@@ -7,6 +7,7 @@ import Lun from './Iah/Lun/Lun';
 import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
+import About from './Iah/About/About';
 import './app.css';
 
 import Debug from 'debug';
@@ -27,6 +28,7 @@ render(
       <Route path='t(/:k)' component={The} />
       <Route path='iong' component={Iong} />
       <Route path='mia' component={Mia} />
+      <Route path='about' component={About} />
       <Route path='*' component={Kong} />
     </Route>
   </Router>, root);
