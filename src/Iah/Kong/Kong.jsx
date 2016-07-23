@@ -20,16 +20,6 @@ class Kong extends React.Component {
     this.props.setQueryParams(nextProps);
   }
 
-  renderTshueSiann() {
-    return (
-    <div className='kong content'>
-      <div className='ui segment'>
-        <h3>在查詢框輸入華語，點一下「台語怎麼講」</h3>
-      </div>
-    </div>
-    );
-  }
-
   renderTshoGoo() {
     return (
     <div className='kong content'>
@@ -130,7 +120,7 @@ class Kong extends React.Component {
       <div className='kong content'>
         {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
         : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
-        : this.renderTshueSiann()}
+        : ''}
         {this.props.kongData.結果 > 0 ? this.renderKianGi() : []}
       </div>
     </div>
