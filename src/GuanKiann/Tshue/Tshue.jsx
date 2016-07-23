@@ -25,7 +25,7 @@ class Tshue extends React.Component {
   }
 
   componentWillMount() {
-    this.timer = setInterval(this.sensorThinkTime.bind(this),2000)
+    this.timer = setInterval(this.sensorThinkTime.bind(this), 2000);
   }
 
   componentWillUnmount() {
@@ -35,10 +35,11 @@ class Tshue extends React.Component {
   sensorThinkTime() {
     var q = document.querySelector('#Tshue').value;
     if (q !== this.state.q) {
-      this.setState({q});
+      this.setState({ q });
       this.handleSubmit.bind(this)();
     }
   }
+
   render() {
     return (
     <div className='ui action input big container'>
