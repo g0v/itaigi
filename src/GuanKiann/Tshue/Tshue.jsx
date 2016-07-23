@@ -34,7 +34,7 @@ class Tshue extends React.Component {
     <div className='ui action input big container'>
       <input
         type='text'
-        placeholder='A... 那個'
+        placeholder='在查詢框輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
         onKeyUp={this.handleKeyUp.bind(this)}

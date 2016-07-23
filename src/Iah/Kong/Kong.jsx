@@ -24,7 +24,11 @@ class Kong extends React.Component {
     return (
     <div className='kong content'>
       <div className='ui segment'>
-        <h3>在查詢框輸入華語，點一下「台語怎麼講」</h3>
+        <Link
+            className='ui button basic primary large'
+            to='/k/寶可夢'>
+            寶可夢
+        </Link>
       </div>
     </div>
     );
