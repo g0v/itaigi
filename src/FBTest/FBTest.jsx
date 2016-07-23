@@ -13,6 +13,7 @@ class FBTest extends React.Component {
     };
   }
 
+  /*
   componentDidMount() {
     var _this = this;
     window.fbAsyncInit = function () {
@@ -43,13 +44,15 @@ class FBTest extends React.Component {
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   }
+  */
 
   renderFacebookResponse() {
     return (
     <div className='kong content'>
       <div className='ui segment'>
-        <h3>Facebook Image</h3>
-        <a href={this.state.href}><img src={this.state.src} /></a>
+        <a href='http://facebook.com/1730736483875375' target='_blank'>
+          <img src='https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/13434768_1730736483875375_4702703927351574930_n.png?oh=970a6acf9fda12a7d67ac7182148e27f&amp;oe=5828FB3D'/>
+        </a>
       </div>
     </div>
     );
