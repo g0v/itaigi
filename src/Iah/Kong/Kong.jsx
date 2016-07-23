@@ -21,15 +21,14 @@ class Kong extends React.Component {
   }
 
   renderTshueSiann() {
-    console.log('hey!')
     return (
     <div className='kong content'>
       <div className='ui segment'>
-        <button
+        <Link
             className='ui button basic primary large'
-            onClick={this.props.欲提供講法.bind(this,"寶可夢")}>
+            to='/k/寶可夢'>
             寶可夢
-        </button>
+        </Link>
       </div>
     </div>
     );
