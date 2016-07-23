@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import {list} from './config';
+import { list } from './config';
 
 export default class Iong extends React.Component {
   render() {
@@ -11,14 +11,17 @@ export default class Iong extends React.Component {
         {
           list.map((cate)=>
             <div className="item">
-            <h3>{cate.category}</h3>
-            <div className="padded">
-            {cate.links.map((_link)=>
-              <p>
-              <Link to={_link.link} target="_blank">{_link.title}</Link>
-              </p>)
-            }
-            </div>
+              <h3>{cate.category}</h3>
+              <div className="padded">
+              {cate.links.map((_link)=>
+                <p>
+                  <Link to={_link.link}
+                        target="_blank">
+                        {_link.title}
+                  </Link>
+                </p>)
+              }
+              </div>
             </div>
             )
         }
