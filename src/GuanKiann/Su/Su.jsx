@@ -63,7 +63,6 @@ class Su extends React.Component {
 
   render() {
     const { suText, suIm, suId, suData, 後端網址 } = this.props;
-    debug(this.props);
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }

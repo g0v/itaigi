@@ -39,6 +39,10 @@ class App extends React.Component {
             後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號,
           }
         )}
+      <h3 className='ui horizontal divider header'>
+        <i className='facebook square icon'></i>
+        面冊
+      </h3>
       <FBTest/>
       <div className='ui container'>
         <Disqus pathname={this.props.location.pathname}/>
