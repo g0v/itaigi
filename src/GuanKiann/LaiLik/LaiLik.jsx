@@ -15,7 +15,6 @@ class LaiLik extends React.Component {
   }
 
   render() {
-    debug(this.props);
     return (
     <div className='content'>
       出處：
