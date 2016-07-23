@@ -7,7 +7,6 @@ import Lun from './Iah/Lun/Lun';
 import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
 import './app.css';
 
 import Debug from 'debug';
