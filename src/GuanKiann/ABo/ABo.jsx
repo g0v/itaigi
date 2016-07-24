@@ -1,7 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
-import LokIm from '../../GuanKiann/LokIm/LokIm.jsx';
+// import LokIm from '../../GuanKiann/LokIm/LokIm.jsx';
 import APui from './APui';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
@@ -143,7 +143,7 @@ class ABo extends React.Component {
                 </div>
             </div>
           </div>
-          <LokIm className='abo ui inline'/>
+          // <LokIm className='abo ui inline'/>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
 
