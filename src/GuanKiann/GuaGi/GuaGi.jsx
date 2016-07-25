@@ -25,6 +25,7 @@ class GuaGi extends React.Component {
       suId={d.新詞文本項目編號}
       suText={d.文本資料}
       suIm={d.音標資料}
+      貢獻者={d.貢獻者}
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
       後端網址={this.props.後端網址} />
