@@ -27,6 +27,20 @@ $ npm i
 ```
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
+
+#### Check node.js version && update to stable version
+```bash
+# Check nodejs version
+$ node -v
+
+# update to stable version
+$ sudo npm cache clean -f
+$ sudo npm install -g n
+$ sudo n stable
+$ sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node
+```
+
+
 #### Start development server:
 
 ```bash
