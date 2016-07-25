@@ -28,16 +28,18 @@ $ npm i
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
 
-#### Check node.js version && update to stable version
+#### Check node.js version
 ```bash
-# Check nodejs version
 $ node -v
+```
 
-# update to stable version
-$ sudo npm cache clean -f
-$ sudo npm install -g n
-$ sudo n stable
-$ sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node
+#### update node.js to specific version
+```bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
+$ nvm install v6.0.0
+
+# Check node.js version again
+$ node -v
 ```
 
 
