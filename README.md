@@ -27,6 +27,22 @@ $ npm i
 ```
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
 
+
+#### Check node.js version
+```bash
+$ node -v
+```
+
+#### update node.js to specific version
+```bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
+$ nvm install v6.0.0
+
+# Check node.js version again
+$ node -v
+```
+
+
 #### Start development server:
 
 ```bash
