@@ -5,6 +5,7 @@
 [![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi#info=devDependencies)
 
 * [itaigi網站](http://itaigi.tw)
+* [FB粉專](https://www.facebook.com/ukauitaigi/)
 * [Slack討論](https://g0v-tw.slack.com/messages/itaigi/)
 * [專案Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)

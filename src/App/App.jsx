@@ -54,6 +54,9 @@ class App extends React.Component {
             <Link to='/about'>關於本站</Link>
           </li>
           <li className='item'>
+            <a href='https://www.facebook.com/ukauitaigi/' target="_blank">FB</a>
+          </li>
+          <li className='item'>
             <a href='https://g0v-tw.slack.com/messages/itaigi/' target="_blank">Slack</a>
           </li>
           <li className='item'>
