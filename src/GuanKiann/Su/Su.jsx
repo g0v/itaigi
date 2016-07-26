@@ -62,7 +62,7 @@ class Su extends React.Component {
   }
 
   render() {
-    const { suText, suIm, suId, suData, 後端網址 } = this.props;
+    const { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
@@ -79,7 +79,7 @@ class Su extends React.Component {
         <HuatIm suData={suData} />
         <div className='description'>
           {suIm}
-          <LaiLik laiLikId={suData.來源} 後端網址={後端網址} />
+          <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />
           華語：
           <span className='ui horizontal list large'>
             {按呢講的外語}
