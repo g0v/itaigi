@@ -9,7 +9,7 @@ class LaiLik extends React.Component {
   render() {
     return (
     <div className='content'>
-      貢獻者：
+      出處：
       {this.props.貢獻者}
     </div>
     );
