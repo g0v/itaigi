@@ -3,6 +3,7 @@ import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
+import Disqus from '../../Disqus/Disqus';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 class The extends React.Component {
@@ -41,6 +42,7 @@ class The extends React.Component {
             {無建議的外語列表}
           </div>
         </div>
+        <Disqus pathname={this.props.location.pathname}/>
       </div>
     </div>
     );
@@ -61,6 +63,7 @@ class The extends React.Component {
               編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
             />
           </div>
+          <Disqus pathname={this.props.location.pathname}/>
         </div>
       </div>
     );
