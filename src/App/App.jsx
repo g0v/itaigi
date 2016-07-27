@@ -51,13 +51,19 @@ class App extends React.Component {
       <footer className='app footer inverted'>
         <ul className='ui menu container inverted'>
           <li className='item'>
-            <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism' target="_blank">Hackpad</a>
-          </li>
-          <li className='item'>
             <Link to='/about'>關於本站</Link>
           </li>
           <li className='item'>
+            <a href='https://www.facebook.com/ukauitaigi/' target="_blank">FB</a>
+          </li>
+          <li className='item'>
+            <a href='https://g0v-tw.slack.com/messages/itaigi/' target="_blank">Slack</a>
+          </li>
+          <li className='item'>
             <a href='https://g0v.tw/' target="_blank">g0v</a>
+          </li>
+          <li className='item'>
+            <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism' target="_blank">Hackpad</a>
           </li>
           <li className='item'>
             <a href='https://github.com/g0v/itaigi' target="_blank">GitHub</a>
