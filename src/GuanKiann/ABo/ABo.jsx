@@ -36,7 +36,7 @@ class ABo extends React.Component {
   }
 
   handleSubmit(evt) {
-    if (this.state.漢字 !== '' || this.state.音標 !== '' ) {
+    if (this.state.漢字 !== '' || this.state.音標 !== '') {
       var 外語內容 = {
         '外語資料': this.props.華語關鍵字,
       };
