@@ -8,6 +8,8 @@ import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import Disqus from '../../Disqus/Disqus';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
+import './Kong.css';
+
 import Debug from 'debug';
 
 var debug = Debug('itaigi:Kong');
