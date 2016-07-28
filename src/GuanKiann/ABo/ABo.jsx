@@ -36,7 +36,7 @@ class ABo extends React.Component {
   }
 
   handleSubmit(evt) {
-    if (this.state.漢字 !== '') {
+    if (this.state.漢字 !== '' || this.state.音標 !== '' ) {
       var 外語內容 = {
         '外語資料': this.props.華語關鍵字,
       };
@@ -57,14 +57,18 @@ class ABo extends React.Component {
 
   加外語新詞文本(外語項目編號) {
     debug(外語項目編號);
-    var 建議新詞文本 = {
-      '外語項目編號': 外語項目編號,
-      '文本資料': this.state.漢字,
-    };
-    if (this.state.音標 !== '') {
-      建議新詞文本.屬性 = JSON.stringify({ '音標': this.state.音標 });
+    let 建議新詞文本;
+    if (this.state.漢字 !== '') {
+      建議新詞文本 = {
+        '外語項目編號': 外語項目編號,
+        '文本資料': this.state.漢字,
+        '音標資料': this.state.音標,
+      };
     } else {
-      建議新詞文本.屬性 = JSON.stringify({});
+      建議新詞文本 = {
+        '外語項目編號': 外語項目編號,
+        '文本資料': this.state.音標,
+      };
     }
 
     superagent.post(this.props.後端網址 + '平臺項目/加新詞文本')
