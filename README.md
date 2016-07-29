@@ -79,6 +79,12 @@ $ npm run deploy-test
 $ npm run deploy
 ```
 
+#### 產生favicon
+1.  共`design/logo正方形.svg`擲去<http://realfavicongenerator.net/>
+2. 調顯示的畫面
+3. 共產生的`favicons.zip`掠落來
+4. 解壓縮佇專案內
+5. 用<http://realfavicongenerator.net/favicon_checker>檢查
 
 ### 後端
 後端的設定較麻煩，若只是要改前端，可以不用架後端，直接用線上機就行。

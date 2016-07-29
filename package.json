@@ -6,7 +6,7 @@
     "start": "node devServer.js",
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
-    "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp index.html design/favicon.ico build/ && cp index.html build/404.html",
+    "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp index.html favicons/* build/ && cp index.html build/404.html",
     "deploy": "npm run build && (echo 'itaigi.tw' > build/CNAME) && rm node_modules/gh-pages/.cache/ -rf && gh-pages -d build/",
     "deploy-tshi3": "npm run build && (echo 'tshi3.itaigi.tw' > build/CNAME) && rm node_modules/gh-pages/.cache/ -rf && gh-pages -r https://github.com/g0v-frontend-test/itaigi-tshi3.git -d build/",
     "deploy-giam7": "npm run build && (echo 'giam7.itaigi.tw' > build/CNAME) && rm node_modules/gh-pages/.cache/ -rf && gh-pages -r https://github.com/g0v-frontend-test/itaigi-giam7.git -d build/",
