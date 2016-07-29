@@ -13,7 +13,7 @@ export default class 無關鍵字 extends React.Component {
       <div className='kong content'>
         <div className='分享'>
           <span>大家來學台語，大家做伙來豐富台語！快分享iTaigi給你的朋友知道吧！</span>
-          <分享鍵 pathname={this.props.pathname}/>
+          <分享鍵 pathname={ '' }/>
         </div>
         <div className='ui inverted segment'>
           <span className='header large'>熱門詞：</span>
