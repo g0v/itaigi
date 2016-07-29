@@ -1,18 +1,11 @@
 import React from 'react';
 import Transmit from 'react-transmit';
-import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
-import ABo from '../../GuanKiann/ABo/ABo';
-import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
-import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
-import Disqus from '../../Disqus/Disqus';
 import 錯誤 from './錯誤';
 import 無結果 from './無結果';
 import 有講法 from './有講法';
 import 無關鍵字 from './無關鍵字';
 import 其他建議 from './其他建議';
-
-import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵'
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
@@ -42,15 +35,15 @@ class Kong extends React.Component {
     );
   }
 
-  renderKiatKo() {
-    if (this.props.kongData.結果 === 0) {
-      return (
-        <無結果 華語關鍵字={this.props.kongData.關鍵字}
-        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
-        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
-      );
-    }
+  renderBoKiatKo() {
+    return (
+      <無結果 華語關鍵字={this.props.kongData.關鍵字}
+      後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
+      編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
+    );
+  }
 
+  renderKiatKo() {
     return (
         <有講法 華語關鍵字={this.props.kongData.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
@@ -60,7 +53,6 @@ class Kong extends React.Component {
   }
 
   renderKianGi() {
-
     return (
         <其他建議
         後端網址={this.props.後端網址}
@@ -79,11 +71,12 @@ class Kong extends React.Component {
           {...this.props}/>
       </nav>
       <div className='kong content'>
-        {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
+        {this.props.kongData.結果 > 0 ? this.renderKiatKo()
+        : this.props.kongData.結果 === 0 ? this.renderBoKiatKo()
         : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
         : this.renderTshueSiann()}
-        {this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length
-          > 0 ? this.renderKianGi() : ''}
+        {this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ?
+         this.renderKianGi() : ''}
       </div>
     </div>
     );
