@@ -6,6 +6,7 @@ import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import Disqus from '../../Disqus/Disqus';
+import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵'
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
@@ -89,6 +90,7 @@ class Kong extends React.Component {
 
     return (
     <div className='kongHuat'>
+      <分享鍵 pathname={this.props.location.pathname} 華語關鍵字={this.props.kongData.關鍵字} />
       {this.props.kongData.內容.列表.map((g) => (
         <GuaGi id={g.外語項目編號}
           key={g.外語項目編號} 新詞文本={g.新詞文本}

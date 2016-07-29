@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
 import Disqus from '../../Disqus/Disqus';
+import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵'
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 class The extends React.Component {
@@ -53,6 +54,7 @@ class The extends React.Component {
     return (
       <div className='main container'>
         <div className='the content'>
+          <分享鍵 pathname={this.props.location.pathname} 華語關鍵字={this.props.params.k} />
           <div className='ui forum segment'>
             <h3 className='ui header'>
               <i className='cloud upload icon'></i>
