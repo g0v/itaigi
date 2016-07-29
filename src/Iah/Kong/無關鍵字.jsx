@@ -12,7 +12,7 @@ export default class 無關鍵字 extends React.Component {
     return (
       <div className='kong content'>
         <div className='分享'>
-          <span>大家來學台語，大家做伙來豐富台語！快分享iTaigi給你的朋友知道吧！</span>
+          <span>大家來學台語，大家做伙來豐富台語！快分享 iTaigi 給你的朋友知道吧！</span>
           <分享鍵 pathname={ '' }/>
         </div>
         <div className='ui inverted segment'>
