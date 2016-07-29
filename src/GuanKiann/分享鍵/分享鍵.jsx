@@ -19,12 +19,12 @@ class 分享鍵 extends React.Component {
     <div className='container'>
       <span>哇！原來「{ this.props.華語關鍵字 }」是這樣子講的！快分享給你的朋友知道吧</span>
       <iframe
-        src={ "https://www.facebook.com/plugins/share_button.php?"+
-          "href=http%3A%2F%2Fitaigi.tw%2F"+this.props.pathname+
-          "&layout=button_count&size=small&mobile_iframe=true&appId=590065061070994&width=72&height=20"
+        src={ 'https://www.facebook.com/plugins/share_button.php?' +
+          'href=http%3A%2F%2Fitaigi.tw%2F' + this.props.pathname +
+          '&layout=button_count&size=small&mobile_iframe=true&appId=590065061070994&width=72&height=20'
       }
         width="72" height="20"
-        style={{border:"none",overflow:"hidden"}} scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameborder="0" allowTransparency="true"></iframe>
     </div>
     );
   }
