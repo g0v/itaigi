@@ -12,8 +12,10 @@ export default class 無結果 extends React.Component {
   render() {
     return (
       <div className='tshueBo'>
-        <span className='分享'>「{ this.props.華語關鍵字 }」的台語要怎麼說呢？來考考你的朋友吧！</span>
-        <分享鍵 pathname={this.props.pathname}/>
+         <div className='分享'>
+           <span>「{ this.props.華語關鍵字 }」的台語要怎麼說呢？來考考你的朋友吧！</span>
+           <分享鍵 pathname={this.props.pathname}/>
+        </div>
         <KiuKongHuat 華語關鍵字={this.props.華語關鍵字}
           後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
         <h3 className='ui horizontal divider header'>

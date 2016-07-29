@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './分享鍵.css';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:分享鍵');
