@@ -9,7 +9,8 @@ export default class 顯示一個問題 extends React.Component {
     return (
       <div className='main container'>
         <div className='the content'>
-          <分享鍵 pathname={this.props.pathname} 華語關鍵字={this.props.華語關鍵字} />
+          <span className='分享'>「{ this.props.華語關鍵字 }」的台語要怎麼說呢？來考考你的朋友吧！</span>
+          <分享鍵 pathname={this.props.pathname}/>
           <div className='ui forum segment'>
             <h3 className='ui header'>
               <i className='cloud upload icon'></i>

@@ -19,7 +19,9 @@ class 顯示選單 extends React.Component {
     );
     return (
       <div className='main container'>
-        <div className='the content'>
+          <div className='the content'>
+          <span className='分享'>大家來學台語，大家做伙來豐富台語！快分享iTaigi給你的朋友知道吧！</span>
+          <分享鍵 pathname={this.props.pathname}/>
           <div className='ui forum segment'>
             <h3>
               <i className='spinner icon'></i>

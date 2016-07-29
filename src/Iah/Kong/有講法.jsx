@@ -11,7 +11,8 @@ export default class 有講法 extends React.Component {
   render() {
     return (
     <div className='kongHuat'>
-      <分享鍵 pathname={this.props.pathname} 華語關鍵字={this.props.華語關鍵字} />
+      <span className='分享'>哇！原來「{ this.props.華語關鍵字 }」是這樣子講的！快分享給你的朋友知道吧</span>
+      <分享鍵 pathname={this.props.pathname}/>
       {this.props.內容.列表.map((g) => (
         <GuaGi id={g.外語項目編號}
           key={g.外語項目編號} 新詞文本={g.新詞文本}
