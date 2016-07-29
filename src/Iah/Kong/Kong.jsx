@@ -6,6 +6,12 @@ import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import Disqus from '../../Disqus/Disqus';
+import 錯誤 from './錯誤';
+import 無結果 from './無結果';
+import 有講法 from './有講法';
+import 無關鍵字 from './無關鍵字';
+import 其他建議 from './其他建議';
+
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵'
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
@@ -22,112 +28,43 @@ class Kong extends React.Component {
   }
 
   renderTshueSiann() {
-    var hot = ['寶可夢', '討厭', '水母', '手腳不乾淨', '煩'];
     return (
-    <div className='kong content'>
-      <div className='ui inverted segment'>
-        <span className='header large'>熱門詞：</span>
-        {
-          hot.map(function (su, i) {
-            return (
-              <Link
-                className='ui inverted button basic teal large'
-                to={'/k/' + su}>
-                {su}
-              </Link>
-            );
-          }
-        )}
-      </div>
-    </div>
-    );
+      <無關鍵字 />
+        );
   }
 
   renderTshoGoo() {
     return (
-    <div className='kong content'>
-      <div className='ui segment'>
-        <h3>找「{this.props.kongData.關鍵字}」錯了嗎？</h3>
-        {this.props.kongData.內容}
-        <button className='ui button large olive'>
-          <i className='student icon'></i>
-          求講法
-        </button>
-      </div>
-      <h3>我會曉，會使按呢講</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字}
+      <錯誤 華語關鍵字={this.props.kongData.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-      />
-    </div>
+        內容={this.props.kongData.內容}/>
     );
   }
 
   renderKiatKo() {
-    console.log(this.props.kongData.結果);
     if (this.props.kongData.結果 === 0) {
       return (
-      <div className='tshueBo'>
-        <KiuKongHuat 華語關鍵字={this.props.kongData.關鍵字}
-          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
-        <h3 className='ui horizontal divider header'>
-          <i className='cloud upload icon'></i>
-          我會曉，會使按呢講
-        </h3>
-        <ABo 華語關鍵字={this.props.kongData.關鍵字}
-          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
-          編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-        />
-        <h3 className='ui horizontal divider header'>
-          <i className='outline comments icon'></i>
-          來討論
-          「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
-        </h3>
-        <Disqus pathname={this.props.location.pathname}/>
-      </div>
+        <無結果 華語關鍵字={this.props.kongData.關鍵字}
+        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
       );
     }
 
     return (
-    <div className='kongHuat'>
-      <分享鍵 pathname={this.props.location.pathname} 華語關鍵字={this.props.kongData.關鍵字} />
-      {this.props.kongData.內容.列表.map((g) => (
-        <GuaGi id={g.外語項目編號}
-          key={g.外語項目編號} 新詞文本={g.新詞文本}
-          csrftoken={this.props.csrftoken}
-          後端網址={this.props.後端網址}/>
-      ))}
-      <h3 className='ui horizontal divider header'>
-        <i className='cloud upload icon'></i>
-        閣會使按呢講，我來做伙添
-      </h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字}
-       後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
-       編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-       />
-      <h3 className='ui horizontal divider header'>
-        <i className='outline comments icon'></i>
-        來討論
-        「<span className='ui pink header'>{this.props.kongData.關鍵字}</span>」
-      </h3>
-      <Disqus pathname={this.props.location.pathname}/>
-    </div>
+        <有講法 華語關鍵字={this.props.kongData.關鍵字}
+        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        內容={this.props.kongData.內容}/>
     );
   }
 
   renderKianGi() {
+
     return (
-    <div className='kianGi'>
-      <h3 className='ui horizontal divider header'>
-        <i className='book icon'></i>
-        相關的詞
-      </h3>
-      {this.props.kongData.內容.其他建議.map((g) =>
-        <GuaGi id={g.外語項目編號}
-          key={g.外語項目編號} 新詞文本={g.新詞文本}
-          後端網址={this.props.後端網址}/>
-      )}
-    </div>
+        <其他建議
+        後端網址={this.props.後端網址}
+        內容={this.props.kongData.內容}/>
     );
   }
 
@@ -146,7 +83,7 @@ class Kong extends React.Component {
         : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
         : this.renderTshueSiann()}
         {this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length
-          > 0 ? this.renderKianGi() : []}
+          > 0 ? this.renderKianGi() : ''}
       </div>
     </div>
     );
