@@ -15,7 +15,7 @@ export default class 分享鍵 extends React.Component {
         }
         width="72" height="20"
         style={{ border: 'none', overflow: 'hidden' }}
-        scrolling="no" frameborder="0"
+        scrolling="no" frameBorder="0"
         allowTransparency="true"></iframe>
     );
   }
