@@ -40,7 +40,8 @@ class Kong extends React.Component {
   render無結果() {
     return (
       <無結果 華語關鍵字={this.props.kongData.關鍵字}
-        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
+        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+        pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
     );
   }
@@ -48,7 +49,8 @@ class Kong extends React.Component {
   render有講法() {
     return (
       <有講法 華語關鍵字={this.props.kongData.關鍵字}
-        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} pathname={this.props.location.pathname}
+        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+        pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
         內容={this.props.kongData.內容}/>
     );
