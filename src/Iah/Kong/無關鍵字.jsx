@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Disqus from '../../Disqus/Disqus';
+import FBTest from '../../FBTest/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';
 
@@ -29,6 +29,7 @@ export default class 無關鍵字 extends React.Component {
             }
           )}
         </div>
+        <FBTest/>
       </div>
     );
   }
