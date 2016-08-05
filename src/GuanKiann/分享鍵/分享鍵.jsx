@@ -10,10 +10,13 @@ export default class 分享鍵 extends React.Component {
       <iframe
         src={ 'https://www.facebook.com/plugins/share_button.php?' +
           'href=http%3A%2F%2Fitaigi.tw%2F' + this.props.pathname +
-          '&layout=button_count&size=small&mobile_iframe=true&appId=590065061070994&width=72&height=20'
-      }
+          '&layout=button_count&size=small&' +
+          'mobile_iframe=true&appId=590065061070994&width=72&height=20'
+        }
         width="72" height="20"
-        style={{ border: 'none', overflow: 'hidden' }} scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        style={{ border: 'none', overflow: 'hidden' }}
+        scrolling="no" frameborder="0"
+        allowTransparency="true"></iframe>
     );
   }
 }
