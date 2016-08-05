@@ -4,7 +4,9 @@ var webpack = require('webpack');
 var config = require('./webpack.config.dev');
 
 if ((parseInt(process.versions.node[0]) == 0) && (parseInt(process.versions.node.slice(2)) <= 12)) {
-  console.log('Node.js version ' + process.versions.node + ' too old; please upgrade to Node.js 4.0 or later.');
+  console.log(
+    'Node.js version ' + process.versions.node + ' too old; please upgrade to Node.js 4.0 or later.'
+  );
   process.exit();
 }
 
