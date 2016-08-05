@@ -1,6 +1,5 @@
 import React from 'react';
 import Transmit from 'react-transmit';
-import Disqus from '../../Disqus/Disqus';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -35,7 +34,6 @@ class 顯示選單 extends React.Component {
               {無建議的外語列表}
             </div>
           </div>
-          <Disqus pathname={this.props.pathname}/>
         </div>
       </div>
     );
