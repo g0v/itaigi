@@ -8,7 +8,6 @@ import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
 import About from './Iah/About/About';
-import './app.css';
 
 import Debug from 'debug';
 Debug.enable('itaigi:*');

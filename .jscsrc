@@ -5,6 +5,5 @@
     ".jsx"
   ],
   "excludeFiles": ["src/GuanKiann/LokIm/**.js", "src/GuanKiann/HuatIm/SoundsMapping.jsx"],
-  "requireCamelCaseOrUpperCaseIdentifiers": false,
-  "maximumLineLength": 65536
+  "requireCamelCaseOrUpperCaseIdentifiers": false
 }
