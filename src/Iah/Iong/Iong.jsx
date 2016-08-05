@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { list } from './config';
 import Disqus from '../../Disqus/Disqus';
+import './Iong.css'
 
 export default class Iong extends React.Component {
   render() {
