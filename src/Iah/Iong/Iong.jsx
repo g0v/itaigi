@@ -27,8 +27,8 @@ export default class Iong extends React.Component {
             )
         }
         </div>
+        <Disqus pathname='/iong' />
       </div>
-      <Disqus pathname='%2fiong'/>
     </div>
     );
   }
