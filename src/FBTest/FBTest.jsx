@@ -67,9 +67,15 @@ class FBTest extends React.Component {
 
   render() {
     return (
-    <div className='main container'>
-      {this.renderFacebookResponse()}
-    </div>
+      <div>
+        <h3 className='ui horizontal divider header'>
+          <i className='facebook square icon'></i>
+          面冊
+        </h3>
+        <div className='container'>
+          {this.renderFacebookResponse()}
+        </div>
+      </div>
     );
   }
 }
