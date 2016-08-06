@@ -6,6 +6,7 @@ module.exports = {
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
+    'babel-polyfill',
     './src',
   ],
   output: {
