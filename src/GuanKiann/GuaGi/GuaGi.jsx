@@ -33,7 +33,7 @@ class GuaGi extends React.Component {
     return (
     <div className='guaGi'>
       <div className='ui su vertical segment'>
-        <div className='ui cards'>
+        <div className='ui centered cards'>
           {suList}
         </div>
       </div>
