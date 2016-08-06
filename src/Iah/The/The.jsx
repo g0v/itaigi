@@ -1,6 +1,7 @@
 import React from 'react';
 import 顯示選單 from './顯示選單';
 import 顯示一個問題 from './顯示一個問題';
+import './The.css';
 
 export default class The extends React.Component {
 
