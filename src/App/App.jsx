@@ -86,7 +86,7 @@ export default Transmit.createContainer(App, {
       debug('後端網址 %s', 後端網址);
       if (!後端網址) return new Promise((cb) => cb(''));
       return (
-        superagent.get(後端網址 + 'csrf/看')
+        superagent.get(encodeURI(後端網址 + 'csrf/看'))
         .withCredentials()
         .then(({ body }) => body.csrftoken)
       );
@@ -95,7 +95,7 @@ export default Transmit.createContainer(App, {
     編號() {
       if (!後端網址) return new Promise((cb)=>cb('無登入'));
       return (
-        superagent.get(後端網址 + '使用者/看編號')
+        superagent.get(encodeURI(後端網址 + '使用者/看編號'))
         .withCredentials()
         .then(({ body }) => body.使用者編號)
       );
