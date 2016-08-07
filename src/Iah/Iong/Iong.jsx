@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { list } from './config';
+import Disqus from '../../Disqus/Disqus';
+import './Iong.css';
 
 export default class Iong extends React.Component {
   render() {
@@ -10,12 +12,12 @@ export default class Iong extends React.Component {
         <div className='ui cards'>
         {
           list.map((cate)=>
-            <div className='card'>
+            <div className='card' key={cate.category}>
               <div className='content'>
                 <h3>{cate.category}</h3>
                 <div className='padded'>
                   {cate.links.map((_link)=>
-                    <p>
+                    <p key={_link.link}>
                     <Link to={_link.link}
                       target='_blank'>
                       {_link.title}
@@ -28,6 +30,7 @@ export default class Iong extends React.Component {
             )
         }
         </div>
+        <Disqus pathname='/iong' />
       </div>
     </div>
     );
