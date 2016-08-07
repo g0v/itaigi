@@ -6,6 +6,7 @@ import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import SoundsMapping from './SoundsMapping';
+import HapSing from './HapSing'
 import Debug from 'debug';
 
 var debug = Debug('itaigi:HuatIm');
@@ -17,13 +18,14 @@ export default class HuatIm extends React.Component {
   }
 
   render() {
-    if (!this.props.suData.屬性內容.音標) {
+    let {音標}=this.props.suData.屬性內容;
+    if (!音標) {
       return <div className='HuatIm hidden'></div>;
     }
 
-    var id = SoundsMapping.map(this.props.suData.屬性內容.音標);
+    let id = SoundsMapping.map(音標);
     if (id === undefined) {
-      return <div className='HuatIm hidden'></div>;
+      return <HapSing 音標={音標} />;
     }
 
     return (
