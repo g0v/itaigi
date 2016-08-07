@@ -66,6 +66,15 @@ let list = [
       },
     ],
   },
+  {
+    category: '文章',
+    links: [
+      {
+        title: '什麼，你也懂台語字？',
+        link: 'http://liztaigi.blogspot.tw/2015/08/blog-post_31.html',
+      },
+    ],
+  },
 ];
 
 export {list};

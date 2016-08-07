@@ -8,21 +8,23 @@ export default class Iong extends React.Component {
   render() {
     return (
     <div className='main container'>
-      <div className='iong ui container'>
-        <div className='ui fluid vertical menu'>
+      <div className='iong ui vertical segment'>
+        <div className='ui cards'>
         {
           list.map((cate)=>
-            <div className="item" key={cate.category}>
-              <h3>{cate.category}</h3>
-              <div className="padded">
-              {cate.links.map((_link)=>
-                <p key={_link.link}>
-                  <Link to={_link.link}
-                        target="_blank">
-                        {_link.title}
-                  </Link>
-                </p>)
-              }
+            <div className='card' key={cate.category}>
+              <div className='content'>
+                <h3>{cate.category}</h3>
+                <div className='padded'>
+                  {cate.links.map((_link)=>
+                    <p key={_link.link}>
+                    <Link to={_link.link}
+                      target='_blank'>
+                      {_link.title}
+                    </Link>
+                    </p>)
+                  }
+                </div>
               </div>
             </div>
             )
