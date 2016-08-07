@@ -108,6 +108,7 @@ export default Transmit.createContainer(Kong, {
           '訊息': '沒有提供關鍵字',
         });
       }
+
       return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k))
         .then(({ body }) => ({
           '關鍵字': params.k,
