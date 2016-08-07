@@ -1,25 +1,47 @@
 import React from 'react';
+import Transmit from 'react-transmit';
+import Promise from 'bluebird';
+var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
 
 var debug = Debug('itaigi:HapSing');
 
-export default class HapSing extends React.Component {
+class HapSing extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: Math.random().toString(36),
+    };
+  }
+
+  componentWillMount() {
+    this.props.setQueryParams(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params === this.props.params) return;
+    this.props.setQueryParams(nextProps);
+  }
 
   play(id) {
-    debug('play')
+    debug('play', id);
+    document.getElementById(id).load();
     document.getElementById(id).play();
   }
 
   render() {
-    var id = this.props.音標;
+    debug('標漢字音標', this.props.標漢字音標);
     return (
       <div className='HuatIm'>
-        <audio id={'audio_' + id}>
-          <source type='audio/mpeg'
-            src={'http://服務.意傳.台灣/%E8%AA%9E%E9%9F%B3%E5%90%88%E6%88%90?%E6%9F%A5%E8%A9%A2%E8%85%94%E5%8F%A3=%E9%96%A9%E5%8D%97%E8%AA%9E&%E6%9F%A5%E8%A9%A2%E8%AA%9E%E5%8F%A5=' + id } />
+        <audio id ={this.state.id} autoPlay>
+          <source type='audio/wav'
+            src={
+              'http://服務.意傳.台灣/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(this.props.標漢字音標) }
+           />
         </audio>
-        <button onClick={this.play.bind(this, 'audio_' + id)}
+        <button onClick={this.play.bind(this, this.state.id)}
           className='ui compact icon button'>
           <i className='icon play'></i>
         </button>
@@ -27,3 +49,16 @@ export default class HapSing extends React.Component {
     );
   }
 };
+
+export default Transmit.createContainer(HapSing, {
+  queries: {
+    標漢字音標({ 音標 }) {
+      debug('音標', 音標);
+      return (
+        superagent.get('http://服務.意傳.台灣/標漢字音標?查詢腔口=閩南語&查詢語句=' + 音標)
+        .then(({ body }) => (body.翻譯正規化結果))
+        .catch((err) => debug(err))
+      );
+    },
+  },
+});
