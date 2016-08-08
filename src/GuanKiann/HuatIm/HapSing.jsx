@@ -25,9 +25,22 @@ class HapSing extends React.Component {
     this.props.setQueryParams(nextProps);
   }
 
-  play(id) {
-    document.getElementById(id).load();
-    document.getElementById(id).play();
+  componentDidMount()
+  {
+    setTimeout(this.載入.bind(this), Math.random() * 1000);
+  }
+
+  componentDidUpdate(prevProps,  prevState)
+  {
+    setTimeout(this.載入.bind(this), Math.random() * 1000);
+  }
+
+  載入() {
+    document.getElementById(this.state.id).load();
+  }
+
+  play() {
+    document.getElementById(this.state.id).play();
   }
 
   render() {
@@ -39,7 +52,7 @@ class HapSing extends React.Component {
               'http://服務.意傳.台灣/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(this.props.標漢字音標) }
            />
         </audio>
-        <button onClick={this.play.bind(this, this.state.id)}
+        <button onClick={this.play.bind(this)}
           className='ui compact icon button'>
           <i className='icon play'></i>
         </button>
