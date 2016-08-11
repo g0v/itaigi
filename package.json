@@ -4,6 +4,8 @@
   "description": "itaigi",
   "scripts": {
     "start": "node devServer.js",
+    "production": "NODE_ENV=production webpack -p --progress  --config webpack.config.js && node prerender",
+    "server": "node prerender",
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp index.html favicons/* build/ && cp index.html build/404.html",
