@@ -10,7 +10,7 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
 
-var 後端網址 = 'http://db.itaigi.tw/';
+var 後端網址 = 'https://db.itaigi.tw/';
 
 // 後端網址 = 'http://private-f0474-tai5uan5gian5gi2phing5thai5.apiary-mock.com/';
 // 後端網址 = 'http://localhost:8000/';
