@@ -10,7 +10,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 def 走寶島可夢():
     公家內容 = {
-        '來源': {'名': '師大台文系'},
+        '來源': {'名': '師大台文'},
     }
     for 第幾筆, 資料 in enumerate(sheet表內底資料()):
         if 第幾筆 % 10 == 0:
