@@ -129,13 +129,6 @@ celery -A itaigi beat -l info
 #### Postgres設定(optional)
 詳情請看臺灣言語資料庫的[使用Postgres](http://tai5-uan5-gian5-gi2-tsu1-liau7-khoo3.readthedocs.org/zh_TW/latest/%E4%BD%BF%E7%94%A8Postgres.html)
 
-### 匯入資料
-```bash
-echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
-```
-完整匯入需等待一段時間，等待途中可以繼續做其他事
-若只需試驗，可中途中斷
-
 ### 設定FB登入
 #### 增加管理員帳號
 ```bash
@@ -167,6 +160,15 @@ email 和密碼隨意輸入，待會需用此帳密登入
 python manage.py 加sheet的json itaigi-sui2.json https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk/edit#gid=0
 python manage.py 顯示全部sheet狀態
 ```
+
+### 匯入資料
+先去[寶島可夢](https://docs.google.com/spreadsheets/d/1LXzPeaL0hbj-HuUeJXKNUetAtwNNgIanN7bXM94iS7s/edit#gid=0)設定google sheet的`Can Edit`權限
+```bash
+echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+echo 'from 匯入寶島可夢 import 走寶島可夢 ; 走寶島可夢()' | python manage.py shell
+```
+完整匯入需等待一段時間，等待途中可以繼續做其他事
+若只需試驗，可中途中斷
 
 ### 無完整的簡單佈署流程
 ```
