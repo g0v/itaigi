@@ -1,13 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
 
 var debug = Debug('itaigi:HapSing');
 
-class HapSing extends React.Component {
+export default class HapSing extends React.Component {
 
   constructor(props) {
     super(props);
@@ -44,12 +41,14 @@ class HapSing extends React.Component {
   }
 
   render() {
+    let { 音標 } = this.props;
+    let 標漢字音標 = 音標.split(' ').map((音)=>(音 + '｜' + 音)).join(' ');
     return (
       <div className='HuatIm'>
         <audio id ={this.state.id}>
           <source type='audio/wav'
             src={
-              'http://服務.意傳.台灣/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(this.props.標漢字音標) }
+              'http://voice.itaigi.tw/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}
@@ -61,14 +60,3 @@ class HapSing extends React.Component {
   }
 };
 
-export default Transmit.createContainer(HapSing, {
-  queries: {
-    標漢字音標({ 音標 }) {
-      return (
-        superagent.get('http://服務.意傳.台灣/標漢字音標?查詢腔口=閩南語&查詢語句=' + 音標)
-        .then(({ body }) => (body.翻譯正規化結果))
-        .catch((err) => debug(err))
-      );
-    },
-  },
-});
