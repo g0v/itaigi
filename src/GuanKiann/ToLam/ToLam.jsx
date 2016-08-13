@@ -8,7 +8,7 @@ class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
     var menu_item_class = function (prefix) {
-        if (path.startsWith(prefix) || (path === '/' && prefix === '/k'))
+        if (path==prefix|| path.startsWith(prefix+'/') || (path === '/' && prefix === '/k'))
           return 'item active';
         return 'item';
       };
@@ -29,6 +29,9 @@ class ToLam extends React.Component {
         </Link>
         <Link className={menu_item_class('/iong')} to='/iong'>
           <i className="configure icon"></i>好工具
+        </Link>
+        <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
+          <i className="street view icon"></i>抱去摸
         </Link>
         {/*<Link className={menu_item_class('/mia')} to='/mia'>
           <i className="flag icon"></i>名人堂
