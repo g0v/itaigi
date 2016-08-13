@@ -22,6 +22,7 @@ export default class 無關鍵字 extends React.Component {
               return (
                 <Link
                   className='ui inverted button basic teal large'
+                  style={{marginBottom: '0.25em'}}
                   to={'/k/' + su}>
                   {su}
                 </Link>

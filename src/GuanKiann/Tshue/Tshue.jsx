@@ -42,7 +42,7 @@ class Tshue extends React.Component {
 
   render() {
     return (
-    <div className='ui action input huge container'>
+    <div className='ui fluid action input huge container'>
       <input
         type='text'
         placeholder='輸入華語，點一下「台語怎麼講」'

@@ -7,6 +7,7 @@ import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
+import './Su.css';
 
 var debug = Debug('itaigi:Su');
 

@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  width: 960px;
+  max-width: 100%;
 }
 
 .app.bar .title {

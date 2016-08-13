@@ -10,8 +10,8 @@ body {
 }
 
 .app .container {
+  width: 100%;
   max-width: 960px;
-  width: 100% !important;
   margin: 0 auto;
 }
 
@@ -30,6 +30,8 @@ body {
 }
 
 .app .app.header {
+  display: flex;
+  justify-content: center;
   background: #fff;
 }
 
