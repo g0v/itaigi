@@ -13,15 +13,6 @@ export default class HapSing extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.props.setQueryParams(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
-
   componentDidMount()
   {
     setTimeout(this.載入.bind(this), Math.random() * 1000);
