@@ -1,18 +1,25 @@
 # -*- coding: utf-8 -*-
+import json
+from os.path import join, dirname
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 from django.core.exceptions import ValidationError
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 
 from 臺灣言語平臺.項目模型 import 平臺項目表
 from 臺灣言語平臺.正規化團隊模型 import 正規化sheet表
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 
 def 走寶島可夢():
     公家內容 = {
         '來源': {'名': '師大台文'},
     }
-    for 第幾筆, 資料 in enumerate(sheet表內底資料()):
+    with open(join(dirname(__file__), '語料', '寶島可夢表.json')) as 檔案:
+        sheet表內底資料=json.load(檔案)
+    for 第幾筆, 資料 in enumerate(sheet表內底資料):
         if 第幾筆 % 10 == 0:
             print('匯到第 {} 筆'.format(第幾筆))
         外語內容 = {
@@ -33,6 +40,14 @@ def 走寶島可夢():
         文本平臺項目.設為推薦用字()
 
 
+def 掠sheet表資料():
+    輸出資料 = []
+    for 一筆 in sheet表內底資料():
+        輸出資料.append(一筆)
+    with open(join(dirname(__file__), '語料', '寶島可夢表.json'), 'w') as 檔案:
+        json.dump(輸出資料, 檔案, ensure_ascii=False, indent=2, sort_keys=True)
+
+
 def sheet表內底資料():
     資料表 = sheet表()
     全部資料 = 資料表.get_all_values()
@@ -51,3 +66,27 @@ def sheet表():
     return gspread.authorize(登入憑證).open_by_url(
         寶島可夢網址
     ).sheet1
+
+
+def 掠對照表():
+    網址 = 'http://www.pikatw.com/t/pokedexn.htm'
+    with urlopen(網址) as 檔案:
+        soup = BeautifulSoup(檔案.read(), 'lxml')
+    for table in soup.find_all('table'):
+        try:
+            if table['id'] == 'table1':
+                全部資料 = []
+                for tr in table.find_all('tr'):
+                    一逝 = []
+                    for td in tr.find_all('td'):
+                        一逝.append(' '.join(td.get_text().split()))
+                    全部資料.append(一逝)
+                輸出資料 = []
+                標題 = 全部資料[0]
+                for 一筆 in 全部資料[1:]:
+                    這筆資料 = dict(zip(標題, 一筆))
+                    輸出資料.append(這筆資料)
+        except:
+            pass
+    with open(join(dirname(__file__), '語料', '抱去摸對照表.json'), 'w') as 檔案:
+        json.dump(輸出資料, 檔案, ensure_ascii=False, indent=2, sort_keys=True)
