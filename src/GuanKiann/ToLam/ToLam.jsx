@@ -8,7 +8,7 @@ class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
     var menu_item_class = function (prefix) {
-        if (path==prefix|| path.startsWith(prefix+'/') || (path === '/' && prefix === '/k'))
+        if (path == prefix || path.startsWith(prefix + '/') || (path === '/' && prefix === '/k'))
           return 'item active';
         return 'item';
       };
