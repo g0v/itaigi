@@ -35,7 +35,7 @@ export default class HapSing extends React.Component {
     let { 音標 } = this.props;
     let 標漢字音標 = (
       音標.replace('?', ' ? ').replace('.', ' . ')
-      .replace('/', ' 。 ')
+      .replace('/', ' 。 ').trim()
       .split(' ').map((音)=>(音 + '｜' + 音)).join(' ')
     );
     return (
