@@ -9,6 +9,6 @@ for (var key in old_mapping) {
 
 export default class SoundsMapping  {
   static map(k) {
-    return mapping[k.split('/')[0]];
+    return mapping[k];
   }
 }
