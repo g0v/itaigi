@@ -33,7 +33,7 @@ export default class HapSing extends React.Component {
 
   render() {
     let { 音標 } = this.props;
-    let 標漢字音標 = 音標.split(' ').map((音)=>(音 + '｜' + 音)).join(' ');
+    let 標漢字音標 = 音標.replace('/', ' 。 ').split(' ').map((音)=>(音 + '｜' + 音)).join(' ');
     return (
       <div className='HuatIm'>
         <audio id ={this.state.id}>
