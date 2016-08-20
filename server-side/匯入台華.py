@@ -2,7 +2,7 @@
 import csv
 from os.path import dirname, abspath, join
 
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
 
 from 臺灣言語平臺.項目模型 import 平臺項目表
@@ -34,11 +34,14 @@ def 走台華():
         except ValidationError as 錯誤:
             外語平臺項目編號 = 錯誤.平臺項目編號
         try:
-            外語平臺項目.外語.翻譯文本.get(文本__文本資料=漢字, 文本__音標資料=臺羅)
-        except:
+            平臺項目表.揣編號(外語平臺項目編號).外語.翻譯文本.get(
+                文本__文本資料=漢字, 文本__音標資料=臺羅
+            )
+        except ObjectDoesNotExist as s:
             pass
         else:
             print(華語, 漢字, 臺羅, '出現過矣！！')
+            continue
         文本平臺項目 = 平臺項目表.外語翻母語(外語平臺項目編號, 閩南語內容)
         文本平臺項目.設為推薦用字()
 
