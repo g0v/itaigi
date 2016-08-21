@@ -165,6 +165,7 @@ python manage.py 顯示全部sheet狀態
 先去[寶島可夢](https://docs.google.com/spreadsheets/d/1LXzPeaL0hbj-HuUeJXKNUetAtwNNgIanN7bXM94iS7s/edit#gid=0)設定google sheet的`Can Edit`權限
 ```bash
 echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+echo 'from 匯入台華 import 走台華 ; 走台華()' | python manage.py shell
 echo 'from 匯入寶島可夢 import 走寶島可夢 ; 走寶島可夢()' | python manage.py shell
 ```
 完整匯入需等待一段時間，等待途中可以繼續做其他事
