@@ -1,20 +1,15 @@
 # -*- coding: utf-8 -*-
 import json
 from os.path import join, dirname
-from urllib.request import urlopen
 
-from bs4 import BeautifulSoup
 from django.core.exceptions import ValidationError
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 
 from 臺灣言語平臺.項目模型 import 平臺項目表
-from 臺灣言語平臺.正規化團隊模型 import 正規化sheet表
 
 
 def 走匯外來詞():
-    with open(join(dirname(__file__), '語料', '寶島可夢表.json')) as 檔案:
+    with open(join(dirname(__file__), '語料', '臺灣閩南語常用詞辭典-外來詞-glll4678整理.csv')) as 檔案:
         sheet表內底資料 = json.load(檔案)
     for 第幾筆, (華語, 漢字, 臺羅) in enumerate(sheet表內底資料):
         if 第幾筆 % 10 == 0:
