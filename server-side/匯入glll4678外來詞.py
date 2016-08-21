@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import json
+import csv
 from os.path import join, dirname
 
 from django.core.exceptions import ValidationError
@@ -10,7 +10,11 @@ from 臺灣言語平臺.項目模型 import 平臺項目表
 
 def 走匯外來詞():
     with open(join(dirname(__file__), '語料', '臺灣閩南語常用詞辭典-外來詞-glll4678整理.csv')) as 檔案:
-        sheet表內底資料 = json.load(檔案)
+        標題,*內容= csv.reader(檔案)
+        for 一逝 in 內容:
+            資料=dict(zip(標題,一逝))
+            print(資料)
+            
     for 第幾筆, (華語, 漢字, 臺羅) in enumerate(sheet表內底資料):
         if 第幾筆 % 10 == 0:
             print('匯到第 {} 筆'.format(第幾筆))
