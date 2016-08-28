@@ -30,6 +30,7 @@ body {
 }
 
 .app .app.header {
+  min-height: 90px;
   display: flex;
   justify-content: center;
   background: #fff;
