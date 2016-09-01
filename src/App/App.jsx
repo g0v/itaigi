@@ -50,6 +50,9 @@ class App extends React.Component {
             <a href='https://g0v-tw.slack.com/messages/itaigi/' target="_blank">Slack</a>
           </li>
           <li className='item'>
+            <a href='http://moe.kktix.cc/' target="_blank">萌典松</a>
+          </li>
+          <li className='item'>
             <a href='https://g0v.tw/' target="_blank">g0v</a>
           </li>
           <li className='item'>
