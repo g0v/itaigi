@@ -1,11 +1,6 @@
-div.iong {
-	margin: 0 auto;
-	padding-top:1em;
-}
-
 /* Mobile */
 @media only screen and (max-width: 767px) {
-  .iong .ui.cards {
+  .guaGi .ui.cards {
     justify-content: center;
   }
 }

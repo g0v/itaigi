@@ -4,6 +4,7 @@ import Su from '../Su/Su';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
+import './GuaGi.css';
 
 var debug = Debug('itaigi:GuaGi');
 
@@ -33,7 +34,7 @@ class GuaGi extends React.Component {
     return (
     <div className='guaGi'>
       <div className='ui su vertical segment'>
-        <div className='ui centered cards'>
+        <div className='ui cards'>
           {suList}
         </div>
       </div>
