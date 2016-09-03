@@ -38,6 +38,8 @@ render(
   </div>, root);
 
 render(
-  <TshiuKiSuanTuann />, document.getElementById('sidebar'));
+  <Router history={history}>
+    <Route path='/*' component={TshiuKiSuanTuann} />
+  </Router>, document.getElementById('sidebar'));
 
 // }
