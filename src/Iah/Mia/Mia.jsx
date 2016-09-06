@@ -10,6 +10,7 @@ var debug = Debug('itaigi:Mia');
 class Mia extends React.Component {
 
   componentWillMount() { this.props.setQueryParams(this.props); }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
     this.props.setQueryParams(nextProps);
@@ -54,10 +55,10 @@ Mia.propTypes = {
 export default Transmit.createContainer(Mia, {
   queries: {
     MiaData({ params, 後端網址 }) {
-        return superagent.get(後端網址 + '貢獻者表')
-        .then(({ body }) => ({
-          '內容': body,
-        }));
+      return superagent.get(後端網址 + '貢獻者表')
+      .then(({ body }) => ({
+        '內容': body,
+      }));
     },
   },
 });
