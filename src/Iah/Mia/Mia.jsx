@@ -8,6 +8,13 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Mia');
 
 class Mia extends React.Component {
+
+  componentWillMount() { this.props.setQueryParams(this.props); }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.params === this.props.params) return;
+    this.props.setQueryParams(nextProps);
+  }
+
   render() {
     debug('rendering %o', this.props.MiaData);
     return (
@@ -15,7 +22,7 @@ class Mia extends React.Component {
       <div className='mia ui vertical segment'>
         <div className='ui cards'>
         {
-          this.props.MiaData.內容[0].名人.map((g) => (
+          this.props.MiaData.內容.名人.map((g) => (
             <div className='card' key={ g.名 }>
               <div className='content'>
                 <h3>{ g.名 } （貢獻詞條數：{ g.數量 }）</h3>
@@ -47,7 +54,7 @@ Mia.propTypes = {
 export default Transmit.createContainer(Mia, {
   queries: {
     MiaData({ params, 後端網址 }) {
-      return superagent.get('http://private-22b88-aweimeow.apiary-mock.com/Mia')
+        return superagent.get(後端網址 + '貢獻者表')
         .then(({ body }) => ({
           '內容': body,
         }));
