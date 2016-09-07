@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Transmit from 'react-transmit';
+import Promise from 'bluebird';
 
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -9,12 +10,14 @@ var debug = Debug('itaigi:Mia');
 
 class Mia extends React.Component {
 
-  componentWillMount() { this.props.setQueryParams(this.props); }
+  //componentWillMount() { this.props.setQueryParams(this.props); }
 
+  /**
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
     this.props.setQueryParams(nextProps);
   }
+  **/
 
   render() {
     debug('rendering %o', this.props.MiaData);
@@ -47,15 +50,15 @@ class Mia extends React.Component {
 
 Mia.propTypes = {
   setQueryParams: React.PropTypes.func,
-  params: React.PropTypes.object,
   MiaData: React.PropTypes.object,
   '後端網址': React.PropTypes.string,
 };
 
 export default Transmit.createContainer(Mia, {
   queries: {
-    MiaData({ params, 後端網址 }) {
-      return superagent.get(後端網址 + '貢獻者表')
+    MiaData({ 後端網址 }) {
+      //return superagent.get(後端網址 + '貢獻者表')
+      return superagent.get('https://db.itaigi.tw/貢獻者表')
       .then(({ body }) => ({
         '內容': body,
       }));
