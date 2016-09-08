@@ -17,11 +17,20 @@
 Install:
 
 #### Install npm
-[安裝 NPM](https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst)
-
-If in ubuntu 14.04
+#### Check node.js version
 ```bash
-$ sudo apt-get install npm nodejs-legacy
+$ node -v # version must >4
+```
+
+#### update node.js to specific version
+```bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
+$ nvm install 6
+
+$ nvm use 6
+
+# Check node.js version again
+$ node -v
 ```
 
 #### Install packages
@@ -29,21 +38,6 @@ $ sudo apt-get install npm nodejs-legacy
 $ npm i
 ```
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
-
-
-#### Check node.js version
-```bash
-$ node -v
-```
-
-#### update node.js to specific version
-```bash
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
-$ nvm install v6.0.0
-
-# Check node.js version again
-$ node -v
-```
 
 
 #### Start development server:
