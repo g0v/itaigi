@@ -1,0 +1,11 @@
+
+#KuahPau {
+
+}
+
+/* Non-Mobile */
+@media only screen and (min-width: 768px) {
+  #KuahPau {
+    display: none;
+  }
+}

@@ -8,7 +8,7 @@ export default class Iong extends React.Component {
   render() {
     return (
     <div className='main container'>
-      <div className='iong ui vertical segment'>
+      <div className='iong'>
         <div className='ui cards'>
         {
           list.map((cate)=>
