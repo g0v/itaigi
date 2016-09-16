@@ -31,11 +31,13 @@ class Mia extends React.Component {
               <div className='content'>
                 <h3>{ g.名 } （貢獻詞條數：{ g.數量 }）</h3>
                 <div className='padded'>
-                  { g.詞條.map((詞)=>
-                    <p key={ '/k/' + 詞 }>
-                      <Link to={ '/k/' + 詞 } target='_blank'>{ 詞 }</Link>
-                    </p>
-                  )}
+                  { g.詞條.map((詞)=>(
+                    <button key={詞}
+                      className='ui button basic primary large'
+                      onClick={this.props.handleKong.bind(this, 詞)}>
+                      {詞}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
