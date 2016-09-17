@@ -17,7 +17,7 @@ class Mia extends React.Component {
 
 Mia.propTypes = {
   params: React.PropTypes.object,
-  handleKong: React.PropTypes.func,
+  查怎樣講: React.PropTypes.func,
 };
 
 export default Transmit.createContainer(Mia, {});

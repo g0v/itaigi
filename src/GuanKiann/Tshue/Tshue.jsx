@@ -13,14 +13,14 @@ class Tshue extends React.Component {
 
   handleKeyDown(evt) {
     if (evt.keyCode === 13) {
-      this.handleSubmit(evt);
+      this.查怎樣講(evt);
       return;
     }
   }
 
-  handleSubmit(evt) {
+  查怎樣講(evt) {
     if (this.state.q !== '') {
-      this.props.handleSubmit(this.state.q);
+      this.props.查怎樣講(this.state.q);
     }
   }
 
@@ -36,7 +36,7 @@ class Tshue extends React.Component {
     var q = document.querySelector('#Tshue').value;
     if (q !== this.state.q) {
       this.setState({ q });
-      this.handleSubmit.bind(this)();
+      this.查怎樣講.bind(this)();
     }
   }
 
@@ -51,7 +51,7 @@ class Tshue extends React.Component {
         id='Tshue'
       />
       <div className='ui button huge teal'
-        onClick={this.handleSubmit.bind(this)}>
+        onClick={this.查怎樣講.bind(this)}>
         <i className='translate icon'></i>
         台語怎麼講
       </div>
