@@ -4,6 +4,7 @@ import Su from '../Su/Su';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
+import './GuaGi.css';
 
 var debug = Debug('itaigi:GuaGi');
 

@@ -8,6 +8,8 @@ import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
 import About from './Iah/About/About';
+import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
+import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
 
 import Debug from 'debug';
 Debug.enable('itaigi:*');
@@ -19,17 +21,25 @@ const root = document.getElementById('app');
 // } else {
 let history = browserHistory;
 render(
+  <div>
+    <KuahPau />
+    <Router history={history}>
+      <Route path='/' component={App}>
+        <IndexRoute component={Kong} />
+        <Route path='k(/:k)' component={Kong} />
+        <Route path='l(/:k)' component={Lun} />
+        <Route path='t(/:k)' component={The} />
+        <Route path='iong' component={Iong} />
+        <Route path='mia' component={Mia} />
+        <Route path='about' component={About} />
+        <Route path='*' component={Kong} />
+      </Route>
+    </Router>
+  </div>, root);
+
+render(
   <Router history={history}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Kong} />
-      <Route path='k(/:k)' component={Kong} />
-      <Route path='l(/:k)' component={Lun} />
-      <Route path='t(/:k)' component={The} />
-      <Route path='iong' component={Iong} />
-      <Route path='mia' component={Mia} />
-      <Route path='about' component={About} />
-      <Route path='*' component={Kong} />
-    </Route>
-  </Router>, root);
+    <Route path='/*' component={TshiuKiSuanTuann} />
+  </Router>, document.getElementById('sidebar'));
 
 // }

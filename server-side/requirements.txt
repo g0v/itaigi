@@ -29,8 +29,8 @@ requests-oauthlib==0.6.1
 rsa==3.4.2
 six==1.10.0
 tai5-uan5-gian5-gi2-kang1-ku7==0.6.0
-tai5-uan5-gian5-gi2-phing5-tai5==0.1.4
-tai5-uan5-gian5-gi2-tsu1-liau7-khoo3==3.1.9
+tai5-uan5-gian5-gi2-phing5-tai5==0.1.5
+tai5-uan5-gian5-gi2-tsu1-liau7-khoo3==3.1.11
 xlrd==1.0.0
 # message queue
 celery==3.1.23

@@ -18,7 +18,7 @@ export default class HuatIm extends React.Component {
   }
 
   render() {
-    let { 音標 } = this.props.suData.屬性內容;
+    let { 音標 } = this.props;
     if (!音標) {
       return <div className='HuatIm hidden'></div>;
     }

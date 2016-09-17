@@ -7,6 +7,7 @@ import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
+import './Su.css';
 
 var debug = Debug('itaigi:Su');
 
@@ -76,7 +77,7 @@ class Su extends React.Component {
           {suText}
           </h2>
         </div>
-        <HuatIm suData={suData} />
+        <HuatIm 音標={suIm} />
         <div className='description'>
           {suIm}
           <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from curses.ascii import isupper
 import os
 
 from django.conf import settings
@@ -52,10 +51,7 @@ def 走():
         for 漢字, 音標, 華語 in 資料庫.資料():
             a += 1
             print(a)
-            if len(音標) > 0 and isupper(音標[0]):
-                種類 = '語句'
-            else:
-                種類 = '字詞'
+            種類 = '字詞'
             閩南語內容 = {
                 '文本資料': 漢字,
                 '種類': 種類,
