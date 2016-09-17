@@ -162,6 +162,7 @@ python manage.py 顯示全部sheet狀態
 echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
 echo 'from 匯入台華 import 走台華 ; 走台華()' | python manage.py shell
 echo 'from 匯入寶島可夢 import 走寶島可夢 ; 走寶島可夢()' | python manage.py shell
+echo 'from 匯入glll4678外來詞 import 走匯外來詞 ; 走匯外來詞()' | python manage.py shell
 ```
 完整匯入需等待一段時間，等待途中可以繼續做其他事
 若只需試驗，可中途中斷
