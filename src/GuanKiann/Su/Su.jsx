@@ -118,7 +118,7 @@ export default Transmit.createContainer(Su, {
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId)
+      return superagent.get(encodeURI(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId))
         .then((res) => Object.assign({
             '結果': 0,
           }, res.body))
@@ -132,7 +132,7 @@ export default Transmit.createContainer(Su, {
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText)
+      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },
