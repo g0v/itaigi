@@ -16,8 +16,8 @@ var 後端網址 = 'https://db.itaigi.tw/';
 // 後端網址 = 'http://localhost:8000/';
 
 class App extends React.Component {
-  kong(k) {
-    this.props.history.replace('/k/' + k);
+  查怎樣講(外語) {
+    this.props.history.replace('/k/' + 外語);
   }
 
   欲提供講法(外語) {
@@ -33,7 +33,7 @@ class App extends React.Component {
         { React.cloneElement(
           this.props.children,
           {
-            handleKong: this.kong.bind(this),
+            查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號,
           }

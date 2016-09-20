@@ -23,7 +23,7 @@ class Lun extends React.Component {
       <nav className='navigation'>
         <Tshue
           defaultValue={this.props.params.k}
-         handleSubmit={this.props.handleKong.bind(this)}
+         查怎樣講={this.props.查怎樣講.bind(this)}
          {...this.props}/>
       </nav>
       <div className='lun content'>
@@ -44,7 +44,7 @@ class Lun extends React.Component {
 
 Lun.propTypes = {
   params: React.PropTypes.object,
-  handleKong: React.PropTypes.func,
+  查怎樣講: React.PropTypes.func,
 };
 
 export default Transmit.createContainer(Lun, {});
