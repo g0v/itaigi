@@ -10,7 +10,7 @@ return `
     <meta name="keywords" content="台語,臺語,閩南語,河洛話,學習,語言,學台語,學臺語,線上學台語,線上學臺語,台語字典,臺語字典,台語發音,臺語發音,台羅,臺羅,台灣閩南語羅馬字拼音,臺灣閩南語羅馬字拼音,台語字,臺語字,台語漢字,臺語漢字,台語翻譯,臺語翻譯,靠北,靠腰,北七" />
     <meta name="description" content="大家來學台語，大家做伙來豐富台語" />
     <meta property="fb:app_id" content="590065061070994"/>
-    <meta property="og:url" content="https://128.199.160.172"/>
+    <meta property="og:url" content="http://itaigi.tw"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="${su}iTaigi 愛台語"/>
     <meta property="og:description" content="大家來學台語，大家做伙來豐富台語"/>
