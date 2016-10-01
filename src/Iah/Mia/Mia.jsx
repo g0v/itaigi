@@ -40,7 +40,7 @@ class Mia extends React.Component {
 
   render() {
     return (
-    <div className='main ui container'>
+    <div className='main ui text container'>
       <table className='ui celled table'>
         <thead>
           <tr>
