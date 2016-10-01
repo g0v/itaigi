@@ -56,7 +56,7 @@ class Mia extends React.Component {
               g.名 !== '匿名'
             ))
             .map((g, idx) => (
-              <tr>
+              <tr key={idx}>
                 <td>{ this.名次(idx + 1) }</td>
                 <td>{ g.名 }</td>
                 <td>{ g.數量 }</td>
@@ -71,9 +71,8 @@ class Mia extends React.Component {
 }
 
 Mia.propTypes = {
-  setQueryParams: React.PropTypes.func,
-  MiaData: React.PropTypes.object,
-  '後端網址': React.PropTypes.string,
+  params: React.PropTypes.object,
+  查怎樣講: React.PropTypes.func,
 };
 
 export default Transmit.createContainer(Mia, {

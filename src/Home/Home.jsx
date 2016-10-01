@@ -19,7 +19,7 @@ class Home extends React.Component {
     return (
     <div className='main container'>
       <nav className='navigation'>
-        <Tshue handleSubmit={this.props.handleKong.bind(this)} {...this.props}/>
+        <Tshue 查怎樣講={this.props.查怎樣講.bind(this)} {...this.props}/>
       </nav>
       <div className='content'>
         <TakKang/>

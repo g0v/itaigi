@@ -71,7 +71,7 @@ class Kong extends React.Component {
       <nav className='navigation'>
         <Tshue
           defaultValue={this.props.params.k}
-          handleSubmit={this.props.handleKong.bind(this)}
+          查怎樣講={this.props.查怎樣講.bind(this)}
           {...this.props}/>
       </nav>
       <div className='kong content'>
@@ -96,7 +96,7 @@ Kong.propTypes = {
     params: React.PropTypes.object,
     kongData: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func,
+    查怎樣講: React.PropTypes.func,
   };
 
 export default Transmit.createContainer(Kong, {
@@ -109,7 +109,7 @@ export default Transmit.createContainer(Kong, {
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k)
+      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k))
         .then(({ body }) => ({
           '關鍵字': params.k,
           '結果': body.列表.length,

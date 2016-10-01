@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/g0v/itaigi",
   "dependencies": {
+    "babel-polyfill": "^6.13.0",
     "raw-loader": "^0.5.1"
   },
   "devDependencies": {

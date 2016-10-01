@@ -35,7 +35,7 @@ class ABo extends React.Component {
     this.setState({ 音標: q });
   }
 
-  handleSubmit(evt) {
+  查怎樣講(evt) {
     if (this.state.漢字 !== '' || this.state.音標 !== '') {
       var 外語內容 = {
         '外語資料': this.props.華語關鍵字,
@@ -97,7 +97,7 @@ class ABo extends React.Component {
     return (
       <button
         className={ 'ui positive button large' + (this.state.送出中 ? ' disabled' : '') }
-        onClick={this.handleSubmit.bind(this)}>送出</button>
+        onClick={this.查怎樣講.bind(this)}>送出</button>
     );
   }
 
@@ -106,7 +106,7 @@ class ABo extends React.Component {
       <div className='ui buttons'>
         <button
           className={ 'ui button large' + (this.state.送出中 ? ' disabled' : '') }
-          onClick={this.handleSubmit.bind(this)}>匿名送出</button>
+          onClick={this.查怎樣講.bind(this)}>匿名送出</button>
         <div className='or'></div>
         <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
           <input type='submit' className='ui positive button large' value='登入 & 送出'/>

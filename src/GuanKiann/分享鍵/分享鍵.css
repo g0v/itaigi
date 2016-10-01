@@ -1,9 +1,10 @@
 .分享 {
   margin: 1em 0;
+  text-align: center;
 }
 
 .分享 span{
-  font-size:120%; 
+  font-size:120%;
   margin: 0 5px;
 }
 

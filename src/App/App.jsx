@@ -16,8 +16,8 @@ var 後端網址 = 'https://db.itaigi.tw/';
 // 後端網址 = 'http://localhost:8000/';
 
 class App extends React.Component {
-  kong(k) {
-    this.props.history.replace('/k/' + k);
+  查怎樣講(外語) {
+    this.props.history.replace('/k/' + 外語);
   }
 
   欲提供講法(外語) {
@@ -33,7 +33,7 @@ class App extends React.Component {
         { React.cloneElement(
           this.props.children,
           {
-            handleKong: this.kong.bind(this),
+            查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號,
           }
@@ -48,6 +48,9 @@ class App extends React.Component {
           </li>
           <li className='item'>
             <a href='https://g0v-tw.slack.com/messages/itaigi/' target="_blank">Slack</a>
+          </li>
+          <li className='item'>
+            <a href='http://moe.kktix.cc/' target="_blank">萌典松</a>
           </li>
           <li className='item'>
             <a href='https://g0v.tw/' target="_blank">g0v</a>
@@ -76,7 +79,7 @@ export default Transmit.createContainer(App, {
       debug('後端網址 %s', 後端網址);
       if (!後端網址) return new Promise((cb) => cb(''));
       return (
-        superagent.get(後端網址 + 'csrf/看')
+        superagent.get(encodeURI(後端網址 + 'csrf/看'))
         .withCredentials()
         .then(({ body }) => body.csrftoken)
       );
@@ -85,7 +88,7 @@ export default Transmit.createContainer(App, {
     編號() {
       if (!後端網址) return new Promise((cb)=>cb('無登入'));
       return (
-        superagent.get(後端網址 + '使用者/看編號')
+        superagent.get(encodeURI(後端網址 + '使用者/看編號'))
         .withCredentials()
         .then(({ body }) => body.使用者編號)
       );
