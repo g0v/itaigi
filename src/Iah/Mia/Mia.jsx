@@ -52,9 +52,6 @@ class Mia extends React.Component {
         <tbody>
         {
           this.props.MiaData.內容.名人
-            .filter((g) => (
-              g.名 !== '匿名'
-            ))
             .map((g, idx) => (
               <tr key={idx}>
                 <td>{ this.名次(idx + 1) }</td>
