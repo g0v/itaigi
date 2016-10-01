@@ -19,54 +19,52 @@ class Mia extends React.Component {
   }
   **/
 
-  貢獻程度(數量) {
-    let 心;
-    if (數量 <= 5) {
-      心 = Array.from(new Array(數量)).map((i, j)=>(
-        <i key={j} className="mini red heart icon"></i>
-      ));
-    } else if (數量 <= 13) {
-      心 = Array.from(new Array(Math.floor((數量 - 5) / 2) + 1)).map((i, j)=>(
-        <i key={j} className="small red heart icon"></i>
-      ));
-    } else if (數量 <= 33) {
-      心 = Array.from(new Array(Math.floor((數量 - 13) / 5) + 1)).map((i, j)=>(
-       <i key={j} className="large red heart icon"></i>
-     ));
-    } else {
-      心 = Array.from(new Array(Math.floor((數量) / 50) + 1)).map((i, j)=>(
-       <i key={j} className="big red heart icon"></i>
-     ));
+  名次(排名) {
+    let classes;
+    switch (排名) {
+      case 1:
+        classes = 'ui ribbon yellow label';
+        break;
+      case 2:
+        classes = 'ui ribbon grey label';
+        break;
+      case 3:
+        classes = 'ui ribbon brown label';
+        break;
+      default:
+        classes = '';
     }
 
-    return (<span>{心}</span>);
+    return (<div className={classes}>{ 排名 }</div>);
   }
 
   render() {
     return (
-    <div className='main container'>
-      <div className='mia ui vertical segment'>
-        <div className='ui cards'>
+    <div className='main ui container'>
+      <table className='ui celled table'>
+        <thead>
+          <tr>
+            <th className='collapsing'>名次</th>
+            <th>貢獻者</th>
+            <th className='collapsing'>數量</th>
+          </tr>
+        </thead>
+        <tbody>
         {
-          this.props.MiaData.內容.名人.map((g) => (
-            <div className='card' key={ g.名 }>
-              <div className='content'>
-                <h3>{ g.名 }{ this.貢獻程度(+g.數量) }</h3>
-                <div className='padded'>
-                  { g.詞條.map((詞)=>(
-                    <button key={詞}
-                      className='ui button basic primary large'
-                      onClick={this.props.handleKong.bind(this, 詞)}>
-                      {詞}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))
+          this.props.MiaData.內容.名人
+            .filter((g) => (
+              g.名 !== '匿名'
+            ))
+            .map((g, idx) => (
+              <tr>
+                <td>{ this.名次(idx + 1) }</td>
+                <td>{ g.名 }</td>
+                <td>{ g.數量 }</td>
+              </tr>
+            ))
         }
-        </div>
-      </div>
+        </tbody>
+      </table>
     </div>
     );
   }
