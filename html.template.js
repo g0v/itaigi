@@ -14,12 +14,12 @@ return `
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="${su}iTaigi 愛台語"/>
     <meta property="og:description" content="大家來學台語，大家做伙來豐富台語"/>
-    <meta property="og:image" content="https://www.moedict.tw/${encodeURI(Su)}.png">
+    <meta property="og:image" content="https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1125">
     <meta property="og:image:height" content="1125">
     <meta itemprop="description" content="大家來學台語，大家做伙來豐富台語">
-    <meta itemprop="image" content="https://www.moedict.tw/${encodeURI(Su)}.png">
+    <meta itemprop="image" content="https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
