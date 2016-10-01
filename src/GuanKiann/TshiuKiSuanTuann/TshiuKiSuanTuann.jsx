@@ -27,7 +27,7 @@ class TshiuKiSuanTuann extends React.Component {
           <i className="configure icon"></i>好工具
         </Link>
         <Link className={menu_item_class('/mia')} to='/mia' onClick={itemClick}>
-          <i className="configure icon"></i>名人堂
+          <i className="flag icon"></i>名人堂
         </Link>
         <div className='down item'>
           {/* dummy item to show last item border*/}
