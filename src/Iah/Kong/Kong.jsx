@@ -15,11 +15,53 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  componentWillMount() { this.props.setQueryParams(this.props); }
+  constructor(props) {
+    super(props);
+    this.state = {
+      kongData: {
+          '結果': -2,
+          '訊息': '沒有提供關鍵字',
+        },
+    };
+  }
+
+  componentWillMount() { this.查詞條(); }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
+    this.查詞條();
+  }
+
+  查詞條()
+  {
+    let 關鍵字 = this.props.params.k;
+    this.setState({'關鍵字': 關鍵字})
+    debug('hi')
+    superagent.get(encodeURI(
+      this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 關鍵字
+      ))
+      .then(({ body }) => (
+        關鍵字 == this.props.params.k ?
+        this.setState({
+        // '關鍵字': 關鍵字,
+        '結果': body.列表.length,
+        '內容': body,
+        'aa':debug(關鍵字),
+        'aa2':debug(this.props.params.k),
+        'aa3':debug(this.state.關鍵字),
+       }) :
+        ''
+        ))
+    .catch((err) => (
+      關鍵字 == this.props.params.k ?
+      this.setState({
+      // '關鍵字': 關鍵字,
+      '結果': -1,
+      '訊息': '發生錯誤',
+      '內容': err,
+    }) :
+      ''
+      ));
   }
 
   render無關鍵字() {
@@ -65,7 +107,6 @@ class Kong extends React.Component {
   }
 
   render() {
-    debug('rendering %o', this.props.kongData);
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -94,33 +135,11 @@ class Kong extends React.Component {
 Kong.propTypes = {
     setQueryParams: React.PropTypes.func,
     params: React.PropTypes.object,
-    kongData: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
     查怎樣講: React.PropTypes.func,
   };
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    kongData({ params, 後端網址 }) {
-      if (params === undefined || params.k === undefined) {
-        return Promise.resolve({
-          '結果': -2,
-          '訊息': '沒有提供關鍵字',
-        });
-      }
-
-      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k))
-        .then(({ body }) => ({
-          '關鍵字': params.k,
-          '結果': body.列表.length,
-          '內容': body,
-        }))
-      .catch((err) => ({
-        '關鍵字': params.k,
-        '結果': -1,
-        '訊息': '發生錯誤',
-        '內容': err,
-      }));
-    },
   },
 });
