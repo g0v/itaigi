@@ -2,93 +2,78 @@ import React from 'react';
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
-import ClientRecorder from './ClientRecorder';
+var MediaStreamRecorder = require('msr');
 
 import Debug from 'debug';
 
 let debug = Debug('itaigi:LokIm');
+var mediaRecorder;
+var audio;
 
 class LokIm extends React.Component {
-  startUserMedia(stream) {
-    console.log('startUMedia');
-    var input = this.audio_context.createMediaStreamSource(stream);
+    componentWillMount() {
 
-    this.recorder = new ClientRecorder(input, {
-                  numChannels: 1,
-                });
-    window.input = input;
-    window.recorder = this.recorder;
-  }
+        var mediaConstraints = {
+            audio: true
+        };
 
-  componentWillMount() {
+        navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
 
-    try {
-      // webkit shim
-      window.AudioContext = window.AudioContext || window.webkitAudioContext;
-      navigator.getUserMedia = (navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
-      window.URL = window.URL || window.webkitURL;
+        function onMediaSuccess(stream) {
+            mediaRecorder = new MediaStreamRecorder(stream);
+            mediaRecorder.mimeType = 'audio/ogg';
+            mediaRecorder.ondataavailable = function (blob) {
+                // POST/PUT "Blob" using FormData/XHR2
+                var blobURL = URL.createObjectURL(blob);
+                debug('blob: ', blob);
+                debug('blogurl: ', blobURL);
+                mediaRecorder.stop();
+                debug('ondataavailabe stop');
+                
+                audio = document.createElement('audio');
+                audio.src = blobURL;
+                debug(audio);
+                audio.play();
+            };
+        }
 
-      this.audio_context = new AudioContext;
-      window.audio_context = this.audio_context;
-    } catch (e) {
-      console.log(e);
-      alert('No web audio support in this browser!');
+        function onMediaError(e) {
+            console.error('media error', e);
+        }
+
     }
 
-    navigator.getUserMedia({ audio: true }, this.startUserMedia.bind(this), function (e) {
-      console.log('No live audio input: ' + e);
-    });
+    handleMicClick() {
+        console.log('record!');
+        mediaRecorder.start(5000);
+        this.setState({ recording: 'not empty' });
+    }
 
-    // TODO:
-    // this.encoderWorker = new MyWorker();
-  }
+    handlePlayClick() {
+        audio.play();
+        return;
+    }
 
-  handleMicClick() {
-    console.log('record!');
-    this.recorder.clear();
-    this.recorder.record();
-    this.setState({ recording: 'not empty' });
-  }
+    renderPlay() {
+        if (this.state && this.state.recording) {
+            return <button className='ui icon button large' onClick={this.handlePlayClick.bind(this)}>
+                <i className='play icon'/>
+                </button>;
+        } else
+            return <div></div>;
+    }
 
-  handleStopClick() {
-    console.log('stop recording');
-    console.log(this.recorder);
-    window.recorder = this.recorder;
-    this.recorder.stop();
-    this.recorder.connectAudioData(this.audioElement);
-  }
-
-  handlePlayClick() {
-    this.audioElement.play();
-
-  }
-
-  renderPlay() {
-    if (this.state && this.state.recording) {
-      return <button className='ui icon button large' onClick={this.handlePlayClick.bind(this)}>
-        <i className='play icon'/>
-      </button>;
-    } else
-      return <div></div>;
-  }
-
-  render() {
-    return (
-      <div className='ui input'>
-      <button className='ui icon button large' onClick={this.handleMicClick.bind(this)}>
-        <i className='ui unmute icon'/>
-      </button>
-      <button className='ui icon button large' onClick={this.handleStopClick.bind(this)}>
-         <i className='ui stop icon'/>
-      </button>
-      <audio ref={(r) => this.audioElement = r} src='' />
-      {this.renderPlay()}
-      </div>
-    );
-  }
+    render() {
+        return (
+                <div className='ui input'>
+                <button className='ui icon button large' onClick={this.handleMicClick.bind(this)}>
+                <i className='ui unmute icon'/>
+                </button>
+                <audio ref={(r) => this.audioElement = r} src='' />
+                {this.renderPlay()}
+                </div>
+               );
+    }
 }
 
 export default Transmit.createContainer(LokIm, {});
