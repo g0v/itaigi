@@ -17,12 +17,25 @@ class GuaGi extends React.Component {
     this.props.setQueryParams(nextProps);
   }
 
+  dedupeSu(inSu) {
+    var seen = {};
+    return inSu.filter((val, id) => {
+      var key = val.文本資料 + val.音標資料;
+      if (seen[key])
+        return false;
+      seen[key] = true;
+      return true;
+    });
+  }
+
   render() {
     if (!this.props.新詞文本) {
       return <div></div>;
     }
 
-    var suList = this.props.新詞文本.map((d) => <Su
+    var uniqueSu = this.dedupeSu(this.props.新詞文本);
+
+    var suList = uniqueSu.map((d) => <Su
       suId={d.新詞文本項目編號}
       suText={d.文本資料}
       suIm={d.音標資料}

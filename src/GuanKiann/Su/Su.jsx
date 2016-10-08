@@ -63,7 +63,8 @@ class Su extends React.Component {
   }
 
   render() {
-    const { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
+    let { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
+    if (貢獻者 == '匿名') 貢獻者 = '沒有人';
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
