@@ -1,3 +1,5 @@
+exports.render = function () {
+return `
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,6 +41,7 @@
       ga('send', 'pageview');
 
     </script>
-    <script src="//g0v.github.io/itaigi/bundle.js"></script>
+    <script src="/bundle.js"></script>
   </body>
-</html>
+</html>`
+};
