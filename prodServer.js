@@ -16,11 +16,11 @@ app.use(express.static(path.resolve('build')));
 
 app.get('/:Iah([kt])/:Su', function (req, res) {
   console.log(req.params);
-  let {Iah, Su} = req.params;
+  let { Iah, Su } = req.params;
   res.send(template.render({
     url: `http://itaigi.tw/${Iah}/${Su}`,
     title: `${Su} - iTaigi 愛台語`,
-    image: `https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064`
+    image: `https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064`,
   }));
 });
 
@@ -28,7 +28,7 @@ app.get('*', function (req, res) {
   res.send(template.render({
     url: 'http://itaigi.tw/',
     title: 'iTaigi 愛台語',
-    image: 'https://s3-ap-southeast-1.amazonaws.com/itaigi.tw/images/logo.png'
+    image: 'https://s3-ap-southeast-1.amazonaws.com/itaigi.tw/images/logo.png',
   }));
 });
 
