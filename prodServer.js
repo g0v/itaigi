@@ -1,6 +1,5 @@
 var path = require('path');
 var express = require('express');
-var config = require('./webpack.config.dev');
 var template = require('./html/prodTemplate');
 
 if ((parseInt(process.versions.node[0]) == 0) && (parseInt(process.versions.node.slice(2)) <= 12)) {
@@ -12,16 +11,22 @@ if ((parseInt(process.versions.node[0]) == 0) && (parseInt(process.versions.node
 
 var app = express();
 
-app.use(express.static(path.resolve('build')));
-
 app.get('/:Iah([kt])/:Su', function (req, res) {
-  console.log(req.params);
   let { Iah, Su } = req.params;
   res.send(template.render({
     url: `http://itaigi.tw/${Iah}/${Su}`,
     title: `${Su} - iTaigi 愛台語`,
     image: `https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064`,
   }));
+});
+
+app.get('/:file(*.svg)', function (req, res) {
+  res.sendFile(req.params.file, { root: __dirname + '/build/' }, function (err) {
+    if (err) {
+      console.log(err);
+      res.status(err.status).end();
+    }
+  });
 });
 
 app.get('*', function (req, res) {
@@ -32,7 +37,7 @@ app.get('*', function (req, res) {
   }));
 });
 
-app.listen(80, '0.0.0.0', function (err) {
+app.listen(3000, '0.0.0.0', function (err) {
   if (err) {
     console.log(err);
     return;
