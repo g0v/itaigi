@@ -20,11 +20,11 @@ return `
     <meta itemprop="description" content="大家來學台語，大家做伙來豐富台語">
     <meta itemprop="image" content="${image}}">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="//g0v.github.io/itaigi/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="//g0v.github.io/itaigi/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="//g0v.github.io/itaigi/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="//g0v.github.io/itaigi/manifest.json">
+    <link rel="mask-icon" href="//g0v.github.io/itaigi/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css"/>
