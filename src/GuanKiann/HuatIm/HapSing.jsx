@@ -24,11 +24,15 @@ export default class HapSing extends React.Component {
   }
 
   載入() {
-    document.getElementById(this.state.id).load();
+    let 音樂 = document.getElementById(this.state.id);
+    if (音樂!=null)
+      音樂.load();
   }
 
   play() {
-    document.getElementById(this.state.id).play();
+    let 音樂 = document.getElementById(this.state.id);
+    if (音樂!=null)
+      音樂.play();
   }
 
   render() {
