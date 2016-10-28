@@ -36,7 +36,6 @@ class Kong extends React.Component {
   {
     let 關鍵字 = this.props.params.k;
     this.setState({'關鍵字': 關鍵字})
-    debug('hi')
     superagent.get(encodeURI(
       this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 關鍵字
       ))
@@ -72,16 +71,16 @@ class Kong extends React.Component {
 
   render錯誤() {
     return (
-      <錯誤 華語關鍵字={this.props.kongData.關鍵字}
+      <錯誤 華語關鍵字={this.state.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-        內容={this.props.kongData.內容}/>
+        內容={this.state.內容}/>
     );
   }
 
   render無結果() {
     return (
-      <無結果 華語關鍵字={this.props.kongData.關鍵字}
+      <無結果 華語關鍵字={this.state.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
@@ -90,11 +89,11 @@ class Kong extends React.Component {
 
   render有講法() {
     return (
-      <有講法 華語關鍵字={this.props.kongData.關鍵字}
+      <有講法 華語關鍵字={this.state.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-        內容={this.props.kongData.內容}/>
+        內容={this.state.內容}/>
     );
   }
 
@@ -102,11 +101,12 @@ class Kong extends React.Component {
     return (
       <其他建議
         後端網址={this.props.後端網址}
-        內容={this.props.kongData.內容}/>
+        內容={this.state.內容}/>
     );
   }
 
   render() {
+    debug(this.state);
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -117,13 +117,13 @@ class Kong extends React.Component {
       </nav>
       <div className='kong content'>
         {
-          this.props.kongData.結果 > 0 ? this.render有講法()
-          : this.props.kongData.結果 === 0 ? this.render無結果()
-          : this.props.kongData.結果 === -1 ? this.render錯誤()
+          this.state.結果 > 0 ? this.render有講法()
+          : this.state.結果 === 0 ? this.render無結果()
+          : this.state.結果 === -1 ? this.render錯誤()
           : this.render無關鍵字()
         }
         {
-          this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ?
+          this.state.結果 >= 0 && this.state.內容.其他建議.length > 0 ?
           this.render其他建議() : ''
         }
       </div>
