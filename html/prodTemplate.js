@@ -1,4 +1,4 @@
-exports.render = function ({Su}) {
+exports.render = function ({url, title, image}) {
 return `
 <!DOCTYPE html>
 <html>
@@ -9,16 +9,16 @@ return `
     <meta name="keywords" content="台語,臺語,閩南語,河洛話,學習,語言,學台語,學臺語,線上學台語,線上學臺語,台語字典,臺語字典,台語發音,臺語發音,台羅,臺羅,台灣閩南語羅馬字拼音,臺灣閩南語羅馬字拼音,台語字,臺語字,台語漢字,臺語漢字,台語翻譯,臺語翻譯,靠北,靠腰,北七" />
     <meta name="description" content="大家來學台語，大家做伙來豐富台語" />
     <meta property="fb:app_id" content="590065061070994"/>
-    <meta property="og:url" content="http://itaigi.tw/k/${Su}"/>
+    <meta property="og:url" content="${url}"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="${Su} - iTaigi 愛台語"/>
+    <meta property="og:title" content="${title}"/>
     <meta property="og:description" content="大家來學台語，大家做伙來豐富台語"/>
-    <meta property="og:image" content="https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064">
+    <meta property="og:image" content="${image}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1125">
     <meta property="og:image:height" content="1125">
     <meta itemprop="description" content="大家來學台語，大家做伙來豐富台語">
-    <meta itemprop="image" content="https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064">
+    <meta itemprop="image" content="${image}}">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
