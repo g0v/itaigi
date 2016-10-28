@@ -1,5 +1,6 @@
 import React from 'react';
 import ToLam from '../GuanKiann/ToLam/ToLam';
+import 後端 from './後端';
 
 import './App.css';
 
@@ -9,11 +10,6 @@ import { Link } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
-
-var 後端網址 = 'https://db.itaigi.tw/';
-
-// 後端網址 = 'http://private-f0474-tai5uan5gian5gi2phing5thai5.apiary-mock.com/';
-// 後端網址 = 'http://localhost:8000/';
 
 class App extends React.Component {
   查怎樣講(外語) {
@@ -35,7 +31,7 @@ class App extends React.Component {
           {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
-            後端網址: 後端網址, csrftoken: this.props.csrftoken, 編號: this.props.編號,
+            後端網址: 後端.網址(), csrftoken: this.props.csrftoken, 編號: this.props.編號,
           }
         )}
       <footer className='app footer inverted'>
@@ -76,19 +72,19 @@ App.propTypes = {
 export default Transmit.createContainer(App, {
   queries: {
     csrftoken() {
-      debug('後端網址 %s', 後端網址);
-      if (!後端網址) return new Promise((cb) => cb(''));
+      debug('後端.網址() %s', 後端.網址());
+      if (!後端.網址()) return new Promise((cb) => cb(''));
       return (
-        superagent.get(encodeURI(後端網址 + 'csrf/看'))
+        superagent.get(encodeURI(後端.網址() + 'csrf/看'))
         .withCredentials()
         .then(({ body }) => body.csrftoken)
       );
     },
 
     編號() {
-      if (!後端網址) return new Promise((cb)=>cb('無登入'));
+      if (!後端.網址()) return new Promise((cb)=>cb('無登入'));
       return (
-        superagent.get(encodeURI(後端網址 + '使用者/看編號'))
+        superagent.get(encodeURI(後端.網址() + '使用者/看編號'))
         .withCredentials()
         .then(({ body }) => body.使用者編號)
       );
