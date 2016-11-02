@@ -24,11 +24,15 @@ export default class HapSing extends React.Component {
   }
 
   載入() {
-    document.getElementById(this.state.id).load();
+    let 音樂 = document.getElementById(this.state.id);
+    if (音樂 != null)
+      音樂.load();
   }
 
   play() {
-    document.getElementById(this.state.id).play();
+    let 音樂 = document.getElementById(this.state.id);
+    if (音樂 != null)
+      音樂.play();
   }
 
   render() {
@@ -43,7 +47,7 @@ export default class HapSing extends React.Component {
         <audio id ={this.state.id}>
           <source type='audio/wav'
             src={
-              'http://voice.itaigi.tw/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(標漢字音標) }
+              encodeURI('http://voice.itaigi.tw/語音合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}
