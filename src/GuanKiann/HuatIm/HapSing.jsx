@@ -31,7 +31,7 @@ export default class HapSing extends React.Component {
 
   play() {
     let 音樂 = document.getElementById(this.state.id);
-    if (音樂 != null){
+    if (音樂 != null) {
       音樂.play();
     }
   }
