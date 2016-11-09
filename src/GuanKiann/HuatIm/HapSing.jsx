@@ -31,23 +31,23 @@ export default class HapSing extends React.Component {
 
   play() {
     let 音樂 = document.getElementById(this.state.id);
-    if (音樂 != null)
+    if (音樂 != null){
       音樂.play();
+    }
   }
 
   render() {
     let { 音標 } = this.props;
     let 標漢字音標 = (
-      音標.replace('?', ' ? ').replace('.', ' . ')
+      音標
       .replace('/', ' 。 ').trim()
-      .split(' ').map((音)=>(音 + '｜' + 音)).join(' ')
     );
     return (
       <div className='HuatIm'>
         <audio id ={this.state.id}>
           <source type='audio/wav'
             src={
-              encodeURI('http://voice.itaigi.tw/語音合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
+              encodeURI('http://128.199.254.227/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}
