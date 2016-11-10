@@ -47,7 +47,7 @@ export default class HapSing extends React.Component {
         <audio id ={this.state.id}>
           <source type='audio/wav'
             src={
-              encodeURI('http://128.199.254.227/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
+              encodeURI('http://voice.itaigi.tw/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}
