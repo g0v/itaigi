@@ -8,12 +8,9 @@ import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
 import About from './Iah/About/About';
-<<<<<<< HEAD
 import 抱去摸 from './Iah/主題/抱去摸';
-=======
 import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
 import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
->>>>>>> refs/remotes/origin/master
 
 import Debug from 'debug';
 Debug.enable('itaigi:*');
