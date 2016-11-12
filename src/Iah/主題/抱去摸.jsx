@@ -1,6 +1,6 @@
 import React from 'react';
 import Transmit from 'react-transmit';
-import 抱去摸一隻 from './抱去摸一隻';
+import 抱去摸三隻 from './抱去摸三隻';
 
 import Debug from 'debug';
 
@@ -11,11 +11,14 @@ export default class 抱去摸 extends React.Component {
   render() {
     let 寶貝 = [
       '寶可夢', '妙蛙種子', '妙蛙草', '妙蛙花', '小火龍',
-  ].map((名)=>(<抱去摸一隻 key={名} 後端網址={this.props.後端網址} 寶貝名={名}/>));
+  ];
     return (
       <div className='main container'>
         <div className='kong content'>
-           {寶貝}
+           <抱去摸三隻 key={1} 後端網址={this.props.後端網址} 寶貝名={寶貝}/>
+           <抱去摸三隻 key={2} 後端網址={this.props.後端網址} 寶貝名={寶貝}/>
+           <抱去摸三隻 key={3} 後端網址={this.props.後端網址} 寶貝名={寶貝}/>
+           <抱去摸三隻 key={4} 後端網址={this.props.後端網址} 寶貝名={寶貝}/>
         </div>
       </div>
     );
