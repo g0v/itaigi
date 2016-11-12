@@ -63,7 +63,7 @@ export default class 抱去摸三隻 extends React.Component {
 
     return (
       <div className='寶可夢'>
-        {[0, 1, 2].map((編號)=>(
+        {鈕.map((鈕仔,編號)=>(
 
         <button key={編號}
           className={鈕[編號]}
