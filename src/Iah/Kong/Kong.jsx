@@ -24,7 +24,7 @@ class Kong extends React.Component {
 
   render無關鍵字() {
     return (
-      <無關鍵字 />
+      <無關鍵字 後端網址={this.props.後端網址}/>
     );
   }
 
