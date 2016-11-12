@@ -55,7 +55,7 @@ export default class 無關鍵字 extends React.Component {
   }
 
   componentDidMount() {
-    superagent.get(encodeURI(this.props.後端網址 + '平臺項目列表/揣無建議的外語'))
+    superagent.get(encodeURI(this.props.後端網址 + '平臺項目列表/揣上新貢獻的外語'))
         .then(({ body }) => {
           const newWords = body.列表.map(item => item.外語資料);
           const newWordsLess = newWords.slice(0, 20);
