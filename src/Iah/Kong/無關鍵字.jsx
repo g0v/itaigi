@@ -7,12 +7,11 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 var debug = Debug('itaigi:Kong無關鍵字');
 
-
 class 新詞區塊 extends React.Component {
   render() {
     if (this.props.newWords.length === 0) {
       return null;
-    } 
+    }
 
     return (
       <div className='ui inverted segment'>
@@ -40,16 +39,19 @@ class 新詞區塊 extends React.Component {
 }
 
 export default class 無關鍵字 extends React.Component {
-  state = {
-    newWordsLess: [],
-    newWordsMore: [],
-    isShowMore: false
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      newWordsLess: [],
+      newWordsMore: [],
+      isShowMore: false,
+    };
 
-  onShowMoreClick = () => {
-    this.setState({
-        isShowMore: !this.state.isShowMore
-    });
+    this.onShowMoreClick = () => {
+      this.setState({
+          isShowMore: !this.state.isShowMore,
+        });
+    };
   }
 
   componentDidMount() {
@@ -58,9 +60,9 @@ export default class 無關鍵字 extends React.Component {
           const newWords = body.列表.map(item => item.外語資料);
           const newWordsLess = newWords.slice(0, 20);
           const newWordsMore = newWords.slice(0, 80);
-          this.setState({ 
+          this.setState({
             newWordsLess,
-            newWordsMore
+            newWordsMore,
           });
         });
   }
@@ -86,5 +88,5 @@ export default class 無關鍵字 extends React.Component {
 }
 
 無關鍵字.propTypes = {
-  '後端網址': React.PropTypes.string
+  '後端網址': React.PropTypes.string,
 };
