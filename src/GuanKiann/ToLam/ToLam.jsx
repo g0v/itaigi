@@ -15,11 +15,11 @@ class ToLam extends React.Component {
 
     return (
     <div className='app bar container'>
-      <h1 className='title segment'>
+      <div className='title'>
         <Link to='/'>
           <i className='logo'><img src={Logo}/></i>
         </Link>
-      </h1>
+      </div>
       <div className='ui labeled icon menu'>
         <Link className={menu_item_class('/k')} to='/k'>
           <i className="sound icon"></i>怎樣講
@@ -33,9 +33,9 @@ class ToLam extends React.Component {
         <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
           <i className="street view icon"></i>抱去摸
         </Link>
-        {/*<Link className={menu_item_class('/mia')} to='/mia'>
+        <Link className={menu_item_class('/mia')} to='/mia'>
           <i className="flag icon"></i>名人堂
-        </Link>*/}
+        </Link>
       </div>
       <div className="ui right item">
         <div className="menu">

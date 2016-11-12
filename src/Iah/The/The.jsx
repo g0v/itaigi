@@ -26,6 +26,6 @@ export default class The extends React.Component {
 The.propTypes = {
     params: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func,
+    查怎樣講: React.PropTypes.func,
   };
 

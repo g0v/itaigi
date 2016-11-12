@@ -7,6 +7,7 @@ import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
+import './Su.css';
 
 var debug = Debug('itaigi:Su');
 
@@ -62,7 +63,8 @@ class Su extends React.Component {
   }
 
   render() {
-    const { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
+    let { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
+    if (貢獻者 == '匿名') 貢獻者 = '沒有人';
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
     }
@@ -76,7 +78,7 @@ class Su extends React.Component {
           {suText}
           </h2>
         </div>
-        <HuatIm suData={suData} />
+        <HuatIm 音標={suIm} />
         <div className='description'>
           {suIm}
           <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />
@@ -117,7 +119,7 @@ export default Transmit.createContainer(Su, {
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId)
+      return superagent.get(encodeURI(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId))
         .then((res) => Object.assign({
             '結果': 0,
           }, res.body))
@@ -131,7 +133,7 @@ export default Transmit.createContainer(Su, {
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText)
+      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },

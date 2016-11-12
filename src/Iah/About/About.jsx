@@ -74,7 +74,7 @@ class About extends React.Component {
 
 About.propTypes = {
   params: React.PropTypes.object,
-  handleKong: React.PropTypes.func,
+  查怎樣講: React.PropTypes.func,
 };
 
 export default Transmit.createContainer(About, {});

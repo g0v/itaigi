@@ -8,7 +8,12 @@ import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
 import About from './Iah/About/About';
+<<<<<<< HEAD
 import 抱去摸 from './Iah/主題/抱去摸';
+=======
+import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
+import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
+>>>>>>> refs/remotes/origin/master
 
 import Debug from 'debug';
 Debug.enable('itaigi:*');
@@ -20,18 +25,26 @@ const root = document.getElementById('app');
 // } else {
 let history = browserHistory;
 render(
-  <Router history={history}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Kong} />
-      <Route path='k(/:k)' component={Kong} />
-      <Route path='l(/:k)' component={Lun} />
-      <Route path='t(/:k)' component={The} />
-      <Route path='iong' component={Iong} />
-      <Route path='mia' component={Mia} />
-      <Route path='about' component={About} />
-      <Route path='tsu-te/pho-khi-bong' component={抱去摸} />
-      <Route path='*' component={Kong} />
-    </Route>
-  </Router>, root);
+  <div>
+    <KuahPau />
+    <Router history={history}>
+      <Route path='/' component={App}>
+        <IndexRoute component={Kong} />
+        <Route path='k(/:k)' component={Kong} />
+        <Route path='l(/:k)' component={Lun} />
+        <Route path='t(/:k)' component={The} />
+        <Route path='iong' component={Iong} />
+        <Route path='mia' component={Mia} />
+        <Route path='about' component={About} />
+        <Route path='*' component={Kong} />
+      </Route>
+    </Router>
+  </div>, root);
 
-// }
+render(
+  <Router history={history}>
+    <Route path='/*' component={TshiuKiSuanTuann} />
+  </Router>,
+  document.getElementById('sidebar')
+);
+

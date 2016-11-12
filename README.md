@@ -7,6 +7,7 @@
 * [itaigi網站](http://itaigi.tw)
 * [FB粉專](https://www.facebook.com/ukauitaigi/)
 * [Slack討論](https://g0v-tw.slack.com/messages/itaigi/)
+* [萌典松](http://moe.kktix.cc/)
 * [專案Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
 * [正規化工作表](https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk)
@@ -16,11 +17,20 @@
 Install:
 
 #### Install npm
-[安裝 NPM](https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst)
-
-If in ubuntu 14.04
+#### Check node.js version
 ```bash
-$ sudo apt-get install npm nodejs-legacy
+$ node -v # version must >4
+```
+
+#### update node.js to specific version
+```bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
+$ nvm install 6
+
+$ nvm use 6
+
+# Check node.js version again
+$ node -v
 ```
 
 #### Install packages
@@ -28,21 +38,6 @@ $ sudo apt-get install npm nodejs-legacy
 $ npm i
 ```
 If you meet some problem during `npm i` and finally succeed, you might need `rm -rf node_modules && npm i`
-
-
-#### Check node.js version
-```bash
-$ node -v
-```
-
-#### update node.js to specific version
-```bash
-$ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.nvm/nvm.sh
-$ nvm install v6.0.0
-
-# Check node.js version again
-$ node -v
-```
 
 
 #### Start development server:
@@ -165,7 +160,9 @@ python manage.py 顯示全部sheet狀態
 先去[寶島可夢](https://docs.google.com/spreadsheets/d/1LXzPeaL0hbj-HuUeJXKNUetAtwNNgIanN7bXM94iS7s/edit#gid=0)設定google sheet的`Can Edit`權限
 ```bash
 echo 'from 佳怡表匯入資料庫 import 走 ; 走()' | python manage.py shell
+echo 'from 匯入台華 import 走台華 ; 走台華()' | python manage.py shell
 echo 'from 匯入寶島可夢 import 走寶島可夢 ; 走寶島可夢()' | python manage.py shell
+echo 'from 匯入glll4678外來詞 import 走匯外來詞 ; 走匯外來詞()' | python manage.py shell
 ```
 完整匯入需等待一段時間，等待途中可以繼續做其他事
 若只需試驗，可中途中斷

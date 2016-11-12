@@ -6,13 +6,6 @@ var debug = Debug('itaigi:HapSing');
 
 export default class HapSing extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: Math.random().toString(36),
-    };
-  }
-
   componentDidMount()
   {
     setTimeout(this.載入.bind(this), Math.random() * 1000);
@@ -24,22 +17,30 @@ export default class HapSing extends React.Component {
   }
 
   載入() {
-    document.getElementById(this.state.id).load();
+    let 音樂 = this.refs.音樂;
+    if (音樂 != null)
+      音樂.load();
   }
 
   play() {
-    document.getElementById(this.state.id).play();
+    let 音樂 = this.refs.音樂;
+    if (音樂 != null) {
+      音樂.play();
+    }
   }
 
   render() {
     let { 音標 } = this.props;
-    let 標漢字音標 = 音標.split(' ').map((音)=>(音 + '｜' + 音)).join(' ');
+    let 標漢字音標 = (
+      音標
+      .replace('/', ' 。 ').trim()
+    );
     return (
       <div className='HuatIm'>
-        <audio id ={this.state.id}>
+        <audio ref="音樂">
           <source type='audio/wav'
             src={
-              'http://voice.itaigi.tw/語音合成?查詢腔口=閩南語&查詢語句=' + encodeURI(標漢字音標) }
+              encodeURI('http://voice.itaigi.tw/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}
