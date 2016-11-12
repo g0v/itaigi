@@ -19,14 +19,11 @@ export default class 抱去摸三隻 extends React.Component {
 
   點落(編號)
   {
-    debug('@@1');
     if (this.state.顯示 == 編號)
       this.setState({ 顯示: -1 });
     else {
-      debug('@@2');
       this.setState({ 顯示: 編號 });
       if (this.state.資料[編號] == undefined) {
-        debug('@@');
         return superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + this.props.寶貝名[編號])
           .then(function ({ body }) {
             let { 資料 } = this.state;
@@ -40,9 +37,9 @@ export default class 抱去摸三隻 extends React.Component {
 
   render() {
     let 鈕 = [
-    'ui black basic button large',
-    'ui black basic button large',
-    'ui black basic button large',
+      'ui black basic button large',
+      'ui black basic button large',
+      'ui black basic button large',
     ];
     let { 顯示 } = this.state;
     let 詞條 = '';
@@ -65,7 +62,7 @@ export default class 抱去摸三隻 extends React.Component {
     }
 
     return (
-      <div>
+      <div className='寶可夢'>
         {[0, 1, 2].map((編號)=>(
 
         <button key={編號}
