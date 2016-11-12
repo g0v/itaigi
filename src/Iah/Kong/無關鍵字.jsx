@@ -8,7 +8,7 @@ var debug = Debug('itaigi:Kong無關鍵字');
 
 export default class 無關鍵字 extends React.Component {
   render() {
-    let hot = ['寶可夢', '討厭', '水母', '手腳不乾淨', '煩'];
+    let hot = ['小屁孩', '秀下限', '白海豚', '躺著也中槍'];
     return (
       <div className='kong content'>
         <div className='分享'>
@@ -23,7 +23,8 @@ export default class 無關鍵字 extends React.Component {
                 <Link
                   className='ui inverted button basic teal large'
                   style={{ marginBottom: '0.25em' }}
-                  to={'/k/' + su}>
+                  to={'/k/' + su}
+                  key={i}>
                   {su}
                 </Link>
               );

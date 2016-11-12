@@ -49,3 +49,21 @@ body {
     overflow: hidden;
   }
 }
+
+@font-face {
+  font-family: "MOEDICT";
+  src: url(https://www.moedict.tw/MOEDICT.woff);
+}
+
+@font-face {
+  font-family: "FiraSansOT-Regular";
+  src: url(https://www.moedict.tw/fonts/FiraSansOT-Regular.woff);
+}
+
+h2.ui.header{
+	font-family: "MOEDICT", sans-serif;
+}
+
+div.description{
+  font-family: "FiraSansOT-Regular", sans-serif;  
+}

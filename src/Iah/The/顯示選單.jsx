@@ -50,7 +50,7 @@ export default Transmit.createContainer(顯示選單, {
       }
 
       return (
-        superagent.get(後端網址 + '平臺項目列表/揣無建議的外語')
+        superagent.get(encodeURI(後端網址 + '平臺項目列表/揣無建議的外語'))
         .then(({ body }) => (body))
         .catch((err) => ({
           '列表': [],
