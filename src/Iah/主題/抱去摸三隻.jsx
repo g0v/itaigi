@@ -40,7 +40,7 @@ export default class 抱去摸三隻 extends React.Component {
           this.setState({ 資料: body });
         }.bind(this))
        .catch((err) => (debug(err)));
-      setTimeout(()=>(this.refs.寶可夢0.focus()), 10);
+      setTimeout(()=>(this.refs.寶可夢0.focus()), 50);
     }
   }
 
