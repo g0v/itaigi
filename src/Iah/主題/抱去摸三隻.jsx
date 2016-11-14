@@ -61,16 +61,19 @@ export default class 抱去摸三隻 extends React.Component {
       詞條 = (<div/>);
     }
 
+    let { 寶貝名 } = this.props;
     return (
       <div className='寶可夢'>
-        {鈕.map((鈕仔, 編號)=>(
+        <div className="three ui buttons">
+          {寶貝名.map((鈕仔, 編號)=>(
 
-        <button key={編號}
-          className={鈕[編號]}
-          onClick={this.點落.bind(this, 編號)}>
-          {this.props.寶貝名[編號]}
-        </button>
-          ))}
+          <button key={編號}
+            className={鈕[編號]}
+            onClick={this.點落.bind(this, 編號)}>
+            {寶貝名[編號]}
+          </button>
+            ))}
+        </div>
         {詞條}
       </div>
     );
