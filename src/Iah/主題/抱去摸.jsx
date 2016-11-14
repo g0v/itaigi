@@ -7,6 +7,16 @@ import Debug from 'debug';
 var debug = Debug('itaigi:抱去摸');
 
 export default class 抱去摸 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      佗一隻: undefined,
+    };
+  }
+
+  換一隻(名) {
+    this.setState({ 佗一隻: 名 });
+  }
 
   render() {
     let 寶貝 = [
@@ -63,7 +73,8 @@ export default class 抱去摸 extends React.Component {
       ['超夢', '夢幻'],
   ];
     let 寶貝鈕 = 寶貝.map((三隻, i)=>(
-      <抱去摸三隻 key={i} 後端網址={this.props.後端網址} 寶貝名={三隻}/>
+      <抱去摸三隻 key={i} 後端網址={this.props.後端網址} 寶貝名={三隻}
+       佗一隻={this.state.佗一隻} 換一隻={this.換一隻.bind(this)} />
       ));
     return (
       <div className='main container'>

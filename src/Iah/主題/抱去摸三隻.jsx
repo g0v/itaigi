@@ -12,43 +12,45 @@ export default class 抱去摸三隻 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      顯示: -1,
-      資料: [undefined, undefined, undefined],
+      資料: undefined,
     };
   }
 
-  點落(編號)
+  componentWillReceiveProps(nextProps) {
+    this.setState({ 資料: undefined });
+  }
+
+  點落(名)
   {
-    if (this.state.顯示 == 編號)
-      this.setState({ 顯示: -1 });
+    if (this.props.佗一隻 == 名)
+      this.props.換一隻(undefined);
     else {
-      this.setState({ 顯示: 編號 });
-      if (this.state.資料[編號] == undefined) {
-        return superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + this.props.寶貝名[編號])
-          .then(function ({ body }) {
-            let { 資料 } = this.state;
-            資料[編號] = body;
-            this.setState({ 資料 });
-          }.bind(this))
-        .catch((err) => (debug(err)));
-      }
+      this.props.換一隻(名);
+      return superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 名)
+        .then(function ({ body }) {
+          this.setState({ 資料: body });
+        }.bind(this))
+      .catch((err) => (debug(err)));
     }
   }
 
   render() {
+    let { 寶貝名, 佗一隻 } = this.props;
     let 鈕 = [
       'ui black basic button large',
       'ui black basic button large',
       'ui black basic button large',
     ];
-    let { 顯示 } = this.state;
     let 詞條 = '';
+    let  顯示  = -1;
+    寶貝名.map((名, i)=>(名 == 佗一隻 ? 顯示 = i : 顯示));
+
     if (顯示 != -1) {
       鈕[顯示] = 'ui red basic button large';
     }
 
-    if (顯示 != -1 && this.state.資料[顯示] != undefined) {
-      let g = this.state.資料[顯示].列表[0];
+    if (this.state.資料 != undefined) {
+      let g = this.state.資料.列表[0];
       詞條 = (
         <div className='main container'>
           <GuaGi id={g.外語項目編號}
@@ -61,7 +63,6 @@ export default class 抱去摸三隻 extends React.Component {
       詞條 = (<div/>);
     }
 
-    let { 寶貝名 } = this.props;
     return (
       <div className='寶可夢'>
         <div className="three ui buttons">
@@ -69,7 +70,7 @@ export default class 抱去摸三隻 extends React.Component {
 
           <button key={編號}
             className={鈕[編號]}
-            onClick={this.點落.bind(this, 編號)}>
+            onClick={this.點落.bind(this, 寶貝名[編號])}>
             {寶貝名[編號]}
           </button>
             ))}
