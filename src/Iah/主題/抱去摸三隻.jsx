@@ -24,7 +24,9 @@ export default class 抱去摸三隻 extends React.Component {
 
   componentDidUpdate(prevProps,  prevState)
   {
-    this.refs.寶可夢0.focus();
+    if (this.state.資料 != undefined) {
+      this.refs.寶可夢0.focus();
+    }
   }
 
   點落(名)
@@ -33,11 +35,12 @@ export default class 抱去摸三隻 extends React.Component {
       this.props.換一隻(undefined);
     else {
       this.props.換一隻(名);
-      return superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 名)
-        .then(function ({ body }) {
+      superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 名)
+       .then(function ({ body }) {
           this.setState({ 資料: body });
         }.bind(this))
-      .catch((err) => (debug(err)));
+       .catch((err) => (debug(err)));
+      setTimeout(()=>(this.refs.寶可夢0.focus()), 10);
     }
   }
 
