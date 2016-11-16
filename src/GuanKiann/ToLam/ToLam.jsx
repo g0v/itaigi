@@ -34,7 +34,7 @@ class ToLam extends React.Component {
           <i className="configure icon"></i>好工具
         </Link>
         <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
-          <i className="street view icon"></i>抱去摸
+          <i className="paw icon"></i>抱去摸
         </Link>
       </div>
       <div className="ui right item">
