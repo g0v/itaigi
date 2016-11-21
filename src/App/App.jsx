@@ -21,16 +21,15 @@ class App extends React.Component {
 
   查怎樣講(外語) {
     this.props.history.replace('/k/' + 外語);
-    this.setState({外語})
+    this.setState({ 外語 });
   }
 
   欲提供講法(外語) {
     this.props.history.replace('/t/' + 外語);
-    this.setState({外語})
+    this.setState({ 外語 });
   }
 
   render() {
-    debug(this.state.外語,this.props.params.k ,this.props.location.pathname)
     return (
     <div className='app background'>
       <header className='app header'>
