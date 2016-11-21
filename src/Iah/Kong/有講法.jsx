@@ -19,16 +19,11 @@ export default class 有講法 extends React.Component {
         <GuaGi id={g.外語項目編號}
           key={g.外語項目編號} 新詞文本={g.新詞文本}
           csrftoken={this.props.csrftoken}
-          後端網址={this.props.後端網址}/>
+          後端網址={this.props.後端網址}
+          編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
+          華語關鍵字={this.props.華語關鍵字}
+          />
       ))}
-      <h3 className='ui horizontal divider header'>
-        <i className='cloud upload icon'></i>
-        閣會使按呢講，我來做伙添
-      </h3>
-      <ABo 華語關鍵字={this.props.華語關鍵字}
-       後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
-       編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
-       />
       <h3 className='ui horizontal divider header'>
         <i className='outline comments icon'></i>
         來討論
