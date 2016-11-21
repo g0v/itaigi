@@ -21,7 +21,7 @@ class ToLam extends React.Component {
         </Link>
       </div>
       <div className='ui labeled icon menu'>
-        <Link className={menu_item_class('/k')} to='/k'>
+        <Link className={menu_item_class('/k/a')} to={{ pathname: '/k', params: { k: 'query' } }}>
           <i className="sound icon"></i>怎樣講
         </Link>
         <Link className={menu_item_class('/t')} to='/t'>

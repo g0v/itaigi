@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from 'react-router';
 import Transmit from 'react-transmit';
+import Debug from 'debug';
+var debug = Debug('itaigi:Tshue');
 
 class Tshue extends React.Component {
   // Tshue should be only one cause the id.
@@ -41,6 +43,7 @@ class Tshue extends React.Component {
   }
 
   render() {
+    debug(this.state.q,this.props.q)
     return (
     <div className='ui fluid action input huge container'>
       <input
