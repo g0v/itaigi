@@ -61,7 +61,7 @@ body {
 }
 
 h2.ui.header{
-	font-family: "MOEDICT", sans-serif;
+	font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
 }
 
 div.description{
