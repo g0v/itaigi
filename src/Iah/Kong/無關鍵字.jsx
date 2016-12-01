@@ -12,11 +12,11 @@ class 新詞區塊 extends React.Component {
     const loading = this.props.newWords.length === 0;
 
     return (
-      <div className='ui inverted segment' style={{ minHeight: '150px' }}>
+      <div className='ui inverted segment 燒燙燙'>
         <div className={`ui ${loading ? 'active' : ''} dimmer`}>
           <div className='ui text loader'>小等一下</div>
         </div>
-        <span className='header large' style={{ display: loading ? 'none' : 'initial' }}>燒燙燙新詞：</span>
+        <span className={`header large ${loading ? 'loading' : ''}`}>燒燙燙新詞：</span>
         {
           this.props.newWords.map(function (su, i) {
             return (
@@ -31,7 +31,7 @@ class 新詞區塊 extends React.Component {
           }
         )}
         <div>
-          <a style={{ display: loading ? 'none' : 'initial' }} onClick={this.props.onShowMoreClick}>{this.props.isShowMore ? '顯示少一點' : '顯示多一點'}</a>
+          <a className={`{ loading ? 'loading' : '' }`} onClick={this.props.onShowMoreClick}>{this.props.isShowMore ? '顯示少一點' : '顯示多一點'}</a>
         </div>
       </div>
     );

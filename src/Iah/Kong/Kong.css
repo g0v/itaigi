@@ -2,3 +2,10 @@
 	text-align: center;
 	width:100%;
 }
+.燒燙燙 {
+  min-height: 150px;
+}
+
+.燒燙燙 .loading {
+  display: none;
+}
