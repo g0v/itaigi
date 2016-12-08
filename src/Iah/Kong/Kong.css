@@ -9,3 +9,7 @@
 .燒燙燙 .loading {
   display: none;
 }
+
+.燒燙燙 a {
+	cursor: pointer;
+}
