@@ -52,9 +52,8 @@ class FBTest extends React.Component {
       <div className='ui segment'>
         <a href='//facebook.com/1730736483875375' target='_blank'>
           <img width='480px' style={{ maxWidth: '100%' }} src={
-          'https://scontent-tpe1-1.xx.fbcdn.net/' +
-          'v/t1.0-9/13434768_1730736483875375_4702703927351574930_n.png' +
-          '?oh=ec6f238855669552423792b11c8b97b3&oe=58BC2443'}/>
+          'https://s3-ap-southeast-1.amazonaws.com/' +
+          'itaigi.tw/images/footer.png'}/>
         </a>
       </div>
     </div>
