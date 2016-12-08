@@ -51,10 +51,10 @@ class FBTest extends React.Component {
     <div className='kong content'>
       <div className='ui segment'>
         <a href='//facebook.com/1730736483875375' target='_blank'>
-          <img width='480px' style={{ maxWidth: '100%' }} src={'https://scontent.xx.fbcdn.net/' +
-          'v/t1.0-9/s720x720/' +
-          '13434768_1730736483875375_4702703927351574930_n.png' +
-          '?oh=970a6acf9fda12a7d67ac7182148e27f&oe=5828FB3D'}/>
+          <img width='480px' style={{ maxWidth: '100%' }} src={
+          'https://scontent-tpe1-1.xx.fbcdn.net/' +
+          'v/t1.0-9/13434768_1730736483875375_4702703927351574930_n.png' +
+          '?oh=ec6f238855669552423792b11c8b97b3&oe=58BC2443'}/>
         </a>
       </div>
     </div>
