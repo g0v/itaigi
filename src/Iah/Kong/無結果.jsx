@@ -16,16 +16,28 @@ export default class 無結果 extends React.Component {
            <span>「{ this.props.華語關鍵字 }」的台語要怎麼說呢？來考考你的朋友吧！</span>
            <分享鍵 pathname={this.props.pathname}/>
         </div>
-        <KiuKongHuat 華語關鍵字={this.props.華語關鍵字}
-          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
-        <h3 className='ui horizontal divider header'>
-          <i className='cloud upload icon'></i>
-          我會曉，會使按呢講
-        </h3>
-        <ABo 華語關鍵字={this.props.華語關鍵字}
-          後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
-          編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
-        />
+
+        <div className='ui cards'>
+          <div className='su card'>
+            <div className='content'>
+              <KiuKongHuat 華語關鍵字={this.props.華語關鍵字}
+                後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
+            </div>
+          </div>
+          <div className='su card'>
+            <div className='content'>
+              <h3 className='ui horizontal divider header'>
+                <i className='cloud upload icon'></i>
+                我會曉，會使按呢講
+              </h3>
+              <ABo 華語關鍵字={this.props.華語關鍵字}
+                後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+                編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
+              />
+            </div>
+          </div>
+        </div>
+
         <h3 className='ui horizontal divider header'>
           <i className='outline comments icon'></i>
           來討論
