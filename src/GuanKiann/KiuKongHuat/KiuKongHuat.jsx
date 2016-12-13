@@ -38,10 +38,13 @@ class KiuKongHuat extends React.Component {
   }
 
   render() {
-    let { 後端網址 } = this.props;
+    let { 華語關鍵字 } = this.props;
     return (
-      <div className='ui segment'>
-        <h3>{this.props.華語關鍵字 || '找什麼？'}</h3>
+      <div>
+        <h3 className='ui horizontal divider header'>
+          <i className='cloud upload icon'></i>
+          我想欲知影按怎講
+        </h3>
         <button className='ui button large olive' onClick={this.問外語.bind(this)}>
           <i className='student icon'></i>
           求講法
