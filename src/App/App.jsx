@@ -49,7 +49,7 @@ class App extends React.Component {
             <a href='http://moe.kktix.cc/' target="_blank">萌典松</a>
           </li>
           <li className='item'>
-            <a href='https://g0v.tw/' target="_blank">g0v</a>
+            <a href='http://g0v.tw/' target="_blank">g0v</a>
           </li>
           <li className='item'>
             <a href='https://g0v.hackpad.com/moed7ct-taigi-neologism' target="_blank">Hackpad</a>
