@@ -16,13 +16,11 @@ export default class 其他建議 extends React.Component {
       <div className='kianGi'>
         <h3 className='ui horizontal divider header'>
           <i className='book icon'></i>
-          xx
-          xx
+          相關詞條
         </h3>
         <div className='ui su vertical segment'>
           <div className='ui cards'>
             {文本}
-
           </div>
         </div>
       </div>
