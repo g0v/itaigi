@@ -15,7 +15,8 @@ class 一个建議 extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
+    if (nextProps.文本資料 === this.props.文本資料 && 
+      nextProps.音標資料 === this.props.音標資料) return;
     this.props.setQueryParams(nextProps);
   }
 
