@@ -3,6 +3,7 @@ import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
 import Disqus from '../../Disqus/Disqus';
+import 其他建議 from './其他建議';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';
 
@@ -38,6 +39,10 @@ export default class 無結果 extends React.Component {
           </div>
         </div>
 
+      <其他建議
+        後端網址={this.props.後端網址}
+        內容={this.props.內容}/>
+        
         <h3 className='ui horizontal divider header'>
           <i className='outline comments icon'></i>
           來討論
