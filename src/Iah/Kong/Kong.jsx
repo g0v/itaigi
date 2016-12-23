@@ -82,8 +82,8 @@ class Kong extends React.Component {
           : this.render無關鍵字()
         }
         {
-          /*this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ?
-          this.render其他建議() : ''*/
+          this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ?
+          this.render其他建議() : ''
         }
       </div>
     </div>
