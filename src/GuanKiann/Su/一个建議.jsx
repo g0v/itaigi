@@ -15,7 +15,7 @@ class 一个建議 extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.文本資料 === this.props.文本資料 && 
+    if (nextProps.文本資料 === this.props.文本資料 &&
       nextProps.音標資料 === this.props.音標資料) return;
     this.props.setQueryParams(nextProps);
   }
@@ -51,6 +51,7 @@ export default Transmit.createContainer(一个建議, {
       if (!文本資料) {
         return Promise.resolve([]);
       }
+
       return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + 文本資料))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
