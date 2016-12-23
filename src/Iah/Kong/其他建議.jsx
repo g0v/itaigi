@@ -12,6 +12,10 @@ export default class 其他建議 extends React.Component {
           後端網址={this.props.後端網址}
           文本資料={建議.文本資料} 音標資料={建議.音標資料} />
     ));
+    if (文本.length==0){
+      return null;
+    }
+
     return (
       <div className='kianGi'>
         <h3 className='ui horizontal divider header'>
