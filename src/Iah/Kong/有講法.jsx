@@ -3,6 +3,7 @@ import ABo from '../../GuanKiann/ABo/ABo';
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import Disqus from '../../Disqus/Disqus';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
+import 其他建議 from './其他建議';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:Kong有講法');
@@ -24,6 +25,9 @@ export default class 有講法 extends React.Component {
           華語關鍵字={this.props.華語關鍵字}
           />
       ))}
+      <其他建議
+        後端網址={this.props.後端網址}
+        內容={this.props.內容}/>
       <h3 className='ui horizontal divider header'>
         <i className='outline comments icon'></i>
         來討論

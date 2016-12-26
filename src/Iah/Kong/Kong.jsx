@@ -5,7 +5,6 @@ import 錯誤 from './錯誤';
 import 無結果 from './無結果';
 import 有講法 from './有講法';
 import 無關鍵字 from './無關鍵字';
-import 其他建議 from './其他建議';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import './Kong.css';
@@ -42,7 +41,8 @@ class Kong extends React.Component {
       <無結果 華語關鍵字={this.props.kongData.關鍵字}
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         pathname={this.props.location.pathname}
-        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        內容={this.props.kongData.內容}/>
     );
   }
 
@@ -52,14 +52,6 @@ class Kong extends React.Component {
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-        內容={this.props.kongData.內容}/>
-    );
-  }
-
-  render其他建議() {
-    return (
-      <其他建議
-        後端網址={this.props.後端網址}
         內容={this.props.kongData.內容}/>
     );
   }
@@ -80,10 +72,6 @@ class Kong extends React.Component {
           : this.props.kongData.結果 === 0 ? this.render無結果()
           : this.props.kongData.結果 === -1 ? this.render錯誤()
           : this.render無關鍵字()
-        }
-        {
-          /*this.props.kongData.結果 >= 0 && this.props.kongData.內容.其他建議.length > 0 ?
-          this.render其他建議() : ''*/
         }
       </div>
     </div>
