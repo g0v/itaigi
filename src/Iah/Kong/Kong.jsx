@@ -17,7 +17,7 @@ class Kong extends React.Component {
   componentWillMount() { this.props.setQueryParams(this.props); }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
+    if (nextProps.外語 === this.props.外語) return;
     this.props.setQueryParams(nextProps);
   }
 
@@ -62,7 +62,7 @@ class Kong extends React.Component {
     <div className='main container'>
       <nav className='navigation'>
         <Tshue
-          defaultValue={this.props.params.k}
+          defaultValue={this.props.外語}
           查怎樣講={this.props.查怎樣講.bind(this)}
           {...this.props}/>
       </nav>
@@ -81,7 +81,6 @@ class Kong extends React.Component {
 
 Kong.propTypes = {
     setQueryParams: React.PropTypes.func,
-    params: React.PropTypes.object,
     kongData: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
     查怎樣講: React.PropTypes.func,
@@ -89,22 +88,22 @@ Kong.propTypes = {
 
 export default Transmit.createContainer(Kong, {
   queries: {
-    kongData({ params, 後端網址 }) {
-      if (params === undefined || params.k === undefined) {
+    kongData({ 外語, 後端網址 }) {
+      if (外語 === undefined) {
         return Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字',
         });
       }
 
-      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k))
+      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + 外語))
         .then(({ body }) => ({
-          '關鍵字': params.k,
+          '關鍵字': 外語,
           '結果': body.列表.length,
           '內容': body,
         }))
       .catch((err) => ({
-        '關鍵字': params.k,
+        '關鍵字': 外語,
         '結果': -1,
         '訊息': '發生錯誤',
         '內容': err,

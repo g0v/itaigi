@@ -12,12 +12,21 @@ import Debug from 'debug';
 var debug = Debug('itaigi:App');
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      外語: this.props.params.k || '',
+    };
+  }
+
   查怎樣講(外語) {
     this.props.history.replace('/k/' + 外語);
+    this.setState({ 外語 });
   }
 
   欲提供講法(外語) {
     this.props.history.replace('/t/' + 外語);
+    this.setState({ 外語 });
   }
 
   render() {
@@ -31,6 +40,7 @@ class App extends React.Component {
           {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
+            外語: this.props.params.k,
             後端網址: 後端.網址(), csrftoken: this.props.csrftoken, 編號: this.props.編號,
           }
         )}

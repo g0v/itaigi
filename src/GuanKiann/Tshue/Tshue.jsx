@@ -1,14 +1,33 @@
 import React from 'react';
 import Router from 'react-router';
 import Transmit from 'react-transmit';
+import Debug from 'debug';
+var debug = Debug('itaigi:Tshue');
 
 class Tshue extends React.Component {
-  // Tshue should be only one cause the id.
   constructor(props) {
     super(props);
     this.state = {
-      q: this.props.q || '',
+      外語: this.props.外語 || '',
+      紀錄: [],
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let { 紀錄 } = this.state;
+    let { 外語 } = nextProps;
+    let 所在 = 紀錄.indexOf(外語);
+    if (所在 == -1) {
+      紀錄 = [];
+      this.setState({ 紀錄 });
+      if (外語 == undefined) {
+        外語 = '';
+      }
+      this.refs.Tshue.value = 外語;
+    } else {
+      紀錄 = 紀錄.splice(0, 所在 + 1);
+      this.setState({ 紀錄 });
+    }
   }
 
   handleKeyDown(evt) {
@@ -19,8 +38,8 @@ class Tshue extends React.Component {
   }
 
   查怎樣講(evt) {
-    if (this.state.q !== '') {
-      this.props.查怎樣講(this.state.q);
+    if (this.state.外語 !== '') {
+      this.props.查怎樣講(this.state.外語);
     }
   }
 
@@ -33,9 +52,11 @@ class Tshue extends React.Component {
   }
 
   sensorThinkTime() {
-    var q = document.querySelector('#Tshue').value;
-    if (q !== this.state.q) {
-      this.setState({ q });
+    let 外語 = this.refs.Tshue.value;
+    if (外語 !== this.state.外語) {
+      let { 紀錄 } = this.state;
+      紀錄.push(外語);
+      this.setState({ 外語, 紀錄 });
       this.查怎樣講.bind(this)();
     }
   }
@@ -48,7 +69,7 @@ class Tshue extends React.Component {
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
-        id='Tshue'
+        ref='Tshue'
       />
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
