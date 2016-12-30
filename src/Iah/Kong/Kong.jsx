@@ -97,6 +97,7 @@ export default Transmit.createContainer(Kong, {
           '訊息': '載入中',
         });
       }
+
       if (params.k === undefined) {
         return Promise.resolve({
           '結果': -2,
