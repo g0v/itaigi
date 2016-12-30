@@ -7,8 +7,18 @@ class Tshue extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: this.props.q || '',
+      q: this.props.defaultValue || '',
     };
+    this.查過的詞 = new Set();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.defaultValue === this.props.defaultValue) return;
+    if (this.查過的詞.has(nextProps.defaultValue)) {
+      this.查過的詞.delete(nextProps.defaultValue);
+    } else {
+      document.querySelector('#Tshue').value = nextProps.defaultValue;
+    }
   }
 
   handleKeyDown(evt) {
@@ -36,7 +46,8 @@ class Tshue extends React.Component {
     var q = document.querySelector('#Tshue').value;
     if (q !== this.state.q) {
       this.setState({ q });
-      this.查怎樣講.bind(this)();
+      this.查過的詞.add(q);
+      this.查怎樣講();
     }
   }
 
