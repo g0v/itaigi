@@ -17,7 +17,7 @@ class Tshue extends React.Component {
     if (this.查過的詞.has(nextProps.defaultValue)) {
       this.查過的詞.delete(nextProps.defaultValue);
     } else {
-      document.querySelector('#Tshue').value = nextProps.defaultValue;
+      this.refs.Tshue.value = nextProps.defaultValue;
     }
   }
 
@@ -43,7 +43,7 @@ class Tshue extends React.Component {
   }
 
   sensorThinkTime() {
-    var q = document.querySelector('#Tshue').value;
+    var q = this.refs.Tshue.value;
     if (q !== this.state.q) {
       this.setState({ q });
       this.查過的詞.add(q);
@@ -59,7 +59,7 @@ class Tshue extends React.Component {
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
-        id='Tshue'
+        ref='Tshue'
       />
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
