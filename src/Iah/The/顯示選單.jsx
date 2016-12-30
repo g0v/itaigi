@@ -30,7 +30,7 @@ class 顯示選單 extends React.Component {
             <h3>
               <i className='spinner icon'></i>
               {
-                this.props.外語列表.狀態==='猶未好' ? '載入中，小等一下' :
+                this.props.外語列表.狀態 === '猶未好' ? '載入中，小等一下' :
                   this.props.外語列表.列表.length > 0
                   ? '這些詞還沒有人會用台語講'
                   : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'
@@ -52,7 +52,7 @@ export default Transmit.createContainer(顯示選單, {
       if (後端網址 === undefined) {
         return Promise.resolve({
           列表: [],
-          狀態:'猶未好',
+          狀態: '猶未好',
         });
       }
 
