@@ -34,7 +34,7 @@ class Tshue extends React.Component {
 
   sensorThinkTime() {
     var q = document.querySelector('#Tshue').value;
-    if (q !== this.state.q) {
+    if (q !== this.state.q && q.length > 1) {
       this.setState({ q });
       this.查怎樣講.bind(this)();
     }
