@@ -3,6 +3,9 @@ import Transmit from 'react-transmit';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
+import Debug from 'debug';
+var debug = Debug('itaigi:顯示選單');
+
 class 顯示選單 extends React.Component {
   componentWillMount() { this.props.setQueryParams(this.props); }
 
@@ -26,9 +29,12 @@ class 顯示選單 extends React.Component {
           <div className='ui forum segment'>
             <h3>
               <i className='spinner icon'></i>
-              {this.props.外語列表.列表.length > 0
-                ? '這些詞還沒有人會用台語講'
-                : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'}
+              {
+                this.props.外語列表.狀態 === '猶未好' ? '載入中，小等一下' :
+                  this.props.外語列表.列表.length > 0
+                  ? '這些詞還沒有人會用台語講'
+                  : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'
+              }
             </h3>
             <div>
               {無建議的外語列表}
@@ -45,7 +51,8 @@ export default Transmit.createContainer(顯示選單, {
     外語列表({ 後端網址 }) {
       if (後端網址 === undefined) {
         return Promise.resolve({
-          '列表': [],
+          列表: [],
+          狀態: '猶未好',
         });
       }
 
