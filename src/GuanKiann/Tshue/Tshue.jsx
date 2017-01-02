@@ -7,8 +7,18 @@ class Tshue extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: this.props.q || '',
+      q: this.props.defaultValue || '',
     };
+    this.查過的詞 = new Set();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.defaultValue === this.props.defaultValue) return;
+    if (this.查過的詞.has(nextProps.defaultValue)) {
+      this.查過的詞.delete(nextProps.defaultValue);
+    } else {
+      this.refs.Tshue.value = nextProps.defaultValue;
+    }
   }
 
   handleKeyDown(evt) {
@@ -33,10 +43,11 @@ class Tshue extends React.Component {
   }
 
   sensorThinkTime() {
-    var q = document.querySelector('#Tshue').value;
+    let q = this.refs.Tshue.value;
     if (q !== this.state.q && q.length > 1) {
       this.setState({ q });
-      this.查怎樣講.bind(this)();
+      this.查過的詞.add(q);
+      this.查怎樣講();
     }
   }
 
@@ -48,7 +59,7 @@ class Tshue extends React.Component {
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
-        id='Tshue'
+        ref='Tshue'
       />
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
