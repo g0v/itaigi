@@ -71,7 +71,8 @@ class Kong extends React.Component {
           this.props.kongData.結果 > 0 ? this.render有講法()
           : this.props.kongData.結果 === 0 ? this.render無結果()
           : this.props.kongData.結果 === -1 ? this.render錯誤()
-          : this.render無關鍵字()
+          : this.props.kongData.結果 === -2 ? this.render無關鍵字()
+          : <div></div>
         }
       </div>
     </div>
@@ -90,7 +91,14 @@ Kong.propTypes = {
 export default Transmit.createContainer(Kong, {
   queries: {
     kongData({ params, 後端網址 }) {
-      if (params === undefined || params.k === undefined) {
+      if (params === undefined) {
+        return Promise.resolve({
+          '結果': -3,
+          '訊息': '載入中',
+        });
+      }
+
+      if (params.k === undefined) {
         return Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字',
