@@ -43,7 +43,7 @@ class Tshue extends React.Component {
   }
 
   sensorThinkTime() {
-    var q = this.refs.Tshue.value;
+    let q = this.refs.Tshue.value;
     if (q !== this.state.q && q.length > 1) {
       this.setState({ q });
       this.查過的詞.add(q);
