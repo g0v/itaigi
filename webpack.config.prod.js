@@ -1,15 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
+var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    'babel-polyfill',
-    './src',
-  ],
+  entry: {
+    babel: 'babel-polyfill',
+    src: './src',
+    vendor: ['react', 'react-dom'],
+  },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
   plugins: [
@@ -18,6 +20,11 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
