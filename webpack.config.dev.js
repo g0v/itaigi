@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
