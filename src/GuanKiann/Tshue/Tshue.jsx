@@ -14,12 +14,15 @@ class Tshue extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.defaultValue === this.props.defaultValue) return;
-    if (this.查過的詞.has(nextProps.defaultValue)) {
-      this.查過的詞.delete(nextProps.defaultValue);
-    } else if (nextProps.defaultValue === undefined) {
+    let { defaultValue } = nextProps;
+    if (this.查過的詞.has(defaultValue)) {
+      this.查過的詞.delete(defaultValue);
+    } else if (defaultValue === undefined) {
       this.refs.Tshue.value = '';
+      this.setState({ q: '' });
     } else {
-      this.refs.Tshue.value = nextProps.defaultValue;
+      this.refs.Tshue.value = defaultValue;
+      this.setState({ q: defaultValue });
     }
   }
 
