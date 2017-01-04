@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

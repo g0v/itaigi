@@ -21,6 +21,7 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
       },
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js',
