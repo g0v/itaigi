@@ -14,7 +14,7 @@ var debug = Debug('itaigi:App');
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { csrftoken: '', 編號: '無登入' };
     this.看編號();
   }
 
@@ -25,7 +25,7 @@ export default class App extends React.Component {
         .catch((err) => (debug(err)));
     superagent.get(encodeURI(後端.網址() + '使用者/看編號'))
         .withCredentials()
-        .then(({ body }) => (this.setState({ 使用者編號: body.使用者編號 })))
+        .then(({ body }) => (this.setState({ 編號: body.使用者編號 })))
         .catch((err) => (debug(err)));
   }
 
