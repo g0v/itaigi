@@ -2,6 +2,9 @@ import React from 'react';
 import Router from 'react-router';
 import Transmit from 'react-transmit';
 
+import Debug from 'debug';
+var debug = Debug('itaigi:Tshue');
+
 class Tshue extends React.Component {
   // Tshue should be only one cause the id.
   constructor(props) {
@@ -34,8 +37,11 @@ class Tshue extends React.Component {
   }
 
   查怎樣講(evt) {
-    if (this.state.q !== '') {
-      this.props.查怎樣講(this.state.q);
+    let q = this.refs.Tshue.value;
+    if (q !== this.state.q) {
+      this.setState({ q });
+      this.查過的詞.add(q);
+      this.props.查怎樣講(q);
     }
   }
 
@@ -49,9 +55,7 @@ class Tshue extends React.Component {
 
   sensorThinkTime() {
     let q = this.refs.Tshue.value;
-    if (q !== this.state.q && q.length > 1) {
-      this.setState({ q });
-      this.查過的詞.add(q);
+    if (q.length > 1) {
       this.查怎樣講();
     }
   }
