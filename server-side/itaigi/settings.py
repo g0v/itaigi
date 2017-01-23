@@ -208,7 +208,7 @@ CELERY_TIMEZONE = TIME_ZONE
 CELERYBEAT_SCHEDULE = {
     '半瞑自sheets掠轉資料庫': {
         'task': '臺灣言語平臺.tasks.半瞑自sheets掠轉資料庫',
-        'schedule': crontab(hour=3),
+        'schedule': crontab(hour=3, minute=30),
         'args': ()
     },
 }
