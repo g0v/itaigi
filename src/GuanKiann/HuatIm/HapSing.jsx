@@ -6,20 +6,12 @@ var debug = Debug('itaigi:HapSing');
 
 export default class HapSing extends React.Component {
 
-  componentDidMount()
-  {
-    setTimeout(this.載入.bind(this), Math.random() * 1000);
-  }
-
-  componentDidUpdate(prevProps,  prevState)
-  {
-    setTimeout(this.載入.bind(this), Math.random() * 1000);
-  }
-
-  載入() {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.音標 === this.props.音標) return;
     let 音樂 = this.refs.音樂;
-    if (音樂 != null)
+    if (音樂 != null) {
       音樂.load();
+    }
   }
 
   play() {
@@ -38,9 +30,9 @@ export default class HapSing extends React.Component {
     return (
       <div className='HuatIm'>
         <audio ref="音樂">
-          <source type='audio/wav'
+          <source type='audio/x-wav'
             src={
-              encodeURI('http://voice.itaigi.tw/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
+              encodeURI('https://voice.itaigi.tw/文本直接合成?查詢腔口=閩南語&查詢語句=' + 標漢字音標) }
            />
         </audio>
         <button onClick={this.play.bind(this)}

@@ -127,8 +127,7 @@ class ABo extends React.Component {
   render() {
     let { 後端網址 } = this.props;
     return (
-        <div className='ui form segment'>
-          <div className='fields'>
+        <div className='ui form'>
             <div className='field'>
                 <label>臺語漢字</label>
                 <div className='abo ui input large'>
@@ -145,7 +144,6 @@ class ABo extends React.Component {
                     onChange={this.handle音標KeyUp.bind(this)}/>
                 </div>
             </div>
-          </div>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
 
