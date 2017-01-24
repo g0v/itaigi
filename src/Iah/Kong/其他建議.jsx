@@ -1,5 +1,4 @@
 import React from 'react';
-import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
 import 一个建議 from '../../GuanKiann/Su/一个建議';
 import './其他建議.css';
 import Debug from 'debug';
