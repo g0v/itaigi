@@ -20,7 +20,7 @@ export default class HuatIm extends React.Component {
   render() {
     let { 音標 } = this.props;
     if (!音標) {
-      return <div className='HuatIm hidden'></div>;
+      return <span className='HuatIm hidden'></span>;
     }
 
     let id = SoundsMapping.map(音標);
@@ -29,7 +29,7 @@ export default class HuatIm extends React.Component {
     }
 
     return (
-    <div className='HuatIm'>
+    <span className='HuatIm'>
       <audio id={'audio_' + id}>
         <source type='audio/mpeg'
           src={'http://t.moedict.tw/' + id + '.mp3'} />
@@ -38,7 +38,7 @@ export default class HuatIm extends React.Component {
         className='ui compact icon button'>
         <i className='icon play'></i>
       </button>
-    </div>
+    </span>
     );
   }
 };

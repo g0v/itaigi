@@ -3,6 +3,7 @@ import Transmit from 'react-transmit';
 import cookie from 'react-cookie';
 import LaiLik from '../LaiLik/LaiLik';
 import HuatIm from '../HuatIm/HuatIm';
+import 例句 from '../例句/例句';
 import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
@@ -79,6 +80,7 @@ class Su extends React.Component {
           </h2>
         </div>
         <HuatIm 音標={suIm} />
+        <例句 />
         <div className='description'>
           {suIm}
           <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />
