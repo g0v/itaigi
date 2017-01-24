@@ -4,6 +4,7 @@ import Su from '../Su/Su';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import ABo from '../../GuanKiann/ABo/ABo';
+import 例句表 from '../../GuanKiann/例句/例句表';
 
 import Debug from 'debug';
 import './GuaGi.css';
@@ -11,6 +12,25 @@ import './GuaGi.css';
 var debug = Debug('itaigi:GuaGi');
 
 class GuaGi extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      看例句: false,
+    };
+  }
+
+  開例句() {
+    this.setState({
+      看例句: true,
+    });
+  }
+
+  關例句() {
+    this.setState({
+      看例句: false,
+    });
+  }
 
   componentWillMount() { this.props.setQueryParams(this.props); }
 
@@ -44,7 +64,9 @@ class GuaGi extends React.Component {
       貢獻者={d.貢獻者}
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
-      後端網址={this.props.後端網址} />
+      後端網址={this.props.後端網址}
+      開例句={this.開例句.bind(this)}
+      />
     );
     return (
     <div className='guaGi'>
@@ -66,6 +88,7 @@ class GuaGi extends React.Component {
           </div>
         </div>
       </div>
+      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this)} />
     </div>
     );
   }
