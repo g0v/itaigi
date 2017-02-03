@@ -38,7 +38,7 @@ class TshiuKiSuanTuann extends React.Component {
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default TshiuKiSuanTuann;
