@@ -37,11 +37,11 @@ app.get('*', function (req, res) {
   }));
 });
 
-app.listen(80, '0.0.0.0', function (err) {
+app.listen(3000, '127.0.0.1', function (err) {
   if (err) {
     console.log(err);
     return;
   }
 
-  console.log('Listening at http://localhost:80');
+  console.log('Listening at http://localhost:3000');
 });
