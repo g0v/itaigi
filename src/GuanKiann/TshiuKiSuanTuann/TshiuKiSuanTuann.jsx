@@ -34,11 +34,11 @@ class TshiuKiSuanTuann extends React.Component {
           <i className="street view icon"></i>抱去摸
         </Link>
         <div className='down item'>
-          {/* dummy item to show last item border*/}
+          { '' /* dummy item to show last item border*/ }
         </div>
       </div>
     );
-  };
+  }
 }
 
 export default TshiuKiSuanTuann;
