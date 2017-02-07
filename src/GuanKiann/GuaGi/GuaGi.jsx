@@ -45,8 +45,7 @@ class GuaGi extends React.Component {
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
       後端網址={this.props.後端網址}
-      華語關鍵字={this.props.華語關鍵字}
-      開例句={this.props.開例句.bind(this)}
+      來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
       />
     );
     return (

@@ -64,7 +64,7 @@ class Su extends React.Component {
   }
 
   render() {
-    let { suText, suIm, suId, 貢獻者, suData, 後端網址, 華語關鍵字 } = this.props;
+    let { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
     if (貢獻者 == '匿名') 貢獻者 = '沒有人';
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
@@ -80,9 +80,7 @@ class Su extends React.Component {
           </h2>
         </div>
         <HuatIm 音標={suIm} />
-        <例句鈕仔 開例句={this.props.開例句.bind(this)}
-          外語={華語關鍵字} 文本資料={suText} 音標資料={suIm}
-          />
+        <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
           {suIm}
           <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />
