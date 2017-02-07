@@ -52,7 +52,9 @@ class Kong extends React.Component {
         後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
         pathname={this.props.location.pathname}
         編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
-        內容={this.props.kongData.內容}/>
+        內容={this.props.kongData.內容}
+        開例句={this.props.開例句.bind(this)}
+        />
     );
   }
 

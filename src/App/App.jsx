@@ -1,6 +1,7 @@
 import React from 'react';
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import 後端 from './後端';
+import 例句表 from '../GuanKiann/例句/例句表';
 
 import './App.css';
 
@@ -16,6 +17,18 @@ export default class App extends React.Component {
     super(props);
     this.state = { csrftoken: '', 編號: '無登入' };
     this.看編號();
+  }
+
+  開例句() {
+    this.setState({
+      看例句: true,
+    });
+  }
+
+  關例句() {
+    this.setState({
+      看例句: false,
+    });
   }
 
   看編號() {
@@ -49,6 +62,7 @@ export default class App extends React.Component {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端.網址(), csrftoken: this.state.csrftoken, 編號: this.state.編號,
+            開例句:this.開例句.bind(this),
           }
         )}
       <footer className='app footer inverted'>
@@ -76,6 +90,9 @@ export default class App extends React.Component {
           </li>
         </ul>
       </footer>
+      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this)} 
+        漢字={'漢字'} 台羅={'Tāi-tsì tsò-liáu tsin sù-sī. '}
+        />
     </div>
     );
   }
