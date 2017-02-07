@@ -19,18 +19,6 @@ export default class App extends React.Component {
     this.看編號();
   }
 
-  開例句() {
-    this.setState({
-      看例句: true,
-    });
-  }
-
-  關例句() {
-    this.setState({
-      看例句: false,
-    });
-  }
-
   看編號() {
     superagent.get(encodeURI(後端.網址() + 'csrf/看'))
         .withCredentials()
@@ -50,7 +38,20 @@ export default class App extends React.Component {
     this.props.history.replace('/t/' + 外語);
   }
 
+  開例句(外語, 漢字, 台羅) {
+    this.props.history.replace(
+      '/k/' + encodeURIComponent(外語) +
+      '/' + encodeURIComponent(漢字) +
+      '/' + encodeURIComponent(台羅)
+      );
+  }
+
+  關例句(外語) {
+    this.查怎樣講(外語);
+  }
+
   render() {
+    const { k, han, lo } = this.props.params;
     return (
     <div className='app background'>
       <header className='app header'>
@@ -62,7 +63,7 @@ export default class App extends React.Component {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端.網址(), csrftoken: this.state.csrftoken, 編號: this.state.編號,
-            開例句:this.開例句.bind(this),
+            開例句: this.開例句.bind(this),
           }
         )}
       <footer className='app footer inverted'>
@@ -90,8 +91,8 @@ export default class App extends React.Component {
           </li>
         </ul>
       </footer>
-      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this)} 
-        漢字={'漢字'} 台羅={'Tāi-tsì tsò-liáu tsin sù-sī. '}
+      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this, k)}
+        漢字={han} 台羅={lo}
         />
     </div>
     );

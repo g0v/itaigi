@@ -9,10 +9,11 @@ export default class 例句表 extends React.Component {
         zIndex: '200',
       },
     };
-    let {台羅}=this.props;
+    let { 漢字, 台羅 } = this.props;
+    const 看例句 = 漢字 && 台羅;
     return (
         <Modal
-          isOpen={this.props.看例句}
+          isOpen={看例句}
           onRequestClose={this.props.關例句.bind(this)}
           style={customStyles}
           >
@@ -37,7 +38,7 @@ export default class 例句表 extends React.Component {
           <button
             onClick={this.props.關例句.bind(this)}
             className="ui button"
-            >好</button>
+            >我知影矣</button>
         </Modal>
     );
   }
