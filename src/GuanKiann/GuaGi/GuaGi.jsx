@@ -88,7 +88,9 @@ class GuaGi extends React.Component {
           </div>
         </div>
       </div>
-      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this)} />
+      <例句表 看例句={this.state.看例句} 關例句={this.關例句.bind(this)} 
+        漢字={'漢字'} 台羅={'Tāi-tsì tsò-liáu tsin sù-sī. '}
+        />
     </div>
     );
   }

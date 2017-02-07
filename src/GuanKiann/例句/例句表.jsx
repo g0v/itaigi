@@ -9,14 +9,14 @@ export default class 例句表 extends React.Component {
         zIndex: '200',
       },
     };
-
+    let {台羅}=this.props;
     return (
         <Modal
           isOpen={this.props.看例句}
           onRequestClose={this.props.關例句.bind(this)}
           style={customStyles}
           >
-          <h2 ref="subtitle">已上傳！</h2>
+          <h2 ref="subtitle">{this.props.漢字} {台羅}</h2>
           <div>
             <div>
               事情辦得很妥善。<br/>
