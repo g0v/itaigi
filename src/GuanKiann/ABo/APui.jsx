@@ -3,6 +3,9 @@ import Transmit from 'react-transmit';
 import Modal from 'react-modal';
 
 const customStyles = {
+  overlay: {
+    zIndex: '200',
+  },
   content: {
     top: '50%',
     left: '50%',
