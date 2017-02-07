@@ -4,10 +4,17 @@ import Modal from 'react-modal';
 export default class 例句表 extends React.Component {
 
   render() {
+    const customStyles = {
+      overlay: {
+        zIndex: '200',
+      },
+    };
+
     return (
         <Modal
           isOpen={this.props.看例句}
           onRequestClose={this.props.關例句.bind(this)}
+          style={customStyles}
           >
           <h2 ref="subtitle">已上傳！</h2>
           <div>
