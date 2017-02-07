@@ -3,20 +3,27 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client',
-    'babel-polyfill',
-    './src',
-  ],
+  entry: {
+    eventsource: 'eventsource-polyfill', // necessary for hot reloading with IE
+    middleware: 'webpack-hot-middleware/client',
+    babel: 'babel-polyfill',
+    src: './src',
+    vendor: ['react', 'react-dom'],
+  },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity,
+    }),
   ],
   resolve: {
     extensions: ['', '.js', '.jsx'],

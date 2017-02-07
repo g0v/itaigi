@@ -3,13 +3,14 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    'babel-polyfill',
-    './src',
-  ],
+  entry: {
+    babel: 'babel-polyfill',
+    src: './src',
+    vendor: ['react', 'react-dom'],
+  },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     publicPath: '/',
   },
   plugins: [
@@ -18,6 +19,12 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js',
+      minChunks: Infinity,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
