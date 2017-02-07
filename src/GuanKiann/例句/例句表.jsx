@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-
 export default class 例句表 extends React.Component {
 
   render() {
@@ -36,5 +35,4 @@ export default class 例句表 extends React.Component {
     );
   }
 }
-
 
