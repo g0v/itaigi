@@ -44,6 +44,9 @@ body {
   background: #1b1c1d;
 }
 
+.ui.button.no-border {
+  box-shadow: none;
+}
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
