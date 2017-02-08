@@ -6,6 +6,7 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 import 後端 from '../../App/後端';
 import HuatIm from '../HuatIm/HuatIm';
 import TuiIngHuaGi from '../Su/TuiIngHuaGi';
+import 顯示例句 from './顯示例句'
 
 import Debug from 'debug';
 var debug = Debug('itaigi:例句表');
@@ -56,12 +57,7 @@ export default class 例句表 extends React.Component {
     debug(例句, this.state);
     let 按呢講的外語 = this.state.按呢講的外語列表.map((外語, i)=>(<TuiIngHuaGi key={i} 外語={外語}/>));
     let 例句 = this.state.例句列表.map((例句, i)=>(
-      <div key={i}>
-      {例句.華語}<br/>
-      {例句.綜合標音[0].漢字}<br/>
-      {例句.綜合標音[0].臺羅閏號調}      
-      <hr/>
-      </div>
+      <顯示例句 key={i} 例句={例句}/>
     ));
     return (
         <Modal
