@@ -6,7 +6,7 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 import 後端 from '../../App/後端';
 import HuatIm from '../HuatIm/HuatIm';
 import TuiIngHuaGi from '../Su/TuiIngHuaGi';
-import 顯示例句一句 from './顯示例句一句'
+import 顯示例句一句 from './顯示例句一句';
 
 import Debug from 'debug';
 var debug = Debug('itaigi:例句表');
