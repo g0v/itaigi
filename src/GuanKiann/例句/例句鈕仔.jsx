@@ -7,7 +7,7 @@ var debug = Debug('itaigi:例句鈕仔');
 export default class 例句鈕仔 extends React.Component {
 
   render() {
-    let {  來開例句 } = this.props;
+    let { 來開例句 } = this.props;
     return (
     <span className=''>
       <button
