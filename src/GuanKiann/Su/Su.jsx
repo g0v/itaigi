@@ -1,6 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import cookie from 'react-cookie';
+import 後端 from '../../App/後端';
 import LaiLik from '../LaiLik/LaiLik';
 import HuatIm from '../HuatIm/HuatIm';
 import 例句鈕仔 from '../例句/例句鈕仔';
@@ -128,14 +129,14 @@ export default Transmit.createContainer(Su, {
         .catch((err) => console.log(err));
     },
 
-    按呢講的外語列表({ suText, 後端網址 }) {
+    按呢講的外語列表({ suText, suIm }) {
       if (!suText) {
         return Promise.resolve({
           '結果': -2,
         });
       }
 
-      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + suText))
+      return superagent.get(後端.揣按呢講列表(suText, suIm))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },

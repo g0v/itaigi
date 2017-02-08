@@ -92,7 +92,6 @@ export default class App extends React.Component {
         </ul>
       </footer>
       <例句表 關例句={this.關例句.bind(this, k)}
-        後端網址={後端.網址()}
         漢字={han} 台羅={lo}
         />
     </div>

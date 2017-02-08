@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
+import 後端 from '../../App/後端';
 import HuatIm from '../HuatIm/HuatIm';
 import TuiIngHuaGi from '../Su/TuiIngHuaGi';
 
@@ -28,11 +29,11 @@ export default class 例句表 extends React.Component {
   }
 
   查按呢講的外語(props) {
-    let { 後端網址, 漢字, 台羅 } = props;
+    let { 漢字, 台羅 } = props;
     const 看例句 = 漢字 && 台羅;
     if (看例句) {
       this.setState({ 按呢講的外語列表: [] });
-      superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + 漢字))
+      superagent.get(後端.揣按呢講列表(漢字, 台羅))
         .then(({ body }) => this.setState({ 按呢講的外語列表: body.列表 }))
         .catch((err) => console.log(err));
     }
