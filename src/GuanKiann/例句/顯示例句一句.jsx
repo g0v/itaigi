@@ -13,7 +13,7 @@ export default class 顯示例句一句 extends React.Component {
     let 漢字陣列 = [];
     let 臺羅陣列 = [];
 
-    let { 例句 } = this.props;
+    let { 第幾句, 例句 } = this.props;
 
     例句.綜合標音.map(function (標音) {
       漢字陣列 = 漢字陣列.concat(標音.漢字.split(' '));
@@ -25,6 +25,7 @@ export default class 顯示例句一句 extends React.Component {
      ));
     return (
       <div className='item'>
+        <a className="ui olive tag label">{第幾句}</a>
         <span className='hua5_le7ku3'>{例句.華語}</span><br/>
         <HuatIm 音標={臺羅陣列.join(' ')} />
         <span className='tai5_le7ku3'>{句}</span><br/>
