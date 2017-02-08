@@ -1,6 +1,7 @@
 import React from 'react';
 
 import 漢字臺羅一詞 from './漢字臺羅一詞';
+import './顯示例句一句.css';
 
 import Debug from 'debug';
 var debug = Debug('itaigi:顯示例句一句');
@@ -23,8 +24,8 @@ export default class 顯示例句一句 extends React.Component {
      ));
     return (
       <div className='item'>
-        {例句.華語}<br/>
-        {句}<br/>
+        <span className='hua5_le7ku3'>{例句.華語}</span><br/>
+        <span className='tai5_le7ku3'>{句}</span><br/>
       </div>
     );
   }
