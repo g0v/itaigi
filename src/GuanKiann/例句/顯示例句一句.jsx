@@ -1,5 +1,6 @@
 import React from 'react';
 
+import HuatIm from '../HuatIm/HuatIm';
 import 漢字臺羅一詞 from './漢字臺羅一詞';
 import './顯示例句一句.css';
 
@@ -25,6 +26,7 @@ export default class 顯示例句一句 extends React.Component {
     return (
       <div className='item'>
         <span className='hua5_le7ku3'>{例句.華語}</span><br/>
+        <HuatIm 音標={臺羅陣列.join(' ')} />
         <span className='tai5_le7ku3'>{句}</span><br/>
       </div>
     );
