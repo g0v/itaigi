@@ -10,7 +10,7 @@ export default class 後端  {
   }
 
   static 例句列表(漢字, 臺羅) {
-    return encodeURI('http://localhost:8000/' + '看/?漢字=' + 漢字 + '&臺羅=' + 臺羅);
+    return encodeURI('https://例句.意傳.台灣/' + '看/?漢字=' + 漢字 + '&臺羅=' + 臺羅);
   }
 
 }
