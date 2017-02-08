@@ -1,7 +1,7 @@
 <a href="https://itaigi.tw/"><img src="https://itaigi.tw/121c4ed080e9127a72d31ae85d1458fc.svg" width="100"></a>新台語·運動
 ===========
 [![Build Status](https://travis-ci.org/g0v/itaigi.svg?branch=master)](https://travis-ci.org/g0v/itaigi)
-[![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi#info=devDependencies)
+[![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi?type=dev)
 [![made in taiwan](https://img.shields.io/badge/made%20in-taiwan-blue.svg)](https://itaigi.tw)
 [![made in g0v](https://img.shields.io/badge/made%20in-g0v-B81C21.svg)](http://g0v.tw/en-US/)
 
