@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './App/App';
 import Kong from './Iah/Kong/Kong';
-import Lun from './Iah/Lun/Lun';
 import The from './Iah/The/The';
 import Iong from './Iah/Iong/Iong';
 import Mia from './Iah/Mia/Mia';
@@ -28,7 +27,6 @@ render(
       <Route path='/' component={App}>
         <IndexRoute component={Kong} />
         <Route path='k(/:k)' component={Kong} />
-        <Route path='l(/:k)' component={Lun} />
         <Route path='t(/:k)' component={The} />
         <Route path='iong' component={Iong} />
         <Route path='mia' component={Mia} />
