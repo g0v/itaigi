@@ -21,6 +21,7 @@ class APui extends React.Component {
   render() {
     return (
         <Modal
+          contentLabel='APui'
           isOpen={this.props.modalIsOpen}
           onRequestClose={this.props.closeModal.bind(this)}
           style={customStyles} >
