@@ -8,6 +8,9 @@ body {
   flex-flow: column nowrap;
   min-height: 100vh;
   background-color: #f1efeb;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .app .container {
@@ -40,6 +43,7 @@ body {
 .app .app.footer {
   background: #1b1c1d;
 }
+
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
