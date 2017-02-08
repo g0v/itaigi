@@ -6,7 +6,7 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 import 後端 from '../../App/後端';
 import HuatIm from '../HuatIm/HuatIm';
 import TuiIngHuaGi from '../Su/TuiIngHuaGi';
-import 顯示例句 from './顯示例句'
+import 顯示例句一句 from './顯示例句一句'
 
 import Debug from 'debug';
 var debug = Debug('itaigi:例句表');
@@ -40,6 +40,7 @@ export default class 例句表 extends React.Component {
         .then(({ body }) => this.setState({ 按呢講的外語列表: body.列表 }))
         .catch((err) => console.log(err));
 
+      this.setState({ 例句列表: [] });
       superagent.get(後端.例句列表(漢字, 台羅))
         .then(({ body }) => this.setState({ 例句列表: body.例句 }))
         .catch((err) => console.log(err));
@@ -57,7 +58,7 @@ export default class 例句表 extends React.Component {
     debug(例句, this.state);
     let 按呢講的外語 = this.state.按呢講的外語列表.map((外語, i)=>(<TuiIngHuaGi key={i} 外語={外語}/>));
     let 例句 = this.state.例句列表.map((例句, i)=>(
-      <顯示例句 key={i} 例句={例句}/>
+      <顯示例句一句 key={i} 例句={例句}/>
     ));
     return (
         <Modal
@@ -71,23 +72,8 @@ export default class 例句表 extends React.Component {
           <span className='ui horizontal list large'>
             {按呢講的外語}
           </span>
-          <div>
-          {例句}
-            <div>
-              事情辦得很妥善。<br/>
-              代誌做了真四序。<br/>
-              Tāi-tsì tsò-liáu tsin sù-sī. <br/>
-            </div>
-            <div>
-              事情辦得很妥善。<br/>
-              代誌做了真四序。<br/>
-              Tāi-tsì tsò-liáu tsin sù-sī. <br/>
-            </div>
-            <div>
-              事情辦得很妥善。<br/>
-              代誌做了真四序。<br/>
-              Tāi-tsì tsò-liáu tsin sù-sī. <br/>
-            </div>
+          <div className="ui celled list">
+            {例句}
           </div>
           <button
             onClick={this.props.關例句.bind(this)}
