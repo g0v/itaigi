@@ -16,6 +16,7 @@ export default class 例句表 extends React.Component {
     super(props);
     this.state = {
       按呢講的外語列表: [],
+      例句列表: [],
     };
   }
 
@@ -24,8 +25,9 @@ export default class 例句表 extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextProps != this.props)
-    this.查按呢講的外語(nextProps);
+    if (nextProps != this.props) {
+      this.查按呢講的外語(nextProps);
+    }
   }
 
   查按呢講的外語(props) {
@@ -35,6 +37,10 @@ export default class 例句表 extends React.Component {
       this.setState({ 按呢講的外語列表: [] });
       superagent.get(後端.揣按呢講列表(漢字, 台羅))
         .then(({ body }) => this.setState({ 按呢講的外語列表: body.列表 }))
+        .catch((err) => console.log(err));
+
+      superagent.get(後端.例句列表(漢字, 台羅))
+        .then(({ body }) => this.setState({ 例句列表: body.例句 }))
         .catch((err) => console.log(err));
     }
   }
@@ -47,7 +53,16 @@ export default class 例句表 extends React.Component {
     };
     let { 漢字, 台羅 } = this.props;
     const 看例句 = 漢字 && 台羅;
+    debug(例句, this.state);
     let 按呢講的外語 = this.state.按呢講的外語列表.map((外語, i)=>(<TuiIngHuaGi key={i} 外語={外語}/>));
+    let 例句 = this.state.例句列表.map((例句, i)=>(
+      <div key={i}>
+      {例句.華語}<br/>
+      {例句.綜合標音[0].漢字}<br/>
+      {例句.綜合標音[0].臺羅閏號調}      
+      <hr/>
+      </div>
+    ));
     return (
         <Modal
           isOpen={看例句}
@@ -61,6 +76,7 @@ export default class 例句表 extends React.Component {
             {按呢講的外語}
           </span>
           <div>
+          {例句}
             <div>
               事情辦得很妥善。<br/>
               代誌做了真四序。<br/>

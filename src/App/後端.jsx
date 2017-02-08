@@ -8,4 +8,9 @@ export default class 後端  {
   static 揣按呢講列表(漢字, 台羅) {
     return encodeURI(this.網址() + '平臺項目列表/揣按呢講列表?關鍵字=' + 漢字);
   }
+
+  static 例句列表(漢字, 臺羅) {
+    return encodeURI('http://localhost:8000/' + '看/?漢字=' + 漢字 + '&臺羅=' + 臺羅);
+  }
+
 }
