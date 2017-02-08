@@ -6,7 +6,7 @@ import './App.css';
 
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
@@ -30,11 +30,11 @@ export default class App extends React.Component {
   }
 
   查怎樣講(外語) {
-    this.props.history.replace('/k/' + 外語);
+    browserHistory.replace('/k/' + 外語);
   }
 
   欲提供講法(外語) {
-    this.props.history.replace('/t/' + 外語);
+    browserHistory.replace('/t/' + 外語);
   }
 
   render() {
