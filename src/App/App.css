@@ -48,12 +48,6 @@ body {
   box-shadow: none;
 }
 
-.ui.fluid.action.input.tshue > input {
-  -webkit-flex: 1;
-          flex: 1;
-  width: 100% !important;
-}
-
 /* Mobile */
 @media only screen and (max-width: 767px) {
   .app .main.container {
@@ -66,15 +60,6 @@ body {
     background: #1b1c1d;
     padding-left: 0;
     overflow: hidden;
-  }
-
-  .ui.fluid.action.input.tshue {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .app .bar .menu {
-    display: none;
   }
 }
 

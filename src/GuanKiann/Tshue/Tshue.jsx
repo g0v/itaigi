@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
 import Transmit from 'react-transmit';
-
+import './Tshue.css';
 import Debug from 'debug';
 var debug = Debug('itaigi:Tshue');
 
