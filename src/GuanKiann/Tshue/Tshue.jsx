@@ -62,13 +62,14 @@ class Tshue extends React.Component {
 
   render() {
     return (
-    <div className='ui fluid action input huge container'>
+    <div className='ui fluid action input huge container tshue'>
       <input
         type='text'
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
         ref='Tshue'
+        size="8"
       />
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
