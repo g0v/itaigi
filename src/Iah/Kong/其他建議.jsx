@@ -10,17 +10,23 @@ export default class 其他建議 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      全開: false,
+      全開: this.預設顯示幾个(),
     };
     this.查過的詞 = new Set();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.內容.其他建議 != this.props.內容.其他建議) {
+      this.setState({ 全開: this.預設顯示幾个() });
+    }
+  }
+
   預設顯示幾个() {
-    return 30;
+    return 24;
   }
 
   看閣較濟() {
-    if (!this.state.全開 && this.props.內容.其他建議.length > this.預設顯示幾个())
+    if (this.props.內容.其他建議.length > this.state.全開)
     return (
       <div className='su card'>
         <div className='content'>
@@ -34,16 +40,13 @@ export default class 其他建議 extends React.Component {
   }
 
   看閣較濟全開() {
-    this.setState({ 全開: true });
+    let { 全開 } = this.state;
+    全開 += this.預設顯示幾个();
+    this.setState({ 全開 });
   }
 
   render() {
-    let 其他建議;
-    if (this.state.全開) {
-      其他建議 = this.props.內容.其他建議;
-    } else {
-      其他建議 = this.props.內容.其他建議.slice(0, this.預設顯示幾个());
-    }
+    let 其他建議 = this.props.內容.其他建議.slice(0, this.state.全開);
 
     let 文本 = 其他建議.map((建議, i) => (
         <一个建議 key={i}

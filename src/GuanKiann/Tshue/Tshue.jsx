@@ -46,18 +46,11 @@ class Tshue extends React.Component {
   }
 
   componentWillMount() {
-    this.timer = setInterval(this.sensorThinkTime.bind(this), 2000);
+    this.timer = setInterval(this.查怎樣講.bind(this), 2000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-  }
-
-  sensorThinkTime() {
-    let q = this.refs.Tshue.value;
-    if (q.length > 1) {
-      this.查怎樣講();
-    }
   }
 
   render() {
