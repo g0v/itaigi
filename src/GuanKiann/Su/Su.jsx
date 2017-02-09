@@ -71,7 +71,7 @@ class Su extends React.Component {
 
     let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
-    <div className='su card'>
+    <div className='su ui card'>
       <div className='content'>
         <div className='left floated'>
           <h2 className='ui header'>
