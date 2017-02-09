@@ -56,7 +56,7 @@ class FBTest extends React.Component {
             <h1 className='ui header'>快分享 iTaigi 給你的朋友知道吧！</h1>
             {/*<a className='ui teal huge button' href='//www.facebook.com/ukauitaigi/' target='_blank'>
             <i className='ui icon facebook'/>facebook</a>*/}
-            <分享鍵 pathname={ '' }/>
+            <分享鍵 size='large' pathname={ '' }/>
           </div>
 
           <div className='eight wide right floated column'>
