@@ -25,10 +25,10 @@ export default class 顯示例句一句 extends React.Component {
      ));
     return (
       <div className='item'>
-        <a className="ui olive tag label">{第幾句}</a>
-        <span className='hua5_le7ku3'>{例句.華語}</span><br/>
+        <a className="ui olive tag label">{第幾句}</a><br/>
         <HuatIm 音標={臺羅陣列.join(' ')} />
         <span className='tai5_le7ku3'>{句}</span><br/>
+        <span className='hua5_le7ku3'>（{例句.華語}）</span><br/>
       </div>
     );
   }
