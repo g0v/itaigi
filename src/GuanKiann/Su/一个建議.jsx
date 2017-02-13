@@ -24,7 +24,7 @@ class 一个建議 extends React.Component {
     let { 文本資料, 音標資料 } = this.props;
     let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
-    <div className='su card'>
+    <div className='ui su card'>
       <div className='content'>
         <div className='left floated'>
           <h2 className='ui header'>

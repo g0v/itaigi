@@ -1,0 +1,14 @@
+.ui.fluid.action.input.tshue > input {
+  -webkit-flex: 1;
+          flex: 1;
+  width: 100% !important;
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .ui.fluid.action.input.tshue {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
