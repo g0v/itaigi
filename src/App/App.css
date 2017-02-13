@@ -8,6 +8,9 @@ body {
   flex-flow: column nowrap;
   min-height: 100vh;
   background-color: #f1efeb;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .app .container {
@@ -41,8 +44,18 @@ body {
   background: #1b1c1d;
 }
 
+.ui.button.no-border {
+  box-shadow: none;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .app .main.container {
+    width: auto !important;
+    margin-left: 1em !important;
+    margin-right: 1em !important;
+  }
+
   .app.footer > .menu.container {
     background: #1b1c1d;
     padding-left: 0;
