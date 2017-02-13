@@ -8,6 +8,7 @@ import './App.css';
 import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 import { browserHistory } from 'react-router';
+
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 var debug = Debug('itaigi:App');
