@@ -11,7 +11,8 @@ export default class 分享鍵 extends React.Component {
 
   render() {
     let { size } = this.props;
-    let width = 92, height = 20;
+    let width = 92;
+    let height = 20;
     if (size == 'large') {
       width = 110;
       height = 28;
