@@ -1,5 +1,5 @@
-exports.render = function ({url, title, image}) {
-return `
+exports.render = function ({ url, title, image }) {
+  return `
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,9 +27,9 @@ return `
     <link rel="mask-icon" href="//g0v.github.io/itaigi/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.css"/>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.7/semantic.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
   </head>
   <body>
     <div id="sidebar" class="ui thin sidebar vertical labeled icon large devided menu"></div>
@@ -46,5 +46,5 @@ return `
     </script>
     <script type="text/javascript" src="//g0v.github.io/itaigi/bundle.js"></script>
   </body>
-</html>`
+</html>`;
 };

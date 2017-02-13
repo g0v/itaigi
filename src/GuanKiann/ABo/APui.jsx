@@ -7,12 +7,9 @@ const customStyles = {
     zIndex: '200',
   },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    maxWidth: '400px',
+    maxHeight: '180px',
+    margin: 'auto',
   },
 };
 
@@ -21,6 +18,7 @@ class APui extends React.Component {
   render() {
     return (
         <Modal
+          contentLabel='APui'
           isOpen={this.props.modalIsOpen}
           onRequestClose={this.props.closeModal.bind(this)}
           style={customStyles} >

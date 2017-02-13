@@ -51,10 +51,9 @@ class GuaGi extends React.Component {
     return (
     <div className='guaGi'>
       <div className='ui su vertical segment'>
-        <div className='ui cards'>
+        <div className='ui stackable cards'>
           {suList}
-
-          <div className='su card'>
+          <div className='ui su card'>
             <div className='content'>
               <h3 className='ui header'>
                 <i className='cloud upload icon'></i>
