@@ -8,9 +8,9 @@ body {
   flex-flow: column nowrap;
   min-height: 100vh;
   background-color: #f1efeb;
-  width: 100vw;
+  /*width: 100vw;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden;*/
 }
 
 .app .container {
