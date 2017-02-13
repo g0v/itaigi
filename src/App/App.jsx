@@ -41,7 +41,7 @@ export default class App extends React.Component {
   }
 
   開例句(外語, 漢字, 台羅) {
-    this.props.history.replace(
+    browserHistory.replace(
       '/k/' + encodeURIComponent(外語) +
       '/' + encodeURIComponent(漢字) +
       '/' + encodeURIComponent(台羅)
@@ -68,6 +68,8 @@ export default class App extends React.Component {
             開例句: this.開例句.bind(this),
           }
         )}
+      <例句表 關例句={this.關例句.bind(this, k)}
+         漢字={han} 台羅={lo}/>
       <IapKha/>
     </div>
     );
