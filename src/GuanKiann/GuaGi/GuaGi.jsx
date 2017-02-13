@@ -44,7 +44,9 @@ class GuaGi extends React.Component {
       貢獻者={d.貢獻者}
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
-      後端網址={this.props.後端網址} />
+      後端網址={this.props.後端網址}
+      來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
+      />
     );
     return (
     <div className='guaGi'>

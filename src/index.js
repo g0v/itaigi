@@ -26,7 +26,7 @@ render(
     <Router history={history}>
       <Route path='/' component={App}>
         <IndexRoute component={Kong} />
-        <Route path='k(/:k)' component={Kong} />
+        <Route path='k(/:k)(/:han)(/:lo)' component={Kong} />
         <Route path='t(/:k)' component={The} />
         <Route path='iong' component={Iong} />
         <Route path='mia' component={Mia} />

@@ -23,11 +23,14 @@ export default class 有講法 extends React.Component {
           後端網址={this.props.後端網址}
           編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
           華語關鍵字={this.props.華語關鍵字}
+          開例句={this.props.開例句.bind(this)}
           />
       ))}
       <其他建議
         後端網址={this.props.後端網址}
-        內容={this.props.內容}/>
+        內容={this.props.內容}
+        華語關鍵字={this.props.華語關鍵字}
+        開例句={this.props.開例句.bind(this)}/>
       <h3 className='ui horizontal divider header'>
         <i className='outline comments icon'></i>
         來討論

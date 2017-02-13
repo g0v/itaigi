@@ -2,6 +2,7 @@ import React from 'react';
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import IapKha from '../GuanKiann/IapKha/IapKha';
 import 後端 from './後端';
+import 例句表 from '../GuanKiann/例句/例句表';
 
 import './App.css';
 
@@ -39,7 +40,20 @@ export default class App extends React.Component {
     browserHistory.replace('/t/' + 外語);
   }
 
+  開例句(外語, 漢字, 台羅) {
+    this.props.history.replace(
+      '/k/' + encodeURIComponent(外語) +
+      '/' + encodeURIComponent(漢字) +
+      '/' + encodeURIComponent(台羅)
+      );
+  }
+
+  關例句(外語) {
+    this.查怎樣講(外語);
+  }
+
   render() {
+    const { k, han, lo } = this.props.params;
     return (
     <div className='app background'>
       <header className='app header'>
@@ -51,6 +65,7 @@ export default class App extends React.Component {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端.網址(), csrftoken: this.state.csrftoken, 編號: this.state.編號,
+            開例句: this.開例句.bind(this),
           }
         )}
       <IapKha/>

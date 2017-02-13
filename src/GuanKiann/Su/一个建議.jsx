@@ -1,6 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import HuatIm from '../HuatIm/HuatIm';
+import 例句鈕仔 from '../例句/例句鈕仔';
 import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
@@ -32,6 +33,7 @@ class 一个建議 extends React.Component {
           </h2>
         </div>
         <HuatIm 音標={音標資料} />
+        <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
           {音標資料}<br/>
           華語：

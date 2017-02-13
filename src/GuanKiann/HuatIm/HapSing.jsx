@@ -28,7 +28,7 @@ export default class HapSing extends React.Component {
       .replace('/', ' 。 ').trim()
     );
     return (
-      <div className='HuatIm'>
+      <span className='HuatIm'>
         <audio ref="音樂">
           <source type='audio/x-wav'
             src={
@@ -39,7 +39,7 @@ export default class HapSing extends React.Component {
           className='ui compact icon button'>
           <i className='icon play'></i>
         </button>
-      </div>
+      </span>
     );
   }
 };
