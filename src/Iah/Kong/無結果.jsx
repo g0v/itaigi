@@ -20,14 +20,14 @@ export default class 無結果 extends React.Component {
 
     <div className='guaGi'>
         <div className='ui su vertical segment'>
-          <div className='ui cards'>
-            <div className='su card'>
+          <div className='ui stackable cards'>
+            <div className='ui su card'>
               <div className='content'>
                 <KiuKongHuat 華語關鍵字={this.props.華語關鍵字}
                   後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
               </div>
             </div>
-            <div className='su card'>
+            <div className='ui su card'>
               <div className='content'>
                 <h3 className='ui horizontal divider header'>
                   <i className='cloud upload icon'></i>
