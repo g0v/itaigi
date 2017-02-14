@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+/*Pokeball by Arjun Mahanti from the Noun Project*/
+import PokemonBall from '../ToLam/images/noun_237634_cc.svg';
+
 class TshiuKiSuanTuann extends React.Component {
 
   render() {
@@ -31,7 +34,7 @@ class TshiuKiSuanTuann extends React.Component {
         </Link>
         <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'
             onClick={itemClick}>
-          <i className="street view icon"></i>抱去摸
+          <i className="icon"><img src={PokemonBall}/></i>抱去摸
         </Link>
         <div className='down item'>
           { '' /* dummy item to show last item border*/ }

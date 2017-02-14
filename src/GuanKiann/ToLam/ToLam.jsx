@@ -4,6 +4,9 @@ import { Link } from 'react-router';
 import './ToLam.css';
 import Logo from './images/logo.svg';
 
+/*Pokeball by Arjun Mahanti from the Noun Project*/
+import PokemonBall from './images/noun_237634_cc.svg';
+
 class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
@@ -34,7 +37,7 @@ class ToLam extends React.Component {
           <i className="configure icon"></i>好工具
         </Link>
         <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
-          <i className="paw icon"></i>抱去摸
+          <i className="icon"><img src={PokemonBall}/></i>抱去摸
         </Link>
       </div>
       <div className="ui right item">
