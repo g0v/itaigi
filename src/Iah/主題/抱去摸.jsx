@@ -67,7 +67,7 @@ export default class 抱去摸 extends React.Component {
           <div className='ui fluid action input huge container tshue'>
             <input
               type='text'
-              placeholder='輸入華語，點一下「台語怎麼講」'
+              placeholder='例如：龍、小火龍'
               defaultValue=""
               onKeyDown={this.handleKeyDown.bind(this)}
               ref='揣'
