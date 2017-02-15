@@ -1,6 +1,6 @@
 var path = require('path');
 var express = require('express');
-var template = require('./html/prodTemplate');
+var template = require('./html/seoTemplate');
 
 if ((parseInt(process.versions.node[0]) == 0) && (parseInt(process.versions.node.slice(2)) <= 12)) {
   console.log(
@@ -21,12 +21,8 @@ app.get('/:Iah([kt])/:Su', function (req, res) {
 });
 
 app.get('/:file(*.svg)', function (req, res) {
-  res.sendFile(req.params.file, { root: __dirname + '/build/' }, function (err) {
-    if (err) {
-      console.log(err);
-      res.status(err.status).end();
-    }
-  });
+  let { file } = req.params;
+  res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
 });
 
 app.get('*', function (req, res) {
