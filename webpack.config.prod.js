@@ -33,7 +33,7 @@ module.exports = {
   module: {
     rules: [
        {
-          test: /\.jsx?/,
+          test: /\.jsx?$/,
           use: ['babel-loader', 'strict-loader'],
           include: path.join(__dirname, 'src'),
         },
