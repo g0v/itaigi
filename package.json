@@ -4,7 +4,7 @@
   "description": "itaigi",
   "scripts": {
     "start": "node devServer.js",
-    "seo": "npm run build && node seoServer.js",
+    "seo": "node seoServer.js",
     "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp html/index.html favicons/* build/ && cp html/index.html build/404.html",
