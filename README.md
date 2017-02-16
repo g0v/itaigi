@@ -6,7 +6,7 @@
 [![made in g0v](https://img.shields.io/badge/made%20in-g0v-B81C21.svg)](http://g0v.tw/en-US/)
 
 
-* [itaigi網站](http://itaigi.tw)
+* [itaigi網站](https://itaigi.tw)
 * [FB粉專](https://www.facebook.com/ukauitaigi/)
 * [Slack討論](https://g0v-tw.slack.com/messages/itaigi/)
 * [萌典松](http://moe.kktix.cc/)

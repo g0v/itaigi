@@ -14,7 +14,7 @@ var app = express();
 app.get('/:Iah([kt])/:Su', function (req, res) {
   let { Iah, Su } = req.params;
   res.send(template.render({
-    url: `http://itaigi.tw/${Iah}/${Su}`,
+    url: `https://itaigi.tw/${Iah}/${Su}`,
     title: `${Su} - iTaigi 愛台語`,
     image: `https://www.moedict.tw/${encodeURI(Su)}.png?font=wt064`,
   }));
@@ -32,7 +32,7 @@ app.get('/:file(*.png)', function (req, res) {
 
 app.get('*', function (req, res) {
   res.send(template.render({
-    url: 'http://itaigi.tw/',
+    url: 'https://itaigi.tw/',
     title: 'iTaigi 愛台語',
     image: 'https://g0v.github.io/itaigi/design/logo_og_600x315.png',
   }));
