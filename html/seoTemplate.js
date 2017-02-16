@@ -15,8 +15,8 @@ exports.render = function ({ url, title, image }) {
     <meta property="og:description" content="大家來學台語，大家做伙來豐富台語"/>
     <meta property="og:image" content="${image}">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="315">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta itemprop="description" content="大家來學台語，大家做伙來豐富台語">
     <meta itemprop="image" content="${image}">
 

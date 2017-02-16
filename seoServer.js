@@ -20,12 +20,7 @@ app.get('/:Iah([kt])/:Su', function (req, res) {
   }));
 });
 
-app.get('/:file(*.svg)', function (req, res) {
-  let { file } = req.params;
-  res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
-});
-
-app.get('/:file(*.png)', function (req, res) {
+app.get('/:file(*.(png|jpg|gif|svg))', function (req, res) {
   let { file } = req.params;
   res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
 });
@@ -34,7 +29,7 @@ app.get('*', function (req, res) {
   res.send(template.render({
     url: 'https://itaigi.tw/',
     title: 'iTaigi 愛台語',
-    image: 'https://g0v.github.io/itaigi/design/logo_og_600x315.png',
+    image: 'https://g0v.github.io/itaigi/design/logo_og.png',
   }));
 });
 
