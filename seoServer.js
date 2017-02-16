@@ -25,11 +25,16 @@ app.get('/:file(*.svg)', function (req, res) {
   res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
 });
 
+app.get('/:file(*.png)', function (req, res) {
+  let { file } = req.params;
+  res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
+});
+
 app.get('*', function (req, res) {
   res.send(template.render({
     url: 'http://itaigi.tw/',
     title: 'iTaigi 愛台語',
-    image: 'https://s3-ap-southeast-1.amazonaws.com/itaigi.tw/images/logo.png',
+    image: 'https://g0v.github.io/itaigi/design/logo_og_600x315.png',
   }));
 });
 
