@@ -15,10 +15,10 @@ exports.render = function ({ url, title, image }) {
     <meta property="og:description" content="大家來學台語，大家做伙來豐富台語"/>
     <meta property="og:image" content="${image}">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1125">
-    <meta property="og:image:height" content="1125">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="315">
     <meta itemprop="description" content="大家來學台語，大家做伙來豐富台語">
-    <meta itemprop="image" content="${image}}">
+    <meta itemprop="image" content="${image}">
 
     <link rel="apple-touch-icon" sizes="180x180" href="//g0v.github.io/itaigi/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="//g0v.github.io/itaigi/favicon-32x32.png" sizes="32x32">
