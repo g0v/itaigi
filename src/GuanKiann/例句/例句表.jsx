@@ -62,6 +62,7 @@ export default class 例句表 extends React.Component {
     ));
     return (
         <Modal
+          contentLabel="例句表"
           isOpen={看例句}
           onRequestClose={this.props.關例句.bind(this)}
           style={customStyles}
