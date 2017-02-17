@@ -59,7 +59,6 @@ class Kong extends React.Component {
   }
 
   render() {
-    debug('rendering %o', this.props.kongData);
     return (
     <div className='main container'>
       <nav className='navigation'>
