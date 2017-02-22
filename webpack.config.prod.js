@@ -22,6 +22,7 @@ module.exports = {
       compressor: {
         warnings: false,
       },
+      sourceMap: true,
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
