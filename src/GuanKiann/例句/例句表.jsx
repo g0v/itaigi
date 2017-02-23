@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
-import 後端 from '../../App/後端';
+import 後端 from '../../後端';
 import HuatIm from '../HuatIm/HuatIm';
 import TuiIngHuaGi from '../Su/TuiIngHuaGi';
 import 顯示例句一句 from './顯示例句一句';

@@ -1,7 +1,7 @@
 import React from 'react';
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import IapKha from '../GuanKiann/IapKha/IapKha';
-import 後端 from './後端';
+import 後端 from '../後端';
 import 例句表 from '../GuanKiann/例句/例句表';
 
 import './App.css';

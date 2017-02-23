@@ -1,6 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
+import 後端 from '../../後端';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
@@ -48,16 +49,9 @@ class 顯示選單 extends React.Component {
 export default Transmit.createContainer(顯示選單, {
   initialVariables: {},
   fragments: {
-    外語列表({ 後端網址 }) {
-      if (後端網址 === undefined) {
-        return Promise.resolve({
-          列表: [],
-          狀態: '猶未好',
-        });
-      }
-
+    外語列表() {
       return (
-        superagent.get(encodeURI(後端網址 + '平臺項目列表/揣無建議的外語'))
+        superagent.get(後端.揣無建議的外語())
         .then(({ body }) => (body))
         .catch((err) => ({
           '列表': [],

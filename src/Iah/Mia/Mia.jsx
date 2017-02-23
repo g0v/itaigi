@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
+import 後端 from '../../後端';
 
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -68,7 +69,7 @@ export default Transmit.createContainer(Mia, {
   fragments: {
     MiaData() {
       //return superagent.get(後端網址 + '貢獻者表')
-      return superagent.get('https://db.itaigi.tw/貢獻者表')
+      return superagent.get(後端.貢獻者表())
       .then(({ body }) => (body))
       .catch((err) => ({ '名人': [] }));
     },

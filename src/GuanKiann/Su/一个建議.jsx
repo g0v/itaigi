@@ -1,25 +1,16 @@
 import React from 'react';
 import Transmit from 'react-transmit';
+import 後端 from '../../後端';
 import HuatIm from '../HuatIm/HuatIm';
 import 例句鈕仔 from '../例句/例句鈕仔';
 import TuiIngHuaGi from './TuiIngHuaGi';
 import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 import Debug from 'debug';
 
+var superagent = require('superagent-promise')(require('superagent'), Promise);
 var debug = Debug('itaigi:一个建議');
 
 class 一个建議 extends React.Component {
-
-  componentWillMount() {
-    this.props.transmit.forceFetch(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.文本資料 === this.props.文本資料 &&
-      nextProps.音標資料 === this.props.音標資料) return;
-    this.props.transmit.forceFetch(nextProps);
-  }
 
   render() {
     let { 文本資料, 音標資料 } = this.props;
@@ -50,12 +41,13 @@ class 一个建議 extends React.Component {
 export default Transmit.createContainer(一个建議, {
   initialVariables: {},
   fragments: {
-    按呢講的外語列表({ 文本資料, 後端網址 }) {
+    按呢講的外語列表(建議) {
+      let { 文本資料, 音標資料 } = 建議;
       if (!文本資料) {
         return Promise.resolve([]);
       }
 
-      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣按呢講列表?關鍵字=' + 文本資料))
+      return superagent.get(後端.揣按呢講列表(文本資料, 音標資料))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },

@@ -1,7 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import cookie from 'react-cookie';
-import 後端 from '../../App/後端';
+import 後端 from '../../後端';
 import LaiLik from '../LaiLik/LaiLik';
 import HuatIm from '../HuatIm/HuatIm';
 import 例句鈕仔 from '../例句/例句鈕仔';
@@ -22,15 +22,6 @@ class Su extends React.Component {
       按呢無好: props.suData.按呢無好,
       voted: cookie.load('vote_' + props.suId),
     };
-  }
-
-  componentWillMount() {
-    this.props.transmit.forceFetch(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.transmit.forceFetch(nextProps);
   }
 
   投票(evt) {
@@ -116,28 +107,16 @@ class Su extends React.Component {
 export default Transmit.createContainer(Su, {
   initialVariables: {},
   fragments: {
-    suData({ suId, 後端網址 }) {
-      if (!suId) {
-        return Promise.resolve({
-          '結果': -2,
-        });
-      }
-
-      return superagent.get(encodeURI(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId))
+    suData({ 詞 }) {
+      return superagent.get(後端.平臺項目內容(詞.新詞文本項目編號))
         .then((res) => Object.assign({
             '結果': 0,
           }, res.body))
         .catch((err) => console.log(err));
     },
 
-    按呢講的外語列表({ suText, suIm }) {
-      if (!suText) {
-        return Promise.resolve({
-          '結果': -2,
-        });
-      }
-
-      return superagent.get(後端.揣按呢講列表(suText, suIm))
+    按呢講的外語列表({ 詞 }) {
+      return superagent.get(後端.揣按呢講列表(詞.文本資料, 詞.音標資料))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },

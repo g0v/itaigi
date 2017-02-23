@@ -20,7 +20,6 @@ export default class GuaGi extends React.Component {
   }
 
   render() {
-    debug('%o', this.props);
     if (!this.props.新詞文本) {
       return <div></div>;
     }
@@ -36,6 +35,7 @@ export default class GuaGi extends React.Component {
       csrftoken={this.props.csrftoken}
       後端網址={this.props.後端網址}
       來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
+      variables={{ 詞: d }}
       />
     );
     return (
