@@ -5,6 +5,7 @@ import 錯誤 from './錯誤';
 import 無結果 from './無結果';
 import 有講法 from './有講法';
 import 無關鍵字 from './無關鍵字';
+import 後端 from '../../後端';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import './Kong.css';

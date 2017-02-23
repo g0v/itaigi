@@ -2,6 +2,7 @@ import React from 'react';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
+import 後端 from '../../後端';
 
 import Debug from 'debug';
 
@@ -35,9 +36,7 @@ export default class 抱去摸三隻 extends React.Component {
     else {
       this.props.換一隻(名);
       superagent.get(後端.揣列表(名))
-       .then(function ({ body }) {
-          this.setState({ 資料: body });
-        }.bind(this))
+       .then(({ body }) =>(this.setState({ 資料: body }), null))
        .catch((err) => (debug(err)));
       setTimeout(()=>(this.refs.寶可夢0.focus()), 50);
     }
