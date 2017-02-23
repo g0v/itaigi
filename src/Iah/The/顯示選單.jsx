@@ -7,7 +7,6 @@ import Debug from 'debug';
 var debug = Debug('itaigi:顯示選單');
 
 class 顯示選單 extends React.Component {
-  componentWillMount() { this.props.transmit.forceFetch(this.props); }
 
   render()   {
     let 無建議的外語列表 = this.props.外語列表.列表.map(

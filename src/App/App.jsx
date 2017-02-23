@@ -52,7 +52,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    debug('%o', this.props.params);
     const { k, han, lo } = this.props.params;
     return (
     <div className='app background'>

@@ -10,13 +10,6 @@ var debug = Debug('itaigi:Mia');
 
 class Mia extends React.Component {
 
-  componentWillMount() { this.props.transmit.forceFetch(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.transmit.forceFetch(nextProps);
-  }
-
   名次(排名) {
     let classes;
     switch (排名) {
@@ -73,7 +66,7 @@ Mia.propTypes = {
 export default Transmit.createContainer(Mia, {
   initialVariables: {},
   fragments: {
-    MiaData({ 後端網址 }) {
+    MiaData() {
       //return superagent.get(後端網址 + '貢獻者表')
       return superagent.get('https://db.itaigi.tw/貢獻者表')
       .then(({ body }) => (body))
