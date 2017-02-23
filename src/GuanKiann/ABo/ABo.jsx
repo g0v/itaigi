@@ -1,12 +1,11 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 import APui from './APui';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 var log = debug('itaigi:ABo');
 
-class ABo extends React.Component {
+export default class ABo extends React.Component {
 
   constructor(props) {
     super(props);
@@ -16,13 +15,6 @@ class ABo extends React.Component {
       modalIsOpen: false,
       送出中: false,
     };
-  }
-
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.後端網址 === this.props.後端網址) return;
-    this.props.setQueryParams(nextProps);
   }
 
   handle漢字KeyUp(evt) {
@@ -155,12 +147,9 @@ class ABo extends React.Component {
 }
 
 ABo.propTypes = {
-  setQueryParams: React.PropTypes.func,
   後端網址: React.PropTypes.string,
   漢字: React.PropTypes.string,
   音標: React.PropTypes.string,
   華語關鍵字: React.PropTypes.string,
   csrftoken: React.PropTypes.string,
 };
-
-export default Transmit.createContainer(ABo, {});

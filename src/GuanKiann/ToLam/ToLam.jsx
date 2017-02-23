@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import './ToLam.css';
 import Logo from './images/logo.svg';
@@ -7,7 +6,7 @@ import Logo from './images/logo.svg';
 /*Pokeball by Arjun Mahanti from the Noun Project*/
 import PokemonBall from './images/noun_237634_cc.svg';
 
-class ToLam extends React.Component {
+export default class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
     var menu_item_class = function (prefix) {
@@ -55,5 +54,3 @@ class ToLam extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(ToLam, { query: {} });

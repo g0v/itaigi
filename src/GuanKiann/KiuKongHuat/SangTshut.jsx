@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -13,7 +12,7 @@ const customStyles = {
   },
 };
 
-class SangTshut extends React.Component {
+export default class SangTshut extends React.Component {
 
   render() {
     return (
@@ -33,5 +32,3 @@ class SangTshut extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(SangTshut, {});

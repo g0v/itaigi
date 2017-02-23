@@ -1,11 +1,9 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Promise from 'bluebird';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:LaiLik');
 
-class LaiLik extends React.Component {
+export default class LaiLik extends React.Component {
   render() {
     return (
     <div className='content'>
@@ -15,8 +13,3 @@ class LaiLik extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(LaiLik, {
-  queries: {
-  },
-});

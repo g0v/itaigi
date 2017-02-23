@@ -14,7 +14,9 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  componentWillMount() { this.props.setQueryParams(this.props); }
+  componentWillMount() {
+    this.props.setQueryParams(this.props);
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
@@ -59,6 +61,8 @@ class Kong extends React.Component {
   }
 
   render() {
+    debug('%o', this.props);
+
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -82,7 +86,6 @@ class Kong extends React.Component {
 }
 
 Kong.propTypes = {
-    setQueryParams: React.PropTypes.func,
     params: React.PropTypes.object,
     kongData: React.PropTypes.object,
     '後端網址': React.PropTypes.string,
@@ -90,7 +93,7 @@ Kong.propTypes = {
   };
 
 export default Transmit.createContainer(Kong, {
-  queries: {
+  fragments: {
     kongData({ params, 後端網址 }) {
       if (params === undefined) {
         return Promise.resolve({

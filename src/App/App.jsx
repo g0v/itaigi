@@ -6,7 +6,6 @@ import 例句表 from '../GuanKiann/例句/例句表';
 
 import './App.css';
 
-import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 import { browserHistory } from 'react-router';
 

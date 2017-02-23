@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import ABo from '../../GuanKiann/ABo/ABo';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';

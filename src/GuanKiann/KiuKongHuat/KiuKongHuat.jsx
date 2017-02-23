@@ -1,11 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 import SangTshut from './SangTshut';
 
-class KiuKongHuat extends React.Component {
+export default class KiuKongHuat extends React.Component {
 
   constructor(props) {
     super(props);
@@ -61,5 +60,3 @@ KiuKongHuat.propTypes = {
   後端網址: React.PropTypes.string,
   csrftoken: React.PropTypes.string,
 };
-
-export default Transmit.createContainer(KiuKongHuat, {});

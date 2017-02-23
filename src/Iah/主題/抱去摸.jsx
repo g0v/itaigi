@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import 抱去摸三隻 from './抱去摸三隻';
 import 抱去摸表 from './抱去摸表.json';
 import './抱去摸.css';

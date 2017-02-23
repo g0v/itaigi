@@ -1,11 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import ReactDisqusComments from 'react-disqus-comments';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:Disqus');
 
-class Disqus extends React.Component {
+export default class Disqus extends React.Component {
 
   render() {
     const { pathname } = this.props;
@@ -21,8 +20,3 @@ class Disqus extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(Disqus, {
-  queries: {
-  },
-});

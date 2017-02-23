@@ -1,23 +1,12 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Su from '../Su/Su';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 import ABo from '../../GuanKiann/ABo/ABo';
-
 import Debug from 'debug';
 import './GuaGi.css';
 
 var debug = Debug('itaigi:GuaGi');
 
-class GuaGi extends React.Component {
-
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
+export default class GuaGi extends React.Component {
 
   dedupeSu(inSu) {
     var seen = {};
@@ -71,8 +60,3 @@ class GuaGi extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(GuaGi, {
-  queries: {
-  },
-});

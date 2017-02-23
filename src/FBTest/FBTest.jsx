@@ -1,10 +1,8 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Router from 'react-router';
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import 分享鍵 from '../GuanKiann/分享鍵/分享鍵';
 
-class FBTest extends React.Component {
+export default class FBTest extends React.Component {
 
   constructor(props) {
     super(props);
@@ -87,5 +85,3 @@ class FBTest extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(FBTest, { queries: {} });

@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
