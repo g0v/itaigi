@@ -64,9 +64,11 @@ export default class App extends React.Component {
           {
             查怎樣講: this.查怎樣講.bind(this),
             欲提供講法: this.欲提供講法.bind(this),
-            後端網址: 後端.網址(), csrftoken: this.state.csrftoken, 編號: this.state.編號,
+            後端網址: 後端.網址(),
+            csrftoken: this.state.csrftoken,
+            編號: this.state.編號,
             開例句: this.開例句.bind(this),
-            variables: { params: { k: k, }, 後端網址: 後端.網址() },
+            variables: { 關鍵字: k, 後端網址: 後端.網址() },
           }
         )}
       <例句表 關例句={this.關例句.bind(this, k)}
