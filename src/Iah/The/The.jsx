@@ -10,7 +10,6 @@ export default class The extends React.Component {
       return (
         <顯示選單
           pathname={this.props.location.pathname}
-          後端網址={this.props.後端網址}
           csrftoken={this.props.csrftoken}
           欲提供講法={this.props.欲提供講法.bind(this)}/>
         );
@@ -19,7 +18,6 @@ export default class The extends React.Component {
         <顯示一個問題
           華語關鍵字={this.props.params.k}
           pathname={this.props.location.pathname}
-          後端網址={this.props.後端網址}
           csrftoken={this.props.csrftoken}
           編號={this.props.編號}
           漢字={this.props.location.query.漢字}
@@ -31,7 +29,5 @@ export default class The extends React.Component {
 
 The.propTypes = {
     params: React.PropTypes.object,
-    '後端網址': React.PropTypes.string,
-    查怎樣講: React.PropTypes.func,
   };
 

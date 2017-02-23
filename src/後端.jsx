@@ -46,6 +46,18 @@ export default class 後端  {
     return encodeURI(this.網址() + '平臺項目列表/揣上新貢獻的外語');
   }
 
+  static 登入() {
+    return encodeURI(this.網址() + 'accounts/facebook/login');
+  }
+
+  static 登入token() {
+    return encodeURI(this.網址() + 'accounts/facebook/login/token/');
+  }
+
+  static 貢xxxx獻者表() {
+    return encodeURI(this.網址() + '貢獻者表');
+  }
+
   static 貢xxxx獻者表() {
     return encodeURI(this.網址() + '貢獻者表');
   }

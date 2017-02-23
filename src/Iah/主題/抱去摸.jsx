@@ -37,7 +37,7 @@ export default class 抱去摸 extends React.Component {
     });
 
     let 寶貝鈕 = 顯示.map((三隻, i)=> (
-        <抱去摸三隻 key={i} 後端網址={this.props.後端網址} 寶貝名={三隻}
+        <抱去摸三隻 key={i} 寶貝名={三隻}
          佗一隻={this.state.佗一隻} 換一隻={this.換一隻.bind(this)} />
     ));
     return 寶貝鈕;

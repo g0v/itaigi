@@ -20,7 +20,7 @@ export default class 顯示一個問題 extends React.Component {
               我會曉，「{this.props.華語關鍵字}」會使按呢講
             </h3>
             <ABo 華語關鍵字={this.props.華語關鍵字}
-              後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+              csrftoken={this.props.csrftoken}
               編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
             />
           </div>

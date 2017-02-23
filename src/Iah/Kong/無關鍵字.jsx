@@ -95,7 +95,3 @@ export default class 無關鍵字 extends React.Component {
     );
   }
 }
-
-無關鍵字.propTypes = {
-  '後端網址': React.PropTypes.string,
-};

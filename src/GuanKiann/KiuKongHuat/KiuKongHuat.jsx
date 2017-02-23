@@ -58,6 +58,5 @@ export default class KiuKongHuat extends React.Component {
 
 KiuKongHuat.propTypes = {
   華語關鍵字: React.PropTypes.string,
-  後端網址: React.PropTypes.string,
   csrftoken: React.PropTypes.string,
 };

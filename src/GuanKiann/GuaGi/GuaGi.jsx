@@ -33,7 +33,6 @@ export default class GuaGi extends React.Component {
       貢獻者={d.貢獻者}
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
-      後端網址={this.props.後端網址}
       來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
       variables={{ 詞: d }}
       />
@@ -50,7 +49,7 @@ export default class GuaGi extends React.Component {
                 閣會使按呢講
               </h3>
               <ABo 華語關鍵字={this.props.華語關鍵字}
-               後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+               csrftoken={this.props.csrftoken}
                編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
                />
             </div>

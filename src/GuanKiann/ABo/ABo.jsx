@@ -40,7 +40,7 @@ export default class ABo extends React.Component {
         .send(外語內容)
         .then(({ body }) => (this.加外語新詞文本(body.平臺項目編號)))
         .catch(res => {
-          window.open(this.props.後端網址 + 'accounts/facebook/login', '_blank');
+          window.open(後端.登入(), '_blank');
         });
       this.setState({
         送出中: true,
@@ -101,7 +101,7 @@ export default class ABo extends React.Component {
           className={ 'ui button large' + (this.state.送出中 ? ' disabled' : '') }
           onClick={this.查怎樣講.bind(this)}>匿名送出</button>
         <div className='or'></div>
-        <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
+        <form method='get' action={後端.登入() }>
           <input type='submit' className='ui positive button large' value='登入 & 送出'/>
           <input type='hidden' name='next'
             value={'/%E5%B0%8E%E5%90%91?%E7%B6%B2%E5%9D%80='
@@ -118,7 +118,6 @@ export default class ABo extends React.Component {
   }
 
   render() {
-    let { 後端網址 } = this.props;
     return (
         <div className='ui form'>
             <div className='field'>
@@ -148,7 +147,6 @@ export default class ABo extends React.Component {
 }
 
 ABo.propTypes = {
-  後端網址: React.PropTypes.string,
   漢字: React.PropTypes.string,
   音標: React.PropTypes.string,
   華語關鍵字: React.PropTypes.string,
