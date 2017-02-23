@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import FBTest from '../../FBTest/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';
+import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 var debug = Debug('itaigi:Kong無關鍵字');

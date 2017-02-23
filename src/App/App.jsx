@@ -52,6 +52,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    debug('%o', this.props.params);
     const { k, han, lo } = this.props.params;
     return (
     <div className='app background'>
@@ -65,6 +66,7 @@ export default class App extends React.Component {
             欲提供講法: this.欲提供講法.bind(this),
             後端網址: 後端.網址(), csrftoken: this.state.csrftoken, 編號: this.state.編號,
             開例句: this.開例句.bind(this),
+            variables: { params: { k: k, }, 後端網址: 後端.網址() },
           }
         )}
       <例句表 關例句={this.關例句.bind(this, k)}

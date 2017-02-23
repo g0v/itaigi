@@ -14,14 +14,17 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  componentWillMount() {
-    this.props.transmit.forceFetch(this.props);
-  }
+  // componentWillMount() {
+  //   debug('componentWillMount');
+  //   this.props.transmit.forceFetch(this.props);
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.transmit.forceFetch(nextProps);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   debug('componentWillReceiveProps', this.props.params, nextProps.params,
+  //     nextProps.params === this.props.params);
+  //   if (nextProps.params === this.props.params) return;
+  //   this.props.transmit.forceFetch(nextProps);
+  // }
 
   render無關鍵字() {
     return (
@@ -61,7 +64,7 @@ class Kong extends React.Component {
   }
 
   render() {
-    debug('%o', this.props.kongData);
+    debug('re', this.props.kongData);
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -92,23 +95,27 @@ Kong.propTypes = {
   };
 
 export default Transmit.createContainer(Kong, {
-  initialVariables: {},
+  initialVariables: {
+  },
   fragments: {
     kongData({ params, 後端網址 }) {
+      debug('kongData', params, 後端網址);
       if (params === undefined) {
-        return Promise.resolve({
+        return ()=>Promise.resolve({
           '結果': -3,
           '訊息': '載入中',
         });
       }
 
+      debug('xxx1');
       if (params.k === undefined) {
-        return Promise.resolve({
+        return ()=>Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字',
         });
       }
 
+      debug('xxx2', params.k);
       return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k))
         .then(({ body }) => ({
           '關鍵字': params.k,
@@ -123,4 +130,12 @@ export default Transmit.createContainer(Kong, {
       }));
     },
   },
+  // shouldContainerUpdate(nextVariables) {
+  //   debug('should', nextVariables);
+  //   if (this.variables.params === undefined) {
+  //     return true;
+  //   }
+
+  //   return this.variables.params.k != nextVariables.params.k;
+  // },
 });
