@@ -12,13 +12,13 @@ var debug = Debug('itaigi:一个建議');
 class 一个建議 extends React.Component {
 
   componentWillMount() {
-    this.props.setQueryParams(this.props);
+    this.props.transmit.forceFetch(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.文本資料 === this.props.文本資料 &&
       nextProps.音標資料 === this.props.音標資料) return;
-    this.props.setQueryParams(nextProps);
+    this.props.transmit.forceFetch(nextProps);
   }
 
   render() {
@@ -48,7 +48,8 @@ class 一个建議 extends React.Component {
 }
 
 export default Transmit.createContainer(一个建議, {
-  queries: {
+  initialVariables: {},
+  fragments: {
     按呢講的外語列表({ 文本資料, 後端網址 }) {
       if (!文本資料) {
         return Promise.resolve([]);

@@ -15,12 +15,12 @@ var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
   componentWillMount() {
-    this.props.setQueryParams(this.props);
+    this.props.transmit.forceFetch(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
+    this.props.transmit.forceFetch(nextProps);
   }
 
   render無關鍵字() {
@@ -61,8 +61,7 @@ class Kong extends React.Component {
   }
 
   render() {
-    debug('%o', this.props);
-
+    debug('%o', this.props.kongData);
     return (
     <div className='main container'>
       <nav className='navigation'>
@@ -93,6 +92,7 @@ Kong.propTypes = {
   };
 
 export default Transmit.createContainer(Kong, {
+  initialVariables: {},
   fragments: {
     kongData({ params, 後端網址 }) {
       if (params === undefined) {

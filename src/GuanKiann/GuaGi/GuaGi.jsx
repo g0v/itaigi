@@ -20,6 +20,7 @@ export default class GuaGi extends React.Component {
   }
 
   render() {
+    debug('%o', this.props);
     if (!this.props.新詞文本) {
       return <div></div>;
     }

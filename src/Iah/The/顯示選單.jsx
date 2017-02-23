@@ -7,7 +7,7 @@ import Debug from 'debug';
 var debug = Debug('itaigi:顯示選單');
 
 class 顯示選單 extends React.Component {
-  componentWillMount() { this.props.setQueryParams(this.props); }
+  componentWillMount() { this.props.transmit.forceFetch(this.props); }
 
   render()   {
     let 無建議的外語列表 = this.props.外語列表.列表.map(
@@ -47,7 +47,8 @@ class 顯示選單 extends React.Component {
 }
 
 export default Transmit.createContainer(顯示選單, {
-  queries: {
+  initialVariables: {},
+  fragments: {
     外語列表({ 後端網址 }) {
       if (後端網址 === undefined) {
         return Promise.resolve({

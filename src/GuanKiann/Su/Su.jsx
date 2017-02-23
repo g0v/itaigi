@@ -25,12 +25,12 @@ class Su extends React.Component {
   }
 
   componentWillMount() {
-    this.props.setQueryParams(this.props);
+    this.props.transmit.forceFetch(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
+    this.props.transmit.forceFetch(nextProps);
   }
 
   投票(evt) {
@@ -114,7 +114,8 @@ class Su extends React.Component {
 }
 
 export default Transmit.createContainer(Su, {
-  queries: {
+  initialVariables: {},
+  fragments: {
     suData({ suId, 後端網址 }) {
       if (!suId) {
         return Promise.resolve({
