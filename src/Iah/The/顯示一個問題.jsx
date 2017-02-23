@@ -6,7 +6,7 @@ import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 export default class 顯示一個問題 extends React.Component {
 
   render() {
-    let 對應講法網址 = 'k%2F' + this.props.華語關鍵字;
+    let 對應講法網址 = 'k/' + this.props.華語關鍵字;
     return (
       <div className='main container'>
         <div className='the content'>

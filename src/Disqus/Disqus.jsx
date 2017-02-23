@@ -9,8 +9,6 @@ export default class Disqus extends React.Component {
   render() {
     const { pathname } = this.props;
     var decode_path = decodeURI(pathname);
-    // debug('pathname: ' + pathname);
-    // debug('decode pathname: ' + decode_path);
     return (
       <ReactDisqusComments
         shortname='itaigi'
