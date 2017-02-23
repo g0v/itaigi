@@ -95,7 +95,7 @@ export default Transmit.createContainer(Kong, {
         });
       }
 
-      return superagent.get(encodeURI(後端網址 + '平臺項目列表/揣列表?關鍵字=' + 關鍵字))
+      return superagent.get(後端.揣列表(關鍵字))
         .then(({ body }) => ({
           '關鍵字': 關鍵字,
           '結果': body.列表.length,

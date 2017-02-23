@@ -25,15 +25,28 @@ export default class 後端  {
     return encodeURI(this.網址() + '平臺項目/看詳細內容?平臺項目編號=' + suId);
   }
 
-  static 貢獻者表() {
-    return encodeURI(this.網址() + '貢獻者表');
+  static 加外語() {
+    return encodeURI(this.網址() + '平臺項目/加外語');
   }
 
-  static 貢獻者表() {
-    return encodeURI(this.網址() + '貢獻者表');
+  static 投票() {
+    return encodeURI(this.網址() + '平臺項目/投票');
   }
 
-  static 貢獻者表() {
+  static 加新詞文本() {
+    return encodeURI(this.網址() + '平臺項目/加新詞文本');
+
+  }
+
+  static 揣列表(名) {
+    return encodeURI(this.網址() +  '平臺項目列表/揣列表?關鍵字=' + 名);
+  }
+
+  static 揣上新貢獻的外語() {
+    return encodeURI(this.網址() + '平臺項目列表/揣上新貢獻的外語');
+  }
+
+  static 貢xxxx獻者表() {
     return encodeURI(this.網址() + '貢獻者表');
   }
 

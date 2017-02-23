@@ -34,7 +34,7 @@ export default class 抱去摸三隻 extends React.Component {
       this.props.換一隻(undefined);
     else {
       this.props.換一隻(名);
-      superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 名)
+      superagent.get(後端.揣列表(名))
        .then(function ({ body }) {
           this.setState({ 資料: body });
         }.bind(this))

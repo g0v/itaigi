@@ -34,7 +34,7 @@ class Su extends React.Component {
       平臺項目編號: this.props.suId,
       decision: evt,
     };
-    superagent.post(this.props.後端網址 + '平臺項目/投票')
+    superagent.post(後端.投票())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
