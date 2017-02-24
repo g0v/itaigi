@@ -7,12 +7,14 @@ var debug = Debug('itaigi:顯示選單');
 
 export default class 顯示選單 extends React.Component {
   載入中() {
-    return (<div className='ui forum segment'>
-              <h3>
-              <i className='spinner icon'></i>             
-              載入中，小等一下
-              </h3></div>
-          );
+    return (
+      <div className='ui forum segment'>
+        <h3>
+          <i className='spinner icon'></i>             
+          載入中，小等一下
+        </h3>
+      </div>
+    );
   }
 
   render()   {
