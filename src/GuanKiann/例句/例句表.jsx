@@ -73,7 +73,7 @@ export default class 例句表 extends React.Component {
             {按呢講的外語}
           </span>
           <div className="ui very relaxed divided list">
-            {例句 ? 例句 : 'no items'}
+            {例句}
           </div>
           <button
             onClick={this.props.關例句.bind(this)}
