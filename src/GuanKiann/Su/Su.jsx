@@ -1,7 +1,7 @@
 import React from 'react';
 import Transmit from 'react-transmit';
 import cookie from 'react-cookie';
-import 後端 from '../../App/後端';
+import 後端 from '../../後端';
 import LaiLik from '../LaiLik/LaiLik';
 import HuatIm from '../HuatIm/HuatIm';
 import 例句鈕仔 from '../例句/例句鈕仔';
@@ -24,15 +24,6 @@ class Su extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.props.setQueryParams(this.props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
-
   投票(evt) {
     if (cookie.load('vote_' + this.props.suId)) {
       alert('這句投過了!');
@@ -43,7 +34,7 @@ class Su extends React.Component {
       平臺項目編號: this.props.suId,
       decision: evt,
     };
-    superagent.post(this.props.後端網址 + '平臺項目/投票')
+    superagent.post(後端.投票())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
@@ -65,7 +56,7 @@ class Su extends React.Component {
   }
 
   render() {
-    let { suText, suIm, suId, 貢獻者, suData, 後端網址 } = this.props;
+    let { suText, suIm, suId, 貢獻者, suData } = this.props;
     if (貢獻者 == '匿名') 貢獻者 = '沒有人';
     if (suData.結果 == -2) {
       return <div className='su item'></div>;
@@ -84,7 +75,7 @@ class Su extends React.Component {
         <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
           {suIm}
-          <LaiLik 貢獻者={貢獻者} 後端網址={後端網址} />
+          <LaiLik 貢獻者={貢獻者} />
           華語：
           <span className='ui horizontal list large'>
             {按呢講的外語}
@@ -114,29 +105,18 @@ class Su extends React.Component {
 }
 
 export default Transmit.createContainer(Su, {
-  queries: {
-    suData({ suId, 後端網址 }) {
-      if (!suId) {
-        return Promise.resolve({
-          '結果': -2,
-        });
-      }
-
-      return superagent.get(encodeURI(後端網址 + '平臺項目/看詳細內容?平臺項目編號=' + suId))
+  initialVariables: {},
+  fragments: {
+    suData({ 詞 }) {
+      return superagent.get(後端.平臺項目內容(詞.新詞文本項目編號))
         .then((res) => Object.assign({
             '結果': 0,
           }, res.body))
         .catch((err) => console.log(err));
     },
 
-    按呢講的外語列表({ suText, suIm }) {
-      if (!suText) {
-        return Promise.resolve({
-          '結果': -2,
-        });
-      }
-
-      return superagent.get(後端.揣按呢講列表(suText, suIm))
+    按呢講的外語列表({ 詞 }) {
+      return superagent.get(後端.揣按呢講列表(詞.文本資料, 詞.音標資料))
         .then(({ body }) => body.列表)
         .catch((err) => console.log(err));
     },

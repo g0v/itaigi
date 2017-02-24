@@ -1,8 +1,8 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
+import 後端 from '../../後端';
 
 import Debug from 'debug';
 
@@ -35,10 +35,8 @@ export default class 抱去摸三隻 extends React.Component {
       this.props.換一隻(undefined);
     else {
       this.props.換一隻(名);
-      superagent.get(this.props.後端網址 + '平臺項目列表/揣列表?關鍵字=' + 名)
-       .then(function ({ body }) {
-          this.setState({ 資料: body });
-        }.bind(this))
+      superagent.get(後端.揣列表(名))
+       .then(({ body }) =>(this.setState({ 資料: body }), null))
        .catch((err) => (debug(err)));
       setTimeout(()=>(this.refs.寶可夢0.focus()), 50);
     }
@@ -66,7 +64,6 @@ export default class 抱去摸三隻 extends React.Component {
           <GuaGi id={g.外語項目編號}
             key={g.外語項目編號} 新詞文本={g.新詞文本}
             csrftoken={this.props.csrftoken}
-            後端網址={this.props.後端網址}
             開例句={()=>('')} />
         </div>
         );

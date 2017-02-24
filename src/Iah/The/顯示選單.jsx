@@ -1,24 +1,23 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
-
+import 後端 from '../../後端';
+import 選單項目 from './選單項目';
 import Debug from 'debug';
 var debug = Debug('itaigi:顯示選單');
 
-class 顯示選單 extends React.Component {
-  componentWillMount() { this.props.setQueryParams(this.props); }
+export default class 顯示選單 extends React.Component {
+  載入中() {
+    return (
+      <div className='ui forum segment'>
+        <h3>
+          <i className='spinner icon'></i>             
+          載入中，小等一下
+        </h3>
+      </div>
+    );
+  }
 
   render()   {
-    let 無建議的外語列表 = this.props.外語列表.列表.map(
-      (guaGi)=>(
-        <button key={guaGi.外語項目編號}
-          className='ui button basic large no-border'
-          onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>
-          {guaGi.外語資料}
-        </button>
-      )
-    );
     return (
       <div className='main container'>
           <div className='the content'>
@@ -26,45 +25,11 @@ class 顯示選單 extends React.Component {
             <span>大家來學台語，大家做伙來豐富台語！快分享 iTaigi 給你的朋友知道吧！</span>
             <分享鍵 pathname={this.props.pathname}/>
           </div>
-          <div className='ui forum segment'>
-            <h3>
-              <i className='spinner icon'></i>
-              {
-                this.props.外語列表.狀態 === '猶未好' ? '載入中，小等一下' :
-                  this.props.外語列表.列表.length > 0
-                  ? '這些詞還沒有人會用台語講'
-                  : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'
-              }
-            </h3>
-            <div>
-              {無建議的外語列表}
-            </div>
-          </div>
+          <選單項目
+            欲提供講法={this.props.欲提供講法.bind(this)}
+            renderLoading={this.載入中}/>
         </div>
       </div>
     );
   }
 }
-
-export default Transmit.createContainer(顯示選單, {
-  queries: {
-    外語列表({ 後端網址 }) {
-      if (後端網址 === undefined) {
-        return Promise.resolve({
-          列表: [],
-          狀態: '猶未好',
-        });
-      }
-
-      return (
-        superagent.get(encodeURI(後端網址 + '平臺項目列表/揣無建議的外語'))
-        .then(({ body }) => (body))
-        .catch((err) => ({
-          '列表': [],
-          '訊息': '發生錯誤',
-          '內容': err,
-        }))
-      );
-    },
-  },
-});

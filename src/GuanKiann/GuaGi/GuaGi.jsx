@@ -1,23 +1,12 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Su from '../Su/Su';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 import ABo from '../../GuanKiann/ABo/ABo';
-
 import Debug from 'debug';
 import './GuaGi.css';
 
 var debug = Debug('itaigi:GuaGi');
 
-class GuaGi extends React.Component {
-
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
+export default class GuaGi extends React.Component {
 
   dedupeSu(inSu) {
     var seen = {};
@@ -28,6 +17,16 @@ class GuaGi extends React.Component {
       seen[key] = true;
       return true;
     });
+  }
+
+  詞載入中() {
+    return (
+      <div className='su ui card'>
+        <div className='content'>
+          載入中，小等一下...
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -44,8 +43,9 @@ class GuaGi extends React.Component {
       貢獻者={d.貢獻者}
       key={d.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
-      後端網址={this.props.後端網址}
       來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
+      variables={{ 詞: d }}
+      renderLoading={this.詞載入中}
       />
     );
     return (
@@ -60,7 +60,7 @@ class GuaGi extends React.Component {
                 閣會使按呢講
               </h3>
               <ABo 華語關鍵字={this.props.華語關鍵字}
-               後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+               csrftoken={this.props.csrftoken}
                編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
                />
             </div>
@@ -71,8 +71,3 @@ class GuaGi extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(GuaGi, {
-  queries: {
-  },
-});

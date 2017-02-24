@@ -1,14 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 import ClientRecorder from './ClientRecorder';
-
 import Debug from 'debug';
 
 let debug = Debug('itaigi:LokIm');
 
-class LokIm extends React.Component {
+export default class LokIm extends React.Component {
   startUserMedia(stream) {
     console.log('startUMedia');
     var input = this.audio_context.createMediaStreamSource(stream);
@@ -90,6 +86,3 @@ class LokIm extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(LokIm, {});
-

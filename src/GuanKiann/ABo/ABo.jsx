@@ -1,12 +1,12 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 import APui from './APui';
+import 後端 from '../../後端';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 var log = debug('itaigi:ABo');
 
-class ABo extends React.Component {
+export default class ABo extends React.Component {
 
   constructor(props) {
     super(props);
@@ -16,13 +16,6 @@ class ABo extends React.Component {
       modalIsOpen: false,
       送出中: false,
     };
-  }
-
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.後端網址 === this.props.後端網址) return;
-    this.props.setQueryParams(nextProps);
   }
 
   handle漢字KeyUp(evt) {
@@ -40,14 +33,14 @@ class ABo extends React.Component {
       var 外語內容 = {
         '外語資料': this.props.華語關鍵字,
       };
-      superagent.post(this.props.後端網址 + '平臺項目/加外語')
+      superagent.post(後端.加外語())
         .withCredentials()
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set('X-CSRFToken', this.props.csrftoken)
         .send(外語內容)
         .then(({ body }) => (this.加外語新詞文本(body.平臺項目編號)))
         .catch(res => {
-          window.open(this.props.後端網址 + 'accounts/facebook/login', '_blank');
+          window.open(後端.登入(), '_blank');
         });
       this.setState({
         送出中: true,
@@ -71,7 +64,7 @@ class ABo extends React.Component {
       };
     }
 
-    superagent.post(this.props.後端網址 + '平臺項目/加新詞文本')
+    superagent.post(後端.加新詞文本())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
@@ -108,7 +101,7 @@ class ABo extends React.Component {
           className={ 'ui button large' + (this.state.送出中 ? ' disabled' : '') }
           onClick={this.查怎樣講.bind(this)}>匿名送出</button>
         <div className='or'></div>
-        <form method='get' action={this.props.後端網址 + 'accounts/facebook/login' }>
+        <form method='get' action={後端.登入() }>
           <input type='submit' className='ui positive button large' value='登入 & 送出'/>
           <input type='hidden' name='next'
             value={'/%E5%B0%8E%E5%90%91?%E7%B6%B2%E5%9D%80='
@@ -125,7 +118,6 @@ class ABo extends React.Component {
   }
 
   render() {
-    let { 後端網址 } = this.props;
     return (
         <div className='ui form'>
             <div className='field'>
@@ -155,12 +147,8 @@ class ABo extends React.Component {
 }
 
 ABo.propTypes = {
-  setQueryParams: React.PropTypes.func,
-  後端網址: React.PropTypes.string,
   漢字: React.PropTypes.string,
   音標: React.PropTypes.string,
   華語關鍵字: React.PropTypes.string,
   csrftoken: React.PropTypes.string,
 };
-
-export default Transmit.createContainer(ABo, {});

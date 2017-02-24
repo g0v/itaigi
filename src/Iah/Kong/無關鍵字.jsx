@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import FBTest from '../../FBTest/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
+import 後端 from '../../後端';
 import Debug from 'debug';
+import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 var debug = Debug('itaigi:Kong無關鍵字');
@@ -66,7 +68,7 @@ export default class 無關鍵字 extends React.Component {
   }
 
   componentDidMount() {
-    superagent.get(encodeURI(this.props.後端網址 + '平臺項目列表/揣上新貢獻的外語'))
+    superagent.get(後端.揣上新貢獻的外語())
         .then(({ body }) => {
           const newWords = body.列表.map(item => item.外語資料);
           const newWordsLess = newWords.slice(0, 20);
@@ -93,7 +95,3 @@ export default class 無關鍵字 extends React.Component {
     );
   }
 }
-
-無關鍵字.propTypes = {
-  '後端網址': React.PropTypes.string,
-};

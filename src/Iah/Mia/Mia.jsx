@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
+import 後端 from '../../後端';
 
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -9,15 +10,6 @@ import Debug from 'debug';
 var debug = Debug('itaigi:Mia');
 
 class Mia extends React.Component {
-
-  //componentWillMount() { this.props.setQueryParams(this.props); }
-
-  /**
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
-  **/
 
   名次(排名) {
     let classes;
@@ -51,7 +43,7 @@ class Mia extends React.Component {
         </thead>
         <tbody>
         {
-          this.props.MiaData.內容.名人
+          this.props.MiaData.名人
             .map((g, idx) => (
               <tr key={idx}>
                 <td>{ this.名次(idx + 1) }</td>
@@ -73,13 +65,12 @@ Mia.propTypes = {
 };
 
 export default Transmit.createContainer(Mia, {
-  queries: {
-    MiaData({ 後端網址 }) {
-      //return superagent.get(後端網址 + '貢獻者表')
-      return superagent.get('https://db.itaigi.tw/貢獻者表')
-      .then(({ body }) => ({
-        '內容': body,
-      }));
+  initialVariables: {},
+  fragments: {
+    MiaData() {
+      return superagent.get(後端.貢獻者表())
+      .then(({ body }) => (body))
+      .catch((err) => ({ '名人': [] }));
     },
   },
 });

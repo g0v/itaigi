@@ -24,7 +24,7 @@ export default class 無結果 extends React.Component {
             <div className='ui su card'>
               <div className='content'>
                 <KiuKongHuat 華語關鍵字={this.props.華語關鍵字}
-                  後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} />
+                  csrftoken={this.props.csrftoken} />
               </div>
             </div>
             <div className='ui su card'>
@@ -34,7 +34,7 @@ export default class 無結果 extends React.Component {
                   我會曉，會使按呢講
                 </h3>
                 <ABo 華語關鍵字={this.props.華語關鍵字}
-                  後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+                  csrftoken={this.props.csrftoken}
                   編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
                 />
               </div>
@@ -44,7 +44,6 @@ export default class 無結果 extends React.Component {
         </div>
 
       <其他建議
-        後端網址={this.props.後端網址}
         內容={this.props.內容}
         華語關鍵字={this.props.華語關鍵字}
         開例句={this.props.開例句.bind(this)}/>

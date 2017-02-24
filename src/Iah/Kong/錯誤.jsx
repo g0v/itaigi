@@ -1,5 +1,4 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import ABo from '../../GuanKiann/ABo/ABo';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';
@@ -20,7 +19,7 @@ export default class 錯誤 extends React.Component {
       </div>
       <h3>我會曉，會使按呢講</h3>
       <ABo 華語關鍵字={this.props.華語關鍵字}
-        後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+        csrftoken={this.props.csrftoken}
         編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
       />
     </div>
