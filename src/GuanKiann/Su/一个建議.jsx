@@ -52,4 +52,10 @@ export default Transmit.createContainer(一个建議, {
         .catch((err) => console.log(err));
     },
   },
+  shouldContainerUpdate(nextVariables) {
+    return (
+      this.variables.文本資料 != nextVariables.文本資料 ||
+      this.variables.音標資料 != nextVariables.音標資料
+    );
+  },
 });

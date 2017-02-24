@@ -109,4 +109,7 @@ export default Transmit.createContainer(Kong, {
       }));
     },
   },
+  shouldContainerUpdate(nextVariables) {
+    return this.variables.關鍵字 != nextVariables.關鍵字;
+  },
 });

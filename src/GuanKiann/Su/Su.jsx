@@ -121,4 +121,7 @@ export default Transmit.createContainer(Su, {
         .catch((err) => console.log(err));
     },
   },
+  shouldContainerUpdate(nextVariables) {
+    return this.variables.詞 != nextVariables.詞;
+  },
 });
