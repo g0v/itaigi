@@ -24,11 +24,13 @@ export default class 顯示例句一句 extends React.Component {
       <漢字臺羅一詞 key={i} 漢字={漢字陣列[i]} 臺羅={臺羅陣列[i]}/>
      ));
     return (
-      <div className='item'>
-        <a className="ui olive tag label">{第幾句}</a><br/>
-        <HuatIm 音標={臺羅陣列.join(' ')} />
-        <span className='tai5_le7ku3'>{句}</span><br/>
-        <span className='hua5_le7ku3'>（{例句.華語}）</span><br/>
+      <div className='ui item'>
+        <p>
+          <span className="ui large olive circular label">{第幾句}</span>
+          <HuatIm 音標={臺羅陣列.join(' ')} />
+        </p>
+        <p className='le7ku3 tai5'>{句}</p>
+        <p className='le7ku3 hua5'>（{例句.華語}）</p>
       </div>
     );
   }
