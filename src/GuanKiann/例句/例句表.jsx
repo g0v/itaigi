@@ -72,7 +72,7 @@ export default class 例句表 extends React.Component {
           <span className='ui horizontal list large'>
             {按呢講的外語}
           </span>
-          <div className="ui celled list">
+          <div className="ui very relaxed divided list">
             {例句}
           </div>
           <button
