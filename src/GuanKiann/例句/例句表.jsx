@@ -14,40 +14,29 @@ var superagent = require('superagent-promise')(require('superagent'), Promise);
 var debug = Debug('itaigi:例句表');
 
 class 例句表 extends React.Component {
+  按呢講的外語() {
+    if (!this.props.按呢講的外語列表) {
+      return null;
+    }
 
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   按呢講的外語列表: [],
-    //   例句列表: undefined,
-    // };
+    return this.props.按呢講的外語列表.map((外語, i) => (
+        <TuiIngHuaGi key={i} 外語={外語}/>
+      ));
   }
 
-  // componentWillMount() {
-  //   this.查按呢講的外語(this.props);
-  // }
+  例句() {
+    if (!this.props.例句列表) {
+      return <div>載入中，小等一下...</div>;
+    }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   if (nextProps != this.props) {
-  //     this.查按呢講的外語(nextProps);
-  //   }
-  // }
+    if (this.props.例句列表.length === 0) {
+      return <無例句/>;
+    }
 
-  //  查按呢講的外語(props) {
-  //   let { 漢字, 台羅 } = props;
-  //   const 看例句 = 漢字 && 台羅;
-  //   if (看例句) {
-  //     this.setState({ 按呢講的外語列表: [] });
-  //     superagent.get(後端.揣按呢講列表(漢字, 台羅))
-  //       .then(({ body }) => this.setState({ 按呢講的外語列表: body.列表 }))
-  //       .catch((err) => console.log(err));
-
-  //     this.setState({ 例句列表: [] });
-  //     superagent.get(後端.例句列表(漢字, 台羅))
-  //       .then(({ body }) => this.setState({ 例句列表: body.例句 }))
-  //       .catch((err) => console.log(err));
-  //   }
-  // }
+    return this.props.例句列表.map((例句, i) => (
+        <顯示例句一句 key={i} 第幾句={i + 1} 例句={例句}/>
+      ));
+  }
 
   render() {
     const customStyles = {
@@ -57,11 +46,6 @@ class 例句表 extends React.Component {
     };
     let { 漢字, 台羅 } = this.props;
     const 看例句 = !!(漢字 && 台羅);
-
-    let 按呢講的外語 = this.props.按呢講的外語列表.map((外語, i)=>(<TuiIngHuaGi key={i} 外語={外語}/>));
-    let 例句 = this.props.例句列表.map((例句, i)=>(
-      <顯示例句一句 key={i} 第幾句={i + 1} 例句={例句}/>
-    ));
 
     return (
         <Modal
@@ -74,12 +58,10 @@ class 例句表 extends React.Component {
 
           華語：
           <span className='ui horizontal list large'>
-            {按呢講的外語}
+            {this.按呢講的外語()}
           </span>
           <div className="ui very relaxed divided list">
-            {
-              例句.length ? 例句 : <無例句/>
-            }
+            {this.例句()}
           </div>
           <button
             onClick={this.props.關例句.bind(this)}
@@ -97,20 +79,20 @@ export default Transmit.createContainer(例句表, {
       if (漢字 && 台羅) {
         return superagent.get(後端.揣按呢講列表(漢字, 台羅))
             .then(({ body }) => body.列表)
-            .catch((err) => console.log(err));
+            .catch((err) => (console.log(err), Promise.resolve([])));
       }
 
-      return Promise.resolve([]);
+      return Promise.resolve(undefined);
     },
 
     例句列表({ 漢字, 台羅 }) {
       if (漢字 && 台羅) {
         return superagent.get(後端.例句列表(漢字, 台羅))
         .then(({ body }) => body.例句)
-        .catch((err) => console.log(err));
+        .catch((err) => (console.log(err), Promise.resolve([])));
       }
 
-      return Promise.resolve([]);
+      return Promise.resolve(undefined);
     },
   },
 });
