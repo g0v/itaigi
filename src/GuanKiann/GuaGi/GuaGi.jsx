@@ -19,6 +19,16 @@ export default class GuaGi extends React.Component {
     });
   }
 
+  詞載入中() {
+    return (
+      <div className='su ui card'>
+        <div className='content'>
+          載入中，小等一下...
+        </div>
+      </div>
+    );
+  }
+
   render() {
     if (!this.props.新詞文本) {
       return <div></div>;
@@ -35,6 +45,7 @@ export default class GuaGi extends React.Component {
       csrftoken={this.props.csrftoken}
       來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
       variables={{ 詞: d }}
+      renderLoading={this.詞載入中}
       />
     );
     return (
