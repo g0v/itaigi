@@ -54,12 +54,4 @@ export default class 後端  {
     return encodeURI(this.網址() + 'accounts/facebook/login/token/');
   }
 
-  static 貢xxxx獻者表() {
-    return encodeURI(this.網址() + '貢獻者表');
-  }
-
-  static 貢xxxx獻者表() {
-    return encodeURI(this.網址() + '貢獻者表');
-  }
-
 }
