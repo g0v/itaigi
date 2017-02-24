@@ -70,7 +70,8 @@ export default class App extends React.Component {
           }
         )}
       <例句表 關例句={this.關例句.bind(this, k)}
-         漢字={han} 台羅={lo}/>
+         漢字={han} 台羅={lo}
+         variables={{ 漢字: han, 台羅: lo }}/>
       <IapKha/>
     </div>
     );
