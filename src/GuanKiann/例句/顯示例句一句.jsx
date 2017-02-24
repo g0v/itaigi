@@ -26,7 +26,7 @@ export default class 顯示例句一句 extends React.Component {
     return (
       <div className='ui item'>
         <p>
-          <span className="ui large olive circular label">{第幾句}</span>
+          <span className="ui large teal circular label">{第幾句}</span>
           <HuatIm 音標={臺羅陣列.join(' ')} />
         </p>
         <p className='le7ku3 tai5'>{句}</p>
