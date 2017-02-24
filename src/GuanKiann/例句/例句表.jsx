@@ -55,7 +55,6 @@ export default class 例句表 extends React.Component {
     };
     let { 漢字, 台羅 } = this.props;
     const 看例句 = 漢字 && 台羅;
-    // debug(例句, this.state);
     let 按呢講的外語 = this.state.按呢講的外語列表.map((外語, i)=>(<TuiIngHuaGi key={i} 外語={外語}/>));
     let 例句 = this.state.例句列表.map((例句, i)=>(
       <顯示例句一句 key={i} 第幾句={i + 1} 例句={例句}/>
