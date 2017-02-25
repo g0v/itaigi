@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import FBTest from '../../GuanKiann/廣告/FBTest';
+import 學臺羅 from '../../GuanKiann/廣告/學臺羅';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import 後端 from '../../後端';
 import Debug from 'debug';
@@ -90,6 +91,7 @@ export default class 無關鍵字 extends React.Component {
         <新詞區塊 newWords={newWords}
          isShowMore={this.state.isShowMore}
          onShowMoreClick={this.onShowMoreClick}/>
+        <學臺羅/>
         <FBTest/>
       </div>
     );
