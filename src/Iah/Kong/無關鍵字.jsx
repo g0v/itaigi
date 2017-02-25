@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import FBTest from '../../FBTest/FBTest';
+import FBTest from '../../GuanKiann/廣告/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import 後端 from '../../後端';
 import Debug from 'debug';

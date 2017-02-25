@@ -1,6 +1,5 @@
 import React from 'react';
-import ToLam from '../GuanKiann/ToLam/ToLam';
-import 分享鍵 from '../GuanKiann/分享鍵/分享鍵';
+import 分享鍵 from '../分享鍵/分享鍵';
 
 export default class FBTest extends React.Component {
 
