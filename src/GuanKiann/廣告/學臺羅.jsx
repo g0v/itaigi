@@ -1,11 +1,10 @@
 import React from 'react';
 import 分享鍵 from '../分享鍵/分享鍵';
-import 聲母 from './圖/聲母.png'
+import 聲母 from './圖/聲母.png';
 
 export default class 學臺羅 extends React.Component {
 
-
-  renderFacebookResponse() {
+  renderToo5() {
     return (
     <div className='kong content'>
       <div className='ui basic segment'>
@@ -29,15 +28,11 @@ export default class 學臺羅 extends React.Component {
     );
   }
 
-  getFacebookResponse(photo) {
-    this.setState({ href: 'http://facebook.com/' + photo.id, src: photo.source });
-  }
-
   render() {
     return (
       <div>
         <div className='container'>
-          {this.renderFacebookResponse()}
+          {this.renderToo5()}
         </div>
       </div>
     );
