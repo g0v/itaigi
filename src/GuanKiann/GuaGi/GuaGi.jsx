@@ -1,5 +1,6 @@
 import React from 'react';
 import Su from '../Su/Su';
+import SuTsitPuann from '../Su/SuTsitPuann';
 import ABo from '../../GuanKiann/ABo/ABo';
 import Debug from 'debug';
 import './GuaGi.css';
@@ -19,14 +20,26 @@ export default class GuaGi extends React.Component {
     });
   }
 
-  詞載入中() {
+  顯示詞(詞) {
+    let 來開例句 = this.props.開例句.bind(this, this.props.華語關鍵字, 詞.文本資料, 詞.音標資料);
+    return <Su
+      suId={詞.新詞文本項目編號}
+      suText={詞.文本資料}
+      suIm={詞.音標資料}
+      貢獻者={詞.貢獻者}
+      key={詞.新詞文本項目編號}
+      csrftoken={this.props.csrftoken}
+      來開例句={來開例句}
+      variables={{ 詞 }}
+      renderLoading={this.詞載入中(詞, 來開例句)} />;
+  }
+
+  詞載入中(詞, 來開例句) {
     return (
-      <div className='su ui card'>
-        <div className='content'>
-          載入中，小等一下...
-        </div>
-      </div>
-    );
+      <SuTsitPuann
+        詞={詞}
+        來開例句={來開例句}/>
+      );
   }
 
   render() {
@@ -36,18 +49,7 @@ export default class GuaGi extends React.Component {
 
     var uniqueSu = this.dedupeSu(this.props.新詞文本);
 
-    var suList = uniqueSu.map((d) => <Su
-      suId={d.新詞文本項目編號}
-      suText={d.文本資料}
-      suIm={d.音標資料}
-      貢獻者={d.貢獻者}
-      key={d.新詞文本項目編號}
-      csrftoken={this.props.csrftoken}
-      來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, d.文本資料, d.音標資料)}
-      variables={{ 詞: d }}
-      renderLoading={this.詞載入中}
-      />
-    );
+    var suList = uniqueSu.map(this.顯示詞.bind(this));
     return (
     <div className='guaGi'>
       <div className='ui su vertical segment'>
