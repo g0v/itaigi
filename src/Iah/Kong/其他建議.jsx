@@ -1,5 +1,6 @@
 import React from 'react';
-import 一个建議 from '../../GuanKiann/Su/一个建議';
+import 一个建議 from '../../GuanKiann/其他建議/一个建議';
+import 一个建議一半 from '../../GuanKiann/其他建議/一个建議一半';
 import './其他建議.css';
 import Debug from 'debug';
 
@@ -44,27 +45,31 @@ export default class 其他建議 extends React.Component {
     this.setState({ 全開 });
   }
 
-  建議載入中() {
+  顯示建議(建議, i) {
+    let 來開例句 = this.props.開例句.bind(this, this.props.華語關鍵字, 建議.文本資料, 建議.音標資料);
     return (
-      <div className='su ui card'>
-        <div className='content'>
-          載入中，小等一下...
-        </div>
-      </div>
+      <一个建議 key={i}
+        文本資料={建議.文本資料}
+        音標資料={建議.音標資料}
+        來開例句={來開例句}
+        variables={建議}
+        renderLoading={this.建議載入中(建議, 來開例句)} />
+    );
+  }
+
+  建議載入中(建議, 來開例句) {
+    return (
+      <一个建議一半
+      文本資料={建議.文本資料}
+      音標資料={建議.音標資料}
+      來開例句={來開例句} />
     );
   }
 
   render() {
     let 其他建議 = this.props.內容.其他建議.slice(0, this.state.全開);
 
-    let 文本 = 其他建議.map((建議, i) => (
-        <一个建議 key={i}
-          文本資料={建議.文本資料}
-          音標資料={建議.音標資料}
-          來開例句={this.props.開例句.bind(this, this.props.華語關鍵字, 建議.文本資料, 建議.音標資料)}
-          variables={建議}
-          renderLoading={this.建議載入中} />
-    ));
+    let 文本 = 其他建議.map(this.顯示建議.bind(this));
     if (文本.length == 0) {
       return null;
     }

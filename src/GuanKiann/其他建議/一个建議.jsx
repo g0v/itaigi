@@ -3,7 +3,7 @@ import Transmit from 'react-transmit';
 import 後端 from '../../後端';
 import HuatIm from '../HuatIm/HuatIm';
 import 例句鈕仔 from '../例句/例句鈕仔';
-import TuiIngHuaGi from './TuiIngHuaGi';
+import TuiIngHuaGi from '../Su/TuiIngHuaGi';
 import Promise from 'bluebird';
 import Debug from 'debug';
 
