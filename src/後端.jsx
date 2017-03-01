@@ -17,6 +17,10 @@ export default class 後端  {
     return encodeURI(this.網址() + '貢獻者表');
   }
 
+  static 正規化貢獻者表() {
+    return encodeURI(this.網址() + '正規化團隊表');
+  }
+
   static 揣無建議的外語() {
     return encodeURI(this.網址() + '平臺項目列表/揣無建議的外語');
   }

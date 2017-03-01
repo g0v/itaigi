@@ -32,6 +32,9 @@ export default class ToLam extends React.Component {
         <Link className={menu_item_class('/mia')} to='/mia'>
           <i className="flag icon"></i>名人堂
         </Link>
+        <Link className={menu_item_class('/tsing')} to='/tsing'>
+          <i className="student icon"></i>正規化團隊
+        </Link>
         <Link className={menu_item_class('/iong')} to='/iong'>
           <i className="configure icon"></i>好工具
         </Link>
