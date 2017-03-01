@@ -23,7 +23,7 @@ app.get('/:Iah([kt])/:Su', function (req, res) {
 app.get('/:Iah([kt])/:HuaSu/:TaiSu/:Im', function (req, res) {
   let { Iah, HuaSu, TaiSu, Im } = req.params;
   res.send(template.render({
-    url: `https://itaigi.tw/${HuaSu}/${TaiSu}/${Im}`,
+    url: `https://itaigi.tw/${Iah}/${HuaSu}/${TaiSu}/${Im}`,
     title: `${TaiSu} - iTaigi 愛台語`,
     image: `https://www.moedict.tw/${encodeURI(TaiSu)}.png?font=wt064`,
   }));
