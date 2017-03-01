@@ -1,6 +1,7 @@
 import React from 'react';
-import './分享鍵.css';
 import Debug from 'debug';
+import { browserHistory } from 'react-router';
+import './分享鍵.css';
 
 var debug = Debug('itaigi:分享鍵');
 
@@ -9,8 +10,25 @@ export default class 分享鍵 extends React.Component {
     super(props);
   }
 
+  getCurrentLocation() {
+    let routerPathname = browserHistory.getCurrentLocation().pathname;
+    let { pathname } = this.props;
+
+    pathname = pathname || routerPathname || '';
+
+    if (pathname[0] === '/') {
+      pathname = pathname.substr(1);
+    }
+
+    pathname = encodeURIComponent(decodeURIComponent(pathname));
+
+    return pathname;
+  }
+
   render() {
     let { size } = this.props;
+    let pathname = this.getCurrentLocation();
+
     let width = 92;
     let height = 20;
     if (size == 'large') {
@@ -23,9 +41,13 @@ export default class 分享鍵 extends React.Component {
     return (
       <iframe
         src={ 'https://www.facebook.com/plugins/share_button.php?' +
-          'href=http%3A%2F%2Fitaigi.tw%2F' + this.props.pathname +
-          '&layout=button_count&size=' + size + '&' +
-          'mobile_iframe=true&appId=590065061070994&width=' + width + '&height=' + height
+          'href=http%3A%2F%2Fitaigi.tw%2F' + pathname +
+          '&appId=590065061070994' +
+          '&layout=button_count' +
+          '&mobile_iframe=true' +
+          '&size=' + size +
+          '&width=' + width +
+          '&height=' + height
         }
         width={width} height={height}
         style={{ border: 'none', overflow: 'hidden' }}
