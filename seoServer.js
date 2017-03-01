@@ -20,6 +20,15 @@ app.get('/:Iah([kt])/:Su', function (req, res) {
   }));
 });
 
+app.get('/:Iah([kt])/:HuaSu/:TaiSu/:Im', function (req, res) {
+  let { Iah, HuaSu, TaiSu, Im } = req.params;
+  res.send(template.render({
+    url: `https://itaigi.tw/${HuaSu}/${TaiSu}/${Im}`,
+    title: `${TaiSu} - iTaigi 愛台語`,
+    image: `https://www.moedict.tw/${encodeURI(TaiSu)}.png?font=wt064`,
+  }));
+});
+
 app.get('/:file(*.(png|jpg|gif|svg))', function (req, res) {
   let { file } = req.params;
   res.redirect(301, `https://g0v.github.io/itaigi/${encodeURI(file)}`);
