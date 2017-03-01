@@ -10,7 +10,7 @@ var debug = Debug('itaigi:SuTsitPuann');
 export default class SuTsitPuann extends React.Component {
 
   render() {
-    let { 文本資料, 音標資料, 貢獻者 } = this.props.詞
+    let { 文本資料, 音標資料, 貢獻者 } = this.props.詞;
     if (貢獻者 == '匿名') 貢獻者 = '沒有人';
 
     return (
