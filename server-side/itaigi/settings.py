@@ -135,7 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "資料庫影音檔案")
 MEDIA_URL = '/影音檔案/'
 
 # django-cors-headers
-CORS_ORIGIN_REGEX_WHITELIST = ('^.*$', )
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 INSTALLED_APPS += (
     'corsheaders',
