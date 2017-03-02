@@ -37,13 +37,12 @@ class 新詞區塊 extends React.Component {
             );
           }
         )}
-        <div>
-          <a
-            className={`${loading ? 'loading' : ''}`}
-            onClick={this.props.onShowMoreClick}>
-            {this.props.isShowMore ? '顯示少一點' : '顯示多一點'}
-          </a>
-        </div>
+        {this.props.isShowMore ? '' : (
+          <button
+            className={`${loading ? 'loading' : 'ui button  large'}`}
+            onClick={this.props.onShowMoreClick}>顯示多一點
+          </button>
+        )}
       </div>
       </div>
     );

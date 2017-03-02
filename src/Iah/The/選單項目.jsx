@@ -8,10 +8,38 @@ var debug = Debug('itaigi:選單項目');
 
 class 選單項目 extends React.Component {
 
-  render()   {
-    let 外語列表 = this.props.外語列表;
+  constructor(props) {
+    super(props);
+    this.state = {
+      顯示幾个: this.預設顯示幾个(),
+    };
+  }
 
-    let 無建議的外語列表 = 外語列表.列表.map((guaGi) => (
+  預設顯示幾个() {
+    return 200;
+  }
+
+  看閣較濟全開() {
+    let { 顯示幾个 } = this.state;
+    顯示幾个 += this.預設顯示幾个();
+    this.setState({ 顯示幾个 });
+  }
+
+  看閣較濟() {
+    if (this.props.外語列表.列表.length > this.state.顯示幾个)
+    return (
+        <button
+          className='ui button teal basic large no-border'
+            onClick={this.看閣較濟全開.bind(this)}>
+            顯示閣較濟
+        </button>
+      );
+  }
+
+  render()   {
+    let 列表 = this.props.外語列表.列表.slice(0, this.state.顯示幾个);
+
+    let 無建議的外語列表 = 列表.map((guaGi) => (
         <button key={guaGi.外語項目編號}
           className='ui button basic large no-border'
           onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>
@@ -24,13 +52,14 @@ class 選單項目 extends React.Component {
           <h3>
             <i className='spinner icon'></i>
             {
-              外語列表.列表.length > 0
+              列表.length > 0
               ? '這些詞還沒有人會用台語講'
               : '真的很會，所有詞都有台語講法了！不可能啦快去想問題.....'
             }
           </h3>
           <div>
             {無建議的外語列表}
+            {this.看閣較濟()}
           </div>
         </div>
     );
