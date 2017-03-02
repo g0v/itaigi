@@ -41,7 +41,7 @@ export default class 分享鍵 extends React.Component {
     return (
       <iframe
         src={ 'https://www.facebook.com/plugins/share_button.php?' +
-          'href=http%3A%2F%2Fitaigi.tw%2F' + pathname +
+          'href=https%3A%2F%2Fitaigi.tw%2F' + pathname +
           '&appId=590065061070994' +
           '&layout=button_count' +
           '&mobile_iframe=true' +
