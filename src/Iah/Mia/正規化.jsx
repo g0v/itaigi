@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 import 後端 from '../../後端';
-
+import './Mia.css';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
@@ -32,14 +32,14 @@ class 正規化 extends React.Component {
 
   render() {
     return (
-    <div className='main ui text container'>
+    <div className='mia main ui text container'>
       若是你對教育部漢字佮台羅誠熟手，會當加入正規化團隊，做伙鬥校對巡喲。
       緊來私訊問
       <a href="https://www.facebook.com/ukauitaigi/" target="_blank">
         <i className='icon facebook square'/>
         FB粉專
       </a>
-      <table className='ui celled table'>
+      <table className='ui celled unstackable table'>
         <thead>
           <tr>
             <th className='collapsing'>名次</th>

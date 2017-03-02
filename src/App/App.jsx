@@ -3,7 +3,7 @@ import ToLam from '../GuanKiann/ToLam/ToLam';
 import IapKha from '../GuanKiann/IapKha/IapKha';
 import 後端 from '../後端';
 import 例句表 from '../GuanKiann/例句/例句表';
-
+import 載入頁面 from '../GuanKiann/載入頁面/載入頁面';
 import './App.css';
 
 import { Promise } from 'bluebird';
@@ -67,6 +67,7 @@ export default class App extends React.Component {
             編號: this.state.編號,
             開例句: this.開例句.bind(this),
             variables: { 關鍵字: k },
+            renderLoading: <載入頁面/>,
           }
         )}
       <例句表 關例句={this.關例句.bind(this, k)}

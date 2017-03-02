@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 import 後端 from '../../後端';
-
+import './Mia.css';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
@@ -32,8 +32,8 @@ class Mia extends React.Component {
 
   render() {
     return (
-    <div className='main ui text container'>
-      <table className='ui celled table'>
+    <div className='mia main ui text container'>
+      <table className='ui celled unstackable table'>
         <thead>
           <tr>
             <th className='collapsing'>名次</th>
