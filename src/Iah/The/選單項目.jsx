@@ -25,19 +25,19 @@ class 選單項目 extends React.Component {
     this.setState({ 顯示幾个 });
   }
 
-
   看閣較濟() {
     if (this.props.外語列表.列表.length > this.state.顯示幾个)
     return (
-        <button 
+        <button
           className='ui button teal basic large no-border'
             onClick={this.看閣較濟全開.bind(this)}>
             顯示閣較濟
         </button>
       );
   }
+
   render()   {
-    let 列表 = this.props.外語列表.列表.slice(0,this.state.顯示幾个);
+    let 列表 = this.props.外語列表.列表.slice(0, this.state.顯示幾个);
 
     let 無建議的外語列表 = 列表.map((guaGi) => (
         <button key={guaGi.外語項目編號}
