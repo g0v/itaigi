@@ -81,7 +81,7 @@ export default class 其他建議 extends React.Component {
           相關詞條
         </h3>
         <div className='ui vertical segment'>
-        <div className='ui stackable cards'>
+          <div className='ui stackable cards'>
             {文本}
             {this.看閣較濟()}
           </div>
