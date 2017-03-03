@@ -9,7 +9,7 @@ export default class Iong extends React.Component {
     return (
     <div className='main container'>
       <div className='iong'>
-        <div className='ui cards'>
+        <div className='ui stackable cards'>
         {
           list.map((cate)=>
             <div className='card' key={cate.category}>
