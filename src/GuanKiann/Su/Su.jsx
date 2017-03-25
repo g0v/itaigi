@@ -98,6 +98,18 @@ class Su extends React.Component {
             按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
           </a>
         </div>
+        <div className='report'>
+          <a onClick={
+            () => {
+              let appVersion = navigator.appVersion;
+              let d = new Date();
+              let n = d.toISOString();
+              console.log('沒有發音\n'+'時間：'+n+'\n'+"appVersion: "+appVersion);
+            }
+          }>
+            沒有發音
+          </a>
+        </div>
       </div>
     </div>
     );
