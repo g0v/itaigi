@@ -104,10 +104,10 @@ class Su extends React.Component {
               let appVersion = navigator.appVersion;
               let d = new Date();
               let n = d.toISOString();
-              console.log('沒有發音\n' + '時間：' + n + '\n' + 'appVersion: ' + appVersion);
+              console.log('這條沒聲音\n' + '時間：' + n + '\n' + 'appVersion: ' + appVersion);
             }
           }>
-            沒有發音
+            🙋 這條沒聲音
           </a>
         </div>
       </div>
