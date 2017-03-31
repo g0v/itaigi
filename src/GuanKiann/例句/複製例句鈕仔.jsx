@@ -10,7 +10,9 @@ class 複製例句鈕仔 extends Component {
     let { 漢字, 臺羅, 華語 } = this.props;
     this.setState({ isCopying: true });
     var textField = document.createElement('textarea');
-    textField.innerText = `${漢字}\n${臺羅}\n${華語}`;
+    textField.innerText = `${漢字}
+${臺羅}
+${華語}`;
     document.body.appendChild(textField);
     textField.select();
     document.execCommand('copy');
@@ -18,7 +20,7 @@ class 複製例句鈕仔 extends Component {
 
     let clock = setTimeout(()=> {
         this.setState({ isCopying: false });
-      }, 3000);
+      }, 1000);
   }
 
   render() {
@@ -28,7 +30,9 @@ class 複製例句鈕仔 extends Component {
           className="ui compact icon button">
             <i className="copy icon"/>
         </button>
-        { this.state.isCopying && <span>複製成功！</span> }
+        { this.state.isCopying &&
+          <span>複製成功！</span>
+        }
       </span>
     );
   }
