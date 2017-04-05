@@ -9,10 +9,6 @@ import Debug from 'debug';
 var debug = Debug('itaigi:顯示例句一句');
 
 export default class 顯示例句一句 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let 漢字陣列 = [];
     let 臺羅陣列 = [];
