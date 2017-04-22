@@ -1,5 +1,26 @@
 let list = [
   {
+    category: '學習類',
+    links: [
+      {
+        title: '臺灣閩南語羅馬字拼音教學網',
+        link: 'http://tailo.moe.edu.tw/',
+      },
+      {
+        title: '咱來學臺灣閩南語',
+        link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
+      },
+      {
+        title: '臺灣閩南語推薦用字700字詞',
+        link: 'http://ws.moe.edu.tw/001/Upload/userfiles/file/iongji/700iongji_1031222.pdf',
+      },
+      {
+        title: '臺灣閩南語羅馬拼音及其發音學習網',
+        link: 'http://www.ntcu.edu.tw/tailo/',
+      },
+    ],
+  },
+  {
     category: '字辭典類',
     links: [
       {
@@ -42,27 +63,6 @@ let list = [
       {
         title: '羅漢跤台語輸入法(iOS)',
         link: 'https://itunes.apple.com/tw/app/lohanka-tai-yu-shu-ru-fa/id1080190324?mt=8',
-      },
-    ],
-  },
-  {
-    category: '學習類',
-    links: [
-      {
-        title: '臺灣閩南語推薦用字700字詞',
-        link: 'http://ws.moe.edu.tw/001/Upload/userfiles/file/iongji/700iongji_1031222.pdf',
-      },
-      {
-        title: '臺灣閩南語羅馬字拼音教學網',
-        link: 'http://tailo.moe.edu.tw/',
-      },
-      {
-        title: '臺灣閩南語羅馬拼音及其發音學習網',
-        link: 'http://www.ntcu.edu.tw/tailo/',
-      },
-      {
-        title: '咱來學臺灣閩南語',
-        link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
       },
     ],
   },
