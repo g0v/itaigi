@@ -31,7 +31,7 @@ render(
         <Route path='t(/:k)' component={The} />
         <Route path='iong' component={Iong} />
         <Route path='mia' component={Mia} />
-        <Route path='tsing' component={正規化} />        
+        <Route path='tsing' component={正規化} />
         <Route path='about' component={About} />
         <Route path='tsu-te/pho-khi-bong' component={抱去摸} />
         <Route path='*' component={Kong} />

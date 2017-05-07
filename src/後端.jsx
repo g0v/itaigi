@@ -22,8 +22,8 @@ export default class 後端  {
     return encodeURI(this.網址() + '正規化團隊表');
   }
 
-  static 揣無建議的外語() {
-    return encodeURI(this.網址() + '平臺項目列表/揣無建議的外語');
+  static 揣無建議的外語(排序) {
+    return encodeURI(this.網址() + '平臺項目列表/揣無建議的外語?排序=' + 排序);
   }
 
   static 平臺項目內容(suId) {
