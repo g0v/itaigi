@@ -10,7 +10,7 @@ export default class 顯示選單 extends React.Component {
     return (
       <div className='ui forum segment'>
         <h3>
-          <i className='spinner icon'></i>             
+          <i className='spinner icon'></i>
           載入中，小等一下
         </h3>
       </div>
@@ -27,6 +27,7 @@ export default class 顯示選單 extends React.Component {
           </div>
           <選單項目
             欲提供講法={this.props.欲提供講法.bind(this)}
+            排序={this.props.排序}
             renderLoading={this.載入中}/>
         </div>
       </div>
