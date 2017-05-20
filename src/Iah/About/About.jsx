@@ -75,3 +75,4 @@ class About extends React.Component {
 //   params: React.PropTypes.object,
 //   查怎樣講: React.PropTypes.func,
 // };
+export default About;
