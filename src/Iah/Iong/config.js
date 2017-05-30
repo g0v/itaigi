@@ -72,6 +72,10 @@ let list = [
         title: '臺灣閩南語羅馬拼音及其發音學習網',
         link: 'http://www.ntcu.edu.tw/tailo/',
       },
+      {
+        title: '咱來學臺灣閩南語',
+        link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
+      },
     ],
   },
   {
