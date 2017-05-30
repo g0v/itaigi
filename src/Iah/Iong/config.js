@@ -87,6 +87,27 @@ let list = [
       },
     ],
   },
+  {
+    category: '字型',
+    links: [
+      {
+        title: '台灣楷體、台灣宋體',
+        link: 'http://wesingkasu.blogspot.tw/2012/01/blog-post_1223.html',
+      },
+      {
+        title: '花園明朝',
+        link: 'http://fonts.jp/hanazono/',
+      },
+      {
+        title: 'Charis SIL',
+        link: 'http://software.sil.org/charis/',
+      },
+      {
+        title: 'Fira Sans',
+        link: 'https://github.com/mozilla/Fira',
+      },
+    ],
+  },
 ];
 
 export {list};
