@@ -24,7 +24,7 @@ let list = [
       },
       {
         title: '廈英大辭典',
-        line: 'http://minhakka.ling.sinica.edu.tw/bkg/chong-su-tian.php?gi_gian=hoa',
+        link: 'http://minhakka.ling.sinica.edu.tw/bkg/chong-su-tian.php?gi_gian=hoa',
       }
     ],
   },
