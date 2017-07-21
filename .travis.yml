@@ -12,6 +12,8 @@ branches:
 script:
 - echo npm run $TSI2_LING7
 - npm run $TSI2_LING7
+before_deploy:
+  - npm run build
 deploy:
   provider: pages
   skip_cleanup: true
