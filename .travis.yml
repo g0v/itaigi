@@ -1,23 +1,23 @@
 sudo: false
 language: node_js
 node_js:
-    - '5'
-    - '6'
+- '5'
+- '6'
 env:
-    - TSI2_LING7='build'
-    - TSI2_LING7='test'
+- TSI2_LING7='build'
+- TSI2_LING7='test'
 branches:
-    only:
-        - master
+  only:
+  - master
 script:
-    - echo npm run $TSI2_LING7
-    - npm run $TSI2_LING7
+- echo npm run $TSI2_LING7
+- npm run $TSI2_LING7
 deploy:
-    provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    fqdn: itaigi.tw
-    name: iTaiGi Auto Deploy Bot
-    on:
-        branch: master
-
+  provider: pages
+  skip_cleanup: true
+  github_token:
+    secure: jpEWwM8iaoJHfGTa5bds6eqVZq+jMDnjKet9Nu+55wH5CTHB3Hd6KDRbBdmTkVfiC/d5+9z0gYxxTNGmyYGRAJuYP+Okvb4I0kd9PkLNSBRQfCtVhqDoRWnLZAqkjVt4KdPxvutQpWW1ejR73ZjvYH6KM8uo1pAwDbOMzpbWzX0=
+  fqdn: itaigi.tw
+  name: iTaiGi Auto Deploy Bot
+  on:
+    branch: master
