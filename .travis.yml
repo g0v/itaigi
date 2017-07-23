@@ -19,7 +19,6 @@ deploy:
   skip_cleanup: true
   github_token:
     secure: jpEWwM8iaoJHfGTa5bds6eqVZq+jMDnjKet9Nu+55wH5CTHB3Hd6KDRbBdmTkVfiC/d5+9z0gYxxTNGmyYGRAJuYP+Okvb4I0kd9PkLNSBRQfCtVhqDoRWnLZAqkjVt4KdPxvutQpWW1ejR73ZjvYH6KM8uo1pAwDbOMzpbWzX0=
-  fqdn: itaigi.tw
   local_dir: build/
   name: iTaiGi Auto Deploy Bot
   on:
