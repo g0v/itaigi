@@ -22,6 +22,10 @@ let list = [
         title: '廈門音新字典(甘字典)',
         link: 'http://taigi.fhl.net/dick/',
       },
+      {
+        title: '廈英大辭典',
+        link: 'http://minhakka.ling.sinica.edu.tw/bkg/chong-su-tian.php?gi_gian=hoa',
+      },
     ],
   },
   {
@@ -36,12 +40,20 @@ let list = [
         link: 'http://taigi.fhl.net/TaigiIME/ ',
       },
       {
-        title: '臺語輸入法(Android)',
-        link: 'https://play.google.com/store/apps/details?id=fr.magistry.taigime&hl=zh_TW',
+        title: '台語輸入法 （TAIGIME） (Android)',
+        link: 'https://play.google.com/store/apps/details?id=fr.magistry.taigime',
       },
       {
-        title: '羅漢跤台語輸入法(iOS)',
-        link: 'https://itunes.apple.com/tw/app/lohanka-tai-yu-shu-ru-fa/id1080190324?mt=8',
+        title: '台語輸入法 - TaigIME 2 (Android)',
+        link: 'https://play.google.com/store/apps/details?id=fr.magistry.taigime2',
+      },
+      {
+        title: 'Phah Tâi-gí 臺語輸入法 (Android)',
+        link: 'https://play.google.com/store/apps/details?id=com.taccotap.phahtaigi',
+      },
+      {
+        title: '羅漢跤台語輸入法 (iOS)',
+        link: 'https://itunes.apple.com/tw/app/lohanka-tai-yu-shu-ru-fa/id1080190324',
       },
     ],
   },
@@ -72,6 +84,27 @@ let list = [
       {
         title: '什麼，你也懂台語字？',
         link: 'http://liztaigi.blogspot.tw/2015/08/blog-post_31.html',
+      },
+    ],
+  },
+  {
+    category: '字型',
+    links: [
+      {
+        title: '台灣楷體、台灣宋體',
+        link: 'http://wesingkasu.blogspot.tw/2012/01/blog-post_1223.html',
+      },
+      {
+        title: '花園明朝',
+        link: 'http://fonts.jp/hanazono/',
+      },
+      {
+        title: 'Charis SIL',
+        link: 'http://software.sil.org/charis/',
+      },
+      {
+        title: 'Fira Sans',
+        link: 'https://github.com/mozilla/Fira',
       },
     ],
   },

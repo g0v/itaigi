@@ -1,0 +1,50 @@
+{
+  "author": "liz",
+  "status": "beta",
+  "name": "iTaigi",
+  "description": "iTaigi",
+  "description_zh": "想知道一個詞的台語怎麼說，來這裡查就對了！",
+  "homepage": "https://itaigi.tw",
+  "document": "https://g0v.hackpad.com/moed7ct-taigi-neologism",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g0v/itaigi"
+  },
+  "licenses": [
+    {
+      "type": "CC0"
+    }
+  ],
+  "keywords": [
+    "reactjs",
+    "semantic-ui"
+  ],
+  "audience": [
+    "contributor"
+  ],
+  "products": [
+    "website"
+  ],
+  "projects": [
+    "3du"
+  ],
+  "contributors": [
+    "au",
+    "pm5",
+    "sih4sing5hong5",
+    "a-tsioh",
+    "thewayiam",
+    "hankkk",
+    "aweimeow",
+    "glll4678",
+    "mhshih",
+    "ellen",
+    "grass"
+  ],
+  "thumbnail": [
+    "https://itaigi.tw/121c4ed080e9127a72d31ae85d1458fc.svg"
+  ],
+  "needs": [
+    "designer"
+  ]
+}

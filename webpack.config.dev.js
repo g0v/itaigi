@@ -16,30 +16,34 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?/,
-        loaders: ['babel', 'strict'],
-        include: path.join(__dirname, 'src'),
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader?limit=1',
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
+    rules: [
+       {
+          test: /\.jsx?$/,
+          use: ['babel-loader', 'strict-loader'],
+          include: [path.join(__dirname, 'src')],
+        },
+       {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options:  { limit: 1 },
+            },
+          ],
+        },
     ],
   },
 };

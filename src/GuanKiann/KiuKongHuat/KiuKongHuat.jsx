@@ -1,11 +1,11 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Promise } from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 import debug from 'debug';
 import SangTshut from './SangTshut';
+import 後端 from '../../後端';
 
-class KiuKongHuat extends React.Component {
+export default class KiuKongHuat extends React.Component {
 
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ class KiuKongHuat extends React.Component {
     var 外語內容 = {
       '外語資料': this.props.華語關鍵字,
     };
-    superagent.post(this.props.後端網址 + '平臺項目/加外語')
+    superagent.post(後端.加外語())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
       .set('X-CSRFToken', this.props.csrftoken)
@@ -58,8 +58,5 @@ class KiuKongHuat extends React.Component {
 
 KiuKongHuat.propTypes = {
   華語關鍵字: React.PropTypes.string,
-  後端網址: React.PropTypes.string,
   csrftoken: React.PropTypes.string,
 };
-
-export default Transmit.createContainer(KiuKongHuat, {});

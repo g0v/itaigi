@@ -1,11 +1,9 @@
 import React from 'react';
-import Router from 'react-router';
-import Transmit from 'react-transmit';
-
+import './Tshue.css';
 import Debug from 'debug';
 var debug = Debug('itaigi:Tshue');
 
-class Tshue extends React.Component {
+export default class Tshue extends React.Component {
   // Tshue should be only one cause the id.
   constructor(props) {
     super(props);
@@ -46,29 +44,23 @@ class Tshue extends React.Component {
   }
 
   componentWillMount() {
-    this.timer = setInterval(this.sensorThinkTime.bind(this), 2000);
+    this.timer = setInterval(this.查怎樣講.bind(this), 2000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
   }
 
-  sensorThinkTime() {
-    let q = this.refs.Tshue.value;
-    if (q.length > 1) {
-      this.查怎樣講();
-    }
-  }
-
   render() {
     return (
-    <div className='ui fluid action input huge container'>
+    <div className='ui fluid action input huge container tshue'>
       <input
         type='text'
         placeholder='輸入華語，點一下「台語怎麼講」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
         ref='Tshue'
+        size="8"
       />
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
@@ -79,5 +71,3 @@ class Tshue extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(Tshue, { query: {} });

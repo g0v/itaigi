@@ -39,4 +39,8 @@
     position: absolute;
     text-align: right;
   }
+
+  .app.bar .menu {
+    display: none;
+  }
 }

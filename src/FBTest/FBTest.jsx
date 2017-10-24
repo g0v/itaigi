@@ -1,10 +1,8 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Router from 'react-router';
-
 import ToLam from '../GuanKiann/ToLam/ToLam';
+import 分享鍵 from '../GuanKiann/分享鍵/分享鍵';
 
-class FBTest extends React.Component {
+export default class FBTest extends React.Component {
 
   constructor(props) {
     super(props);
@@ -49,13 +47,26 @@ class FBTest extends React.Component {
   renderFacebookResponse() {
     return (
     <div className='kong content'>
-      <div className='ui segment'>
-        <a href='//facebook.com/1730736483875375' target='_blank'>
-          <img width='480px' style={{ maxWidth: '100%' }} src={
-          'https://s3-ap-southeast-1.amazonaws.com/' +
-          'itaigi.tw/images/footer.png'}/>
-        </a>
+      <div className='ui basic segment'>
+      <div className='ui middle aligned stackable grid container'>
+        <div className='row'>
+          <div className='eight wide column'>
+            <h1 className='ui header'>快分享 iTaigi 給你的朋友知道吧！</h1>
+            <分享鍵 size='large' pathname={ '' }/>
+          </div>
+
+          <div className='eight wide right floated column'>
+            <a href='//facebook.com/1730736483875375' target='_blank'>
+              <img width='480px' style={{ maxWidth: '100%' }} src={
+              'https://s3-ap-southeast-1.amazonaws.com/' +
+              'itaigi.tw/images/footer.png'}/>
+            </a>
+          </div>
+
+        </div>
+        </div>
       </div>
+      <br/>
     </div>
     );
   }
@@ -67,10 +78,6 @@ class FBTest extends React.Component {
   render() {
     return (
       <div>
-        <h3 className='ui horizontal divider header'>
-          <i className='facebook square icon'></i>
-          面冊
-        </h3>
         <div className='container'>
           {this.renderFacebookResponse()}
         </div>
@@ -78,5 +85,3 @@ class FBTest extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(FBTest, { queries: {} });

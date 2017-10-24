@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Transmit from 'react-transmit';
 
 class About extends React.Component {
   render() {
@@ -72,9 +71,8 @@ class About extends React.Component {
   }
 }
 
-About.propTypes = {
-  params: React.PropTypes.object,
-  查怎樣講: React.PropTypes.func,
-};
-
-export default Transmit.createContainer(About, {});
+// About.propTypes = {
+//   params: React.PropTypes.object,
+//   查怎樣講: React.PropTypes.func,
+// };
+export default About;

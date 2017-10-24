@@ -1,11 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import Debug from 'debug';
 
 var debug = Debug('itaigi:TuiIngHuaGi');
 
-class TuiIngHuaGi extends React.Component {
+export default class TuiIngHuaGi extends React.Component {
 
   render() {
     const { 外語 } = this.props;
@@ -14,8 +13,3 @@ class TuiIngHuaGi extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(TuiIngHuaGi, {
-  queries: {
-  },
-});

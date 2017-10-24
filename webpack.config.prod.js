@@ -13,7 +13,6 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
@@ -23,30 +22,35 @@ module.exports = {
       compressor: {
         warnings: false,
       },
+      sourceMap: true,
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
     }),
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?/,
-        loaders: ['babel', 'strict'],
-        include: path.join(__dirname, 'src'),
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'url-loader?limit=1',
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
+    rules: [
+       {
+          test: /\.jsx?$/,
+          use: ['babel-loader', 'strict-loader'],
+          include: path.join(__dirname, 'src'),
+        },
+       {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options:  { limit: 1 },
+            },
+          ],
+        },
     ],
   },
 };

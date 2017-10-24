@@ -1,23 +1,13 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Su from '../Su/Su';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
+import SuTsitPuann from '../Su/SuTsitPuann';
 import ABo from '../../GuanKiann/ABo/ABo';
-
 import Debug from 'debug';
 import './GuaGi.css';
 
 var debug = Debug('itaigi:GuaGi');
 
-class GuaGi extends React.Component {
-
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
+export default class GuaGi extends React.Component {
 
   dedupeSu(inSu) {
     var seen = {};
@@ -30,6 +20,28 @@ class GuaGi extends React.Component {
     });
   }
 
+  顯示詞(詞) {
+    let 來開例句 = this.props.開例句.bind(this, this.props.華語關鍵字, 詞.文本資料, 詞.音標資料);
+    return <Su
+      suId={詞.新詞文本項目編號}
+      suText={詞.文本資料}
+      suIm={詞.音標資料}
+      貢獻者={詞.貢獻者}
+      key={詞.新詞文本項目編號}
+      csrftoken={this.props.csrftoken}
+      來開例句={來開例句}
+      variables={{ 詞 }}
+      renderLoading={this.詞載入中(詞, 來開例句)} />;
+  }
+
+  詞載入中(詞, 來開例句) {
+    return (
+      <SuTsitPuann
+        詞={詞}
+        來開例句={來開例句}/>
+      );
+  }
+
   render() {
     if (!this.props.新詞文本) {
       return <div></div>;
@@ -37,29 +49,20 @@ class GuaGi extends React.Component {
 
     var uniqueSu = this.dedupeSu(this.props.新詞文本);
 
-    var suList = uniqueSu.map((d) => <Su
-      suId={d.新詞文本項目編號}
-      suText={d.文本資料}
-      suIm={d.音標資料}
-      貢獻者={d.貢獻者}
-      key={d.新詞文本項目編號}
-      csrftoken={this.props.csrftoken}
-      後端網址={this.props.後端網址} />
-    );
+    var suList = uniqueSu.map(this.顯示詞.bind(this));
     return (
     <div className='guaGi'>
       <div className='ui su vertical segment'>
-        <div className='ui cards'>
+        <div className='ui stackable cards'>
           {suList}
-
-          <div className='su card'>
+          <div className='ui su card'>
             <div className='content'>
               <h3 className='ui header'>
                 <i className='cloud upload icon'></i>
                 閣會使按呢講
               </h3>
               <ABo 華語關鍵字={this.props.華語關鍵字}
-               後端網址={this.props.後端網址} csrftoken={this.props.csrftoken}
+               csrftoken={this.props.csrftoken}
                編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
                />
             </div>
@@ -70,8 +73,3 @@ class GuaGi extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(GuaGi, {
-  queries: {
-  },
-});

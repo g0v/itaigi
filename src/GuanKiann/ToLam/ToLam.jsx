@@ -1,10 +1,12 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import { Link } from 'react-router';
 import './ToLam.css';
 import Logo from './images/logo.svg';
 
-class ToLam extends React.Component {
+/*Pokeball by Arjun Mahanti from the Noun Project*/
+import PokemonBall from './images/noun_237634_cc.svg';
+
+export default class ToLam extends React.Component {
   render() {
     var path = this.props.pathname;
     var menu_item_class = function (prefix) {
@@ -30,11 +32,14 @@ class ToLam extends React.Component {
         <Link className={menu_item_class('/mia')} to='/mia'>
           <i className="flag icon"></i>名人堂
         </Link>
+        <Link className={menu_item_class('/tsing')} to='/tsing'>
+          <i className="student icon"></i>正規化團隊
+        </Link>
         <Link className={menu_item_class('/iong')} to='/iong'>
           <i className="configure icon"></i>好工具
         </Link>
         <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
-          <i className="paw icon"></i>抱去摸
+          <i className="icon"><img src={PokemonBall}/></i>抱去摸
         </Link>
       </div>
       <div className="ui right item">
@@ -52,5 +57,3 @@ class ToLam extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(ToLam, { query: {} });

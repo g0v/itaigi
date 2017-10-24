@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import FBTest from '../../FBTest/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
+import 後端 from '../../後端';
 import Debug from 'debug';
+import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 var debug = Debug('itaigi:Kong無關鍵字');
@@ -12,16 +14,21 @@ class 新詞區塊 extends React.Component {
     const loading = this.props.newWords.length === 0;
 
     return (
+      <div>
+      <h3 className='ui horizontal divider header'>
+          <i className='ui icon rocket'/>燒燙燙 台語新詞
+      </h3>
+      
       <div className='ui inverted segment 燒燙燙'>
         <div className={`ui ${loading ? 'active' : ''} dimmer`}>
           <div className='ui text loader'>小等一下</div>
         </div>
-        <span className={`header large ${loading ? 'loading' : ''}`}>燒燙燙新詞：</span>
+        <span className={`header large ${loading ? 'loading' : ''}`}></span>
         {
           this.props.newWords.map(function (su, i) {
             return (
               <Link
-                className='ui inverted button basic teal large'
+                className='ui black large button'
                 style={{ marginBottom: '0.25em' }}
                 to={'/k/' + su}
                 key={i}>
@@ -30,13 +37,13 @@ class 新詞區塊 extends React.Component {
             );
           }
         )}
-        <div>
-          <a
-            className={`${loading ? 'loading' : ''}`}
-            onClick={this.props.onShowMoreClick}>
-            {this.props.isShowMore ? '顯示少一點' : '顯示多一點'}
-          </a>
-        </div>
+        {this.props.isShowMore ? '' : (
+          <button
+            className={`${loading ? 'loading' : 'ui button  large'}`}
+            onClick={this.props.onShowMoreClick}>顯示多一點
+          </button>
+        )}
+      </div>
       </div>
     );
   }
@@ -60,7 +67,7 @@ export default class 無關鍵字 extends React.Component {
   }
 
   componentDidMount() {
-    superagent.get(encodeURI(this.props.後端網址 + '平臺項目列表/揣上新貢獻的外語'))
+    superagent.get(後端.揣上新貢獻的外語())
         .then(({ body }) => {
           const newWords = body.列表.map(item => item.外語資料);
           const newWordsLess = newWords.slice(0, 20);
@@ -79,10 +86,6 @@ export default class 無關鍵字 extends React.Component {
 
     return (
       <div className='kong content'>
-        <div className='分享'>
-          <span>大家來學台語，大家做伙來豐富台語！快分享 iTaigi 給你的朋友知道吧！</span>
-          <分享鍵 pathname={ '' }/>
-        </div>
         <新詞區塊 newWords={newWords}
          isShowMore={this.state.isShowMore}
          onShowMoreClick={this.onShowMoreClick}/>
@@ -91,7 +94,3 @@ export default class 無關鍵字 extends React.Component {
     );
   }
 }
-
-無關鍵字.propTypes = {
-  '後端網址': React.PropTypes.string,
-};

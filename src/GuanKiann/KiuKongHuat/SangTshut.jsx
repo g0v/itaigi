@@ -1,23 +1,23 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 import Modal from 'react-modal';
 
 const customStyles = {
+  overlay: {
+    zIndex: '200',
+  },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    maxWidth: '400px',
+    maxHeight: '180px',
+    margin: 'auto',
   },
 };
 
-class SangTshut extends React.Component {
+export default class SangTshut extends React.Component {
 
   render() {
     return (
         <Modal
+          contentLabel='SangTshut'
           isOpen={this.props.modalIsOpen}
           onRequestClose={this.props.closeModal.bind(this)}
           style={customStyles} >
@@ -32,5 +32,3 @@ class SangTshut extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(SangTshut, {});
