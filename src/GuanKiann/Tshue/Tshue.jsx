@@ -43,14 +43,6 @@ export default class Tshue extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.timer = setInterval(this.查怎樣講.bind(this), 2000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-  }
-
   render() {
     return (
     <div className='ui fluid action input huge container tshue'>
