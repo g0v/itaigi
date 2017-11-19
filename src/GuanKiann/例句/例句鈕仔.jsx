@@ -19,11 +19,10 @@ export default class 例句鈕仔 extends React.Component {
       <span className=''>
         <button
           onClick={來開例句.bind(this)}
-          className='ui compact icon button'>
-          <i className='icon content'></i>
+          className='ui compact icon button' title='----例句'>
+          <i className='icon comment'></i>
         </button>
       </span>
     );
   }
 }
-
