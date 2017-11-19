@@ -10,6 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+from celery.schedules import crontab
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -22,7 +25,7 @@ SECRET_KEY = 'ar307x56sv7!iodrfx3@))%lp0&^^tg0xhw-@ijr0c4ic_q&wo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,6 +77,45 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django.log'),
+            'filters': ['require_debug_false'],
+            'formatter': 'verbose'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'propagate': True,
+            'level': 'ERROR',
+        },
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
@@ -93,7 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "資料庫影音檔案")
 MEDIA_URL = '/影音檔案/'
 
 # django-cors-headers
-CORS_ORIGIN_REGEX_WHITELIST = ('^.*$', )
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 INSTALLED_APPS += (
     'corsheaders',
@@ -121,7 +163,6 @@ INSTALLED_APPS += (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
 )
-LOGIN_REDIRECT_URL='//itaigi.tw'
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
@@ -147,7 +188,6 @@ TEMPLATES = [
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
         'SCOPE': ['email', ],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'METHOD': 'js_sdk',
         'LOCALE_FUNC': lambda request: 'zh_TW',
         'VERIFIED_EMAIL': False,
@@ -156,7 +196,25 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-# django-kronos，定時掠google sheet正規化資料
-INSTALLED_APPS += (
-    'kronos',
-)
+# For better celery performance
+CELERY_IGNORE_RESULT = True
+CELERY_DISABLE_RATE_LIMITS = True
+# Only accept json for safety and upcoming celery version default setting
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERYBEAT_SCHEDULE = {
+    '半瞑自sheets掠轉資料庫': {
+        'task': '臺灣言語平臺.tasks.半瞑自sheets掠轉資料庫',
+        'schedule': crontab(hour=3, minute=30),
+        'args': ()
+    },
+}
+
+
+try:
+    from .local_settings import SECRET_KEY, DEBUG, DATABASES, LOGGING
+except ImportError:
+    SECRET_KEY, DEBUG, DATABASES, LOGGING

@@ -1,49 +1,65 @@
 import React from 'react';
-import Router from 'react-router';
-import Transmit from 'react-transmit';
+import './Tshue.css';
+import Debug from 'debug';
+var debug = Debug('itaigi:Tshue');
 
-class Tshue extends React.Component {
-
+export default class Tshue extends React.Component {
+  // Tshue should be only one cause the id.
   constructor(props) {
     super(props);
     this.state = {
-      q: this.props.q || '',
+      q: this.props.defaultValue || '',
     };
+    this.查過的詞 = new Set();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.defaultValue === this.props.defaultValue) return;
+    let { defaultValue } = nextProps;
+    if (this.查過的詞.has(defaultValue)) {
+      this.查過的詞.delete(defaultValue);
+    } else if (defaultValue === undefined) {
+      this.refs.Tshue.value = '';
+      this.setState({ q: '' });
+    } else {
+      this.refs.Tshue.value = defaultValue;
+      this.setState({ q: defaultValue });
+    }
   }
 
   handleKeyDown(evt) {
-    if (evt.keyCode === 13 || this.state.q.length >= 2) {
-      this.handleSubmit(evt);
+    if (evt.keyCode === 13) {
+      this.查怎樣講(evt);
       return;
     }
   }
 
-  handleKeyUp(evt) {
-    var q = evt.target.value;
-    this.setState({ q });
-  }
-
-  handleSubmit(evt) {
-    if (this.state.q !== '') {
-      this.props.handleSubmit(this.state.q);
+  查怎樣講(evt) {
+    let q = this.refs.Tshue.value;
+    if (q !== this.state.q) {
+      this.setState({ q });
+      this.查過的詞.add(q);
+      this.props.查怎樣講(q);
     }
   }
 
   render() {
     return (
-    <div className='search ui action input container'>
+    <div className='ui fluid action input huge container tshue'>
       <input
-    type='text'
-    placeholder='A... 那個'
-    defaultValue={this.props.defaultValue}
-    onKeyDown={this.handleKeyDown.bind(this)}
-    onKeyUp={this.handleKeyUp.bind(this)} />
-      <button className='ui teal button' onClick={this.handleSubmit.bind(this)}>
-        台語怎樣講&nbsp;&nbsp;<i className="fa fa-search fa-1x"></i>
-      </button>
+        type='text'
+        placeholder='輸入華語，點一下「台語怎麼講」'
+        defaultValue={this.props.defaultValue}
+        onKeyDown={this.handleKeyDown.bind(this)}
+        ref='Tshue'
+        size="8"
+      />
+      <div className='ui button huge teal'
+        onClick={this.查怎樣講.bind(this)}>
+        <i className='translate icon'></i>
+        台語怎麼講
+      </div>
     </div>
     );
   }
 }
-
-export default Transmit.createContainer(Tshue, { query: {} });

@@ -1,14 +1,10 @@
 import React from 'react';
-import Transmit from 'react-transmit';
-import Promise from 'bluebird';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 import ClientRecorder from './ClientRecorder';
-
 import Debug from 'debug';
 
 let debug = Debug('itaigi:LokIm');
 
-class LokIm extends React.Component {
+export default class LokIm extends React.Component {
   startUserMedia(stream) {
     console.log('startUMedia');
     var input = this.audio_context.createMediaStreamSource(stream);
@@ -38,7 +34,7 @@ class LokIm extends React.Component {
       alert('No web audio support in this browser!');
     }
 
-    navigator.getUserMedia({ audio: true }, this.startUserMedia.bind(this), function(e) {
+    navigator.getUserMedia({ audio: true }, this.startUserMedia.bind(this), function (e) {
       console.log('No live audio input: ' + e);
     });
 
@@ -68,24 +64,25 @@ class LokIm extends React.Component {
 
   renderPlay() {
     if (this.state && this.state.recording) {
-      return <button className='ui icon button' onClick={this.handlePlayClick.bind(this)}>
+      return <button className='ui icon button large' onClick={this.handlePlayClick.bind(this)}>
         <i className='play icon'/>
       </button>;
     } else
-      return <div> rien </div>;
+      return <div></div>;
   }
 
   render() {
     return (
       <div className='ui input'>
-      <button className='ui icon button' onClick={this.handleMicClick.bind(this)}><i className='ui unmute icon'/> </button>
-      <button className='ui icon button' onClick={this.handleStopClick.bind(this)}><i className='ui stop icon'/> </button>
+      <button className='ui icon button large' onClick={this.handleMicClick.bind(this)}>
+        <i className='ui unmute icon'/>
+      </button>
+      <button className='ui icon button large' onClick={this.handleStopClick.bind(this)}>
+         <i className='ui stop icon'/>
+      </button>
       <audio ref={(r) => this.audioElement = r} src='' />
       {this.renderPlay()}
       </div>
     );
   }
 }
-
-export default Transmit.createContainer(LokIm, {});
-

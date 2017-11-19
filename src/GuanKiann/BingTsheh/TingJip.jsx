@@ -1,25 +1,22 @@
 import React from 'react';
+import 後端 from '../../後端';
 
 export default class TingJip extends React.Component {
-  propTypes = {
-    後端網址: React.PropTypes.string,
-    csrftoken: React.PropTypes.string,
-  };
   init() {
-    window.fbAsyncInit = (function() {
+    window.fbAsyncInit = (function () {
       FB.init({
         appId: '590065061070994',
         xfbml: true,
         version: 'v2.5',
       });
-    })(function(d, s, id) {
+    })(function (d, s, id) {
 
       var js;
       var fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) { return; }
 
       js = d.createElement(s); js.id = id;
-      js.src = 'http://connect.facebook.net/zh_TW/sdk.js';
+      js.src = 'https://connect.facebook.net/zh_TW/sdk.js';
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   }
@@ -48,9 +45,9 @@ export default class TingJip extends React.Component {
 
   getLoginCallback(response) {
     console.log(this.props);
-    let { 後端網址, csrftoken } = this.props;
+    let { csrftoken } = this.props;
     let postForm = this.postForm;
-    return function(response) {
+    return function (response) {
       if (response.authResponse) {
         let data = {
           next: '',
@@ -60,7 +57,7 @@ export default class TingJip extends React.Component {
           csrfmiddlewaretoken: csrftoken,
         };
         console.log(postForm);
-        postForm(後端網址 + 'accounts/facebook/login/token/', data);
+        postForm(後端.登入token(), data);
       } else if (response && response.status &&
           ['not_authorized', 'unknown'].indexOf(response.status) > -1) {
         console.log('self.onLoginCanceled.call(self, response);');
@@ -83,3 +80,7 @@ export default class TingJip extends React.Component {
     );
   }
 }
+
+TingJip.propTypes = {
+    csrftoken: React.PropTypes.string,
+  };

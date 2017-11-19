@@ -2,20 +2,18 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  width: 960px;
+  max-width: 100%;
 }
 
 .app.bar .title {
   display: block;
   margin: 0;
-  width: 170px;
   height: 72px;
+  margin: auto 0;
 }
 
 .app.bar .logo {
-  position: absolute;
-  width: 170px;
-  height: 72px;
-  top: 10px;
 }
 
 .app.bar .logo img {
@@ -24,4 +22,25 @@
 
 .ui.right.item {
   padding-top: 10px
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .app.bar > .title{
+    width: 100%;
+    text-align: center;
+    margin: auto 0;
+  }
+  .app.bar > .icon.menu{
+    display: none;
+  }
+  .app.bar > .right.item{
+    width: 100%;
+    position: absolute;
+    text-align: right;
+  }
+
+  .app.bar .menu {
+    display: none;
+  }
 }

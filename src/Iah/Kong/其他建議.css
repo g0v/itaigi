@@ -1,0 +1,6 @@
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .kianGi .ui.cards {
+    justify-content: center;
+  }
+}

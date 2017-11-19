@@ -1,145 +1,115 @@
 import React from 'react';
 import Transmit from 'react-transmit';
-import { Link } from 'react-router';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
-import ABo from '../../GuanKiann/ABo/ABo';
-import GuaGi from '../../GuanKiann/GuaGi/GuaGi';
+import 錯誤 from './錯誤';
+import 無結果 from './無結果';
+import 有講法 from './有講法';
+import 無關鍵字 from './無關鍵字';
+import 後端 from '../../後端';
 import Promise from 'bluebird';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
+import './Kong.css';
+
 import Debug from 'debug';
 
 var debug = Debug('itaigi:Kong');
 
 class Kong extends React.Component {
-  static propTypes = {
-    setQueryParams: React.PropTypes.func,
-    params: React.PropTypes.object,
-    kongData: React.PropTypes.object,
-    '後端網址': React.PropTypes.string,
-    handleKong: React.PropTypes.func,
-  };
 
-  componentWillMount() { this.props.setQueryParams(this.props); }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.params === this.props.params) return;
-    this.props.setQueryParams(nextProps);
-  }
-
-  renderTshueSiann() {
+  render無關鍵字() {
     return (
-    <div className='kong content'>
-      <div className='ui segment'>
-        <h3>在查詢框輸入華語，點一下「台語怎麼講」</h3>
-      </div>
-    </div>
+      <無關鍵字 />
     );
   }
 
-  renderTshoGoo() {
+  render錯誤() {
     return (
-    <div className='kong content'>
-      <div className='ui segment'>
-        <h3>找「{this.props.kongData.關鍵字}」錯了嗎？</h3>
-        {this.props.kongData.內容}
-        <button className='ui button'>
-          求講法
-        </button>
-      </div>
-      <h3>我就是沒有人，我來講</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
-    </div>
+      <錯誤 華語關鍵字={this.props.kongData.關鍵字}
+        csrftoken={this.props.csrftoken}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        內容={this.props.kongData.內容}/>
     );
   }
 
-  renderKiatKo() {
-    console.log(this.props.kongData.結果);
-    if (this.props.kongData.結果 === 0) {
-      return (
-      <div className='tshueBo'>
-        <div className='ui segment'>
-          <h3>{this.props.kongData.關鍵字 || '找什麼？'}</h3>
-          <button className='ui button'>
-            求講法
-          </button>
-        </div>
-        <h3>我就是沒有人，我來講</h3>
-        <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
-      </div>
-      );
-    }
-
+  render無結果() {
     return (
-    <div className='kongHuat'>
-      {this.props.kongData.內容.列表.map((g) => (
-      <GuaGi id={g.外語項目編號}
-        key={g.外語項目編號} 新詞文本={g.新詞文本}
-        後端網址={this.props.後端網址}/>
-    ))}
-      <h3>啊無咧？</h3>
-      <ABo 華語關鍵字={this.props.kongData.關鍵字} 後端網址={this.props.後端網址} csrftoken={this.props.csrftoken} 編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}/>
-    </div>
+      <無結果 華語關鍵字={this.props.kongData.關鍵字}
+        csrftoken={this.props.csrftoken}
+        pathname={this.props.location.pathname}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        內容={this.props.kongData.內容}
+        開例句={this.props.開例句.bind(this)}/>
     );
   }
 
-  renderKianGi() {
+  render有講法() {
     return (
-        <div className='kianGi'>
-        {this.props.kongData.內容.其他建議.map((g) =>
-            <GuaGi id={g.外語項目編號}
-              key={g.外語項目編號} 新詞文本={g.新詞文本}
-              後端網址={this.props.後端網址}/>
-            )}
-        </div>
-        );
+      <有講法 華語關鍵字={this.props.kongData.關鍵字}
+        csrftoken={this.props.csrftoken}
+        pathname={this.props.location.pathname}
+        編號={this.props.編號} 漢字={this.props.location.query.漢字} 音標={this.props.location.query.音標}
+        內容={this.props.kongData.內容}
+        開例句={this.props.開例句.bind(this)}/>
+    );
   }
 
   render() {
-    debug('rendering %o', this.props.kongData);
     return (
     <div className='main container'>
       <nav className='navigation'>
-        <Tshue defaultValue={this.props.params.k} handleSubmit={this.props.handleKong.bind(this)} {...this.props}/>
+        <Tshue
+          defaultValue={this.props.params.k}
+          查怎樣講={this.props.查怎樣講.bind(this)}
+          {...this.props}/>
       </nav>
       <div className='kong content'>
-        {this.props.kongData.結果 >= 0 ? this.renderKiatKo()
-      : this.props.kongData.結果 === -1 ? this.renderTshoGoo()
-        : this.renderTshueSiann()}
-        {this.props.kongData.結果 >= 0 ? this.renderKianGi() : []}
+        {
+          this.props.kongData.結果 > 0 ? this.render有講法()
+          : this.props.kongData.結果 === 0 ? this.render無結果()
+          : this.props.kongData.結果 === -1 ? this.render錯誤()
+          : this.props.kongData.結果 === -2 ? this.render無關鍵字()
+          : <div></div>
+        }
       </div>
-      <aside className='right column'>
-        <div className='ui segment'>
-          <Link to='lun' params={{ k: this.props.params.k }}> 來討論
-          </Link>
-        </div>
-      </aside>
     </div>
     );
   }
 }
 
+Kong.propTypes = {
+    params: React.PropTypes.object,
+    kongData: React.PropTypes.object,
+    查怎樣講: React.PropTypes.func,
+  };
+
 export default Transmit.createContainer(Kong, {
-  queries: {
-    kongData({ params, 後端網址 }) {
-      if (params === undefined || params.k === undefined) {
+  initialVariables: {
+
+  },
+  fragments: {
+    kongData({ 關鍵字 }) {
+      if (關鍵字 === undefined) {
         return Promise.resolve({
           '結果': -2,
           '訊息': '沒有提供關鍵字',
         });
       }
 
-      return superagent.get(後端網址 + '平臺項目列表/揣列表?關鍵字=' + params.k)
+      return superagent.get(後端.揣列表(關鍵字))
         .then(({ body }) => ({
-          '關鍵字': params.k,
+          '關鍵字': 關鍵字,
           '結果': body.列表.length,
           '內容': body,
         }))
       .catch((err) => ({
-        '關鍵字': params.k,
+        '關鍵字': 關鍵字,
         '結果': -1,
         '訊息': '發生錯誤',
         '內容': err,
       }));
     },
+  },
+  shouldContainerUpdate(nextVariables) {
+    return this.variables.關鍵字 != nextVariables.關鍵字;
   },
 });

@@ -1,7 +1,6 @@
 import React from 'react';
-import Transmit from 'react-transmit';
 
-class TakKang extends React.Component {
+export default class TakKang extends React.Component {
   render() {
     return (
     <div className='takkang ui segment'>
@@ -10,5 +9,3 @@ class TakKang extends React.Component {
     );
   }
 }
-
-export default Transmit.createContainer(TakKang, { queries: {} });
