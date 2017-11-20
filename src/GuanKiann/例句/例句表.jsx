@@ -68,16 +68,16 @@ class 例句表 extends React.Component {
           <span className='ui horizontal list large'>
             {this.按呢講的外語()}
           </span>
-          
-          
+
+
           <div className="ui very relaxed divided list">
             {this.例句()}
           </div>
-          
+
             <button
               onClick={this.props.關例句.bind(this)}
               className="ui right floated button"
-              >我知影矣</button>
+              ><i className="check icon"/>我知影矣</button>
         </Modal>
     );
   }
