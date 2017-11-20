@@ -4,3 +4,8 @@
     justify-content: center;
   }
 }
+@media only screen and (min-width: 767px) {
+  .ui.su.card{
+    width: 310px;
+  }
+}
