@@ -38,11 +38,10 @@ export default class HapSing extends React.Component {
            />
         </audio>
         <button onClick={this.play.bind(this)}
-          className='ui compact icon button'>
+          className='ui compact icon button' title='發音'>
           <i className='icon play'></i>
         </button>
       </span>
     );
   }
 };
-
