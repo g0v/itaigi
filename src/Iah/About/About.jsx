@@ -19,7 +19,7 @@ class About extends React.Component {
         <div className='ui very padded vertical segment'>
         <p className='ui header large'>
           在
-          <Link to='/t'>「怎樣講」</Link>
+          <Link target='_blank' to='/t'>「怎樣講」</Link>
           查詢框中輸入想查的「華語詞」，按下「台語怎麼講」，會出現各種講法。
         </p>
         <p className='ui header large'>
@@ -45,7 +45,7 @@ class About extends React.Component {
         <div className='ui very padded vertical segment'>
         <p className='ui header large'>
           如果你查的華語詞沒有對應的台語，可以點選「求講法」，這個詞就會出現在
-          <Link to='/t'>「我很會」</Link>
+          <Link target='_blank' to='/t'>「我很會」</Link>
           區域，等待其他使用者提供講法。或者你自己立刻就可以提供講法，請直接在「我會曉，會使按呢講」底下填入。
         </p>
         </div>
