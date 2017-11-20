@@ -31,7 +31,7 @@ export default class HuatIm extends React.Component {
           + id + '.mp3'} />
       </audio>
       <button onClick={this.play.bind(this, 'audio_' + id)}
-        className='ui compact icon button' title='----發音'>
+        className='ui compact icon button' title='發音'>
         <i className='icon play'></i>
       </button>
     </span>
