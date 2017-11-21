@@ -17,13 +17,12 @@ export default class 例句鈕仔 extends React.Component {
 
     return (
       <span className=''>
-        <button
+        <a
           onClick={來開例句.bind(this)}
-          className='ui compact icon button'>
-          <i className='icon content'></i>
-        </button>
+          title='例句'>
+          <i className='icon list'></i>
+        </a>
       </span>
     );
   }
 }
-

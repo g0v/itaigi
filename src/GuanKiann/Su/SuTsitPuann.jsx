@@ -17,9 +17,9 @@ export default class SuTsitPuann extends React.Component {
     <div className='su ui card'>
       <div className='content'>
         <div className='left floated'>
-          <h2 className='ui header'>
+          <div className='ui header'>
           {文本資料}
-          </h2>
+          </div>
         </div>
         <HuatIm 音標={音標資料} />
         <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
@@ -32,4 +32,3 @@ export default class SuTsitPuann extends React.Component {
     );
   }
 }
-

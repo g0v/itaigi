@@ -51,7 +51,7 @@ export default class FBTest extends React.Component {
       <div className='ui middle aligned stackable grid container'>
         <div className='row'>
           <div className='eight wide column'>
-            <h1 className='ui header'>快分享 iTaigi 給你的朋友知道吧！</h1>
+            <div className='ui header'>快分享 iTaigi 給你的朋友知道吧！</div>
             <分享鍵 size='large' pathname={ '' }/>
           </div>
 

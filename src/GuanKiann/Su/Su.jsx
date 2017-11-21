@@ -67,39 +67,14 @@ class Su extends React.Component {
     <div className='su ui card'>
       <div className='content'>
         <div className='left floated'>
-          <h2 className='ui header'>
-          {suText}
-          </h2>
+          <div className='ui header'>
+          {suText} <例句鈕仔 來開例句={this.props.來開例句.bind(this)}/>
+
+          </div>
         </div>
-        <HuatIm 音標={suIm} />
-        <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
-          {suIm}
-          <LaiLik 貢獻者={貢獻者} />
-          華語：
-          <span className='ui horizontal list large'>
-            {按呢講的外語}
-          </span>
-        </div>
-        <br/>
-        <div className='ui compact menu large'>
-          <a className={
-            'item'
-            + (this.state.voted ? ' disabled' : '')}
-            onClick={this.投票.bind(this, '按呢講好')}>
-            <i className='icon heart'></i>
-            按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || suData.按呢講好}</span>
-          </a>
-          <a className={
-            'item'
-            + (this.state.voted ? ' disabled' : '')}
-            onClick={this.投票.bind(this, '按呢無好')}>
-            <i className='icon help circle'></i>
-            按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
-          </a>
-        </div>
-        <div className='report'>
-          <a onClick={
+          {suIm} <HuatIm 音標={suIm} />
+          <a title='這條沒聲音' onClick={
             () => {
               let appVersion = navigator.appVersion;
               let d = new Date();
@@ -107,8 +82,31 @@ class Su extends React.Component {
               console.log('這條沒聲音\n' + '時間：' + n + '\n' + 'appVersion: ' + appVersion);
             }
           }>
-            🙋 這條沒聲音
+            🙉
           </a>
+        </div>
+        <div className='subtext'>
+          <LaiLik 貢獻者={貢獻者} />
+          華語：{按呢講的外語}
+        </div>
+      <div className='right floated'>
+        <div className='actions'>
+          <a className={
+            'item'
+            + (this.state.voted ? ' disabled' : '')}
+            onClick={this.投票.bind(this, '按呢講好')}>
+            <i className='icon check'></i>
+            按呢講好 {this.state.按呢講好 || suData.按呢講好}
+          </a>
+          <a className={
+            'item'
+            + (this.state.voted ? ' disabled' : '')}
+            onClick={this.投票.bind(this, '按呢無好')}>
+            <i className='icon close'></i>
+            按呢怪怪 {this.state.按呢無好 || suData.按呢無好}
+          </a>
+
+        </div>
         </div>
       </div>
     </div>

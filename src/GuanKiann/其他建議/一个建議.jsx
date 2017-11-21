@@ -19,18 +19,20 @@ class 一个建議 extends React.Component {
     <div className='ui su card'>
       <div className='content'>
         <div className='left floated'>
-          <h2 className='ui header'>
-          {文本資料}
-          </h2>
+          <div className='ui header'>
+          {文本資料} <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
+          </div>
         </div>
-        <HuatIm 音標={音標資料} />
-        <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
-          {音標資料}<br/>
+          {音標資料} <HuatIm 音標={音標資料} />
+        </div>
+        <div className='subtext'>
+          <div>
           華語：
-          <span className='ui horizontal list large'>
+          <div className='ui horizontal list'>
             {按呢講的外語}
-          </span>
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -70,10 +70,45 @@ body {
   src: url(https://www.moedict.tw/fonts/FiraSansOT-Regular.woff);
 }
 
-h2.ui.header{
-	font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
+.ui.header{
+  font-size: 24px;
+  font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
+  padding-top: 1em;
+  padding-right: 0.66em;
+  padding-left: 0.66em;
 }
 
 div.description{
-  font-family: "FiraSansOT-Regular", sans-serif;  
+  font-family: "FiraSansOT-Regular", sans-serif;
+  padding-top: 0.5em;
+  padding-right: 0.66em;
+  padding-left: 0.66em;
+}
+
+div.subtext{
+  font-size: 14px;
+  font-family: "FiraSansOT-Regular", sans-serif;
+  padding-top: 0.66em;
+  padding-bottom: 0.66em;
+  padding-right: 0.66em;
+  padding-left: 0.66em;
+}
+div.actions{
+  font-size: 16px;
+  font-family: "FiraSansOT-Regular", sans-serif;
+  padding-top: 0.33em;
+  padding-bottom: 0.33em;
+  padding-right: 0.33em;
+  padding-left: 0.33em;
+}
+div.actions a{
+  margin: .33em;
+}
+
+.disabled{
+  color: #999999;
+}
+
+a {
+  color: #333333;
 }
