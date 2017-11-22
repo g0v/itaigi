@@ -1,6 +1,5 @@
 import React from 'react';
 import './KuahPau.css';
-import Tshue from '../../GuanKiann/Tshue/Tshue';
 
 class KuahPau extends React.Component {
 
