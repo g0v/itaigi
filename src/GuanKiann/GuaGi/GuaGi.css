@@ -1,12 +1,13 @@
 /* Mobile */
-@media only screen and (max-width: 767px) {
-  .guaGi .ui.cards {
+@media only screen and (max-width: 727px) {
+  .ui.su.card{
     justify-content: center;
   }
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 627px) {
   .ui.su.card{
-    width: 310px;
+    justify-content: center;
+    width: 304px;
   }
 }

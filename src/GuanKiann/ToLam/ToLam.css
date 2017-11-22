@@ -25,7 +25,7 @@
 }
 
 /* Mobile */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 727px) {
   .app.bar > .title{
     width: 100%;
     text-align: center;

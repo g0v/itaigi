@@ -18,9 +18,10 @@ class 一个建議 extends React.Component {
     return (
     <div className='ui su card'>
       <div className='content'>
-        <div className='left floated'>
-          <div className='ui header'>
-          {文本資料} <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
+        <div className='ui header'>
+          {文本資料}
+          <div className='right floated'>
+            <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
           </div>
         </div>
         <div className='description'>

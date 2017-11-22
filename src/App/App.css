@@ -46,7 +46,7 @@ body {
 }
 
 /* Mobile */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 727px) {
   .app .main.container {
     width: auto !important;
     margin-left: 1em !important;
@@ -71,16 +71,15 @@ body {
 }
 
 .ui.header{
-  font-size: 24px;
+  font-size: 28px !important;
   font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
-  padding-top: 1em;
-  padding-right: 0.66em;
-  padding-left: 0.66em;
+  padding-top: 0.5em;
+  padding-left: 0.33em;
 }
 
 div.description{
   font-family: "FiraSansOT-Regular", sans-serif;
-  padding-top: 0.5em;
+  font-size: 17.5px;
   padding-right: 0.66em;
   padding-left: 0.66em;
 }
@@ -88,27 +87,25 @@ div.description{
 div.subtext{
   font-size: 14px;
   font-family: "FiraSansOT-Regular", sans-serif;
-  padding-top: 0.66em;
-  padding-bottom: 0.66em;
+  padding-top: 1em;
+  padding-bottom: 3em;
   padding-right: 0.66em;
   padding-left: 0.66em;
 }
+
 div.actions{
-  font-size: 16px;
-  font-family: "FiraSansOT-Regular", sans-serif;
-  padding-top: 0.33em;
-  padding-bottom: 0.33em;
-  padding-right: 0.33em;
-  padding-left: 0.33em;
-}
-div.actions a{
-  margin: .33em;
+  position: absolute;
+  margin: 0.33em;
+  right: 1.33em;
+  bottom: 1.33em;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .disabled{
   color: #999999;
 }
 
-a {
-  color: #333333;
+.content{
+  position: relative;
 }
