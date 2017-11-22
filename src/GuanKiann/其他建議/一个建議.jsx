@@ -20,12 +20,9 @@ class 一个建議 extends React.Component {
       <div className='content'>
         <div className='ui header'>
           {文本資料}
-          <div className='right floated'>
-            <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
-          </div>
         </div>
         <div className='description'>
-          {音標資料} <HuatIm 音標={音標資料} />
+          {音標資料}
         </div>
         <div className='subtext'>
           <div>
@@ -34,6 +31,11 @@ class 一个建議 extends React.Component {
             {按呢講的外語}
           </div>
           </div>
+        </div>
+      </div>
+      <div className='right floated'>
+        <div className='actions'>
+           <HuatIm 音標={音標資料} /> <例句鈕仔 來開例句={this.props.來開例句.bind(this)}/>
         </div>
       </div>
     </div>

@@ -64,9 +64,9 @@ export default class LokIm extends React.Component {
 
   renderPlay() {
     if (this.state && this.state.recording) {
-      return <button className='ui icon button large' onClick={this.handlePlayClick.bind(this)}>
-        <i className='play icon'/>
-      </button>;
+      return <div className='ui icon button large' onClick={this.handlePlayClick.bind(this)}>
+        <i className='icon play'/>
+      </div>;
     } else
       return <div></div>;
   }

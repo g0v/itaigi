@@ -56,7 +56,7 @@ class 例句表 extends React.Component {
           onRequestClose={this.props.關例句.bind(this)}
           style={customStyles}
           >
-          <h2 ref="subtitle">{漢字} {台羅}<HuatIm 音標={台羅}/></h2>
+          <span className='ui header' ref="subtitle">{漢字} {台羅}</span>  <HuatIm 音標={台羅}/>
 
           <div>
             <span className="分享">

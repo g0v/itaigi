@@ -69,13 +69,13 @@ class Su extends React.Component {
           {suText}
         </div>
         <div className='description'>
-          {suIm} <HuatIm 音標={suIm}/>
+          {suIm}
           <a title='這條沒聲音' onClick={() => {
               let appVersion = navigator.appVersion;
               let d = new Date();
               let n = d.toISOString();
               console.log('這條沒聲音\n' + '時間：' + n + '\n' + 'appVersion: ' + appVersion);
-            }}>🙉
+            }}> 🙉
           </a>
         </div>
         <div className='subtext'>
@@ -85,6 +85,7 @@ class Su extends React.Component {
       </div>       
         <div className='right floated'>
           <div className='actions'>
+             <HuatIm 音標={suIm}/>
             <例句鈕仔 來開例句={this.props.來開例句.bind(this)}/>
           <div title='按呢講好' tabindex="0" className={'ui labeled button item' + (
                 this.state.voted

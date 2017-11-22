@@ -30,10 +30,10 @@ export default class HuatIm extends React.Component {
           src={'https://1763c5ee9859e0316ed6-db85b55a6a3fbe33f09b9245992383bd.ssl.cf1.rackcdn.com/'
           + id + '.mp3'} />
       </audio>
-      <a onClick={this.play.bind(this, 'audio_' + id)}
+      <div className='ui icon button' onClick={this.play.bind(this, 'audio_' + id)}
         title='發音'>
         <i className='icon play'></i>
-      </a>
+      </div>
     </span>
     );
   }
