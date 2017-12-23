@@ -3,8 +3,6 @@ import './KuahPau.css';
 
 class KuahPau extends React.Component {
 
-
-
   componentDidmount() {
     $('.ui.sidebar').sidebar('hide');
     $('.ui.sidebar').sidebar('setting', 'onHide', () => {
