@@ -15,10 +15,11 @@ class 新詞區塊 extends React.Component {
 
     return (
       <div>
+      <p></p>
       <h3 className='ui horizontal divider header'>
           <i className='ui icon rocket'/>燒燙燙 台語新詞
       </h3>
-      
+
       <div className='ui inverted segment 燒燙燙'>
         <div className={`ui ${loading ? 'active' : ''} dimmer`}>
           <div className='ui text loader'>小等一下</div>
