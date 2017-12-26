@@ -48,7 +48,7 @@ export default class Tshue extends React.Component {
     <div className='ui fluid action input huge container tshue'>
       <input
         type='text'
-        placeholder='輸入華語，點一下「台語怎麼講」'
+        placeholder='輸入華語，按下「講台語」'
         defaultValue={this.props.defaultValue}
         onKeyDown={this.handleKeyDown.bind(this)}
         ref='Tshue'
