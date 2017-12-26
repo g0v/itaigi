@@ -56,7 +56,7 @@ class Kong extends React.Component {
   render() {
     return (
     <div className='main container'>
-      <nav className='navigation'>
+      <nav className='navigation fixbar'>
         <Tshue
           defaultValue={this.props.params.k}
           查怎樣講={this.props.查怎樣講.bind(this)}

@@ -57,7 +57,7 @@ export default class Tshue extends React.Component {
       <div className='ui button huge teal'
         onClick={this.查怎樣講.bind(this)}>
         <i className='translate icon'></i>
-        台語怎麼講
+        講台語
       </div>
     </div>
     );

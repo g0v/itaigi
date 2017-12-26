@@ -56,7 +56,16 @@ body {
   .app.footer > .menu.container {
     background: #1b1c1d;
     padding-left: 0;
+    padding-bottom: 4em;
     overflow: hidden;
+  }
+
+  .fixbar {
+      width: 104%;
+      position: fixed;
+      bottom: -0.80em;
+      z-index: 999;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.57);
   }
 }
 
@@ -71,9 +80,9 @@ body {
 }
 
 h2.ui.header{
-	font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
+  font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
 }
 
 div.description{
-  font-family: "FiraSansOT-Regular", sans-serif;  
+  font-family: "FiraSansOT-Regular", sans-serif;
 }
