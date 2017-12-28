@@ -1,7 +1,6 @@
 import React from 'react';
 import Debug from 'debug';
 import { browserHistory } from 'react-router';
-import './複製連結鍵.css';
 
 var debug = Debug('itaigi:複製連結鍵');
 
