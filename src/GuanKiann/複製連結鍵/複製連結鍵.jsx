@@ -1,4 +1,5 @@
 import React from 'react';
+import './複製連結鍵.css';
 
 export default class 複製連結鍵 extends React.Component {
   constructor(props) {
@@ -22,10 +23,10 @@ export default class 複製連結鍵 extends React.Component {
 
   render() {
     return (
-      <span className=''>
+      <span>
         <button
           onClick={this.handleClick.bind(this)}
-          className='' title='複製連結' style={{position:'absolute', left: 100, height: 21, width: 68.66}} >
+          className='複製連結' title='複製連結' >
           <i className='icon linkify'></i>
         </button>
         { this.state.isCopying &&
