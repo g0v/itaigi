@@ -1,28 +1,6 @@
 import React from 'react';
-import Debug from 'debug';
-import { browserHistory } from 'react-router';
-
-var debug = Debug('itaigi:複製連結鍵');
 
 export default class 複製連結鍵 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  getCurrentLocation() {
-    let routerPathname = browserHistory.getCurrentLocation().pathname;
-    let { pathname } = this.props;
-
-    pathname = pathname || routerPathname || '';
-
-    if (pathname[0] === '/') {
-      pathname = pathname.substr(1);
-    }
-
-    pathname = encodeURIComponent(decodeURIComponent(pathname));
-
-    return pathname;
-  }
 
   handleClick() {
     var textField = document.createElement('textarea');
@@ -35,20 +13,8 @@ export default class 複製連結鍵 extends React.Component {
   }
 
   render() {
-    let { size } = this.props;
-    let pathname = this.getCurrentLocation();
-
-    let width = 92;
-    let height = 20;
-    if (size == 'large') {
-      width = 110;
-      height = 28;
-    } else {
-      size = 'small';
-    }
-
     return (
-      <i onClick={this.handleClick} className='external icon'></i>
+      <button onClick={this.handleClick} className='ui compact icon button' title='複製連結'><i className='linkify icon'></i></button>
     );
   }
 }
