@@ -10,7 +10,7 @@ export default class 複製連結鍵 extends React.Component {
   handleClick() {
     this.setState({ isCopying: true });
 
-    var textField = document.createElement('textarea');
+    let textField = document.createElement('textarea');
     textField.innerText = decodeURIComponent(window.location.href);
     document.body.appendChild(textField);
     textField.select();
