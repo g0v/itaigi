@@ -15,7 +15,6 @@ export default class 複製連結鍵 extends React.Component {
     textField.select();
     document.execCommand('copy');
     textField.remove();
-    // alert('連結已複製，趕緊轉貼分享吧！');
     let clock = setTimeout(()=> {
         this.setState({ isCopying: false });
       }, 1000);
@@ -26,7 +25,7 @@ export default class 複製連結鍵 extends React.Component {
       <span className=''>
         <button
           onClick={this.handleClick.bind(this)}
-          className='ui compact icon button' title='複製連結'>
+          className='' title='複製連結' style={{position:'absolute', left: 100, height: 22}} >
           <i className='icon linkify'></i>
         </button>
         { this.state.isCopying &&
