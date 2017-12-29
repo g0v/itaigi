@@ -14,11 +14,10 @@ export default class 複製連結鍵 extends React.Component {
 
   render() {
     return (
-      <span>
+      <span className=''>
         <button
-					onClick={this.handleClick}
-					className='ui compact icon button'
-					title='複製連結'>
+          onClick={this.handleClick}
+          className='ui compact icon button' title='複製連結'>
           <i className='icon linkify'></i>
         </button>
       </span>
