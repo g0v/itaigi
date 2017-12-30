@@ -10,6 +10,7 @@ import TuiIngHuaGi from '../Su/TuiIngHuaGi';
 import 顯示例句一句 from './顯示例句一句';
 import 無例句 from './無例句';
 import 分享鍵 from '../分享鍵/分享鍵';
+import 複製連結鍵 from '../複製連結鍵/複製連結鍵';
 
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -57,13 +58,12 @@ class 例句表 extends React.Component {
           style={customStyles}
           >
           <h2 ref="subtitle">{漢字} {台羅}<HuatIm 音標={台羅}/></h2>
-
           <div>
             <span className="分享">
               <分享鍵/>
+              <複製連結鍵/>
             </span>
           </div>
-
           華語：
           <span className='ui horizontal list large'>
             {this.按呢講的外語()}

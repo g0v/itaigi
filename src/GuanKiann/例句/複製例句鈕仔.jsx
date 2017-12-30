@@ -9,7 +9,7 @@ class 複製例句鈕仔 extends Component {
   複製例句() {
     let { 漢字, 臺羅, 華語 } = this.props;
     this.setState({ isCopying: true });
-    var textField = document.createElement('textarea');
+    let textField = document.createElement('textarea');
     textField.innerText = `${漢字}
 ${臺羅}
 ${華語}`;
