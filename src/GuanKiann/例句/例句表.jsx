@@ -78,6 +78,7 @@ class 例句表 extends React.Component {
               onClick={this.props.關例句.bind(this)}
               className="ui right floated button"
               ><i className="check icon"/>我知影矣</button>
+          <div className="fb-comments" data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
         </Modal>
     );
   }

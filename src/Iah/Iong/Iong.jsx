@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { list } from './config';
-import Disqus from '../../Disqus/Disqus';
 import './Iong.css';
 
 export default class Iong extends React.Component {
@@ -30,7 +29,7 @@ export default class Iong extends React.Component {
             )
         }
         </div>
-        <Disqus pathname='/iong' />
+        <div className="fb-comments" data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
       </div>
     </div>
     );
