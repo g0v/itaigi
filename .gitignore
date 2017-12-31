@@ -1,6 +1,7 @@
 build/
 node_modules
 server-side/*.json
+server-side/whitenoise_static
 *.log
 
 *.pyc
@@ -9,3 +10,4 @@ db.sqlite3
 
 .project
 .pydevproject
+.settings
