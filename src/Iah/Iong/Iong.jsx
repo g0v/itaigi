@@ -29,7 +29,8 @@ export default class Iong extends React.Component {
             )
         }
         </div>
-        <div className="fb-comments" data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
+        <div className="fb-comments"
+          data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
       </div>
     </div>
     );

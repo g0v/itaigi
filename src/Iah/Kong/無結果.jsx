@@ -52,7 +52,8 @@ export default class 無結果 extends React.Component {
           來討論
           「<span className='ui pink header'>{this.props.華語關鍵字}</span>」
         </h3>
-        <div className="fb-comments" data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
+        <div className="fb-comments"
+          data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
       </div>
     );
   }

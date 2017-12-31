@@ -23,7 +23,8 @@ export default class 顯示一個問題 extends React.Component {
               編號={this.props.編號} 漢字={this.props.漢字} 音標={this.props.音標}
             />
           </div>
-          <div className="fb-comments" data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
+          <div className="fb-comments"
+            data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
         </div>
       </div>
     );
