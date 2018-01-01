@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^影音檔案/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
     }),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^he7thong2/', include(admin.site.urls)),
 ]
