@@ -40,6 +40,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,7 +68,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hant'
 
 TIME_ZONE = 'Asia/Taipei'
 
@@ -218,3 +219,6 @@ try:
     from .local_settings import SECRET_KEY, DEBUG, DATABASES, LOGGING
 except ImportError:
     SECRET_KEY, DEBUG, DATABASES, LOGGING
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static') 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
