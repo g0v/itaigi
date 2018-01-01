@@ -13,7 +13,6 @@ import 分享鍵 from '../分享鍵/分享鍵';
 import 複製連結鍵 from '../複製連結鍵/複製連結鍵';
 import 留言板 from '../../GuanKiann/留言板/留言板';
 
-
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 var debug = Debug('itaigi:例句表');
