@@ -11,6 +11,8 @@ import 顯示例句一句 from './顯示例句一句';
 import 無例句 from './無例句';
 import 分享鍵 from '../分享鍵/分享鍵';
 import 複製連結鍵 from '../複製連結鍵/複製連結鍵';
+import 留言板 from '../../GuanKiann/留言板/留言板';
+
 
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
@@ -78,8 +80,7 @@ class 例句表 extends React.Component {
               onClick={this.props.關例句.bind(this)}
               className="ui right floated button"
               ><i className="check icon"/>我知影矣</button>
-          <div className="fb-comments"
-            data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
+            <留言板 />
         </Modal>
     );
   }
