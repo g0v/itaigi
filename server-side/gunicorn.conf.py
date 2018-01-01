@@ -8,3 +8,4 @@ timeout = 90
 graceful_timeout = 10
 max_requests = 10000
 daemon = False
+loglevel='debug'
