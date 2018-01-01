@@ -2,7 +2,6 @@ import React from 'react';
 import Tshue from '../../GuanKiann/Tshue/Tshue';
 import ABo from '../../GuanKiann/ABo/ABo';
 import KiuKongHuat from '../../GuanKiann/KiuKongHuat/KiuKongHuat';
-import Disqus from '../../Disqus/Disqus';
 import 其他建議 from './其他建議';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import Debug from 'debug';
@@ -53,7 +52,8 @@ export default class 無結果 extends React.Component {
           來討論
           「<span className='ui pink header'>{this.props.華語關鍵字}</span>」
         </h3>
-        <Disqus pathname={this.props.pathname}/>
+        <div className="fb-comments"
+          data-order-by="reverse_time" data-numposts="5" data-width='100%'></div>
       </div>
     );
   }
