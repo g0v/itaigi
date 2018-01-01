@@ -26,7 +26,9 @@
     "url": "https://github.com/g0v/itaigi/issues"
   },
   "homepage": "https://github.com/g0v/itaigi",
-  "dependencies": {},
+  "dependencies": {
+    "react-facebook": "^4.2.1"
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-jscs": "^2.0.5",

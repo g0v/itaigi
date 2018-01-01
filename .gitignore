@@ -10,4 +10,6 @@ db.sqlite3
 
 .project
 .pydevproject
+
+package-lock.json
 .settings
