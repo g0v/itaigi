@@ -68,21 +68,8 @@ body {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.57);
   }
 }
+@import url(//tauhu.tw/tauhu-oo.css);
 
-@font-face {
-  font-family: "MOEDICT";
-  src: url(https://www.moedict.tw/MOEDICT.woff);
-}
-
-@font-face {
-  font-family: "FiraSansOT-Regular";
-  src: url(https://www.moedict.tw/fonts/FiraSansOT-Regular.woff);
-}
-
-h2.ui.header{
-  font-family: "MOEDICT", "FiraSansOT-Regular", sans-serif;
-}
-
-div.description{
-  font-family: "FiraSansOT-Regular", sans-serif;
+div.description, h2.ui.header{
+  font-family: tauhu-oo, sans-serif;
 }
