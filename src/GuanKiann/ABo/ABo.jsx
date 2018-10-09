@@ -137,7 +137,9 @@ export default class ABo extends React.Component {
                 </div>
             </div>
             <div className='field'>
-              <label>送出時，亦表示您同意內容以 <a href="http://creativecommons.tw/cc0" target='blank'>CC0</a> ｢不保留權利｣授權 </label>
+              <label>送出時，亦表示您同意內容以
+                <a href="http://creativecommons.tw/cc0" target='blank'>CC0</a>
+                 ｢不保留權利｣授權 </label>
             </div>
           {this.props.編號 == '無登入' ? this.render無登入鈕仔()
             : this.render有登入鈕仔() }
