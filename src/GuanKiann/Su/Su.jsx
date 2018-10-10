@@ -62,7 +62,7 @@ class Su extends React.Component {
       return <div className='su item'></div>;
     }
 
-    let suImText = (suText === suIm)? "": suIm;
+    let suImText = (suText === suIm) ? '' : suIm;
 
     let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (

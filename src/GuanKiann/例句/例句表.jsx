@@ -50,7 +50,7 @@ class 例句表 extends React.Component {
     };
     let { 漢字, 台羅 } = this.props;
     const 看例句 = !!(漢字 && 台羅);
-    const 台羅文字 = (漢字 === 台羅)? "": 台羅
+    const 台羅文字 = (漢字 === 台羅) ? '' : 台羅;
 
     return (
         <Modal
