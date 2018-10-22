@@ -19,12 +19,16 @@ let list = [
         link: 'http://minhakka.ling.sinica.edu.tw/taijittian/',
       },
       {
-        title: '廈門音新字典(甘字典)',
+        title: '廈門音新字典（甘字典）',
         link: 'http://taigi.fhl.net/dick/',
       },
       {
         title: '廈英大辭典',
         link: 'http://minhakka.ling.sinica.edu.tw/bkg/chong-su-tian.php?gi_gian=hoa',
+      },
+      {
+        title: 'ChhoeTaigi 找台語',
+        link: 'https://chhoe.taigi.info',
       },
     ],
   },
