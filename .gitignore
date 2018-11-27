@@ -13,3 +13,4 @@ db.sqlite3
 
 package-lock.json
 .settings
+*.sql.gz
