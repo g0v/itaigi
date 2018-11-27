@@ -15,7 +15,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: itaigi
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
   celery_beat:
     build: server-side/
     command: celery -A itaigi beat -l info
@@ -30,3 +32,9 @@ services:
       RABBITMQ_DEFAULT_USER: itaigi
       RABBITMQ_DEFAULT_PASS: itaigi
       RABBITMQ_DEFAULT_VHOST: itaigi
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq
+volumes:
+  pgsql_data:
+  rabbit_data:
+ 
