@@ -8,9 +8,10 @@ from django.conf import settings
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'itaigi.settings')
 
-mia, bitbe, tsuki = ('itaigi',) * 3
-rabbitmq = 'amqp://{}:{}@{}:5672/hok8_bu7'.format(
-    mia, bitbe, tsuki
+mia, bitbe, vhost = ('itaigi',) * 3
+tsuki = 'rabbitmq'
+rabbitmq = 'amqp://{}:{}@{}:5672/{}'.format(
+    mia, bitbe, tsuki, vhost
 )
 
 app = Celery('itaigi', backend='amqp', broker=rabbitmq)

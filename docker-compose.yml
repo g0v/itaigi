@@ -3,7 +3,6 @@ version: '3.5'
 services:
   gunicorn:
     build: server-side/
-    command: gunicorn itaigi.wsgi:application -c gunicorn.conf.py
     ports:
       - "8001:8001"
     expose:

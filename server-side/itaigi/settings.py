@@ -223,5 +223,5 @@ try:
 except ImportError:
     SECRET_KEY, DEBUG, DATABASES, LOGGING
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static') 
+STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
