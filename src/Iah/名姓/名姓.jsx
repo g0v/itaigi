@@ -4,6 +4,7 @@ import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 import 後端 from '../../後端';
 import './名姓.css';
+import { browserHistory } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
@@ -14,18 +15,19 @@ class 名姓 extends React.Component {
       return (
       <div className='mia main ui text container'>
         <form onSubmit={this.tsha.bind(this)}>
-          <label for="senn">姓</label> 
-          <input type="text" name="senn" value="馬"/><br/>
-          <label for="mia">名</label>
-          <input type="text" name="mia" value="英文"/><br/>
+          <label htmlFor="senn" >姓</label> 
+          <input type="text" name="senn" defaultValue={this.props.params.senn} ref={ input => this.senn = input }/><br/>
+          <label htmlFor="mia">名</label>
+          <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
       </div>
       );
   }
   tsha(event) {
-    debug(event);
     event.preventDefault();
+    browserHistory.replace('/name/' + this.senn.value + '/' +  this.mia.value);
+    debug(this.senn.value + '/' + this.mia.value);
   }
 }
 
