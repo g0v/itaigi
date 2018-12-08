@@ -8,9 +8,21 @@ import { browserHistory } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
+import { runInThisContext } from 'vm';
 var debug = Debug('itaigi:名姓');
 
 class 名姓 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  componentWillMount(){
+    if(this.props.params.senn!=""||this.props.params.mia!=""){
+      superagent.get('https://miasenn.xn--v0qr21b.xn--kpry57d/%E6%9D%8E/%E5%B0%8D/')
+      .then(({ body }) => this.setState(body))
+      .catch((err) => debug("error"));
+    }
+  }
   render() {
       return (
       <div className='mia main ui text container'>
@@ -21,6 +33,8 @@ class 名姓 extends React.Component {
           <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
+        {this.state.Mia}
+  
       </div>
       );
   }
