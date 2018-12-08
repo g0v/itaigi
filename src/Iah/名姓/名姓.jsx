@@ -6,6 +6,7 @@ import 後端 from '../../後端';
 import './名姓.css';
 import { browserHistory } from 'react-router';
 var superagent = require('superagent-promise')(require('superagent'), Promise);
+import HapSing from '../../GuanKiann/HuatIm/HapSing';
 
 import Debug from 'debug';
 import { runInThisContext } from 'vm';
@@ -35,12 +36,13 @@ class 名姓 extends React.Component {
           <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
-       <form className="lomaji">
+       <div className="lomaji">
        {this.state.Senn} {this.state.Mia}<br/>
-       {this.props.params.senn}　{this.props.params.mia}
-       </form>
+       {this.props.params.senn}　{this.props.params.mia} <HapSing 音標={this.state.Senn +' '+ this.state.Mia}/>
+       </div>
       </div>
       );
+      debug(this.state.Senn +' '+ this.state.Mia);
   }
   tsha(event) {
     event.preventDefault();
