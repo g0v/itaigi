@@ -27,7 +27,7 @@ export default class ToLam extends React.Component {
           <i className="sound icon"></i>怎樣講
         </Link> 
        <Link className={menu_item_class('/name')} to='/name'>
-          <i className="question icon"></i>名姓按怎講
+          <i className="question icon"></i>你的名字
         </Link>
         <Link className={menu_item_class('/t')} to='/t'>
           <i className="unmute icon"></i>我很會
