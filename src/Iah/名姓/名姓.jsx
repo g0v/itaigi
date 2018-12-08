@@ -13,7 +13,13 @@ class 名姓 extends React.Component {
   render() {
     return (
     <div className='mia main ui text container'>
-      XD
+      <form>
+        <label for="senn">姓</label> 
+        <input type="text" name="senn" value="馬"/><br/>
+        <label for="mia">名</label>
+        <input type="text" name="mia" value="英文"/><br/>
+        <input type="submit" value="送出"/>
+      </form>
     </div>
     );
   }
