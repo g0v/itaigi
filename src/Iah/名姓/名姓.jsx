@@ -15,46 +15,51 @@ var debug = Debug('itaigi:名姓');
 class 名姓 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {Mia:"",Senn:""};
+    this.state = { Mia: '', Senn: '' };
   }
-  componentWillMount(){
-   this.liah(this.props.params.senn,this.props.params.mia);
+
+  componentWillMount() {
+    this.liah(this.props.params.senn, this.props.params.mia);
   }
-  componentWillReceiveProps(nextProps){
-   this.liah(nextProps.params.senn,nextProps.params.mia);
+
+  componentWillReceiveProps(nextProps) {
+    this.liah(nextProps.params.senn, nextProps.params.mia);
   }
- //shouldComponentUpdate(,nextState){
-  //return this.props.params.senn===this.props.params.senn && this.props.params.mia===this.props.params.mia
-// }
+
   render() {
-      return (
-      <div className='mia main ui text container'>
+    return (
+    <div className='mia main ui text container'>
         <form onSubmit={this.tsha.bind(this)}>
           <label htmlFor="senn" >姓</label> 
-          <input type="text" name="senn" defaultValue={this.props.params.senn} ref={ input => this.senn = input }/><br/>
+          <input type="text" name="senn"
+          defaultValue={this.props.params.senn} ref={ input => this.senn = input }/><br/>
           <label htmlFor="mia">名</label>
-          <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
+          <input type="text" name="mia"
+          defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
        <div className="lomaji">
+       <HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/><br/>
        {this.state.Senn} {this.state.Mia}<br/>
-       {this.props.params.senn}　{this.props.params.mia} <HapSing 音標={this.state.Senn +' '+ this.state.Mia}/>
+       {this.props.params.senn}　{this.props.params.mia}
        </div>
       </div>
-      );
-      debug(this.state.Senn +' '+ this.state.Mia);
+    );
+    debug(this.state.Senn + ' ' + this.state.Mia);
   }
+
   tsha(event) {
     event.preventDefault();
     browserHistory.replace('/name/' + this.senn.value + '/' +  this.mia.value);
     debug(this.senn.value + '/' + this.mia.value);
   }
-  liah(senn,mia){
-    if(senn!=undefined&&mia!=undefined){
-      debug(senn,mia);
-      superagent.get(後端.名姓(senn,mia))
+
+  liah(senn, mia) {
+    if (senn != undefined && mia != undefined) {
+      debug(senn, mia);
+      superagent.get(後端.名姓(senn, mia))
       .then(({ body }) => this.setState(body))
-      .catch((err) => debug("error"));
+      .catch((err) => debug('error'));
     }
   }
 }

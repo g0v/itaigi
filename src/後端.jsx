@@ -59,7 +59,7 @@ export default class 後端  {
     return encodeURI(this.網址() + 'accounts/facebook/login/token/');
   }
 
-  static 名姓(姓,名) {
-    return encodeURI( 'https://miasenn.xn--v0qr21b.xn--kpry57d/' +  姓 +  '/' + 名 + '/');
+  static 名姓(姓, 名) {
+    return encodeURI('https://miasenn.xn--v0qr21b.xn--kpry57d/' +  姓 +  '/' + 名 + '/');
   }
 }
