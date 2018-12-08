@@ -18,7 +18,7 @@ class 名姓 extends React.Component {
   }
   componentWillMount(){
     if(this.props.params.senn!=""||this.props.params.mia!=""){
-      superagent.get('https://miasenn.xn--v0qr21b.xn--kpry57d/%E6%9D%8E/%E5%B0%8D/')
+      superagent.get(後端.名姓(this.props.params.senn,this.props.params.mia))
       .then(({ body }) => this.setState(body))
       .catch((err) => debug("error"));
     }
@@ -33,8 +33,7 @@ class 名姓 extends React.Component {
           <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
-        {this.state.Mia}
-  
+       {this.state.Senn} {this.state.Mia}
       </div>
       );
   }
