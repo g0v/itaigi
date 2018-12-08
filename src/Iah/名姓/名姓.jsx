@@ -35,7 +35,10 @@ class 名姓 extends React.Component {
           <input type="text" name="mia" defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
-       {this.state.Senn} {this.state.Mia}
+       <form className="lomaji">
+       {this.state.Senn} {this.state.Mia}<br/>
+       {this.props.params.senn}　{this.props.params.mia}
+       </form>
       </div>
       );
   }
