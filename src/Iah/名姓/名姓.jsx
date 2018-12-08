@@ -14,15 +14,17 @@ var debug = Debug('itaigi:名姓');
 class 名姓 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {Mia:"",Senn:""};
   }
   componentWillMount(){
-    if(this.props.params.senn!=""||this.props.params.mia!=""){
-      superagent.get(後端.名姓(this.props.params.senn,this.props.params.mia))
-      .then(({ body }) => this.setState(body))
-      .catch((err) => debug("error"));
-    }
+   this.liah(this.props.params.senn,this.props.params.mia);
   }
+  componentWillReceiveProps(nextProps){
+   this.liah(nextProps.params.senn,nextProps.params.mia);
+  }
+ //shouldComponentUpdate(,nextState){
+  //return this.props.params.senn===this.props.params.senn && this.props.params.mia===this.props.params.mia
+// }
   render() {
       return (
       <div className='mia main ui text container'>
@@ -41,6 +43,14 @@ class 名姓 extends React.Component {
     event.preventDefault();
     browserHistory.replace('/name/' + this.senn.value + '/' +  this.mia.value);
     debug(this.senn.value + '/' + this.mia.value);
+  }
+  liah(senn,mia){
+    if(senn!=undefined&&mia!=undefined){
+      debug(senn,mia);
+      superagent.get(後端.名姓(senn,mia))
+      .then(({ body }) => this.setState(body))
+      .catch((err) => debug("error"));
+    }
   }
 }
 
