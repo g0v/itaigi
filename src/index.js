@@ -11,6 +11,7 @@ import About from './Iah/About/About';
 import 抱去摸 from './Iah/主題/抱去摸';
 import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
 import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
+import 名姓 from './Iah/名姓/名姓';
 
 import Debug from 'debug';
 Debug.enable('itaigi:*');
@@ -34,6 +35,7 @@ render(
         <Route path='tsing' component={正規化} />
         <Route path='about' component={About} />
         <Route path='tsu-te/pho-khi-bong' component={抱去摸} />
+        <Route path='name(/:k)' component={名姓} />
         <Route path='*' component={Kong} />
       </Route>
     </Router>
