@@ -24,7 +24,7 @@ class TshiuKiSuanTuann extends React.Component {
           <i className="sound icon"></i>怎樣講
         </Link>
         <Link className={menu_item_class('/t')} to='/name' onClick={itemClick}>
-          <i className="unmute icon"></i>名姓按怎講
+          <i className="question icon"></i>名姓按怎講
         </Link>
         <Link className={menu_item_class('/t')} to='/t' onClick={itemClick}>
           <i className="unmute icon"></i>我很會
