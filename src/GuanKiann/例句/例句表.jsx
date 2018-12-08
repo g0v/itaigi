@@ -50,6 +50,7 @@ class 例句表 extends React.Component {
     };
     let { 漢字, 台羅 } = this.props;
     const 看例句 = !!(漢字 && 台羅);
+    const 台羅文字 = (漢字 === 台羅) ? '' : 台羅;
 
     return (
         <Modal
@@ -58,7 +59,7 @@ class 例句表 extends React.Component {
           onRequestClose={this.props.關例句.bind(this)}
           style={customStyles}
           >
-          <h2 ref="subtitle">{漢字} {台羅}<HuatIm 音標={台羅}/></h2>
+          <h2 ref="subtitle">{漢字} {台羅文字}<HuatIm 音標={台羅}/></h2>
           <div>
             <span className="分享">
               <分享鍵/>
