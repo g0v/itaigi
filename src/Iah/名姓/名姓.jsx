@@ -38,10 +38,12 @@ class 名姓 extends React.Component {
           defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
           <input type="submit" value="送出"/>
         </form>
-       <div className="lomaji">
-       <HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/><br/>
-       {this.state.Senn} {this.state.Mia}<br/>
-       {this.props.params.senn}　{this.props.params.mia}
+        <div className='mia main ui text container'>
+         <ruby>
+         {this.props.params.senn} <rt> {this.state.Senn} </rt>
+         {this.props.params.mia} <rt> {this.state.Mia} </rt>
+         </ruby>
+       <span className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></span>
        </div>
       </div>
     );

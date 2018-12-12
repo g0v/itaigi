@@ -1,6 +1,12 @@
-form{
+input{
+    width: 180px;
+}
+form {
+    font-size: 2rem;
+}
+ruby {
     font-size: 4rem;
 }
-div.lomaji{
-    font-size: 8rem;
+rt {
+    font-size: 1.5rem;
 }
