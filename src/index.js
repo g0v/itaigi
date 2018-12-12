@@ -35,7 +35,7 @@ render(
         <Route path='tsing' component={正規化} />
         <Route path='about' component={About} />
         <Route path='tsu-te/pho-khi-bong' component={抱去摸} />
-        <Route path='name(/:senn)(/:mia)' component={名姓} />
+        <Route path='name(/:senn)(/:mia)(/)' component={名姓} />
         <Route path='*' component={Kong} />
       </Route>
     </Router>
