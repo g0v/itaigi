@@ -30,7 +30,7 @@ class 名姓 extends React.Component {
     return (
     <div className='mia main ui text container ui fluid action input container tshue"'>
         <form onSubmit={this.tsha.bind(this)}>
-          <label htmlFor="senn" ></label> 
+          <label htmlFor="senn" ></label>
           <input type="text" name="senn" placeholder='你的姓'
           defaultValue={this.props.params.senn} ref={ input => this.senn = input }
           onChange={e => this.setState({ value: e.target.value })}
@@ -40,24 +40,35 @@ class 名姓 extends React.Component {
           defaultValue={this.props.params.mia} ref={ input => this.mia = input }
           onChange={e => this.setState({ value: e.target.value })}
           /><br/>
-          <input type="submit" value="怎麼唸？" className='ui button teal'/>
+          <input type="submit" value="怎麼唸？" className='ui button teal' disabled={!this.sow()}/>
         </form>
-        <div className='mia main ui text container'>
-         <ruby>
-         {this.props.params.senn} <rt> {this.state.Senn} </rt>
-         {this.props.params.mia} <rt> {this.state.Mia} </rt>
-         </ruby>
-         <div className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></div>
-       </div>
+        {
+          (this.sow() && this.hapsing) &&
+          <div className='mia main ui text container'>
+            <ruby>
+              {this.props.params.senn} <rt> {this.state.Senn} </rt>
+              {this.props.params.mia} <rt> {this.state.Mia} </rt>
+            </ruby>
+            <div className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></div>
+          </div>
+        }
       </div>
     );
     debug(this.state.Senn + ' ' + this.state.Mia);
+  }
+
+  sow() {
+    const show = (this.senn && !!this.senn.value) || (this.mia && !!this.mia.value);
+    if (!show)
+        this.hapsing = false;
+    return show;
   }
 
   tsha(event) {
     event.preventDefault();
     browserHistory.replace('/name/' + this.senn.value + '/' +  this.mia.value);
     debug(this.senn.value + '/' + this.mia.value);
+    this.hapsing = true;
   }
 
   liah(senn, mia) {
