@@ -10,3 +10,19 @@ ruby {
 rt {
     font-size: 1.5rem;
 }
+div{
+    text-align: justify;
+    font-size: 1.4rem;
+}
+h1{
+    font-size: 2rem;
+    margin: 0;
+}
+h2{
+    font-size: 1.8rem;
+    margin: 0.2rem;
+}
+h3{
+    font-size: 1.6rem;
+    margin: 0.6rem;
+}
