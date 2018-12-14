@@ -16,6 +16,7 @@ class 名姓 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { Mia: '', Senn: '' };
+    this.entry = true;
   }
 
   componentWillMount() {
@@ -40,28 +41,73 @@ class 名姓 extends React.Component {
           defaultValue={this.props.params.mia} ref={ input => this.mia = input }
           onChange={e => this.setState({ value: e.target.value })}
           /><br/>
-          <input type="submit" value="怎麼唸？" className='ui button teal' disabled={!this.sow()}/>
+          <input type="submit" value="怎麼唸？" className='ui button teal' disabled={this.disabled()}/>
         </form>
         {
-          (this.sow() && this.hapsing) &&
+          (this.show() && this.hapsing) &&
           <div className='mia main ui text container'>
+            <div className='name-ruby'>
             <ruby>
-              {this.props.params.senn} <rt> {this.state.Senn} </rt>
-              {this.props.params.mia} <rt> {this.state.Mia} </rt>
+              {this.props.params.senn}<rt>{this.state.Senn}</rt>
+              {this.props.params.mia}<rt>{this.state.Mia}</rt>
             </ruby>
+            </div>
             <div className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></div>
           </div>
         }
+        <div className="main ui text container">
+        <div className="siokausik">
+          <hr className="tip-hr-name"/>
+          <strong>溫馨提醒：<br/>
+              只能查姓名，否則可能會得到錯誤發音！</strong><br/>
+          <br/>
+          <br/>
+          <h1>💯台語小教室💯</h1><br/>
+          <h2>姓名發音通則：</h2>
+          台語漢字常有多種發音，姓名發音通則為：姓用白話音、名用文讀音。<br/>
+          <br/>
+          <h2>以上規則當然也有例外：</h2>
+          <h3>👉姓的特例</h3>
+          例如「謝」姓有「Tsiā」、「Siā」兩種發音，各地腔調習慣不同，應該尊重名從主人的原則，以本人自己的發音為準。<br/>
+          也有少數習慣讀成文讀音的姓，像「林」讀「Lîm」不讀「Nâ」，「馬」通常讀「Má」不讀「Bé」等等。<br/>
+          另外也有一些文白讀翻轉的情形。舉例來說，「孫」姓原本通行白話音「Sng」，但民間有漸漸轉成文讀音「Sun」的趨勢。<br/>
+          <br/>
+          <h3>👉名的特例</h3>
+          名的部分，雖然一般會照字面用文讀音念，但有時父母長輩是用口語詞、白話音來取名。
+          例如陳「水扁」是叫「Tsuí-pínn」而非文讀音「Suí-pián」，
+          李「江却」是念「Kang-khioh」而不是「Kang-khiok」。有時候還會有「文+白」或「白+文」的組合。<br/>
+          <br/>
+          <h2>因此……</h2>
+          「姓用白話音、名用文讀音」只是大原則，不見得百分之百正確。例外的情況，有可能是臺語原本的習慣，或甚至是特定地區、家族或個人的發音，最好的方式還是向本人確認。
+        </div>
+        </div>
       </div>
     );
     debug(this.state.Senn + ' ' + this.state.Mia);
   }
 
-  sow() {
-    const show = (this.senn && !!this.senn.value) || (this.mia && !!this.mia.value);
-    if (!show)
-        this.hapsing = false;
-    return show;
+  show() {
+    let show = !this.disabled();
+    if (show)
+      return true;
+
+    if (!this.entry) {
+      this.hapsing = false;
+      return false;
+    }
+
+    this.entry = false;
+    if (!!this.props.params.senn && !!this.props.params.mia) {
+      this.hapsing = true;
+      return true;
+    }
+
+    this.hapsing = false;
+    return false;
+  }
+
+  disabled() {
+    return !((this.senn && !!this.senn.value) && (this.mia && !!this.mia.value));
   }
 
   tsha(event) {
