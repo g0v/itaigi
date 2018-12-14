@@ -28,22 +28,26 @@ class 名姓 extends React.Component {
 
   render() {
     return (
-    <div className='mia main ui text container'>
+    <div className='mia main ui text container ui fluid action input container tshue"'>
         <form onSubmit={this.tsha.bind(this)}>
-          <label htmlFor="senn" >姓</label> 
-          <input type="text" name="senn"
-          defaultValue={this.props.params.senn} ref={ input => this.senn = input }/><br/>
-          <label htmlFor="mia">名</label>
-          <input type="text" name="mia"
-          defaultValue={this.props.params.mia} ref={ input => this.mia = input }/><br/>
-          <input type="submit" value="送出"/>
+          <label htmlFor="senn" ></label> 
+          <input type="text" name="senn" placeholder='你的姓'
+          defaultValue={this.props.params.senn} ref={ input => this.senn = input }
+          onChange={e => this.setState({ value: e.target.value })}
+          /><br/>
+          <label htmlFor="mia"></label>
+          <input type="text" name="mia" placeholder='你的名'
+          defaultValue={this.props.params.mia} ref={ input => this.mia = input }
+          onChange={e => this.setState({ value: e.target.value })}
+          /><br/>
+          <input type="submit" value="怎麼唸？" className='ui button teal'/>
         </form>
         <div className='mia main ui text container'>
          <ruby>
          {this.props.params.senn} <rt> {this.state.Senn} </rt>
          {this.props.params.mia} <rt> {this.state.Mia} </rt>
          </ruby>
-       <span className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></span>
+         <div className="hapsing"><HapSing 音標={this.state.Senn + ' ' + this.state.Mia}/></div>
        </div>
       </div>
     );
