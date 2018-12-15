@@ -1,7 +1,5 @@
-input{
+input.miasenn, form.miasenn {
     width: 180px;
-}
-form {
     font-size: 2rem;
 }
 ruby {
@@ -10,19 +8,19 @@ ruby {
 rt {
     font-size: 1.5rem;
 }
-div{
+.siokausik{
     text-align: justify;
     font-size: 1.4rem;
 }
-h1{
+h1.siokausik{
     font-size: 2rem;
     margin: 0;
 }
-h2{
+h2.siokausik{
     font-size: 1.8rem;
     margin: 0.2rem;
 }
-h3{
+h3.siokausik{
     font-size: 1.6rem;
     margin: 0.6rem;
 }
