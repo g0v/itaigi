@@ -26,3 +26,18 @@ h3{
     font-size: 1.6rem;
     margin: 0.6rem;
 }
+
+.name-ruby {
+    display: block !important;
+}
+
+.hapsing {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -20px;
+}
+hr.tip-hr-name {
+    color: #ccc;
+}

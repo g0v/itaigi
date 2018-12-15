@@ -13,3 +13,5 @@ db.sqlite3
 
 package-lock.json
 .settings
+.idea
+yarn.lock
