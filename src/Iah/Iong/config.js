@@ -80,6 +80,11 @@ let list = [
         title: '咱來學臺灣閩南語',
         link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
       },
+            {
+        title: '講台語當著時(台語教學)',
+        link: 'http://liztaigi.blogspot.com/2017/11/blog-post.html',
+      },
+
     ],
   },
   {
