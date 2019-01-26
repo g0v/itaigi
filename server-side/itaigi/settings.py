@@ -39,16 +39,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # CORS
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'itaigi.urls'
 
@@ -57,11 +59,14 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'itaigi',
+        'HOST': 'pgsql',
+        'PORT': '',
     }
 }
 
@@ -141,10 +146,6 @@ CORS_ALLOW_CREDENTIALS = True
 INSTALLED_APPS += (
     'corsheaders',
 )
-MIDDLEWARE_CLASSES += (
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-)
 
 # django-allauth，佮使用者有關係
 AUTH_USER_MODEL = '臺灣言語平臺.使用者表'
@@ -204,6 +205,7 @@ CELERY_DISABLE_RATE_LIMITS = True
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+CELERYD_CONCURRENCY = 1
 
 CELERY_TIMEZONE = TIME_ZONE
 CELERYBEAT_SCHEDULE = {
@@ -220,5 +222,5 @@ try:
 except ImportError:
     SECRET_KEY, DEBUG, DATABASES, LOGGING
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static') 
+STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
