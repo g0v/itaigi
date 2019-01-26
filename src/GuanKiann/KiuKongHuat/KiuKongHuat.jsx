@@ -21,6 +21,7 @@ export default class KiuKongHuat extends React.Component {
     superagent.post(後端.加外語())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('X-CSRFToken', this.props.csrftoken)
       .send(外語內容)
       .then(({ body }) => (this.openModal()))
       .catch(res => {
