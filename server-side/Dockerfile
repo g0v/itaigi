@@ -6,6 +6,7 @@ RUN apt-get update && \
 
 WORKDIR /opt
 RUN pip3 install gunicorn whitenoise
+RUN pip3 install 'django<2.1'
 COPY . .
 RUN python3 manage.py collectstatic --no-input
 
