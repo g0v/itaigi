@@ -37,6 +37,7 @@ class Su extends React.Component {
     superagent.post(後端.投票())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('X-CSRFToken', this.props.csrftoken)
       .send(票)
       .then(({ body }) => {if (body.success) cookie.save('vote_' + body.suId, evt, { path: '/' });})
       .catch(res => {
