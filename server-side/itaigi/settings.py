@@ -218,9 +218,22 @@ CELERYBEAT_SCHEDULE = {
 
 
 try:
-    from .local_settings import SECRET_KEY, DEBUG, DATABASES, LOGGING
+    from .local_settings import SECRET_KEY
 except ImportError:
-    SECRET_KEY, DEBUG, DATABASES, LOGGING
+    pass
+try:
+    from .local_settings import DEBUG
+except ImportError:
+    pass
+try:
+    from .local_settings import DATABASES
+except ImportError:
+    pass
+try:
+    from .local_settings import LOGGING
+except ImportError:
+    pass
+SECRET_KEY, DEBUG, DATABASES, LOGGING
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
