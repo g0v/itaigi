@@ -9,7 +9,7 @@
 * [FB粉專](https://www.facebook.com/ukauitaigi/)
 * [Slack討論](https://g0v-tw.slack.com/messages/itaigi/)
 * [萌典松](http://moe.kktix.cc/)
-* [專案Hackpad](https://g0v.hackpad.com/moed7ct-taigi-neologism)
+* [專案Hackpad](https://g0v.hackpad.tw/moed7ct-taigi-neologism)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/#)
 * [正規化工作表](https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk)
 

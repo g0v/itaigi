@@ -5,7 +5,7 @@
   "description": "iTaigi",
   "description_zh": "想知道一個詞的台語怎麼說，來這裡查就對了！",
   "homepage": "https://itaigi.tw",
-  "document": "https://g0v.hackpad.com/moed7ct-taigi-neologism",
+  "document": "https://g0v.hackpad.tw/moed7ct-taigi-neologism",
   "repository": {
     "type": "git",
     "url": "https://github.com/g0v/itaigi"
