@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ar307x56sv7!iodrfx3@))%lp0&^^tg0xhw-@ijr0c4ic_q&wo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,16 +39,18 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # CORS
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
 
 ROOT_URLCONF = 'itaigi.urls'
 
@@ -57,11 +59,14 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'itaigi',
+        'HOST': 'pgsql',
+        'PORT': '',
     }
 }
 
@@ -141,10 +146,6 @@ CORS_ALLOW_CREDENTIALS = True
 INSTALLED_APPS += (
     'corsheaders',
 )
-MIDDLEWARE_CLASSES += (
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-)
 
 # django-allauth，佮使用者有關係
 AUTH_USER_MODEL = '臺灣言語平臺.使用者表'
@@ -174,7 +175,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -204,6 +205,7 @@ CELERY_DISABLE_RATE_LIMITS = True
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+CELERYD_CONCURRENCY = 1
 
 CELERY_TIMEZONE = TIME_ZONE
 CELERYBEAT_SCHEDULE = {
@@ -216,9 +218,22 @@ CELERYBEAT_SCHEDULE = {
 
 
 try:
-    from .local_settings import SECRET_KEY, DEBUG, DATABASES, LOGGING
+    from .local_settings import SECRET_KEY
 except ImportError:
-    SECRET_KEY, DEBUG, DATABASES, LOGGING
+    pass
+try:
+    from .local_settings import DEBUG
+except ImportError:
+    pass
+try:
+    from .local_settings import DATABASES
+except ImportError:
+    pass
+try:
+    from .local_settings import LOGGING
+except ImportError:
+    pass
+SECRET_KEY, DEBUG, DATABASES, LOGGING
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static') 
+STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

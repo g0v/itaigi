@@ -62,6 +62,8 @@ class Su extends React.Component {
       return <div className='su item'></div>;
     }
 
+    let suImText = (suText === suIm) ? '' : suIm;
+
     let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
     <div className='su ui card'>
@@ -74,7 +76,7 @@ class Su extends React.Component {
         <HuatIm 音標={suIm} />
         <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
-          {suIm}
+          {suImText}
           <LaiLik 貢獻者={貢獻者} />
           華語：
           <span className='ui horizontal list large'>

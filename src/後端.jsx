@@ -2,7 +2,8 @@ export default class 後端  {
   static 網址() {
     // return 'http://private-f0474-tai5uan5gian5gi2phing5thai5.apiary-mock.com/';
     // return 'http://localhost:8000/';
-    return 'https://db.itaigi.tw/';
+    // return 'https://db.itaigi.tw/';
+    return 'https://itaigi.tw/';
   }
 
   static 揣按呢講列表(漢字, 台羅) {
@@ -59,4 +60,7 @@ export default class 後端  {
     return encodeURI(this.網址() + 'accounts/facebook/login/token/');
   }
 
+  static 名姓(姓, 名) {
+    return encodeURI('https://miasenn.xn--v0qr21b.xn--kpry57d/' +  姓 +  '/' + 名 + '/');
+  }
 }

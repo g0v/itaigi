@@ -1,0 +1,41 @@
+input.miasenn, form.miasenn {
+    width: 180px;
+    font-size: 2rem;
+}
+ruby {
+    font-size: 4rem;
+}
+rt {
+    font-size: 1.5rem;
+}
+.siokausik{
+    text-align: justify;
+    font-size: 1.4rem;
+}
+h1.siokausik{
+    font-size: 2rem;
+    margin: 0;
+}
+h2.siokausik{
+    font-size: 1.8rem;
+    margin: 0.2rem;
+}
+h3.siokausik{
+    font-size: 1.6rem;
+    margin: 0.6rem;
+}
+
+.name-ruby {
+    display: block !important;
+}
+
+.hapsing {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -20px;
+}
+hr.tip-hr-name {
+    color: #ccc;
+}

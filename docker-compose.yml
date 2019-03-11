@@ -1,0 +1,49 @@
+version: '3.5'
+
+services:
+  gunicorn:
+    build: server-side/
+    networks:
+      - default
+      - nginx-bridge
+    expose:
+      - "8001"
+    environment:
+      VIRTUAL_HOST: "db.itaigi.tw"
+      VIRTUAL_PORT: 8001
+    restart: always
+  pgsql:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: itaigi
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
+  celery_beat:
+    build: server-side/
+    command: celery -A itaigi beat -l info
+    restart: always
+  celery:
+    build:
+      context: server-side/
+      dockerfile: Dockerfile-celery
+    command: celery -A itaigi worker -l info
+    restart: always
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment: 
+      RABBITMQ_DEFAULT_USER: itaigi
+      RABBITMQ_DEFAULT_PASS: itaigi
+      RABBITMQ_DEFAULT_VHOST: itaigi
+    volumes:
+      - rabbit_data:/var/lib/rabbitmq
+
+volumes:
+  pgsql_data:
+  rabbit_data:
+
+networks:
+  nginx-bridge:
+    external: true
+
+ 

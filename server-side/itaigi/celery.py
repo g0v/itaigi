@@ -8,7 +8,13 @@ from django.conf import settings
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'itaigi.settings')
 
-app = Celery('itaigi', backend='amqp')
+mia, bitbe, vhost = ('itaigi',) * 3
+tsuki = 'rabbitmq'
+rabbitmq = 'amqp://{}:{}@{}:5672/{}'.format(
+    mia, bitbe, tsuki, vhost
+)
+
+app = Celery('itaigi', backend='amqp', broker=rabbitmq)
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.
