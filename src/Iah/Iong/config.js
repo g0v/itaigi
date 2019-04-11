@@ -78,7 +78,7 @@ let list = [
       },
       {
         title: '咱來學臺灣閩南語',
-        link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
+        link: 'https://language.moe.gov.tw/files/people_files/tsuguan-book.pdf',
       },
             {
         title: '講台語當著時(台語教學)',
