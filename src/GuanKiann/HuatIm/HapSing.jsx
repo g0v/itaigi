@@ -10,7 +10,7 @@ export default class HapSing extends React.Component {
     if (prevProps.音標 === this.props.音標) return;
     let 音樂 = this.refs.音樂;
     if (音樂 != null) {
-      音樂.load();
+      // 音樂.load();
     }
   }
 
