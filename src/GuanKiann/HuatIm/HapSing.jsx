@@ -6,14 +6,6 @@ var debug = Debug('itaigi:HapSing');
 
 export default class HapSing extends React.Component {
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.音標 === this.props.音標) return;
-    let 音樂 = this.refs.音樂;
-    if (音樂 != null) {
-      音樂.load();
-    }
-  }
-
   play() {
     let 音樂 = this.refs.音樂;
     if (音樂 != null) {
