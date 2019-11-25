@@ -22,7 +22,7 @@ export default class 其他建議 extends React.Component {
   }
 
   預設顯示幾个() {
-    return 24;
+    return 6;
   }
 
   看閣較濟() {
