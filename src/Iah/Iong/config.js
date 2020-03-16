@@ -56,6 +56,10 @@ let list = [
         link: 'https://play.google.com/store/apps/details?id=com.taccotap.phahtaigi',
       },
       {
+        title: 'Phah Tâi-gí 臺語輸入法 (iOS)',
+        link: 'https://apps.apple.com/tw/app/phahtaigi-%E5%8F%B0%E8%AA%9E%E8%BC%B8%E5%85%A5%E6%B3%95/id1455093650',
+      },
+      {
         title: '羅漢跤台語輸入法 (iOS)',
         link: 'https://itunes.apple.com/tw/app/lohanka-tai-yu-shu-ru-fa/id1080190324',
       },
