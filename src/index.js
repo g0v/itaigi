@@ -9,6 +9,8 @@ import Mia from './Iah/Mia/Mia';
 import 正規化 from './Iah/Mia/正規化';
 import About from './Iah/About/About';
 import 抱去摸 from './Iah/主題/抱去摸';
+import 台語寶鑑 from './Ogilvy/主題/台語寶鑑';
+import 金融尬台語 from './Ogilvy/主題/金融尬台語';
 import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
 import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
 import 名姓 from './Iah/名姓/名姓';
@@ -34,7 +36,9 @@ render(
         <Route path='mia' component={Mia} />
         <Route path='tsing' component={正規化} />
         <Route path='about' component={About} />
+        <Route path='tsu-te' component={台語寶鑑} />
         <Route path='tsu-te/pho-khi-bong' component={抱去摸} />
+        <Route path='tsu-te/kim-iong-kah-tai-gi' component={金融尬台語} />
         <Route path='name(/:senn)(/:mia)(/)' component={名姓} />
         <Route path='*' component={Kong} />
       </Route>

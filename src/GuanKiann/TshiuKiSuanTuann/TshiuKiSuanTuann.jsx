@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 /*Pokeball by Arjun Mahanti from the Noun Project*/
-import PokemonBall from '../ToLam/images/noun_237634_cc.svg';
+import Dictionary from '../ToLam/images/dictionary.svg';
 
 class TshiuKiSuanTuann extends React.Component {
 
@@ -38,9 +38,9 @@ class TshiuKiSuanTuann extends React.Component {
         <Link className={menu_item_class('/iong')} to='/iong' onClick={itemClick}>
           <i className="configure icon"></i>好工具
         </Link>
-        <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'
+        <Link className={menu_item_class('/tsu-te')} to='/tsu-te'
             onClick={itemClick}>
-          <i className="icon"><img src={PokemonBall}/></i>抱去摸
+          <i className="icon"><img src={Dictionary}/></i>台語寶鑑
         </Link>
         <div className='down item'>
           { '' /* dummy item to show last item border*/ }

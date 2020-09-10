@@ -1,0 +1,64 @@
+div.台語寶鑑-row
+{
+	float: left;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+div.台語寶鑑-col
+{
+	float: left;
+	width: 50%;
+	height: auto;
+	box-sizing: content-box;
+	text-align: center;
+}
+
+div.台語寶鑑-button
+{
+	display: inline-block;
+	width: 250px;
+	height: 250px;
+	background-color: #FFF;
+	border-radius: 10px;
+	border: 2px solid #CCC;
+	margin: 40px 0px;
+}
+
+div.台語寶鑑-button:hover
+{
+	background-color: #EEE;
+}
+
+div.台語寶鑑-button-ico
+{
+	float: left;
+	width: 100%;
+	height: 65%;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: 30%;
+}
+
+div.台語寶鑑-button-name
+{
+	float: left;
+	width: 100%;
+	height: auto;
+	font-size: 2em;
+	margin-top: 10%;
+}
+
+div.台語寶鑑-col a
+{
+	color: #000;
+}
+
+@media only screen and (max-width: 600px) 
+{
+	div.台語寶鑑-col
+	{
+		width: 100%;
+	}
+}
