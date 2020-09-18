@@ -1,29 +1,9 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router';
 
 export default class 寶鑑按鈕 extends React.Component {
-
-	constructor(props) {
-		super(props);
-		const root = this;
-		//scripts
-	}
-
-	componentDidMount() {
-		
-	}
-
-	componentDidUpdate() {
-
-	}
-
-	componentWillUnmount() {
-		
-	}
-
 	render() {
-		return ( 
-			
+		return (
 			<div className='台語寶鑑-col'>
 	 			<Link to={ this.props.data.to }>
 		 			<div className='台語寶鑑-button'>
