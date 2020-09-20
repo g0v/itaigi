@@ -6,14 +6,15 @@ services:
     networks:
       - default
       - nginx-bridge
-    expose:
-      - "8001"
     environment:
-      VIRTUAL_HOST: "db.itaigi.tw"
-      VIRTUAL_PORT: 8001
+      VIRTUAL_HOST: "itaigi.tw"
+      LETSENCRYPT_HOST: "itaigi.tw"
+      LETSENCRYPT_EMAIL: "ithuan@ithuan.tw"
     restart: always
   pgsql:
     image: postgres
+    command: postgres -c 'shared_buffers=256MB' -c 'max_connections=300'
+    shm_size: '256mb'
     restart: always
     environment:
       POSTGRES_PASSWORD: itaigi
