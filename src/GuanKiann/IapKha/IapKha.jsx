@@ -13,7 +13,7 @@ export default class IapKha extends React.Component {
           <a className='item' target="_blank" href='http://moe.kktix.cc/'>萌典松</a>
           <a className='item' target="_blank" href='http://g0v.tw/'>g0v</a>
           <a className='item' target="_blank"
-          href='https://g0v.hackpad.com/moed7ct-taigi-neologism'>Hackpad</a>
+          href='https://g0v.hackpad.tw/moed7ct-taigi-neologism'>Hackpad</a>
           <a className='item' target="_blank" href='https://github.com/g0v/itaigi'>GitHub</a>
         </div>
       </footer>

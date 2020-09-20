@@ -70,11 +70,12 @@ body {
 }
 @import url(//tauhu.tw/tauhu-oo.css);
 
+body, h2,
 h2.ui.header,
 div.description,
 input[type="text"],
 .ui.form input[type="text"],
 .ui.form input[type="text"]:focus{
-  font-family: tauhu-oo, "思源黑體", "Noto Sans CJK TC", "蘋方-繁","微軟正黑體", sans-serif;
+  font-family: tauhu-oo, "Source Han Sans", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
   font-weight: 400;
 }

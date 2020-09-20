@@ -21,18 +21,13 @@ export default class App extends React.Component {
   }
 
   看編號() {
-   let a=function ({ body }) {
-        this.setState({ csrftoken: body.csrftoken });
-        console.log('xx');
-    superagent.get(   encodeURI(後端.網址() + '使用者/看編號'))
-        .withCredentials()
-        .then(({ body }) => (this.setState({ 編號: body.使用者編號 }), null))
-        .catch((err) => (debug(err)));
-        return null;
-        };
     superagent.get(encodeURI(後端.網址() + 'csrf/看'))
         .withCredentials()
-        .then(a.bind(this))
+        .then(({ body }) => (this.setState({ csrftoken: body.csrftoken }), null))
+        .catch((err) => (debug(err)));
+    superagent.get(encodeURI(後端.網址() + '使用者/看編號'))
+        .withCredentials()
+        .then(({ body }) => (this.setState({ 編號: body.使用者編號 }), null))
         .catch((err) => (debug(err)));
   }
 

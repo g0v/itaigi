@@ -56,6 +56,10 @@ let list = [
         link: 'https://play.google.com/store/apps/details?id=com.taccotap.phahtaigi',
       },
       {
+        title: 'Phah Tâi-gí 臺語輸入法 (iOS)',
+        link: 'https://apps.apple.com/tw/app/phahtaigi-台語輸入法/id1455093650',
+      },
+      {
         title: '羅漢跤台語輸入法 (iOS)',
         link: 'https://itunes.apple.com/tw/app/lohanka-tai-yu-shu-ru-fa/id1080190324',
       },
@@ -66,7 +70,7 @@ let list = [
     links: [
       {
         title: '臺灣閩南語推薦用字700字詞',
-        link: 'http://ws.moe.edu.tw/001/Upload/userfiles/file/iongji/700iongji_1031222.pdf',
+        link: 'https://language.moe.gov.tw/files/people_files/700iongji_107.05.03.pdf',
       },
       {
         title: '臺灣閩南語羅馬字拼音教學網',
@@ -78,7 +82,7 @@ let list = [
       },
       {
         title: '咱來學臺灣閩南語',
-        link: 'http://language.moe.gov.tw/files/people_files/資源手冊專頁.pdf',
+        link: 'https://language.moe.gov.tw/files/people_files/tsuguan-book.pdf',
       },
             {
         title: '講台語當著時(台語教學)',

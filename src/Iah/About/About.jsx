@@ -65,6 +65,18 @@ class About extends React.Component {
           <Link target='_blank' to='https://www.facebook.com/ukauitaigi'>iTaigi FB 粉專</Link>
         </p>
         </div>
+        <div className='ui very padded vertical segment'>
+        <p className='ui header large'>
+          本網站的語音合成服務由
+          <a href='https://意傳.台灣/'>意傳科技</a>的台灣媠聲計劃提供，台灣媠聲接受
+          <a href='https://www.moc.gov.tw/'>文化部</a>語言多樣性友善環境補助。
+        </p>
+        <p className='ui large'>
+          <img
+            src='https://mocfile.moc.gov.tw/mochistory/images/download/logo/moc/moc_logo1.png'
+            width='300px' />
+        </p>
+        </div>
       </div>
     </div>
     );

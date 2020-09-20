@@ -36,6 +36,7 @@ export default class ABo extends React.Component {
       superagent.post(後端.加外語())
         .withCredentials()
         .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('X-CSRFToken', this.props.csrftoken)
         .send(外語內容)
         .then(({ body }) => (this.加外語新詞文本(body.平臺項目編號)))
         .catch(res => {
@@ -66,6 +67,7 @@ export default class ABo extends React.Component {
     superagent.post(後端.加新詞文本())
       .withCredentials()
       .set('Content-Type', 'application/x-www-form-urlencoded')
+      .set('X-CSRFToken', this.props.csrftoken)
       .send(建議新詞文本)
       .then(({ body }) => (this.openModal()))
       .catch((a) => (debug(a)));
