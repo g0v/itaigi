@@ -4,7 +4,7 @@ import './ToLam.css';
 import Logo from './images/logo.svg';
 
 /*Pokeball by Arjun Mahanti from the Noun Project*/
-import PokemonBall from './images/noun_237634_cc.svg';
+import Dictionary from './images/dictionary.svg';
 
 export default class ToLam extends React.Component {
   render() {
@@ -41,8 +41,8 @@ export default class ToLam extends React.Component {
         <Link className={menu_item_class('/iong')} to='/iong'>
           <i className="configure icon"></i>好工具
         </Link>
-        <Link className={menu_item_class('/tsu-te/pho-khi-bong')} to='/tsu-te/pho-khi-bong'>
-          <i className="icon"><img src={PokemonBall}/></i>抱去摸
+        <Link className={menu_item_class('/tsu-te')} to='/tsu-te'>
+          <i className="icon"><img src={Dictionary}/></i>台語寶鑑
         </Link>
       </div>
       <div className="ui right item">
