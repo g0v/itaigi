@@ -9,7 +9,7 @@
 * [FB粉專](https://www.facebook.com/ukauitaigi/)
 * [Slack討論](https://g0v-tw.slack.com/messages/itaigi/)
 * [萌典松](http://moe.kktix.cc/)
-* [專案Hackpad](https://g0v.hackpad.tw/moed7ct-taigi-neologism)
+* [Hackpad](https://g0v.hackpad.tw/)
 * [API介面](http://docs.tai5uan5gian5gi2phing5thai5.apiary.io/)
 * [正規化工作表](https://docs.google.com/spreadsheets/d/1_sXX2CGJsfSUTg-r-RGc4ApU1fPUmuLc2DmUSy4y_Zk)
 
@@ -33,9 +33,9 @@ $ npm run deploy
 
 * 任選其中一臺
 * 到github pull request page
-* 確認沒有pull request正在使用測試機
+* 確認沒有pull request正在使用機器
 * 新增你的pull request
-* 標記你要用的測試機
+* 標記你要用的機器
 
 ```bash
 $ npm run deploy-tshi3
