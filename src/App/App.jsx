@@ -4,6 +4,7 @@ import IapKha from '../GuanKiann/IapKha/IapKha';
 import 後端 from '../後端';
 import 例句表 from '../GuanKiann/例句/例句表';
 import 載入頁面 from '../GuanKiann/載入頁面/載入頁面';
+import { gaLeKu } from '../GA'
 import './App.css';
 
 import { Promise } from 'bluebird';
@@ -45,6 +46,7 @@ export default class App extends React.Component {
       '/' + encodeURIComponent(漢字) +
       '/' + encodeURIComponent(台羅)
       );
+    gaLeKu(漢字, 台羅)
   }
 
   關例句(外語) {

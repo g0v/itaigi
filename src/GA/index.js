@@ -12,3 +12,10 @@ export const gaThiann = (hanji, lomaji) => {
        'lomaji': lomaji
      })
 }
+
+export const gaLeKu = (hanji, lomaji) => {
+  gtag('event', 'leku', {
+    'event_category': 'engagement',
+    'event_label': hanji
+  })
+}
