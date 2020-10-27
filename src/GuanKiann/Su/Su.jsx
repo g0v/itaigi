@@ -73,7 +73,7 @@ class Su extends React.Component {
           {suText}
           </h2>
         </div>
-        <HuatIm 音標={suIm} />
+        <HuatIm 音標={suIm} hanji={suText}/>
         <例句鈕仔 來開例句={this.props.來開例句.bind(this)} />
         <div className='description'>
           {suImText}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Debug from 'debug';
+import { gaThiann } from '../../GA';
 
 var debug = Debug('itaigi:HapSing');
 
@@ -15,10 +16,13 @@ export default class HapSing extends React.Component {
   }
 
   play() {
+    let { hanji, 音標 } = this.props;
     let 音樂 = this.refs.音樂;
     if (音樂 != null) {
       音樂.play();
     }
+
+    gaThiann(hanji, 音標);
   }
 
   render() {

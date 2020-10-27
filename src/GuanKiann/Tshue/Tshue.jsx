@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tshue.css';
 import Debug from 'debug';
+import { gaTshue } from '../../GA';
 var debug = Debug('itaigi:Tshue');
 
 export default class Tshue extends React.Component {
@@ -40,6 +41,7 @@ export default class Tshue extends React.Component {
       this.setState({ q });
       this.查過的詞.add(q);
       this.props.查怎樣講(q);
+      gaTshue(q);
     }
   }
 
