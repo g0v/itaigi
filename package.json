@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node devServer.js",
     "seo": "node seoServer.js",
-    "test": "jscs *.js src/GuanKiann/",
+    "test": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -rf build/* && NODE_ENV=production webpack --config webpack.config.prod.js && cp html/index.html favicons/* build/ && cp -r design/ build/ && cp html/index.html build/404.html",
     "deploy": "npm run build && rm -rf node_modules/gh-pages/.cache/ && gh-pages -d build/",
