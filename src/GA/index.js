@@ -14,8 +14,15 @@ export const gaThiann = (hanji, lomaji) => {
 }
 
 export const gaLeKu = (hanji, lomaji) => {
-  gtag('event', 'leku', {
+  gtag('event', 'lē-kù', {
     'event_category': 'engagement',
     'event_label': hanji
+  })
+}
+
+export const gaUaGi = (su) => {
+  gtag('event', 'uá-gī', {
+    'event_category': 'engagement',
+    'event_label': su
   })
 }
