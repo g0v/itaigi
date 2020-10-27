@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Debug from 'debug';
-import { gaUaGi } from '../../GA'
+import { gaUaGi } from '../../GA';
 
 var debug = Debug('itaigi:TuiIngHuaGi');
 

@@ -2,7 +2,7 @@ import React from 'react';
 import SoundsMapping from './SoundsMapping';
 import HapSing from './HapSing';
 import Debug from 'debug';
-import { gaThiann } from '../../GA'
+import { gaThiann } from '../../GA';
 import './HuatIm.css';
 
 var debug = Debug('itaigi:HuatIm');
@@ -10,9 +10,9 @@ var debug = Debug('itaigi:HuatIm');
 export default class HuatIm extends React.Component {
 
   play(id) {
-    let { hanji, 音標 } = this.props
+    let { hanji, 音標 } = this.props;
     document.getElementById(id).play();
-    gaThiann(hanji, 音標)
+    gaThiann(hanji, 音標);
   }
 
   render() {
