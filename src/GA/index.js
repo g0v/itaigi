@@ -3,3 +3,12 @@ export const gaTshue = (su) => {
        'search_term': su
      })
 }
+
+export const gaThiann = (hanji, lomaji) => {
+  gtag('event', 'thiann', {
+       'event_category': 'engagement',
+       'event_label': hanji,
+       'hanji': hanji,
+       'lomaji': lomaji
+     })
+}
