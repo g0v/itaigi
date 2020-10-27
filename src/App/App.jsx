@@ -46,7 +46,7 @@ export default class App extends React.Component {
       '/' + encodeURIComponent(漢字) +
       '/' + encodeURIComponent(台羅)
       );
-    gaLeKu(漢字, 台羅)
+    gaLeKu(漢字, 台羅);
   }
 
   關例句(外語) {
