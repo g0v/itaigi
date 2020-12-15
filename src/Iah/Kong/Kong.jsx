@@ -95,7 +95,7 @@ export default Transmit.createContainer(Kong, {
         });
       }
 
-      return superagent.get('https://private-e63cf7-niauah.apiary-mock.com/taigi')
+      return superagent.get(後端.揣列表(關鍵字))
         .then(({ body }) => ({
           '關鍵字': 關鍵字,
           '結果': body.列表.length,
