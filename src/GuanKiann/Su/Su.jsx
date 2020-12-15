@@ -120,21 +120,21 @@ class Su extends React.Component {
 
 export default Transmit.createContainer(Su, {
   initialVariables: {},
-  fragments: {
-    suData({ 詞 }) {
-      return superagent.get(後端.平臺項目內容(詞.新詞文本項目編號))
-        .then((res) => Object.assign({
-            '結果': 0,
-          }, res.body))
-        .catch((err) => console.log(err));
-    },
+  // fragments: {
+  //   suData({ 詞 }) {
+  //     return superagent.get(後端.平臺項目內容(詞.新詞文本項目編號))
+  //       .then((res) => Object.assign({
+  //           '結果': 0,
+  //         }, res.body))
+  //       .catch((err) => console.log(err));
+  //   },
 
-    按呢講的外語列表({ 詞 }) {
-      return superagent.get(後端.揣按呢講列表(詞.文本資料, 詞.音標資料))
-        .then(({ body }) => body.列表)
-        .catch((err) => console.log(err));
-    },
-  },
+  //   按呢講的外語列表({ 詞 }) {
+  //     return superagent.get(後端.揣按呢講列表(詞.文本資料, 詞.音標資料))
+  //       .then(({ body }) => body.列表)
+  //       .catch((err) => console.log(err));
+  //   },
+  // },
   shouldContainerUpdate(nextVariables) {
     return this.variables.詞 != nextVariables.詞;
   },

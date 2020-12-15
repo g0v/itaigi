@@ -95,7 +95,7 @@ export default Transmit.createContainer(Kong, {
         });
       }
 
-      return superagent.get(後端.揣列表(關鍵字))
+      return superagent.get('https://polls.apiblueprint.org/taigi')
         .then(({ body }) => ({
           '關鍵字': 關鍵字,
           '結果': body.列表.length,
