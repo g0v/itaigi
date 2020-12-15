@@ -56,12 +56,12 @@ class Su extends React.Component {
   }
 
   render() {
-    let { suText, suIm, suId, 貢獻者, 按呢講好, 按呢無好} = this.props;
+    let { suText, suIm, suId, 貢獻者, 按呢講好, 按呢無好, 按呢講的外語列表 } = this.props;
     if (貢獻者 == '匿名') 貢獻者 = '沒有人';
 
     let suImText = (suText === suIm) ? '' : suIm;
 
-    let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
+    let 按呢講的外語 = 按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
     <div className='su ui card'>
       <div className='content'>
