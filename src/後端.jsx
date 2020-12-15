@@ -45,7 +45,8 @@ export default class 後端  {
   }
 
   static 揣列表(名) {
-    return 'https://private-e63cf7-niauah.apiary-mock.com/taigi'
+    return 'https://private-e63cf7-niauah.apiary-mock.com/taigi';
+
     // return encodeURI(this.網址() +  '平臺項目列表/揣列表?關鍵字=' + 名);
   }
 
