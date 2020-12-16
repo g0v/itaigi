@@ -18,8 +18,8 @@ class Su extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      按呢講好: props.suData.按呢講好,
-      按呢無好: props.suData.按呢無好,
+      按呢講好: props.按呢講好,
+      按呢無好: props.按呢無好,
       voted: cookie.load('vote_' + props.suId),
     };
   }
@@ -45,26 +45,23 @@ class Su extends React.Component {
       });
     if (evt === '按呢講好')
       this.setState({
-        按呢講好: this.props.suData.按呢講好 + 1,
+        按呢講好: this.props.按呢講好 + 1,
         voted: evt,
       });
     else if (evt === '按呢無好')
       this.setState({
-        按呢無好: this.props.suData.按呢無好 + 1,
+        按呢無好: this.props.按呢無好 + 1,
         voted: evt,
       });
   }
 
   render() {
-    let { suText, suIm, suId, 貢獻者, suData } = this.props;
+    let { suText, suIm, suId, 貢獻者, 按呢講好, 按呢無好, 按呢講的外語列表 } = this.props;
     if (貢獻者 == '匿名') 貢獻者 = '沒有人';
-    if (suData.結果 == -2) {
-      return <div className='su item'></div>;
-    }
 
     let suImText = (suText === suIm) ? '' : suIm;
 
-    let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
+    let 按呢講的外語 = 按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
     <div className='su ui card'>
       <div className='content'>
@@ -90,14 +87,14 @@ class Su extends React.Component {
             + (this.state.voted ? ' disabled' : '')}
             onClick={this.投票.bind(this, '按呢講好')}>
             <i className='icon heart'></i>
-            按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || suData.按呢講好}</span>
+            按呢講好 <span className='floating ui label yellow'>{this.state.按呢講好 || 按呢講好}</span>
           </a>
           <a className={
             'item'
             + (this.state.voted ? ' disabled' : '')}
             onClick={this.投票.bind(this, '按呢無好')}>
             <i className='icon help circle'></i>
-            按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || suData.按呢無好}</span>
+            按呢怪怪 <span className='floating ui label orange'>{this.state.按呢無好 || 按呢無好}</span>
           </a>
         </div>
         <div className='report'>
@@ -120,21 +117,7 @@ class Su extends React.Component {
 
 export default Transmit.createContainer(Su, {
   initialVariables: {},
-  fragments: {
-    suData({ 詞 }) {
-      return superagent.get(後端.平臺項目內容(詞.新詞文本項目編號))
-        .then((res) => Object.assign({
-            '結果': 0,
-          }, res.body))
-        .catch((err) => console.log(err));
-    },
-
-    按呢講的外語列表({ 詞 }) {
-      return superagent.get(後端.揣按呢講列表(詞.文本資料, 詞.音標資料))
-        .then(({ body }) => body.列表)
-        .catch((err) => console.log(err));
-    },
-  },
+  fragments: {},
   shouldContainerUpdate(nextVariables) {
     return this.variables.詞 != nextVariables.詞;
   },

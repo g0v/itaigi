@@ -27,6 +27,9 @@ export default class GuaGi extends React.Component {
       suText={詞.文本資料}
       suIm={詞.音標資料}
       貢獻者={詞.貢獻者}
+      按呢講好={詞.按呢講好}
+      按呢無好={詞.按呢無好}
+      按呢講的外語列表 = {詞.按呢講的外語列表}
       key={詞.新詞文本項目編號}
       csrftoken={this.props.csrftoken}
       來開例句={來開例句}
