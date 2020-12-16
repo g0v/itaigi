@@ -51,6 +51,7 @@ export default class 其他建議 extends React.Component {
       <一个建議 key={i}
         文本資料={建議.文本資料}
         音標資料={建議.音標資料}
+        按呢講的外語列表={建議.按呢講的外語列表}
         來開例句={來開例句}
         variables={建議}
         renderLoading={this.建議載入中(建議, 來開例句)} />
@@ -62,6 +63,7 @@ export default class 其他建議 extends React.Component {
       <一个建議一半
       文本資料={建議.文本資料}
       音標資料={建議.音標資料}
+      按呢講的外語列表={建議.按呢講的外語列表}
       來開例句={來開例句} />
     );
   }

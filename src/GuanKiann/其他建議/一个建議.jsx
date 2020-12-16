@@ -13,7 +13,7 @@ var debug = Debug('itaigi:一个建議');
 class 一个建議 extends React.Component {
 
   render() {
-    let { 文本資料, 音標資料 } = this.props;
+    let { 文本資料, 音標資料, 按呢講的外語列表 } = this.props;
     let 按呢講的外語 = this.props.按呢講的外語列表.map((外語)=>(<TuiIngHuaGi key={外語.外語項目編號} 外語={外語}/>));
     return (
     <div className='ui su card'>
@@ -40,18 +40,7 @@ class 一个建議 extends React.Component {
 
 export default Transmit.createContainer(一个建議, {
   initialVariables: {},
-  fragments: {
-    按呢講的外語列表(建議) {
-      let { 文本資料, 音標資料 } = 建議;
-      if (!文本資料) {
-        return Promise.resolve([]);
-      }
-
-      return superagent.get(後端.揣按呢講列表(文本資料, 音標資料))
-        .then(({ body }) => body.列表)
-        .catch((err) => console.log(err));
-    },
-  },
+  fragments: {},
   shouldContainerUpdate(nextVariables) {
     return (
       this.variables.文本資料 != nextVariables.文本資料 ||
