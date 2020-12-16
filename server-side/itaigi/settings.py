@@ -183,6 +183,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 # `allauth` needs this from django
                 'django.template.context_processors.request',
+                # 因為改用django 3.1.4，需要ke這項
+                'django.contrib.messages.context_processors.messages'
             ],
         },
     },
