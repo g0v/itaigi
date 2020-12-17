@@ -36,6 +36,7 @@ services:
       RABBITMQ_DEFAULT_VHOST: itaigi
     volumes:
       - rabbit_data:/var/lib/rabbitmq
+    restart: always
 
 volumes:
   pgsql_data:
