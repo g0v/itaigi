@@ -248,3 +248,13 @@ INTERNAL_IPS = [
     '60.248.44.30',
     # ...
 ]
+
+
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    # 'SHOW_TOOLBAR_CALLBACK': 'core.settings.custom_show_toolbar',
+    'HIDE_DJANGO_SQL': True,
+    'TAG': 'body',
+    'SHOW_TEMPLATE_CONTEXT': True,
+    'ENABLE_STACKTRACES': True,
+}
