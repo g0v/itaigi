@@ -242,3 +242,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Query「其他建議」，上tsē顯示幾个。避免像「的」這款字查著siunn tsē結果。
 KIANGI_MAX = 90
+# Query「無建議的外語」，上tsē顯示幾个，為著加速。
+BOKIANGI_HUAGI_MAX = 90
