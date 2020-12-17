@@ -7,6 +7,8 @@ RUN apt-get update && \
 WORKDIR /opt
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip uninstall -y tai5-uan5_gian5-gi2_phing5-tai5
+RUN pip install --upgrade  https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_phing5-tai5/archive/bokiangi_e_huagi.zip
 COPY . .
 RUN python manage.py collectstatic --no-input
 
