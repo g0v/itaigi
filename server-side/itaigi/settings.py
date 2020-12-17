@@ -239,3 +239,6 @@ SECRET_KEY, DEBUG, DATABASES, LOGGING
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Query「其他建議」，上tsē顯示幾个。避免像「的」這款字查著siunn tsē結果。
+KIANGI_MAX = 90
