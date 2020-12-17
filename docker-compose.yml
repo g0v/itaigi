@@ -12,7 +12,7 @@ services:
       LETSENCRYPT_EMAIL: "ithuan@ithuan.tw"
     restart: always
   pgsql:
-    image: postgres:11
+    image: postgres:13
     command: postgres -c 'shared_buffers=256MB' -c 'max_connections=300'
     shm_size: '256mb'
     restart: always
