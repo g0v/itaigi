@@ -81,10 +81,10 @@ class 選單項目 extends React.Component {
     let 列表 = this.state.外語列表.列表.slice(0, this.state.顯示幾个);
 
     let 無建議的外語列表 = 列表.map((guaGi) => (
-        <button key={guaGi.外語項目編號}
+        <button key={guaGi}
           className='ui button basic large no-border'
-          onClick={this.props.欲提供講法.bind(this, guaGi.外語資料)}>
-          {guaGi.外語資料}
+          onClick={this.props.欲提供講法.bind(this, guaGi)}>
+          {guaGi}
         </button>
     ));
 
