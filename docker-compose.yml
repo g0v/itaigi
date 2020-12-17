@@ -3,6 +3,8 @@ version: '3.5'
 services:
   gunicorn:
     build: server-side/
+    ports:
+      - '8000:8000'
     networks:
       - default
       - nginx-bridge
