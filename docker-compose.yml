@@ -25,9 +25,7 @@ services:
     command: celery -A itaigi beat -l info
     restart: always
   celery:
-    build:
-      context: server-side/
-      dockerfile: Dockerfile-celery
+    build: server-side/
     command: celery -A itaigi worker -l info
     restart: always
   rabbitmq:
