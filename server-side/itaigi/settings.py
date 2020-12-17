@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 )
 
 MIDDLEWARE = (
@@ -49,6 +50,7 @@ MIDDLEWARE = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 
@@ -239,3 +241,10 @@ SECRET_KEY, DEBUG, DATABASES, LOGGING
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'whitenoise_static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    '60.248.44.30',
+    # ...
+]

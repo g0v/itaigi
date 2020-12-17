@@ -5,6 +5,7 @@ from django.conf.urls import include, url
 from django.shortcuts import render
 from django.urls.conf import path
 from django.views.static import serve
+import debug_toolbar
 
 
 def seo(request, su, huasu=None, im=None):
@@ -35,7 +36,7 @@ urlpatterns = [
     #     url: `https://itaigi.tw/${Iah}/${HuaSu}/${TaiSu}/${Im}`,
     #     title: `${TaiSu} - iTaigi 愛台語`,
     #     image: `https://www.moedict.tw/${encodeURI(TaiSu)}.png?font=wt064`,
-
+    path('__liahlau__/', include(debug_toolbar.urls)),
 ]
 
 

@@ -7,6 +7,7 @@ RUN apt-get update && \
 WORKDIR /opt
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip install django-debug-toolbar
 COPY . .
 RUN python manage.py collectstatic --no-input
 
