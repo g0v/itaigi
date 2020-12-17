@@ -18,6 +18,16 @@ def seo(request, su, huasu=None, im=None):
     )
 
 
+
+
+def kithann(request, exception=None):
+    return pangboo(
+        request, status=404,
+        title='iTaigi 愛台語',
+        image='https://g0v.github.io/itaigi/design/logo_og.png',
+    )
+
+
 urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     url(r'^', include('臺灣言語平臺.網址')),
@@ -37,6 +47,7 @@ urlpatterns = [
     #     title: `${TaiSu} - iTaigi 愛台語`,
     #     image: `https://www.moedict.tw/${encodeURI(TaiSu)}.png?font=wt064`,
     path('__liahlau__/', include(debug_toolbar.urls)),
+    path('', kithann),
 ]
 
 
@@ -46,14 +57,5 @@ def pangboo(request, status, title, image):
         'title': title,
         'image': image,
     })
-
-
-def kithann(request, exception=None):
-    return pangboo(
-        request, status=404,
-        title='iTaigi 愛台語',
-        image='https://g0v.github.io/itaigi/design/logo_og.png',
-    )
-
 
 handler404 = kithann
