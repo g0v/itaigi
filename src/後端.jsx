@@ -12,7 +12,7 @@ export default class 後端  {
 
   static 例句列表(漢字, 臺羅) {
     'safari需要直接用punycode';
-    return encodeURI('https://xn--fsqx9h.xn--v0qr21b.xn--kpry57d/' + '看/?漢字=' + 漢字 + '&臺羅=' + 臺羅);
+    return encodeURI('https://leku.itaigi.tw/' + '看/?漢字=' + 漢字 + '&臺羅=' + 臺羅);
   }
 
   static 貢獻者表() {
@@ -61,6 +61,6 @@ export default class 後端  {
   }
 
   static 名姓(姓, 名) {
-    return encodeURI('https://miasenn.xn--v0qr21b.xn--kpry57d/' +  姓 +  '/' + 名 + '/');
+    return encodeURI('https://miasenn.itaigi.tw/' +  姓 +  '/' + 名 + '/');
   }
 }
