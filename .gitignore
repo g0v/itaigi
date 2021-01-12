@@ -16,3 +16,5 @@ package-lock.json
 *.sql.gz
 .idea
 yarn.lock
+,DS_Store
+
