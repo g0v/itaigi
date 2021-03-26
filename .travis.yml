@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- '6'
+- '15'
 env:
 - TSI2_LING7='build'
 - TSI2_LING7='test'
