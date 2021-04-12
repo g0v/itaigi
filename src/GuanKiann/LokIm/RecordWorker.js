@@ -1,11 +1,10 @@
-var recLength = 0,
-  recBuffers = [],
-  sampleRate,
-  numChannels;
+let recLength = 0;
+let recBuffers = [];
+let sampleRate;
+let numChannels;
 
-
-onmessage = function(e){
-  switch(e.data.command){
+onmessage = function (e) {
+  switch (e.data.command) {
     case 'init':
       init(e.data.config);
       break;
@@ -24,73 +23,73 @@ onmessage = function(e){
   }
 };
 
-function init(config){
+function init(config) {
   sampleRate = config.sampleRate;
   numChannels = config.numChannels;
   initBuffers();
 }
 
-function record(inputBuffer){
-  for (var channel = 0; channel < numChannels; channel++){
+function record(inputBuffer) {
+  for (let channel = 0; channel < numChannels; channel++) {
     recBuffers[channel].push(inputBuffer[channel]);
   }
   recLength += inputBuffer[0].length;
 }
 
-function exportWAV(type){
-  var buffers = [];
-  for (var channel = 0; channel < numChannels; channel++){
+function exportWAV(type) {
+  const buffers = [];
+  for (let channel = 0; channel < numChannels; channel++) {
     buffers.push(mergeBuffers(recBuffers[channel], recLength));
   }
-  if (numChannels === 2){
-      var interleaved = interleave(buffers[0], buffers[1]);
+  if (numChannels === 2) {
+    var interleaved = interleave(buffers[0], buffers[1]);
   } else {
-      var interleaved = buffers[0];
+    var interleaved = buffers[0];
   }
-  var dataview = encodeWAV(interleaved);
-  var audioBlob = new Blob([dataview], { type: type });
+  const dataview = encodeWAV(interleaved);
+  const audioBlob = new Blob([dataview], { type });
 
   postMessage(audioBlob);
 }
 
-function getBuffer(){
-  var buffers = [];
-  for (var channel = 0; channel < numChannels; channel++){
+function getBuffer() {
+  const buffers = [];
+  for (let channel = 0; channel < numChannels; channel++) {
     buffers.push(mergeBuffers(recBuffers[channel], recLength));
   }
   postMessage(buffers);
 }
 
-function clear(){
+function clear() {
   recLength = 0;
   recBuffers = [];
   initBuffers();
 }
 
-function initBuffers(){
-  for (var channel = 0; channel < numChannels; channel++){
+function initBuffers() {
+  for (let channel = 0; channel < numChannels; channel++) {
     recBuffers[channel] = [];
   }
 }
 
-function mergeBuffers(recBuffers, recLength){
-  var result = new Float32Array(recLength);
-  var offset = 0;
-  for (var i = 0; i < recBuffers.length; i++){
+function mergeBuffers(recBuffers, recLength) {
+  const result = new Float32Array(recLength);
+  let offset = 0;
+  for (let i = 0; i < recBuffers.length; i++) {
     result.set(recBuffers[i], offset);
     offset += recBuffers[i].length;
   }
   return result;
 }
 
-function interleave(inputL, inputR){
-  var length = inputL.length + inputR.length;
-  var result = new Float32Array(length);
+function interleave(inputL, inputR) {
+  const length = inputL.length + inputR.length;
+  const result = new Float32Array(length);
 
-  var index = 0,
-    inputIndex = 0;
+  let index = 0;
+  let inputIndex = 0;
 
-  while (index < length){
+  while (index < length) {
     result[index++] = inputL[inputIndex];
     result[index++] = inputR[inputIndex];
     inputIndex++;
@@ -98,22 +97,22 @@ function interleave(inputL, inputR){
   return result;
 }
 
-function floatTo16BitPCM(output, offset, input){
-  for (var i = 0; i < input.length; i++, offset+=2){
-    var s = Math.max(-1, Math.min(1, input[i]));
+function floatTo16BitPCM(output, offset, input) {
+  for (let i = 0; i < input.length; i++, offset += 2) {
+    const s = Math.max(-1, Math.min(1, input[i]));
     output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
   }
 }
 
-function writeString(view, offset, string){
-  for (var i = 0; i < string.length; i++){
+function writeString(view, offset, string) {
+  for (let i = 0; i < string.length; i++) {
     view.setUint8(offset + i, string.charCodeAt(i));
   }
 }
 
-function encodeWAV(samples){
-  var buffer = new ArrayBuffer(44 + samples.length * 2);
-  var view = new DataView(buffer);
+function encodeWAV(samples) {
+  const buffer = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buffer);
 
   /* RIFF identifier */
   writeString(view, 0, 'RIFF');
@@ -146,4 +145,3 @@ function encodeWAV(samples){
 
   return view;
 }
-
