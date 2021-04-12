@@ -4,13 +4,14 @@ import Transmit from 'react-transmit';
 import Promise from 'bluebird';
 import 後端 from '../../後端';
 import './Mia.css';
-var superagent = require('superagent-promise')(require('superagent'), Promise);
 
 import Debug from 'debug';
-var debug = Debug('itaigi:Mia');
+
+const superagent = require('superagent-promise')(require('superagent'), Promise);
+
+const debug = Debug('itaigi:Mia');
 
 class Mia extends React.Component {
-
   名次(排名) {
     let classes;
     switch (排名) {
@@ -32,17 +33,17 @@ class Mia extends React.Component {
 
   render() {
     return (
-    <div className='mia main ui text container'>
-      <table className='ui celled unstackable table'>
-        <thead>
-          <tr>
-            <th className='collapsing'>名次</th>
-            <th>貢獻者</th>
-            <th className='collapsing'>數量</th>
-          </tr>
-        </thead>
-        <tbody>
-        {
+      <div className="mia main ui text container">
+        <table className="ui celled unstackable table">
+          <thead>
+            <tr>
+              <th className="collapsing">名次</th>
+              <th>貢獻者</th>
+              <th className="collapsing">數量</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
           this.props.MiaData.名人
             .map((g, idx) => (
               <tr key={idx}>
@@ -52,9 +53,9 @@ class Mia extends React.Component {
               </tr>
             ))
         }
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
@@ -69,9 +70,8 @@ export default Transmit.createContainer(Mia, {
   fragments: {
     MiaData() {
       return superagent.get(後端.貢獻者表())
-      .then(({ body }) => (body))
-      .catch((err) => ({ '名人': [] }));
+        .then(({ body }) => (body))
+        .catch((err) => ({ 名人: [] }));
     },
   },
 });
-

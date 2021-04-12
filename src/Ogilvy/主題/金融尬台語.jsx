@@ -1,6 +1,5 @@
 import React from 'react';
 import './金融尬台語.css';
-import Debug from 'debug';
 import 抱去摸三隻 from '../../Iah/主題/抱去摸三隻';
 import 金融尬台語表 from './金融尬台語.json';
 
@@ -8,6 +7,12 @@ export default class 金融尬台語 extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 佗一隻: undefined, 揣: '' };
+  }
+
+  handleKeyDown(evt) {
+    if (evt.keyCode === 13) {
+      this.查寶貝();
+    }
   }
 
   換一隻(名) {
@@ -40,12 +45,6 @@ export default class 金融尬台語 extends React.Component {
       />
     ));
     return 寶貝鈕;
-  }
-
-  handleKeyDown(evt) {
-    if (evt.keyCode === 13) {
-      this.查寶貝();
-    }
   }
 
   查寶貝() {
