@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Debug from 'debug';
-import Promise from 'bluebird';
 import FBTest from '../../FBTest/FBTest';
 import 分享鍵 from '../../GuanKiann/分享鍵/分享鍵';
 import 後端 from '../../後端';
+import Debug from 'debug';
+import Promise from 'bluebird';
+var superagent = require('superagent-promise')(require('superagent'), Promise);
 
-const superagent = require('superagent-promise')(require('superagent'), Promise);
-
-const debug = Debug('itaigi:Kong無關鍵字');
+var debug = Debug('itaigi:Kong無關鍵字');
 
 class 新詞區塊 extends React.Component {
   render() {
@@ -16,41 +15,40 @@ class 新詞區塊 extends React.Component {
 
     return (
       <div>
-        <p />
-        <h3 className="ui horizontal divider header">
-          <i className="ui icon rocket" />
-          燒燙燙 台語新詞
-        </h3>
+      <p></p>
+      <h3 className='ui horizontal divider header'>
+          <i className='ui icon rocket'/>燒燙燙 台語新詞
+      </h3>
 
-        <div className="ui inverted segment 燒燙燙">
-          <div className={`ui ${loading ? 'active' : ''} dimmer`}>
-            <div className="ui text loader">小等一下</div>
-          </div>
-          <span className={`header large ${loading ? 'loading' : ''}`} />
-          {
-          this.props.newWords.map((su, i) => (
-            <Link
-              className="ui black large button"
-              style={{ marginBottom: '0.25em' }}
-              to={`/k/${su}`}
-              key={i}
-            >
-              {su}
-            </Link>
-          ))
-}
-          {this.props.isShowMore ? '' : (
-            <button
-              className={`${loading ? 'loading' : 'ui button  large'}`}
-              onClick={this.props.onShowMoreClick}
-            >
-              顯示多一點
-            </button>
-          )}
+      <div className='ui inverted segment 燒燙燙'>
+        <div className={`ui ${loading ? 'active' : ''} dimmer`}>
+          <div className='ui text loader'>小等一下</div>
         </div>
+        <span className={`header large ${loading ? 'loading' : ''}`}></span>
+        {
+          this.props.newWords.map(function (su, i) {
+            return (
+              <Link
+                className='ui black large button'
+                style={{ marginBottom: '0.25em' }}
+                to={'/k/' + su}
+                key={i}>
+                {su}
+              </Link>
+            );
+          }
+        )}
+        {this.props.isShowMore ? '' : (
+          <button
+            className={`${loading ? 'loading' : 'ui button  large'}`}
+            onClick={this.props.onShowMoreClick}>顯示多一點
+          </button>
+        )}
+      </div>
       </div>
     );
   }
+
 }
 
 export default class 無關鍵字 extends React.Component {
@@ -64,22 +62,22 @@ export default class 無關鍵字 extends React.Component {
 
     this.onShowMoreClick = () => {
       this.setState({
-        isShowMore: !this.state.isShowMore,
-      });
+          isShowMore: !this.state.isShowMore,
+        });
     };
   }
 
   componentDidMount() {
     superagent.get(後端.揣上新貢獻的外語())
-      .then(({ body }) => {
-        const newWords = body.列表.map((item) => item.外語資料);
-        const newWordsLess = newWords.slice(0, 20);
-        const newWordsMore = newWords.slice(0, 80);
-        this.setState({
-          newWordsLess,
-          newWordsMore,
+        .then(({ body }) => {
+          const newWords = body.列表.map(item => item.外語資料);
+          const newWordsLess = newWords.slice(0, 20);
+          const newWordsMore = newWords.slice(0, 80);
+          this.setState({
+            newWordsLess,
+            newWordsMore,
+          });
         });
-      });
   }
 
   render() {
@@ -88,13 +86,11 @@ export default class 無關鍵字 extends React.Component {
     const newWords = this.state.isShowMore ? this.state.newWordsMore : this.state.newWordsLess;
 
     return (
-      <div className="kong content">
-        <新詞區塊
-          newWords={newWords}
-          isShowMore={this.state.isShowMore}
-          onShowMoreClick={this.onShowMoreClick}
-        />
-        <FBTest />
+      <div className='kong content'>
+        <新詞區塊 newWords={newWords}
+         isShowMore={this.state.isShowMore}
+         onShowMoreClick={this.onShowMoreClick}/>
+        <FBTest/>
       </div>
     );
   }

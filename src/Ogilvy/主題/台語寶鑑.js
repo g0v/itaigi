@@ -22,8 +22,7 @@ export default class 台語寶鑑 extends React.Component {
   }
 
   appendButtons() {
-    const { data } = this.state;
-    return data.map((d) => <寶鑑按鈕 data={d} key={d.name} />);
+    return this.state.data.map((d) => <寶鑑按鈕 data={d} key={d.name} />);
   }
 
   render() {
