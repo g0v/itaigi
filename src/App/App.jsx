@@ -1,9 +1,4 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { browserHistory } from 'react-router';
-import { Promise } from 'bluebird';
-import Debug from 'debug';
-
 import ToLam from '../GuanKiann/ToLam/ToLam';
 import IapKha from '../GuanKiann/IapKha/IapKha';
 import 後端 from '../後端';
@@ -12,9 +7,12 @@ import 載入頁面 from '../GuanKiann/載入頁面/載入頁面';
 import { gaLeKu } from '../GA';
 import './App.css';
 
-const superagent = require('superagent-promise')(require('superagent'), Promise);
+import { Promise } from 'bluebird';
+import { browserHistory } from 'react-router';
 
-const debug = Debug('itaigi:App');
+var superagent = require('superagent-promise')(require('superagent'), Promise);
+import Debug from 'debug';
+var debug = Debug('itaigi:App');
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,30 +22,30 @@ export default class App extends React.Component {
   }
 
   看編號() {
-    superagent.get(encodeURI(`${後端.網址()}csrf/看`))
-      .withCredentials()
-      .then(({ body }) => (this.setState({ csrftoken: body.csrftoken }), null))
-      .catch((err) => (debug(err)));
-    superagent.get(encodeURI(`${後端.網址()}使用者/看編號`))
-      .withCredentials()
-      .then(({ body }) => (this.setState({ 編號: body.使用者編號 }), null))
-      .catch((err) => (debug(err)));
+    superagent.get(encodeURI(後端.網址() + 'csrf/看'))
+        .withCredentials()
+        .then(({ body }) => (this.setState({ csrftoken: body.csrftoken }), null))
+        .catch((err) => (debug(err)));
+    superagent.get(encodeURI(後端.網址() + '使用者/看編號'))
+        .withCredentials()
+        .then(({ body }) => (this.setState({ 編號: body.使用者編號 }), null))
+        .catch((err) => (debug(err)));
   }
 
   查怎樣講(外語) {
-    browserHistory.replace(`/k/${外語}`);
+    browserHistory.replace('/k/' + 外語);
   }
 
   欲提供講法(外語) {
-    browserHistory.replace(`/t/${外語}`);
+    browserHistory.replace('/t/' + 外語);
   }
 
   開例句(外語, 漢字, 台羅) {
     browserHistory.replace(
-      `/k/${encodeURIComponent(外語)
-      }/${encodeURIComponent(漢字)
-      }/${encodeURIComponent(台羅)}`,
-    );
+      '/k/' + encodeURIComponent(外語) +
+      '/' + encodeURIComponent(漢字) +
+      '/' + encodeURIComponent(台羅)
+      );
     gaLeKu(漢字, 台羅);
   }
 
@@ -58,10 +56,10 @@ export default class App extends React.Component {
   render() {
     const { k, han, lo } = this.props.params;
     return (
-      <div className="app background">
-        <header className="app header">
-          <ToLam pathname={this.props.location.pathname} />
-        </header>
+    <div className='app background'>
+      <header className='app header'>
+        <ToLam pathname={this.props.location.pathname}/>
+      </header>
         { React.cloneElement(
           this.props.children,
           {
@@ -71,17 +69,14 @@ export default class App extends React.Component {
             編號: this.state.編號,
             開例句: this.開例句.bind(this),
             variables: { 關鍵字: k },
-            renderLoading: <載入頁面 />,
-          },
+            renderLoading: <載入頁面/>,
+          }
         )}
-        <例句表
-          關例句={this.關例句.bind(this, k)}
-          漢字={han}
-          台羅={lo}
-          variables={{ 漢字: han, 台羅: lo }}
-        />
-        <IapKha />
-      </div>
+      <例句表 關例句={this.關例句.bind(this, k)}
+         漢字={han} 台羅={lo}
+         variables={{ 漢字: han, 台羅: lo }}/>
+      <IapKha/>
+    </div>
     );
   }
 }
