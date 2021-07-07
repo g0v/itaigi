@@ -70,7 +70,7 @@ const list = [
     links: [
       {
         title: '臺灣閩南語推薦用字700字詞',
-        link: 'https://language.moe.gov.tw/files/people_files/700iongji_107.05.03.pdf',
+        link: 'https://language.moe.gov.tw/files/people_files/700iongji_109.12.02.pdf',
       },
       {
         title: '臺灣閩南語羅馬字拼音教學網',
