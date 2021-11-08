@@ -8,16 +8,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-<nav aria-labelledby="accessible-nav-title">
-    <span id="accessible-nav-title">無障礙功能區：</span>
-    <ul><li><a href="#!">跳去主內容</li></ul>
+<nav aria-labelledby="accessible-nav-title" class="bg-light">
+    <div class="container-lg d-flex">
+        <span id="accessible-nav-title">無障礙功能區：</span>
+        <ul class="list-inline"><li><a href="#!">跳去主內容</a></li></ul>
+    </div>
 </nav>
-<header>
-    <p>iTaigi 華台辭典</p>
-    <a href="#!">註冊/登入</a>
-    <button>目錄</button>
-</header>
-<main>
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-md">
+        <a class="navbar-brand" href="#!">iTaigi 華台辭典</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tolam" aria-controls="tolam" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+</svg>
+        </button>
+        <div class="collapse navbar-collapse" id="tolam">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">查詢辭典</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">貢獻詞條</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
+        </ul>
+        </div>
+    </div>
+</nav>
+<main class="container-lg">
     <form>
         <label for="tshiau">搜尋華語/英語</label>
         <input type="text" name="tshiau" id="tshiau"/>
