@@ -59,7 +59,7 @@
         <button class="btn btn-primary">我也想問</button>
     </section>
     <section>
-        <h2>1筆詞</h2>
+        <h1>1筆詞</h1>
         <ol class="list-unstyled row p-0">
             <!--card 1-->
           <li class="col-12 col-md-4 mb-2">
@@ -69,13 +69,14 @@
                     <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><p class="visually-hidden">收藏此講法</p>133</button>
               </div>
               <div class="card-body">
-                <header class="d-flex">
-                    <h2>jio̍k-huâ</h2>
+                <header class="d-flex align-items-center">
+                    <h2 class="">jio̍k-huâ</h2>
                     <button class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                        <span class="visually-hidden">播放音檔XX</span>
                     </button>
                 </header>
-                <h3>辱華</h3>
+                <span class="h3 d-inline-block mb-2">辱華</span>
                 <p class="card-text">出處或理由：家人說的</p>
                 <a href="#le-1">例句(12)</a>
                 <span class="text-secondary float-end"><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-person-fill"></use></svg>Justin Richard Leung</span>
@@ -90,6 +91,34 @@
           </li>
         </ol>
     </section>
+
+    <section>
+        <h2 class="me-2">相關華語</h2>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!">辱華</a></li>
+            <li class="list-inline-item"><a href="#!">乳滑</a></li>
+        </ul>
+    </section>
+    
+    <footer class="btn-light">
+        <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <h2>加新詞</h2>
+                <form class="row g-3">
+                    <label for='han' class="form-label">台文漢字*（必填）</label>
+                    <input  name='han' id='han' type="text" class="form-control" required="" placeholder="台文" />
+                    <label for='lmj' class="form-label">台羅*（必填）</label>
+                    <input  name='lmj' id='lmj' type="text" class="form-control" required="" placeholder="tâi-bûn"/>
+                    <label for='liiu' class="form-label">出處或理由（40字內）</label>
+                    <textarea name='liiu' id='liiu' class="form-control" maxlength="40"></textarea> 
+                    <span>送出時，亦表示您同意內容以CC0｢不保留權利｣授權 </span>
+                    <button class="btn btn-primary">登入後送出</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </footer>
 </main>
 <footer></footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
