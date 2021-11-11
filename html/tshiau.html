@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>辱華 - 查詢 iTaigi 華台辭典</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/font.css">
+    <style type="text/css">
+        body {
+            font-family: GenYoGothicTW, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+        }
+    </style>
 </head>
 <body>
     <svg width="0" height="0" style="position: absolute;">
@@ -37,7 +43,7 @@
 </nav>
 <header class="navbar navbar-expand-md navbar-light">
     <div class="container-md">
-        <a class="navbar-brand" href="#!">iTaigi 華台辭典</a>
+        <a class="navbar-brand fw-bolder" href="#!">iTaigi 華台辭典</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tolam" aria-controls="tolam" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
@@ -56,7 +62,7 @@
 </header>
 <main class="container-lg pt-1 pb-3">
     <h1 id="luebun">查詢辭典</h1>
-    <form class="mb-3">
+    <form class="mb-4">
         <label for="tshiau" class="col-form-label">輸入查詢華語字詞</label>
         <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢辭典……"/>
     </form>
@@ -186,7 +192,7 @@
         <ul>
             <li>
                 <div class="d-flex align-items-center">
-                    <strong class="user-select-all lh-lg">Tsá-bān ài <mark>jio̍k-huâ</mark>.</strong>
+                    <p class="mb-0 user-select-all">Tsá-bān ài <mark>jio̍k-huâ</mark>.</p>
                     <button class="btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
                     <span class="visually-hidden">播放音檔XX</span>
@@ -201,8 +207,8 @@
             </li>
             <li>
                 <div class="d-flex align-items-center">
-                    <strong class="user-select-all lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
-                    </strong>
+                    <p class="mb-0 user-select-all lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
+                    </p>
                     <button class="btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
                         <span class="visually-hidden">播放音檔XX</span>
