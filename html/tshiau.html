@@ -69,6 +69,7 @@
         <label for="tshiau" class="col-form-label">輸入查詢華語字詞</label>
         <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢辭典……"/>
     </form>
+
     <section class="mb-4">
         <h2>查詢結果</h2>
         <div class="d-flex align-items-center mb-2">
@@ -83,12 +84,12 @@
         <ol class="list-unstyled row p-0">
             <!--khahpinn 1-->
           <li class="col-12 col-md-4 mb-2">
-            <div class="card border">
+            <div class="card border h-100">
               <div class="card-header bg-transparent">
                   <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-hand-thumbs-up"></use></svg><p class="visually-hidden">贊成此講法</p>5</button>
                     <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><p class="visually-hidden">收藏此講法</p>133</button>
               </div>
-              <div class="card-body">
+              <div class="card-body h-100">
                 <header class="d-flex align-items-center">
                     <h3 class="user-select-all">jio̍k-huâ</h3>
                     <button class="btn mx-2">
@@ -104,13 +105,13 @@
               </div>
             </div>
           </li>
+        </ol>
 
-          <!--khahpinn 1-->
-          <li class="col-12 col-md-4 mb-2">
-            <div class="card border">
-              <div class="card-body bg-light">
-                    <h3>+ 新詞</h3>
-              <form>
+    <section class="mb-4">
+        <div class="card border">
+            <div class="card-body bg-light">
+                <h2>+ 新詞</h2>
+                <form>
                     <div class="row g-3">
                     <div>
                         <label for='lmj' class="form-label">台羅*（必填）</label>
@@ -130,103 +131,51 @@
                 </form>
             </div>
         </div>
-          </li>
-        </ol>
-        <h3 class="me-2">相關華語</h3>
+    </section>
+
+    <section class="mb-4">
+        <h2 class="me-2">相關華語</h2>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#!">辱華</a></li>
             <li class="list-inline-item"><a href="#!">乳滑</a></li>
         </ul>
     </section>
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="tshingtuann" tabindex="-1" aria-labelledby="tshingtitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="tshingtitle">收藏到……</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-                <fieldset>
-                    <div class="form-check py-1">
-                      <input class="form-check-input" type="checkbox" value="學習清單" id="flexCheckDefault1">
-                      <label class="form-check-label w-100" for="flexCheckDefault1">
-                        <span class="me-2">學習清單</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-globe2"></use></svg>
-                      </label>
-                    </div>
-                    <div class="form-check py-1">
-                      <input class="form-check-input" type="checkbox" value="學習清單2" id="flexCheckDefault2">
-                      <label class="form-check-label w-100" for="flexCheckDefault2">
-                        <span class="me-2">
-                        學習清單2
-                        </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-lock"></use></svg>
-                      </label>
-                    </div>
-                </fieldset>
-            </form>
-            <form class="border-top mt-2 pt-2 row g-2">
-                <p class="fw-bold mb-0">建立新清單</p>
-                <div>
-                    <label class="form-label" for="sintuannmia">新清單名</label>
-                    <input class="form-control" type="text" name="sintuannmia" id="sintuannmia"/>
-                </div>
-                <div>
-                    <label class="form-label" for="khuanhan">權限</label>
-                    <select class="form-select" id="khuanhan" name="khuanhan">
-                        <option>公開</option>
-                        <option>私人</option>
-                    </select>
-                </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">收藏</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <section>
         <h2 class="mb-3">例句</h2>
         <div>
-        <h3 id="le-1">jio̍k-huâ 辱華</h3>
-        <ul>
-            <li>
-                <div class="d-flex align-items-center">
-                    <p class="mb-0 user-select-all">Tsá-bān ài <mark>jio̍k-huâ</mark>.</p>
-                    <button class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
-                    <span class="visually-hidden">播放音檔XX</span>
-                    </button>
-                    <button class="btn btn-outline-dark">copy</button>
-                </div>
-                <p class="lh-base">
-                    <span>早慢愛<mark>辱華</mark>。</span>
-                    <span>(早晚要辱華。)</span>
-                </p>
-                
-            </li>
-            <li>
-                <div class="d-flex align-items-center">
-                    <p class="mb-0 user-select-all lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
-                    </p>
-                    <button class="btn">
+            <h3 id="le-1">jio̍k-huâ 辱華</h3>
+            <ul>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 user-select-all">Tsá-bān ài <mark>jio̍k-huâ</mark>.</p>
+                        <button class="btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
                         <span class="visually-hidden">播放音檔XX</span>
-                    </button>
-                    <button class="btn btn-outline-dark">copy</button>
-                </div>
-                <p class="lh-base">阿明人誠古意，袂舞<mark>辱華</mark>遐的有空無榫的代誌。
-                <span>(阿明為人很忠厚老實，不會做辱華那些不合情理的事。)</span></p>
-            </li>
-        </ul>
-        <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">
+                        <span>早慢愛<mark>辱華</mark>。</span>
+                        <span>(早晚要辱華。)</span>
+                    </p>
+                    
+                </li>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 user-select-all lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
+                        </p>
+                        <button class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">阿明人誠古意，袂舞<mark>辱華</mark>遐的有空無榫的代誌。
+                    <span>(阿明為人很忠厚老實，不會做辱華那些不合情理的事。)</span></p>
+                </li>
+            </ul>
+            <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
         </div>
     </section>
     </div>
@@ -257,6 +206,61 @@
     </div>
     </div>
 </footer>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="tshingtuann" tabindex="-1" aria-labelledby="tshingtitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tshingtitle">收藏到……</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <fieldset>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單" id="flexCheckDefault1">
+                  <label class="form-check-label w-100" for="flexCheckDefault1">
+                    <span class="me-2">學習清單</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-globe2"></use></svg>
+                  </label>
+                </div>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單2" id="flexCheckDefault2">
+                  <label class="form-check-label w-100" for="flexCheckDefault2">
+                    <span class="me-2">
+                    學習清單2
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-lock"></use></svg>
+                  </label>
+                </div>
+            </fieldset>
+        </form>
+        <form class="border-top mt-2 pt-2 row g-2">
+            <p class="fw-bold mb-0">建立新清單</p>
+            <div>
+                <label class="form-label" for="sintuannmia">新清單名</label>
+                <input class="form-control" type="text" name="sintuannmia" id="sintuannmia"/>
+            </div>
+            <div>
+                <label class="form-label" for="khuanhan">權限</label>
+                <select class="form-select" id="khuanhan" name="khuanhan">
+                    <option>公開</option>
+                    <option>私人</option>
+                </select>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">收藏</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
