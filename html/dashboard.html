@@ -70,23 +70,22 @@
         </nav>
     </div>
 </header>
-<nav class="" aria-label="會員選單區">    
-     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#dashnav" aria-expanded="false" aria-controls="dashnav">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
-          <title>會員選單區</title>
-          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
-        </svg>
-    </button>
-</nav>
 <main>
-    <div id="dashnav" class="collapse">
-        <ul>
+    <nav aria-label="會員選單區">    
+         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#dashnav" aria-expanded="false" aria-controls="dashnav">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
+              <title>會員選單區</title>
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
+            </svg>
+        </button>
+        <ul id="dashnav" class="collapse">
             <li><a href="#!">我的發問</a></li>
             <li><a href="#!">我的關注</a></li>
             <li><a href="#!">我的答案</a></li>
             <li><a href="#!">我的收藏</a></li>
         </ul>
-    </div>
+    </nav>
+
     <div class="container-lg py-3">
     <h1 id="luebun">歡迎</h1>
     <p>a8568730</p>
@@ -110,12 +109,35 @@
     </section>
 
     <section class="mb-5">
+        <h2>最近收藏</h2>
+        <p class="text-secondary">查看完整清單<a href="">我的收藏</a></p>
+        TODO: 按個人清單
+        <ul>
+            <li>清單1</li>
+            <li>清單2</li>
+            <li>清單3</li>
+        </ul>
+        <table class="table">
+            <caption class="visually-hidden">最近收藏10筆</caption>
+            <thead>
+                <tr><th>華語</th><th>回答</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="mb-5">
         <h2>最近發問</h2>
         <p class="text-secondary">查看完整清單<a href="">我的發問</a></p>
         <table class="table">
             <caption class="visually-hidden">最近發問10筆</caption>
             <thead>
-                <tr><th>關注</th><th>回答</th><th>華語</th><th>發問日</th></tr>
+                <tr><th>關注數</th><th>回答數</th><th>華語</th><th>發問日</th></tr>
             </thead>
             <tbody>
                 <tr>
@@ -134,10 +156,11 @@
         <table class="table">
             <caption class="visually-hidden">最近回答10筆</caption>
             <thead>
-                <tr><th>回答收藏數</th><th>華語</th><th>我的答案</th><th>發問日</th></tr>
+                <tr><th>讚數</th><th>收藏數</th><th>華語</th><th>我的回答</th><th>發問日</th></tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>20</td>
                     <td>20</td>
                     <td><a href="#!">各個國家有各個國家的國歌</a></td>
                     <td><a href="#!">各個國家有各個國家的國歌</a></td>
@@ -146,7 +169,12 @@
             </tbody>
         </table>
     </section>
-    
+
+    <section class="mb-5">
+        <h2>最近XX</h2>
+        <div class="bg-light p-3 border rounded">尚無任何記錄</div>
+    </section>
+
     </div>
 </main>
 <footer class="bg-light py-4">
