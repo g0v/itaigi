@@ -11,6 +11,26 @@
         body {
             font-family: GenYoGothicTW, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
         }
+        .tai-nav {
+            grid-area: tainav
+        }
+        .tai-main {
+            grid-area: taimain
+        }
+        .tai-links {
+            overflow: auto;
+        }
+        @media screen and (min-width:  768px) {
+            .tai-layout {
+                display: grid;
+                grid-template-areas: "tainav taimain";
+                grid-template-columns: auto 1fr;
+            }
+            .tai-links {
+                display: block !important;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -33,7 +53,7 @@
         </button>
         <nav class="collapse navbar-collapse" id="tolam">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">查詢辭典</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">首頁</a></li>
             <li class="nav-item"><a class="nav-link" href="#!">+ 新詞</a></li>
             <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
             <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
@@ -42,27 +62,31 @@
         </nav>
     </div>
 </header>
-<main>
-    <nav aria-label="會員選單區">    
-         <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#dashnav" aria-expanded="false" aria-controls="dashnav">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
-              <title>會員選單區</title>
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
-            </svg>
-        </button>
-        <ul id="dashnav" class="collapse">
+<div aria-label="手機版會員選單區" class="d-md-none">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#kojinbokliok" aria-expanded="false" aria-controls="kojinbokliok">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
+          <title>會員選單區</title>
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
+        </svg>
+    </button>
+</div>
+<div class="tai-layout">
+    <nav class="tai-nav bg-light">
+        <div class="tai-links collapse" id="kojinbokliok">
+        <ul class="">
             <li><a href="#!">我的發問</a></li>
             <li><a href="#!">我的關注</a></li>
             <li><a href="#!">我的答案</a></li>
             <li><a href="#!">我的收藏</a></li>
         </ul>
+        </div>
     </nav>
 
-    <div class="container-lg py-3">
+    <main class="tai-main container-lg py-3">
     
     <h1 id="luebun" class="mb-4">歡迎<small>a8568730</small></h1>
     
-    <div class="row mb-3 gx-5">
+    <div class="row mb-3">
         <section class="col-12 col-md-4 mb-4 mb-md-0">
             <h2>統計</h2>
             <div class="border pt-2">
@@ -138,8 +162,8 @@
         <div class="bg-light p-3 border rounded">尚無任何記錄</div>
     </section>
 
-    </div>
-</main>
+    </main>
+</div>
 <footer class="bg-light py-4">
     <div class="container">
     <div class="row">
