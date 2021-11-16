@@ -222,7 +222,18 @@
 
     <section class="mb-5">
         <h2>我的發問</h2>
-        <p>提醒：若發問已被人關注，則無法移除。</p>
+        <div class="text-secondary">提醒：
+            <ol>
+                <li>若發問已被人關注，則無法移除。</li>
+                <li>移除發問同時會取消關注。
+                    <div class="text-danger">
+                        （問題：Tī「我的關注」kā家己問題取消關注會按怎？）
+                        （問題：若按算改做bē-sái關注家己問題，家己kám ē-sái另外關注？）
+                    </div>
+                </li>
+                <li>若需修改問題，先移除舊問題，重新到首頁查詢並發問即可。</li>
+            </ol>
+        </div>
         <table class="table">
             <caption class="visually-hidden">最近發問10筆</caption>
             <thead>
@@ -249,6 +260,41 @@
         </table>
     </section>
 
+
+
+    <section class="mb-4">
+        <h2>我的回答</h2>
+        <table class="table">
+            <caption class="visually-hidden">最近回答10筆</caption>
+            <thead>
+                <tr><th>讚</th><th>收藏</th><th>華語</th><th>我的回答</th><th>回答日</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20</td>
+                    <td>10</td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td><time>2014-03-26</time></td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <div class="text-secondary">提醒：
+            <ol>
+                <li>若需修改回答，重新提出新回答即可。</li>
+            </ol>
+            </div>
+            <label for="hua" class="form-label">華語</label>
+            <input id="hua" type="text" disabled name="hua" value='各個國家有各個國家的國歌' class="form-control"/>
+            <label for="han" class="form-label">台文漢字</label>
+            <input id="han" type="text" disabled name="han" value='各個國家有各個國家的國歌' class="form-control"/>
+            <label for="lomaji" class="form-label">教育部羅馬字</label>
+            <input id="lomaji" type="text" disabled name="lomaji" value='各個國家有各個國家的國歌' class="form-control"/>
+            <label for="liiu" class="form-label">出處或理由（40字內）</label>
+            <textarea id="liiu" name="liiu" class="form-control"></textarea>
+        </form>
+    </section>
 
     </main>
 </div>
