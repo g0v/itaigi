@@ -24,7 +24,7 @@
             .tai-layout {
                 display: grid;
                 grid-template-areas: "tainav taimain";
-                grid-template-columns: auto 1fr;
+                grid-template-columns: 1fr 4fr;
             }
             .tai-links {
                 display: block !important;
@@ -62,29 +62,39 @@
         </nav>
     </div>
 </header>
-<div aria-label="手機版會員選單區" class="d-md-none">
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#kojinbokliok" aria-expanded="false" aria-controls="kojinbokliok">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
-          <title>會員選單區</title>
-          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
-        </svg>
-    </button>
-</div>
 <div class="tai-layout">
-    <nav class="tai-nav bg-light">
+    <nav class="tai-nav bg-dark py-1 px-md-3 pt-md-3">
+        <div class="d-flex align-items-center justify-content-between py-md-2 container">
+            <span class="text-white">歡迎，a8568730</span>
+            <button class="btn btn-primary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#kojinbokliok" aria-expanded="false" aria-controls="kojinbokliok">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
+                  <title>會員選單區</title>
+                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
+                </svg>
+            </button>
+        </div>
         <div class="tai-links collapse" id="kojinbokliok">
-        <ul class="">
-            <li><a href="#!">我的發問</a></li>
-            <li><a href="#!">我的關注</a></li>
-            <li><a href="#!">我的答案</a></li>
-            <li><a href="#!">我的收藏</a></li>
+        <ul class="nav nav-pills flex-column mb-auto mt-2">
+            <li class="nav-item"><a href="#!" class="nav-link active text-white">個人首頁</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">我的發問</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">我的關注</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">我的答案</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">我的收藏</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">換暱稱</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">換密碼</a></li>
+            <li class="nav-item"><a href="#!" class="nav-link text-white">登出</a></li>
         </ul>
         </div>
     </nav>
 
     <main class="tai-main container-lg py-3">
     
-    <h1 id="luebun" class="mb-4">歡迎<small>a8568730</small></h1>
+    <h1 id="luebun" class="mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        </svg>
+        a8568730
+    </h1>
     
     <div class="row mb-3">
         <section class="col-12 col-md-4 mb-4 mb-md-0">
