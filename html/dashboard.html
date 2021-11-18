@@ -52,7 +52,7 @@
         <symbol xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-volume-down" viewBox="0 0 16 16" id="svg-volume-down">
           <path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12V4zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11zM12.025 8a4.486 4.486 0 0 1-1.318 3.182L10 10.475A3.489 3.489 0 0 0 11.025 8 3.49 3.49 0 0 0 10 5.525l.707-.707A4.486 4.486 0 0 1 12.025 8z"/>
         </symbol>
-        <symbol xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" id="svg-person-fill">
+        <symbol xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" id="svg-person-fill">
           <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
         </symbol>
         <symbol xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16" id="svg-lock">
@@ -66,6 +66,11 @@
 <symbol xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" id="svg-eye">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+</symbol>
+
+
+<symbol xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16" id="svg-bell">
+  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
 </symbol>
 
 </svg>
@@ -88,10 +93,16 @@
                 <span class="d-none d-md-inline-block">iTaigi 眾人華台辭典</span>
             </a>
             <!--Mobile list items-->
-            <ul class="navbar-nav d-md-none ms-auto d-flex flex-row">
-                <li class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle me-1" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+            <ul class="navbar-nav d-md-none ms-auto d-block">
+                <li class="d-inline-block dropdown">
+                    <button class="btn btn-secondary dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg width="24" height="24">
+                            <use href="#svg-bell"></use>
+                        </svg>
                         通知
+                        <span class="position-absolute top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="thongti">
                         <li><button class="dropdown-item" type="button">Action</button></li>
@@ -99,9 +110,12 @@
                         <li><button class="dropdown-item" type="button">Something else here</button></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="d-inline-block dropdown">
                     <button class="btn btn-secondary dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
-                        帳號
+                    <svg width="24" height="24">
+                        <use href="#svg-person-fill"></use>
+                    </svg>
+                    帳號
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="khautso">
                         <li><button class="dropdown-item" type="button">Action</button></li>
@@ -125,9 +139,15 @@
                 <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
             </ul>
             <ul class="navbar-nav d-none d-md-block ms-auto">
-                <li class="nav-item d-md-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="d-inline-block dropdown">
+                    <button class="btn btn-secondary dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg width="24" height="24">
+                            <use href="#svg-bell"></use>
+                        </svg>
                         通知
+                        <span class="position-absolute top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                      </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="thongti">
                         <li><button class="dropdown-item" type="button">Action</button></li>
@@ -135,9 +155,12 @@
                         <li><button class="dropdown-item" type="button">Something else here</button></li>
                     </ul>
                 </li>
-                <li class="nav-item d-md-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
-                        帳號
+                <li class="d-inline-block dropdown">
+                    <button class="btn btn-secondary dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg width="24" height="24">
+                        <use href="#svg-person-fill"></use>
+                    </svg>
+                    帳號
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="khautso">
                         <li><button class="dropdown-item" type="button">Action</button></li>
@@ -189,8 +212,8 @@
     <main class="tai-main container py-3 px-md-4">
     
     <h1 id="luebun" class="mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <svg width="48" height="48" aria-hidden="true">
+            <use href="#svg-person-fill"></use>
         </svg>
         a8568730
     </h1>
