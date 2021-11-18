@@ -86,7 +86,7 @@
 </nav>
 
 
-<header class="navbar navbar-expand-md border-bottom">
+<header class="navbar navbar-expand-md navbar-light border-bottom">
     <div class="container-fluid">
             <a class="navbar-brand fw-bolder" href="#!">
                 <img src="../design/logo.svg" alt='itaigi眾人華台辭典' height="32" class="me-2">
@@ -95,11 +95,11 @@
             <!--Mobile list items-->
             <ul class="navbar-nav d-md-none ms-auto d-block">
                 <li class="d-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg width="24" height="24">
                             <use href="#svg-bell"></use>
                         </svg>
-                        通知
+                        <span class="d-none d-md-inline-block">通知</span>
                         <span class="position-absolute top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle">
                         <span class="visually-hidden">New alerts</span>
                       </span>
@@ -111,11 +111,11 @@
                     </ul>
                 </li>
                 <li class="d-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
                     <svg width="24" height="24">
                         <use href="#svg-person-fill"></use>
                     </svg>
-                    帳號
+                    <span class="d-none d-md-inline-block">帳號</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="khautso">
                         <li><button class="dropdown-item" type="button">Action</button></li>
@@ -140,7 +140,7 @@
             </ul>
             <ul class="navbar-nav d-none d-md-block ms-auto">
                 <li class="d-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle me-1 position-relative" type="button" id="thongti" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg width="24" height="24">
                             <use href="#svg-bell"></use>
                         </svg>
@@ -156,7 +156,7 @@
                     </ul>
                 </li>
                 <li class="d-inline-block dropdown">
-                    <button class="btn btn-secondary dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn dropdown-toggle me-1" type="button" id="khautso" data-bs-toggle="dropdown" aria-expanded="false">
                     <svg width="24" height="24">
                         <use href="#svg-person-fill"></use>
                     </svg>
@@ -172,45 +172,8 @@
         </nav>
     </div>
 </header>
-<div class="tai-layout container-xxl p-0">
-    <!-- <nav class="tai-nav bg-dark py-1 px-md-3 pt-md-3">
-        <div class="d-flex align-items-center justify-content-between py-md-2 container">
-            <span class="text-white">歡迎，a8568730</span>
-            <button class="btn btn-primary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#kojinbokliok" aria-expanded="false" aria-controls="kojinbokliok">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-collapse" fill="currentColor" viewBox="0 0 16 16">
-                  <title>會員選單區</title>
-                  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0zm-.5 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793z"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="tai-links collapse" id="kojinbokliok">
-        <ul class="nav nav-pills flex-column mb-auto mt-2">
-            <li class="nav-item"><a href="#!" class="nav-link active text-white">個人首頁</a></li>
-            <li class="nav-item">
-                <a href="#!" class="nav-link text-white">我的發問</a>
-            </li>
-            <li class="nav-item"><a href="#!" class="nav-link text-white">我的回答</a></li>
-            <li class="nav-item">
-                <a href="#!" class="nav-link text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                        <use href="#svg-eye"></use>
-                    </svg>我的關注
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#!" class="nav-link text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                        <use href="#svg-bookmark-star"></use>
-                    </svg>我的收藏
-                </a>
-            </li>
-            <li class="nav-item"><a href="#!" class="nav-link text-white">登出</a></li>
-        </ul>
-        </div>
-    </nav> -->
 
-    <main class="tai-main container py-3 px-md-4">
-    
+<main class="container py-3 px-md-4">    
     <h1 id="luebun" class="mb-4">
         <svg width="48" height="48" aria-hidden="true">
             <use href="#svg-person-fill"></use>
@@ -433,9 +396,8 @@
 
         <dl></dl>
     </section>
+</main>
 
-    </main>
-</div>
 <footer class="bg-light py-4">
     <div class="container">
     <div class="row">
