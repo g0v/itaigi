@@ -52,7 +52,7 @@
     </div>
 </nav>
 <header class="navbar navbar-expand-md navbar-light border-bottom">
-    <div class="container-md">
+    <div class="container-lg">
         <a class="navbar-brand fw-bolder" href="#!"><img src="../design/logo.svg" alt='itaigi' height="32" class="me-2">iTaigi 眾人華台辭典</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tolam" aria-controls="tolam" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
@@ -60,23 +60,37 @@
         </svg>
         </button>
         <nav class="collapse navbar-collapse" id="tolam">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">查詢辭典</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">+ 新詞</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
-        </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#!">首頁</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
+            </ul>
         </nav>
     </div>
 </header>
-<main class="container-lg py-3">
-    <h1 id="luebun">查詢辭典</h1>
-    <form class="mb-4">
-        <label for="tshiau" class="col-form-label">輸入查詢華語字詞</label>
-        <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢辭典……"/>
-    </form>
+<main class="">
+    <div class="bg-light pt-3 pb-2 mb-3">
+        <div class="container-lg">
+            <h1 id="luebun">iTaigi 眾人華台辭典</h1>
+            <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
 
+            <form class="mb-4">
+                <label for="tshiau" class="fw-bolder col-form-label">查詢華語</label>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語……"/>
+            </form>
+        </div>
+    </div>
+
+
+<div class="container-lg py-3">
+    <nav aria-label="breadcrumb" class="d-flex">
+      <span class="me-2">目前位置</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">查詢華語XXX</li>
+      </ol>
+    </nav>
 
     <section class="mb-4">
         <h2>查詢結果情形：毋捌有人問起</h2>
@@ -213,7 +227,7 @@
             <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
         </div>
     </section>
-    </div>
+</div>
 </main>
 <footer class="bg-light py-4">
     <div class="container">
