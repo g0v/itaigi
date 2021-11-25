@@ -9,3 +9,7 @@ def tiann(request):
 
 def tshiau(request, ji):
     return render(request, 'sutian/tshiau.html')
+
+
+def khautso(request):
+    return render(request, 'sutian/khautso.html')
