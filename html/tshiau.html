@@ -52,7 +52,7 @@
     </div>
 </nav>
 <header class="navbar navbar-expand-md navbar-light border-bottom">
-    <div class="container-md">
+    <div class="container-lg">
         <a class="navbar-brand fw-bolder" href="#!"><img src="../design/logo.svg" alt='itaigi' height="32" class="me-2">iTaigi 眾人華台辭典</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tolam" aria-controls="tolam" aria-expanded="false" aria-label="Toggle navigation">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
@@ -60,55 +60,68 @@
         </svg>
         </button>
         <nav class="collapse navbar-collapse" id="tolam">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">查詢辭典</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">+ 新詞</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
-            <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
-        </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#!">首頁</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
+            </ul>
         </nav>
     </div>
 </header>
-<main class="container-lg py-3">
-    <h1 id="luebun">查詢辭典</h1>
-    <form class="mb-4">
-        <label for="tshiau" class="col-form-label">輸入查詢華語字詞</label>
-        <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢辭典……"/>
-    </form>
+<main class="">
+    <div class="bg-light pt-3 pb-2 mb-3">
+        <div class="container-lg">
+            <h1 id="luebun">iTaigi 眾人華台辭典</h1>
+            <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
 
+            <form class="mb-4">
+                <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
+            </form>
+        </div>
+    </div>
+
+
+<div class="container-lg py-3">
+    <nav aria-label="breadcrumb" class="d-flex">
+      <span class="me-2">目前位置</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">查詢華語XXX</li>
+      </ol>
+    </nav>
 
     <section class="mb-4">
         <h2>查詢結果情形：毋捌有人問起</h2>
         <div class="d-flex align-items-center mb-2">
-            <p class="mb-0 me-2">還沒有人問過這個華語詞</p>
+            <p class="mb-0 me-2">還沒有人發問這個華語詞</p>
             <button class="btn btn-light">
                 <svg width="16" height="16">
                   <use href="#svg-eye"></use>
                 </svg>
-                公開發問並關注此問題
+                公開發問
             </button>
     </section>
 
 
     <section class="mb-4">
         <h2>查詢結果情形：家己問起猶無人關注</h2>
-        <p class="mb-0 me-2 text-success">你已公開發問並關注這個華語詞（此訊息只有你看得到）</p>
+        <p class="mb-0 me-2 text-success">你已公開發問這個華語詞（此訊息只有你看得到）</p>
         <div class="d-flex align-items-center mb-2">
-            <p class="mb-0 me-2">有1個人關注同樣問題</p>
+            <p class="mb-0 me-2">有0個人關注同樣發問</p>
             <button class="btn btn-light">
                 <svg width="16" height="16">
                   <use href="#svg-eye"></use>
                 </svg>
-                取消關注並移除公開發問
+                移除公開發問
             </button>
-
     </section>
 
     <section class="mb-4">
         <h2>查詢結果情形：有人問起</h2>
         <div class="d-flex align-items-center mb-2">
-            <p class="mb-0 me-2">有10個人關注同樣問題</p>
+            <p class="mb-0 me-2">有10個人關注同樣發問</p>
             <button class="btn btn-light">
                 <svg width="16" height="16">
                   <use href="#svg-eye"></use>
@@ -136,8 +149,8 @@
                 <span class="text-secondary float-end"><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-person-fill"></use></svg>Tshuà Bûn-lī</span>
               </div>
               <div class="card-footer bg-transparent">
-                  <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-hand-thumbs-up"></use></svg><p class="visually-hidden">贊成此講法</p>5</button>
-                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><p class="visually-hidden">收藏此講法</p>133</button>
+                  <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-hand-thumbs-up"></use></svg><span class="mx-1">讚</span><span class="visually-hidden">辱華</span>5</button>
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><span class="mx-1">收藏</span><span class="visually-hidden">辱華</span>133</button>
               </div>
             </div>
           </li>
@@ -214,7 +227,7 @@
             <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
         </div>
     </section>
-    </div>
+</div>
 </main>
 <footer class="bg-light py-4">
     <div class="container">
