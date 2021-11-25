@@ -1,0 +1,164 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main>
+    <div class="bg-light pt-3 pb-2 mb-3">
+        <div class="container-lg">
+            <h1 id="luebun">iTaigi 眾人華台辭典</h1>
+            <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
+
+            <form class="mb-4">
+                <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
+            </form>
+        </div>
+    </div>
+
+
+<div class="container-lg py-3">
+    <nav aria-label="breadcrumb" class="d-flex">
+      <span class="me-2">目前位置</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">查詢華語XXX</li>
+      </ol>
+    </nav>
+
+    <section class="mb-4">
+        <h2>查詢結果情形：毋捌有人問起</h2>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">還沒有人發問這個華語詞</p>
+            <button class="btn btn-outline-dark">
+                <svg width="16" height="16">
+                  <use href="#svg-eye"></use>
+                </svg>
+                公開發問
+            </button>
+    </section>
+
+
+    <section class="mb-4">
+        <h2>查詢結果情形：家己問起猶無人關注</h2>
+        <p class="mb-0 me-2 text-success">你已公開發問這個華語詞（此訊息只有你看得到）</p>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">有0個人關注同樣發問</p>
+            <button class="btn btn-outline-dark">
+                <svg width="16" height="16">
+                  <use href="#svg-eye"></use>
+                </svg>
+                移除公開發問
+            </button>
+    </section>
+
+    <section class="mb-4">
+        <h2>查詢結果情形：有人問起</h2>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">有10個人關注同樣發問</p>
+            <button class="btn btn-outline-dark">
+                <svg width="16" height="16">
+                  <use href="#svg-eye"></use>
+                </svg>
+                關注
+            </button>
+        </div>
+        <p>共1筆詞</p>
+        <ol class="list-unstyled row p-0">
+            <!--khahpinn 1-->
+          <li class="col-12 col-md-4 mb-2">
+            <div class="card border h-100">
+              <div class="card-body h-100">
+                <header class="d-flex align-items-center">
+                    <h3 class="user-select-all">jio̍k-huâ</h3>
+                    <button class="btn mx-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                        <span class="visually-hidden">播放音檔XX</span>
+                    </button>
+                    <button class="btn btn-outline-dark">copy</button>
+                </header>
+                <span class="h3 d-inline-block mb-2 user-select-all">辱華</span>
+                <p class="mb-1">出處或理由：家人說的早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華</p>
+                <a href="#le-1">例句(12)</a>
+                <span class="text-secondary float-end"><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-person-fill"></use></svg>Tshuà Bûn-lī</span>
+              </div>
+               <div class="card-footer bg-transparent">
+                  <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-hand-thumbs-up"></use></svg><span class="mx-1">讚</span><span class="visually-hidden">辱華</span>5</button>
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><span class="mx-1">收藏</span><span class="visually-hidden">辱華</span>133</button>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+    <section class="mb-4">
+        <div class="card border">
+            <div class="card-body bg-light">
+                <h2>+ 新詞</h2>
+                <form>
+                    <div class="row g-3">
+                    <div>
+                        <label for='lmj' class="form-label">台羅*（必填）</label>
+                        <input  name='lmj' id='lmj' type="text" class="form-control" required="" placeholder="kàu-io̍k-pōo tâi-gí lô-má-jī"/>
+                    </div>
+                    <div>
+                        <label for='han' class="form-label">台文漢字*（必填）</label>
+                        <input  name='han' id='han' type="text" class="form-control" required="" placeholder="教育部台語建議用字" />
+                    </div>
+                    <div>
+                        <label for='liiu' class="form-label">出處或理由（40字內）</label>
+                        <textarea name='liiu' id='liiu' class="form-control" maxlength="40"></textarea> 
+                    </div>
+                    <strong>送出時，亦表示您同意內容以CC0｢不保留權利｣授權 </strong>
+                    <button class="btn btn-primary">登入後送出</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-4">
+        <h2 class="me-2">相關華語</h2>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!">辱華</a></li>
+            <li class="list-inline-item"><a href="#!">乳滑</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="mb-3">例句</h2>
+        <div>
+            <h3 id="le-1">jio̍k-huâ 辱華</h3>
+            <ul>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 user-select-all">Tsá-bān ài <mark>jio̍k-huâ</mark>.</p>
+                        <button class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                        <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">
+                        <span>早慢愛<mark>辱華</mark>。</span>
+                        <span>(早晚要辱華。)</span>
+                    </p>
+
+                </li>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 user-select-all lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
+                        </p>
+                        <button class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">阿明人誠古意，袂舞<mark>辱華</mark>遐的有空無榫的代誌。
+                    <span>(阿明為人很忠厚老實，不會做辱華那些不合情理的事。)</span></p>
+                </li>
+            </ul>
+            <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
+        </div>
+    </section>
+</div>
+</main>
+{% endblock %}
