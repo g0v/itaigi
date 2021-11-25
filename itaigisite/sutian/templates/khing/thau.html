@@ -1,10 +1,11 @@
-
+{% load static %}
 <header class="navbar navbar-expand-md navbar-light border-bottom">
     <div class="container-md">
             <a class="navbar-brand fw-bolder" href="#!">
-                <img src="../design/logo.svg" alt='itaigi眾人華台辭典' height="32" class="me-2">
+                <img src="{% static 'sutian/image/logo.svg' %}" alt='itaigi眾人華台辭典' height="32" class="me-2">
                 <span class="d-none d-lg-inline-block">iTaigi 眾人華台辭典</span>
             </a>
+            
             <!--Mobile list items-->
             <ul class="navbar-nav d-md-none ms-auto d-block">
                 <!-- <li class="d-inline-block"><a class="nav-link" href="#!">登入/註冊</a></li> -->

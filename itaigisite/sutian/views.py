@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def tiann(request):
     return render(request, 'sutian/tiann.html')
+
+
+def tshiau(request):
+    return render(request, 'sutian/tiann.html')
