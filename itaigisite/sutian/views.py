@@ -12,4 +12,8 @@ def tshiau(request, ji):
 
 
 def khautso(request):
-    return render(request, 'sutian/khautso.html')
+    return render(request, 'gua/khautso.html')
+
+
+def siutsong(request):
+    return render(request, 'gua/siutsong.html')
