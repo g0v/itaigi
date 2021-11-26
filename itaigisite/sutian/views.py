@@ -17,3 +17,7 @@ def khautso(request):
 
 def siutsong(request):
     return render(request, 'gua/siutsong.html')
+
+
+def siutsong_item(request, pianho):
+    return render(request, 'gua/siutsong_item.html')
