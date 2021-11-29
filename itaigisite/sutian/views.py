@@ -25,3 +25,7 @@ def siutsong_item(request, pianho):
 
 def mng(request):
     return render(request, 'gua/mng.html')
+
+
+def tap(request):
+    return render(request, 'gua/tap.html')
