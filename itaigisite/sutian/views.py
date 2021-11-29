@@ -21,3 +21,7 @@ def siutsong(request):
 
 def siutsong_item(request, pianho):
     return render(request, 'gua/siutsong_item.html')
+
+
+def mng(request):
+    return render(request, 'gua/mng.html')
