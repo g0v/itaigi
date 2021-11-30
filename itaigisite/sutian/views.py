@@ -33,3 +33,7 @@ def tap(request):
 
 def thongti(request):
     return render(request, 'gua/thongti.html')
+
+
+def miasenn(request):
+    return render(request, 'sutian/miasenn.html')
