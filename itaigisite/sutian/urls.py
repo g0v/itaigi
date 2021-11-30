@@ -1,6 +1,6 @@
 from django.urls import path
 from sutian.views import tiann, tshiau, khautso, siutsong, \
-    siutsong_item, mng, tap
+    siutsong_item, mng, tap, thongti
 
 urlpatterns = [
     path('k/<str:ji>', tshiau, name='tshiau'),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('siutsong/', siutsong, name='siutsong'),
     path('mng/', mng, name='mng'),
     path('tap/', tap, name='tap'),
+    path('thongti/', thongti, name='thongti'),
     path('', tiann, name='tiann'),
 ]

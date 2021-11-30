@@ -29,3 +29,7 @@ def mng(request):
 
 def tap(request):
     return render(request, 'gua/tap.html')
+
+
+def thongti(request):
+    return render(request, 'gua/thongti.html')
