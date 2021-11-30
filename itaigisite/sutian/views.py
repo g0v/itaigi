@@ -31,6 +31,10 @@ def tap(request):
     return render(request, 'gua/tap.html')
 
 
+def kuantsu(request):
+    return render(request, 'gua/kuantsu.html')
+
+
 def thongti(request):
     return render(request, 'gua/thongti.html')
 
