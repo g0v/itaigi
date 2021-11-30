@@ -62,9 +62,9 @@
                     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="khautso">
                         <li><a class="dropdown-item" href="{% url 'khautso' %}">a8568730個人頁面</a></li>
                         <li><a class="dropdown-item" href="{% url 'mng' %}">我的發問</a></li>
-                        <li><a class="dropdown-item" href="{% url 'tap' %}">我的答案</a></li>
-                        <li><a class="dropdown-item" href="#!">我的關注</a></li>
-                        <li><a class="dropdown-item" href="{% url 'siutsong' %}">我的收藏</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tap' %}">我的回答</a></li>
+                        <li><a class="dropdown-item" href="#!">我關注的發問</a></li>
+                        <li><a class="dropdown-item" href="{% url 'siutsong' %}">我收藏的回答</a></li>
                         <li><a class="dropdown-item" href="#!">登出</a></li>
                     </ul>
                 </li>
@@ -78,7 +78,7 @@
         <nav id="tolam" class="navbar-collapse collapse">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="{% url 'tiann' %}">首頁</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'miasenn' %}">查詢姓名發音</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
             </ul>
             <ul class="navbar-nav d-none d-md-block ms-auto">
@@ -136,9 +136,9 @@
                     <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="khautso">
                         <li><a class="dropdown-item" href="{% url 'khautso' %}">a8568730個人頁面</a></li>
                         <li><a class="dropdown-item" href="{% url 'mng' %}">我的發問</a></li>
-                        <li><a class="dropdown-item" href="{% url 'tap' %}">我的答案</a></li>
-                        <li><a class="dropdown-item" href="{% url 'tap' %}">我的關注</a></li>
-                        <li><a class="dropdown-item" href="{% url 'siutsong' %}">我的收藏</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tap' %}">我的回答</a></li>
+                        <li><a class="dropdown-item" href="{% url 'tap' %}">我關注的發問</a></li>
+                        <li><a class="dropdown-item" href="{% url 'siutsong' %}">我收藏的回答</a></li>
                         <li><a class="dropdown-item" href="#!">登出</a></li>
                     </ul>
                 </li>
