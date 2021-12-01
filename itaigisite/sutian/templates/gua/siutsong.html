@@ -2,22 +2,17 @@
 
 {% block tsubun %}
 <main class="container py-3 px-md-4">
-    <h1 id="luebun" class="mb-5">
-        <svg width="48" height="48" aria-hidden="true">
-            <use href="#svg-bookmark-star"></use>
-        </svg>
-        我收藏的回答
-    </h1>
+    {% include 'gua/tuathau.html' with piaute='我收藏的回答' %}
 
-    <section class="mb-5">
+    <section class="mt-5 mb-5">
         <header>
             <h2 class="d-inline-block">
                 <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
             </h2>
-            <span class="ms-2 fs-6 text-secondary">72筆收藏</span>
+            <span class="ms-2 fs-6 text-secondary">共收藏 72 筆回答</span>
         </header>
         <table class="table">
-            <caption class="visually-hidden">學習清單最近收藏3筆</caption>
+            <caption>學習清單最近 3 筆收藏</caption>
             <thead>
                 <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
             </thead>
@@ -50,10 +45,10 @@
             <h2 class="d-inline-block">
                 <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
             </h2>
-            <span class="ms-2 fs-6 text-secondary">72筆收藏</span>
+            <span class="ms-2 fs-6 text-secondary">共收藏 72 筆回答</span>
         </header>
         <table class="table">
-            <caption class="visually-hidden">學習清單最近收藏3筆</caption>
+            <caption>學習清單最近 3 筆收藏</caption>
             <thead>
                 <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
             </thead>

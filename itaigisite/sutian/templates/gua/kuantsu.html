@@ -2,24 +2,20 @@
 
 {% block tsubun %}
 <main class="container py-3 px-md-4">
-    <h1 id="luebun" class="mb-5">
-        <svg width="48" height="48" aria-hidden="true">
-            <use href="#svg-eye"></use>
-        </svg>
-        我關注的發問
-    </h1>
+    {% include 'gua/tuathau.html' with piaute='我關注的發問' %}
 
+    <p class="mb-4">共關注 72 筆發問</p>
     <table class="table">
-        <caption class="visually-hidden">發問第1-10筆</caption>
+        <caption>第 1 頁我關注的發問</caption>
         <thead>
-            <tr><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>關注發問</th><th>發問日</th></tr>
+            <tr><th>關注發問</th><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>發問日</th></tr>
         </thead>
         <tbody>
             <tr>
+                <td><a href="#!">各個國家有各個國家的國歌</a></td>
                 <td>5</td>
                 <td class="text-success"><strong>2</strong></td>
                 <td>17</td>
-                <td><a href="#!">各個國家有各個國家的國歌</a></td>
                 <td><time>2014-03-26</time></td>
             </tr>
         </tbody>
