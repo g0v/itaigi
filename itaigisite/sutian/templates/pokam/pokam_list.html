@@ -8,27 +8,20 @@
         <span>目前位置：</span>
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{% url 'pokam' %}">台語寶鑑</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="{% url 'pokam_list' 1 %}">抱去摸</a>
+                <a href="{% url 'pokam_item' 1 11 %}">台語寶鑑</a>
             </li>
             <li class="breadcrumb-item active">
-                <a href="{% url 'pokam_item' 1 11 %}" aria-currnt="page">傑尼龜</a>
+                <a href="{% url 'pokam_item' 1 11 %}" aria-currnt="page">抱去摸</a>
             </li>
         </ul>
     </nav>
-    <section  class="mb-5">
-        <h2>傑尼龜</h2>
-        {% include 'sutian/tshiau_item.html' with sutin=sutin %}
-    </section>
     <nav aria-label="寶鑑索引">
         <h2>抱去摸索引</h2>
         <p>共101筆</p>
-        <ul class="list-inline" style="">
+        <ul class="list-inline">
             {% for mng in mngtin %}
             <li class="list-inline-item">
-                <a href="{% url 'pokam_item' 1 11 %}">
+                <a href="{% url 'pokam_item' 1 11 %}" class="mb-5">
                 {{ mng }}</a>
             </li>
             {% endfor %} 

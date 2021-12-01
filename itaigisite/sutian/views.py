@@ -8,7 +8,18 @@ def tiann(request):
 
 
 def tshiau(request, ji):
-    return render(request, 'sutian/tshiau.html')
+    sutin = [{
+        'id': 1134,
+        'lo': 'jio̍k-huâ',
+        'han': '辱華',
+        'tshuttshu': '家人說的',
+        'khautso': 'Tshuà Bûn-lī',
+        'tsan': 12,
+        'siutsong': 5,
+    }]
+    return render(request, 'sutian/tshiau.html', {
+        'sutin': sutin,
+    })
 
 
 def khautso(request):
@@ -47,5 +58,71 @@ def pokam(request):
     return render(request, 'pokam/pokam.html')
 
 
-def pokam_item(request, pianho):
-    return render(request, 'pokam/pokam_item.html')
+def pokam_list(request, pianho):
+    mngtin = [
+        '寶可夢',
+        '妙蛙種子',
+        '妙蛙草',
+        '妙蛙花',
+        '小火龍',
+        '火恐龍',
+        '噴火龍',
+        '傑尼龜',
+        '卡咪龜',
+        '水箭龜',
+    ]
+    return render(request, 'pokam/pokam_list.html', {
+        'mngtin': mngtin,
+    })
+
+
+def pokam_item(request, pianho, mngho):
+    mngtin = [
+        '寶可夢',
+        '妙蛙種子',
+        '妙蛙草',
+        '妙蛙花',
+        '小火龍',
+        '火恐龍',
+        '噴火龍',
+        '傑尼龜',
+        '卡咪龜',
+        '水箭龜',
+    ] * 10
+    sutin = [{
+        'id': 1134,
+        'lo': 'lak-tē-á-kuài-siù',
+        'han': '橐袋仔怪獸',
+        'tshuttshu': '家人說的',
+        'khautso': '沒有人',
+        'tsan': 12,
+        'siutsong': 5,
+    }, {
+        'id': 1134,
+        'lo': 'Sîn-kî-pó-puè',
+        'han': '神奇寶貝',
+        'tshuttshu': '家人說的',
+        'khautso': '沒有人',
+        'tsan': 12,
+        'siutsong': 5,
+    }, {
+        'id': 1134,
+        'lo': 'Pó-khó-bōng',
+        'han': '寶可夢',
+        'tshuttshu': '家人說的',
+        'khautso': '沒有人',
+        'tsan': 12,
+        'siutsong': 5,
+    }, {
+        'id': 1134,
+        'lo': 'Pho-khe-bóng',
+        'han': '波科魍',
+        'tshuttshu': '家人說的',
+        'khautso': '沒有人',
+        'tsan': 12,
+        'siutsong': 5,
+    }]
+    return render(request, 'pokam/pokam_item.html', {
+        'sutin': sutin,
+        'mngtin': mngtin,
+    })

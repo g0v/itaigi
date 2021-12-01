@@ -56,30 +56,8 @@
             </button>
         </div>
         <p>共1筆詞</p>
-        <ol class="list-unstyled row p-0">
-            <!--khahpinn 1-->
-          <li class="col-12 col-md-4 mb-2">
-            <div class="card border h-100">
-              <div class="card-body h-100">
-                <div class="d-flex align-items-center">
-                    <h3 class="user-select-all">jio̍k-huâ</h3>
-                    <button class="btn mx-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
-                        <span class="visually-hidden">播放音檔XX</span>
-                    </button>
-                </div>
-                <span class="fw-bolder d-inline-block mb-2 user-select-all">辱華</span>
-                <p class="mb-1">出處或理由：家人說的早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華早晚要辱華</p>
-                <!-- <a href="#le-1">例句(12)</a> -->
-                <span class="text-secondary float-end"><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-person-fill"></use></svg>Tshuà Bûn-lī</span>
-              </div>
-               <div class="card-footer bg-transparent">
-                  <button class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-hand-thumbs-up"></use></svg><span class="mx-1">讚</span><span class="visually-hidden">辱華</span>5</button>
-                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true"><use href="#svg-bookmark-star"></use></svg><span class="mx-1">收藏</span><span class="visually-hidden">辱華</span>133</button>
-              </div>
-            </div>
-          </li>
-        </ol>
+        {% include 'sutian/tshiau_item.html' with sutin=sutin  %}
+    </section>
 
     <section class="mb-4">
         <h2 class="me-2">相關華語</h2>
