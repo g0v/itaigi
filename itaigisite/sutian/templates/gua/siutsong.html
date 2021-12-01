@@ -4,15 +4,20 @@
 <main class="container py-3 px-md-4">
     <h1 id="luebun" class="mb-5">
         <svg width="48" height="48" aria-hidden="true">
-            <use href="#svg-person-fill"></use>
+            <use href="#svg-bookmark-star"></use>
         </svg>
-        a8568730我收藏的講法
+        我收藏的回答
     </h1>
 
     <section class="mb-5">
-        <h2><a href="#!">學習清單</a></h2>
+        <header>
+            <h2 class="d-inline-block">
+                <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
+            </h2>
+            <span class="ms-2 fs-6 text-secondary">72筆收藏</span>
+        </header>
         <table class="table">
-            <caption class="visually-hidden">最近收藏3筆</caption>
+            <caption class="visually-hidden">學習清單最近收藏3筆</caption>
             <thead>
                 <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
             </thead>
@@ -41,9 +46,14 @@
     </section>
 
     <section class="mb-5">
-        <h2><a href="#!">學習清單</a></h2>
+        <header>
+            <h2 class="d-inline-block">
+                <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
+            </h2>
+            <span class="ms-2 fs-6 text-secondary">72筆收藏</span>
+        </header>
         <table class="table">
-            <caption class="visually-hidden">最近收藏3筆</caption>
+            <caption class="visually-hidden">學習清單最近收藏3筆</caption>
             <thead>
                 <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
             </thead>

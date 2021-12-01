@@ -2,7 +2,7 @@
 
 {% block tsubun %}
 <main>
-    <div class="bg-light pt-3 pb-2 mb-3">
+    <section class="bg-light pt-3 pb-2 mb-3">
         <div class="container-lg">
             <h1 id="luebun">iTaigi 眾人華台辭典</h1>
             <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
@@ -12,36 +12,53 @@
                 <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
             </form>
         </div>
-    </div>
+    </section>
 
-    <div class="container-lg pb-3 px-3">
-    <section class="mb-4">
-        <h2>熱門查詢</h2>
-        <table class="table">
-            <caption>第1-20筆熱門查詢</caption>
-            <thead><tr><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>發問</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td><span >2</span></td>
-                    <td class="text-success"><strong>2</strong></td>
-                    <td><span>2</span></td>
-                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
-                </tr>
-                <tr>
-                    <td><span >2</span></td>
-                    <td class=""><span class="">0</span></td>
-                    <td><span>2</span></td>
-                    <td><a href="#!">章魚燒</a></td>
-                </tr>
-                <tr>
-                    <td><span>5</span></td>
-                    <td class="text-success"><strong>1</strong></td>
-                    <td><span>2</span></td>
-                    <td><a href="#!">忍者龜</a></td>
-                </tr>
-            </tbody>
-        </table>
-        <footer>
+    <section class="container-lg pb-3 px-3">
+        <div class="mb-4">
+            <h2>熱門發問</h2>
+            <table class="table">
+                <caption>第1-20筆熱門發問</caption>
+                <thead>
+                    <tr>
+                        <th>發問</th>
+                        <th>關注數</th>
+                        <th>回答數</th>
+                        <th>瀏覽數</th>
+                        <th>發問時間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                        <td><span >2</span></td>
+                        <td class="text-success"><strong>2</strong></td>
+                        <td><span>2</span></td>
+                        <td>2小時前</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#!">章魚燒</a></td>
+                        <td><span >2</span></td>
+                        <td class=""><span class="">0</span></td>
+                        <td><span>2</span></td>
+                        <td>今天</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#!">忍者龜</a></td>
+                        <td><span>5</span></td>
+                        <td class="text-success"><strong>1</strong></td>
+                        <td><span>2</span></td>
+                        <td>1天前</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#!">忍者龜</a></td>
+                        <td><span>5</span></td>
+                        <td class="text-success"><strong>1</strong></td>
+                        <td><span>2</span></td>
+                        <td>2021-05-26</td>
+                    </tr>
+                </tbody>
+            </table>
             <nav aria-label="熱門查詢頁碼">
               <ul class="pagination">
                 <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
@@ -50,9 +67,8 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
               </ul>
-            </nav>  
-        </footer>
+            </nav>
+        </div>
     </section>
-    </div>
 </main>
 {% endblock %}
