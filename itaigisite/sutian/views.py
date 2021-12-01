@@ -41,3 +41,11 @@ def thongti(request):
 
 def miasenn(request):
     return render(request, 'sutian/miasenn.html')
+
+
+def pokam(request):
+    return render(request, 'pokam/pokam.html')
+
+
+def pokam_item(request, pianho):
+    return render(request, 'pokam/pokam_item.html')
