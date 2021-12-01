@@ -6,3 +6,6 @@ body {
         position: absolute;
     }
 }
+.btn-light:hover {
+    background-color: #f0f0f0;
+}
