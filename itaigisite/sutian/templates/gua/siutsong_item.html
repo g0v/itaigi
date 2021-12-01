@@ -32,22 +32,22 @@
                 </td>
                 <td><a href="#!">各個國家有各個國家的國歌</a></td>
                 <td>
-                    <button class="btn btn-primary">X</button>
+                    <button class="btn btn-primary" aria-label="取消收藏kok-kua隨國有國歌">X</button>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <nav aria-label="熱門查詢頁碼">
+    <nav aria-label="學習清單頁碼">
       <ul class="pagination">
-        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item disabled"><a class="page-link" href="#">上一頁</a></li>
+        <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第2頁">2</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第3頁">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
       </ul>
     </nav>
 
-    <a href="{% url 'siutsong' %}">🠔 返回我收藏的回答</a>
+    <a href="{% url 'siutsong' %}"><span aria-hidden="true">←</span> 返回我收藏的回答</a>
 </main>
 {% endblock %}
