@@ -7,14 +7,15 @@
     <nav aria-label="麵包屑" class="d-flex">
         <span>目前位置：</span>
         <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
             <li class="breadcrumb-item">
                 <a href="{% url 'pokam' %}">台語寶鑑</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="#sohin">抱去摸</a>
+                <a href="{% url 'pokam_list' 1 %}">抱去摸</a>
             </li>
-            <li class="breadcrumb-item active">
-                <a href="{% url 'pokam_item' 1 11 %}" aria-currnt="page">
+            <li class="breadcrumb-item">
+                <a href="{% url 'pokam_item' 1 11 %}" class="text-secondary text-decoration-none" aria-current="page">
                     {{ piaute }}
                 </a>
             </li>

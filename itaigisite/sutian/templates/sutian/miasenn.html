@@ -3,7 +3,18 @@
 {% block tsubun %}
 <main class="container py-3">
     <h1 id="luebun">查詢姓名發音</h1>
-    <p>舊稱：你的名字</p>
-    <p>本服務已暫停維護，建議使用<a href="https://miasenn.moe.edu.tw/">教育部姓名台語發音網站（外部網站）</a>，台語發音部份由iTaigi同團隊維護。</p>
+
+    <nav aria-label="breadcrumb" class="d-flex mb-5">
+      <span class="me-2">目前位置</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'miasenn' %}" class="text-secondary text-decoration-none" aria-current="page">查詢姓名發音</a></li>
+      </ol>
+    </nav>
+
+    <section>
+        <h2>暫停維護</h2>
+        <p>本服務已暫停維護，建議使用<a href="https://miasenn.moe.edu.tw/">教育部姓名台語發音網站（外部網站）</a>，台語發音部份由iTaigi同團隊維護。</p>
+    </section>
 </main>
 {% endblock %}
