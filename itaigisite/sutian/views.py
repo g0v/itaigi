@@ -71,7 +71,9 @@ def pokam_list(request, pianho):
         '卡咪龜',
         '水箭龜',
     ]
-    return render(request, 'pokam/pokam_list.html', {
+    lui = '抱去摸'
+    return render(request, 'pokam/pokam_sohin.html', {
+        'lui': lui,
         'mngtin': mngtin,
     })
 
@@ -89,6 +91,8 @@ def pokam_item(request, pianho, mngho):
         '卡咪龜',
         '水箭龜',
     ] * 10
+    lui = '抱去摸'
+    piaute = '傑尼龜'
     sutin = [{
         'id': 1134,
         'lo': 'lak-tē-á-kuài-siù',
@@ -123,6 +127,8 @@ def pokam_item(request, pianho, mngho):
         'siutsong': 5,
     }]
     return render(request, 'pokam/pokam_item.html', {
+        'lui': lui,
+        'piaute': piaute,
         'sutin': sutin,
         'mngtin': mngtin,
     })

@@ -10,19 +10,11 @@
             <li class="breadcrumb-item">
                 <a href="{% url 'pokam' %}">台語寶鑑</a>
             </li>
-            <li class="breadcrumb-item">
-                <a href="#sohin">抱去摸</a>
-            </li>
             <li class="breadcrumb-item active">
-                <a href="{% url 'pokam_item' 1 11 %}" aria-currnt="page">{{ piaute }}</a>
+                <a href="#sohin" aria-currnt="page">{{ piaute }}</a>
             </li>
         </ul>
     </nav>
-
-    <section>
-        <h2 class="fs-6">共 4 筆詞</h2>
-        {% include 'sutian/tshiau_item.html' with sutin=sutin %}
-    </section>
 
     {% include 'pokam/sohin.html' %}
     <a href="{% url 'pokam' %}"><span aria-hidden="true">←</span> 返回台語寶鑑</a>
