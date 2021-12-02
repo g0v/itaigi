@@ -9,7 +9,7 @@
 
             <form class="mb-4">
                 <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
-                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……" value="{{ tshiau }}" />
             </form>
         </div>
     </div>
@@ -20,7 +20,7 @@
       <span class="me-2">目前位置</span>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">首頁</a></li>
-        <li class="breadcrumb-item active" aria-current="page">查詢華語XXX</li>
+        <li class="breadcrumb-item active" aria-current="page">查詢辭典 {{ tshiau }}</li>
       </ol>
     </nav>
 

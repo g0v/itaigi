@@ -1,10 +1,13 @@
 from django.urls import path
-from sutian.views import tiann, tshiau, khautso, siutsong, \
+from sutian.views import tiann, k, tshiau, khautso, siutsong, \
     siutsong_item, mng, tap, thongti, miasenn, kuantsu, \
     pokam, pokam_list, pokam_item
 
 urlpatterns = [
-    path('k/<str:ji>', tshiau, name='tshiau'),
+    # 舊網址
+    path('k/<str:ji>', k, name='k'),
+
+    path('tshiau/', tshiau, name='tshiau'),
     path('khautso/', khautso, name='khautso'),
     path('siutsong/<int:pianho>', siutsong_item, name='siutsong_item'),
     path('siutsong/', siutsong, name='siutsong'),

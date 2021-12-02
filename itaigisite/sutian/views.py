@@ -7,7 +7,7 @@ def tiann(request):
     return render(request, 'sutian/tiann.html')
 
 
-def tshiau(request, ji):
+def k(request, ji):
     sutin = [{
         'id': 1134,
         'lo': 'jio̍k-huâ',
@@ -20,6 +20,24 @@ def tshiau(request, ji):
     return render(request, 'tshiau/tshiau.html', {
         'sutin': sutin,
     })
+
+
+def tshiau(request):
+    if request.GET:
+        tshiau = request.GET['tshiau']
+        sutin = [{
+            'id': 1134,
+            'lo': 'jio̍k-huâ',
+            'han': '辱華',
+            'tshuttshu': '家人說的' * 10,
+            'khautso': 'Tshuà Bûn-lī',
+            'tsan': 12,
+            'siutsong': 5,
+        }] * 3
+        return render(request, 'tshiau/tshiau.html', {
+            'tshiau': tshiau,
+            'sutin': sutin,
+        })
 
 
 def khautso(request):

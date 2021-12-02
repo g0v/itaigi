@@ -7,7 +7,7 @@
             <h1 id="luebun">iTaigi 眾人華台辭典</h1>
             <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
 
-            <form class="mb-4">
+            <form class="mb-4" method="get" action="{% url 'tshiau' %}">
                 <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
                 <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
             </form>
