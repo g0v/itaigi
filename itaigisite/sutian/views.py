@@ -12,12 +12,12 @@ def tshiau(request, ji):
         'id': 1134,
         'lo': 'jio̍k-huâ',
         'han': '辱華',
-        'tshuttshu': '家人說的',
+        'tshuttshu': '家人說的' * 10,
         'khautso': 'Tshuà Bûn-lī',
         'tsan': 12,
         'siutsong': 5,
-    }]
-    return render(request, 'sutian/tshiau.html', {
+    }] * 3
+    return render(request, 'tshiau/tshiau.html', {
         'sutin': sutin,
     })
 

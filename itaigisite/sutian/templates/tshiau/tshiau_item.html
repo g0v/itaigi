@@ -1,23 +1,25 @@
-<ol class="list-unstyled row p-0">
+<section>
+  <h2 class="fs-6">共 {{ sutin|length }} 筆詞</h2>
+  <ol class="list-unstyled row p-0">
   {% for su in sutin %}
   <!--khahpinn {{ su.id }} -->
   <li class="col-12 col-md-4 mb-2">
     <div class="card border h-100">
       <div class="card-body h-100">
-        <div class="d-flex align-items-center">
-            <h3 class="user-select-all">{{ su.lo }}</h3>
-            <button class="btn mx-2">
+        <div class="d-flex mb-2">
+            <h3 class="user-select-all mb-0">{{ su.lo }}</h3>
+            <button class="btn p-0 ms-1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
                 <span class="visually-hidden">播放音檔{{ su.lo }}</span>
             </button>
         </div>
         <span class="fw-bolder d-inline-block mb-2 user-select-all">{{ su.han }}</span>
-        <p class="mb-1">出處或理由：{{ su.tshuttshu }}</p>
-        <span class="text-secondary float-end">
-          <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true">
-            <use href="#svg-person-fill"></use>
-          </svg>
-          {{ su.khautso }}
+        <p class="mb-1 text-secondary">{{ su.tshuttshu }}</p>
+        <span class="text-secondary">
+          ——<svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <use href="#svg-person-fill"></use>
+            </svg>
+            {{ su.khautso }}
         </span>
       </div>
        <div class="card-footer bg-transparent">
@@ -40,4 +42,5 @@
     </div>
   </li>
   {% endfor %}
-</ol>
+  </ol>
+</section>
