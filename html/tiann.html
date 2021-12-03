@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iTaigi 華台辭典</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/font.css">
+    <style type="text/css">
+        body {
+            font-family: GenYoGothicTW, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+        }
+    </style>
+</head>
+<body>
+    <svg width="0" height="0" style="position: absolute;">
+    </svg>
+
+    <nav aria-labelledby="accessible-nav-title" class="bg-light">
+    <div class="container-lg d-flex py-2">
+        <span id="accessible-nav-title">無障礙功能區：</span>
+        <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="#luebun" class="text-dark">跳去主內容</a></li>
+            <li class="list-inline-item"><a href="#!" class="text-dark">無障礙聲明</a></li>
+        </ul>
+    </div>
+</nav>
+<header class="navbar navbar-expand-lg navbar-light border-bottom">
+    <div class="container-lg">
+        <a class="navbar-brand fw-bolder" href="#!"><img src="../design/logo.svg" alt='itaigi' height="32" class="me-2">iTaigi 眾人華台辭典</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tolam" aria-controls="tolam" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+        </svg>
+        </button>
+        <nav class="collapse navbar-collapse" id="tolam">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">首頁</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">查詢姓名發音</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">台語寶鑑</a></li>
+            <li class="nav-item"><a class="nav-link" href="#!">登入/註冊</a></li>
+        </ul>
+        </nav>
+    </div>
+</header>
+<main class="">
+    <div class="bg-light pt-3 pb-2 mb-3">
+        <div class="container-lg">
+            <h1 id="luebun">iTaigi 眾人華台辭典</h1>
+            <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
+
+            <form class="mb-4">
+                <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……"/>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-lg pb-3 px-3">
+        
+    <section class="mb-4">
+        <h2>熱門查詢</h2>
+        <table class="table">
+            <caption>第1-20筆熱門查詢</caption>
+            <thead><tr><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>華語</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td><span >2</span></td>
+                    <td class="text-success"><strong>2</strong></td>
+                    <td><span>2</span></td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                </tr>
+                <tr>
+                    <td><span >2</span></td>
+                    <td class=""><span class="">0</span></td>
+                    <td><span>2</span></td>
+                    <td><a href="#!">章魚燒</a></td>
+                </tr>
+                <tr>
+                    <td><span>5</span></td>
+                    <td class="text-success"><strong>1</strong></td>
+                    <td><span>2</span></td>
+                    <td><a href="#!">忍者龜</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <footer>
+            <nav aria-label="熱門查詢頁碼">
+              <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>  
+        </footer>
+    </section>
+    </div>
+</main>
+
+<footer class="bg-light py-4">
+    <div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <p><a href="#!" class="fs-4">iTaigi 華台辭典</a></p>
+            <p>iTaigi 是 <a href="https://g0v.tw/">g0v 零時政府</a>專案「萌典」的延伸專案，想知道一個詞的台語怎麼說，來這裡查就對了！甚麼都可以查，但不一定查得到，查不到時可以發問，或者自己發明台語講法貢獻給大家，簡單說就是「自己的辭典自己編」。</p>
+            <p>程式授權 MIT，辭典內容CC0｢不保留權利｣授權。Powered by <a href="https://getbootstrap.com">BootStrap 5</a>.</p>
+        </div>
+        <section class="col-12 col-md-3">
+            <h5>協助</h5>
+            <ul class="list-unstyled">
+                <li class="my-2"><a href="#!">使用說明</a></li>
+                <li class="my-2"><a href="#!">推薦資源</a></li>
+            </ul>
+        </section>
+        <section class="col-12 col-md-3">
+            <h5>聯絡</h5>
+            <ul class="list-unstyled">
+                <li class="my-2"><a href="#!">Facebook</a></li>
+                <li class="my-2"><a href="#!">Github</a></li>
+                <li class="my-2"><a href="#!">Slack</a></li>
+            </ul>
+        </section>
+    </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
