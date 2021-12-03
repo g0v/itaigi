@@ -1,0 +1,46 @@
+<section>
+  <h2 class="fs-6">共 {{ sutin|length }} 筆詞</h2>
+  <ol class="list-unstyled row p-0">
+  {% for su in sutin %}
+  <!--khahpinn {{ su.id }} -->
+  <li class="col-12 col-md-4 mb-2">
+    <div class="card border h-100">
+      <div class="card-body h-100">
+        <div class="d-flex mb-2">
+            <h3 class="user-select-all mb-0">{{ su.lo }}</h3>
+            <button class="btn p-0 ms-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                <span class="visually-hidden">播放音檔{{ su.lo }}</span>
+            </button>
+        </div>
+        <span class="fw-bolder d-inline-block mb-2 user-select-all">{{ su.han }}</span>
+        <p class="mb-1 text-secondary">{{ su.tshuttshu }}</p>
+        <span class="text-secondary">
+          ——<svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <use href="#svg-person-fill"></use>
+            </svg>
+            {{ su.khautso }}
+        </span>
+      </div>
+       <div class="card-footer bg-transparent">
+          <button class="btn btn-light">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <use href="#svg-hand-thumbs-up"></use>
+            </svg>
+            <span class="mx-1">讚</span>
+            <span class="visually-hidden">{{ su.lo }}</span>
+            {{ su.tsan }}
+          </button>
+          <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#tshingtuann">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <use href="#svg-bookmark-star"></use>
+            </svg>
+            <span class="mx-1">收藏</span>
+            <span class="visually-hidden">{{ su.lo }}</span>{{ su.siutsong }}
+          </button>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+  </ol>
+</section>

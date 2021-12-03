@@ -1,0 +1,131 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main class="container py-3">    
+    <h1 id="luebun" class="mb-5">
+        <svg width="48" height="48" aria-hidden="true">
+            <use href="#svg-person-fill"></use>
+        </svg>
+        a8568730個人頁面
+    </h1>
+
+    <div class="row mb-5">
+        <section class="col-12 col-md-4 mb-4 mb-md-0">
+            <h2>統計</h2>
+            <div class="border pt-2">
+            <ul class="list-unstyled row gy-1">
+                <li class="col-3 col-md-6 text-center">
+                    <span class="fs-4">0</span>
+                    <small class="d-block">發問</small>
+                </li>
+                <li class="col-3 col-md-6 text-center">
+                    <span class="fs-4">0</span>
+                    <small class="d-block">關注</small>
+                </li>
+                <li class="col-3 col-md-6 text-center">
+                    <span class="fs-4">0</span>
+                    <small class="d-block">回答</small>
+                </li>
+                <li class="col-3 col-md-6 text-center">
+                    <span class="fs-4">0</span>
+                    <small class="d-block">收藏</small>
+                </li>
+            </ul>
+            </div>
+        </section>
+
+        <section class="col-12 col-md-8">
+            <h2>最近我收藏的回答</h2>
+            <ul>
+                <li><a href="#!">清單1</a></li>
+                <li><a href="#!">清單2</a></li>
+                <li><a href="#!">清單3</a></li>
+            </ul>
+            <p class="text-secondary">查看全部<a href="">我收藏的回答</a></p>
+        </section>
+    </div>
+
+    <section class="mb-5">
+        <h2>最近我的發問</h2>
+        <table class="table">
+            <caption class="visually-hidden">最近我的發問</caption>
+            <thead>
+            <tr><th>我的發問</th><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>發問日</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td>5</td>
+                    <td class="text-success"><strong>2</strong></td>
+                    <td>17</td>
+                    <td><time>2014-03-26</time></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-secondary">查看完整清單<a href="">我的發問</a></p>
+    </section>
+
+    <section class="mb-5">
+        <h2>最近我的回答</h2>
+        <ul class="list-group mb-2">
+        <li class="list-group-item">
+            <section class="row py-1">
+                <header class="col-9 col-lg-6">
+                    <h3 class="h5 fw-bolder mb-1">suî-kok ū kok-kua kok-kua kok-kua</h2>
+                    <p class="h6 fw-bolder mb-1">隨國有國歌隨國有國歌</p>
+                    <p class="mb-0">我們嘉義講法。我們嘉義講法。我們嘉義講法。</p>
+                </header>
+                <div class="col-3 col-lg-3 text-secondary">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            2015-04-26
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"aria-hidden="true">
+                                <use href="#svg-hand-thumbs-up"></use>
+                            </svg>
+                            5
+                        </div>
+                        <div  class="col-12 col-lg-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"aria-hidden="true">
+                                <use href="#svg-bookmark-star"></use>
+                            </svg>
+                            5
+                        </div>
+                    </div>
+                </div>
+                <footer class="col-12 col-lg-3 text-secondary">
+                    <p class="float-end mb-0">
+                    <a href="#!" class="text-truncate">
+                        各個國家有各個國家的國歌
+                    </a> 發問
+                    </p>
+                </footer>
+            </section>
+        </li>
+    </ul>
+        <p class="text-secondary">查看全部<a href="{% url 'tap' %}">我的回答</a></p>
+    </section>
+
+
+    <section class="mb-5">
+        <h2>最近我關注的發問</h2>
+        <table class="table">
+            <caption class="visually-hidden">最近我關注的發問</caption>
+            <thead>
+                <tr><th>關注發問</th><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>發問日</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td>5</td>
+                    <td class="text-success"><strong>2</strong></td>
+                    <td>17</td>
+                    <td><time>2014-03-26</time></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-secondary">查看全部<a href="{% url 'kuantsu' %}">我關注的發問</a></p>
+    </section>
+</main>
+{% endblock %}

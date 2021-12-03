@@ -1,0 +1,59 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main class="container py-3">
+    {% include 'gua/tuathau.html' with piaute='我的回答' %}
+
+    <p class="mb-4">共回答 72 次</p>
+    <div class="alert alert-info" role="alert">
+        提醒：若需修改回答，請直接在原本發問頁提出新回答即可。
+    </div>
+    <ul class="list-group mb-2">
+        <li class="list-group-item">
+            <section class="row py-1">
+                <header class="col-9 col-lg-6">
+                    <h2 class="h5 fw-bolder mb-1">suî-kok ū kok-kua kok-kua kok-kua</h2>
+                    <h3 class="h6 fw-bolder mb-1">隨國有國歌隨國有國歌</h3>
+                    <p class="mb-0">我們嘉義講法。我們嘉義講法。我們嘉義講法。</p>
+                </header>
+                <div class="col-3 col-lg-3 text-secondary">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            2015-04-26
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"aria-hidden="true">
+                                <use href="#svg-hand-thumbs-up"></use>
+                            </svg>
+                            5
+                        </div>
+                        <div  class="col-12 col-lg-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"aria-hidden="true">
+                                <use href="#svg-bookmark-star"></use>
+                            </svg>
+                            5
+                        </div>
+                    </div>
+                </div>
+                <footer class="col-12 col-lg-3 text-secondary">
+                    <p class="float-end mb-0">
+                    <a href="#!" class="text-truncate">
+                        各個國家有各個國家的國歌
+                    </a> 發問
+                    </p>
+                </footer>
+            </section>
+        </li>
+    </ul>
+    <p class="text-secondary">第 1 頁我的回答</p>
+    <nav aria-label="我的回答頁碼">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">上一頁</a></li>
+        <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第2頁">2</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第3頁">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      </ul>
+    </nav>
+</main>
+{% endblock %}

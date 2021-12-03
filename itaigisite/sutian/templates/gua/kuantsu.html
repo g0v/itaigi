@@ -1,0 +1,34 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main class="container py-3">
+    {% include 'gua/tuathau.html' with piaute='我關注的發問' %}
+
+    <p class="mb-4">共關注 72 筆發問</p>
+    <table class="table">
+        <caption>第 1 頁我關注的發問</caption>
+        <thead>
+            <tr><th>關注發問</th><th>關注數</th><th>回答數</th><th>瀏覽數</th><th>發問日</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                <td>5</td>
+                <td class="text-success"><strong>2</strong></td>
+                <td>17</td>
+                <td><time>2014-03-26</time></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="我關注的發問頁碼">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">上一頁</a></li>
+        <li class="page-item active"><a class="page-link" href="#" aria-current="page">1</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第2頁">2</a></li>
+        <li class="page-item"><a class="page-link" href="#" aria-label="第3頁">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      </ul>
+    </nav>  
+</main>
+{% endblock %}

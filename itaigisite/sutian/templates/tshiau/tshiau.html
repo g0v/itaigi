@@ -1,0 +1,111 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main>
+    <div class="bg-light pt-3 pb-2 mb-3">
+        <div class="container-lg">
+            <h1 id="luebun">iTaigi 眾人華台辭典</h1>
+            <p>自己的辭典自己編，查不到時可以公開發問，或者自己發明台語講法貢獻給大家。</p>
+
+            <form class="mb-4">
+                <label for="tshiau" class="fs-2 fw-bolder col-form-label">查詢辭典</label>
+                <input type="search" class="form-control" name="tshiau" id="tshiau" placeholder="查詢華語詞……" value="{{ tshiau }}" />
+            </form>
+        </div>
+    </div>
+
+
+<div class="container-lg py-3">
+    <nav aria-label="breadcrumb" class="d-flex">
+      <span class="me-2">目前位置</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
+        <li class="breadcrumb-item"><a href="#" class="text-secondary text-decoration-none" aria-current="page">查詢辭典 {{ tshiau }}</a></li>
+      </ol>
+    </nav>
+
+    <section class="mb-4">
+        <h2>查詢結果情形：毋捌有人問起</h2>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">還沒有人發問這個華語詞</p>
+            <button class="btn btn-outline-dark">
+                + 公開發問
+            </button>
+    </section>
+
+
+    <section class="mb-4">
+        <h2>查詢結果情形：家己問起猶無人關注</h2>
+        <p class="mb-0 me-2 text-success">你已公開發問這個華語詞（此訊息只有你看得到）</p>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">有0個人關注同樣發問</p>
+            <button class="btn btn-outline-dark">
+                - 移除公開發問
+            </button>
+    </section>
+
+    <section class="mb-4">
+        <h2>查詢結果情形：有人問起</h2>
+        <div class="d-flex align-items-center mb-2">
+            <p class="mb-0 me-2">有10個人關注同樣發問</p>
+            <button class="btn btn-outline-dark">
+                <svg width="16" height="16">
+                  <use href="#svg-eye"></use>
+                </svg>
+                關注
+            </button>
+        </div>
+    </section>
+
+    {% include 'tshiau/tshiau_item.html' with sutin=sutin  %}
+
+    <section class="mb-4">
+        <h2 class="me-2">相關華語</h2>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#!">辱華</a></li>
+            <li class="list-inline-item"><a href="#!">乳滑</a></li>
+        </ul>
+    </section>
+
+    {% include 'tshiau/sinsu.html' %}
+<!-- 
+    <section>
+        <h2 class="mb-3">例句</h2>
+        <div>
+            <h3 id="le-1">jio̍k-huâ 辱華</h3>
+            <ul>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0">Tsá-bān ài <mark>jio̍k-huâ</mark>.</p>
+                        <button class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                        <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">
+                        <span>早慢愛<mark>辱華</mark>。</span>
+                        <span>(早晚要辱華。)</span>
+                    </p>
+
+                </li>
+                <li>
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 lh-lg">A-bîng lâng tsiânn kóo-ì, bē bú <mark>jio̍k-huâ</mark> hia--ê ū-khang-bô-sún ê tāi-tsì.
+                        </p>
+                        <button class="btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                        <button class="btn btn-outline-dark">copy</button>
+                    </div>
+                    <p class="lh-base">阿明人誠古意，袂舞<mark>辱華</mark>遐的有空無榫的代誌。
+                    <span>(阿明為人很忠厚老實，不會做辱華那些不合情理的事。)</span></p>
+                </li>
+            </ul>
+            <button class="ms-2 btn btn-primary">+ <span class="visually-hidden">jio̍k-huâ</span>例句</button>
+        </div>
+    </section> -->
+</div>
+</main>
+{% endblock %}

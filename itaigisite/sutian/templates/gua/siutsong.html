@@ -1,0 +1,80 @@
+{% extends 'khing/khing.html' %}
+
+{% block tsubun %}
+<main class="container py-3">
+    {% include 'gua/tuathau.html' with piaute='我收藏的回答' %}
+
+    <section class="mt-5 mb-5">
+        <header>
+            <h2 class="d-inline-block">
+                <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
+            </h2>
+            <span class="ms-2 fs-6 text-secondary">共收藏 72 筆回答</span>
+        </header>
+        <table class="table">
+            <caption>學習清單最近 3 筆收藏</caption>
+            <thead>
+                <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
+            </thead>
+            <tbody class="align-baseline">
+                <tr>
+                    <td>
+                        <span>kok-kua</span>
+                        <button class="btn px-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                    </td>
+                    <td><span>隨國有國歌</span>
+                        <button class="btn px-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                    </td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td>
+                        <button class="btn btn-primary">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="mb-5">
+        <header>
+            <h2 class="d-inline-block">
+                <a href="{% url 'siutsong_item' 1 %}">學習清單</a>
+            </h2>
+            <span class="ms-2 fs-6 text-secondary">共收藏 72 筆回答</span>
+        </header>
+        <table class="table">
+            <caption>學習清單最近 3 筆收藏</caption>
+            <thead>
+                <tr><th>收藏回答（台羅）</th><th>收藏回答（漢羅）</th><th>發問</th><th>取消收藏</th></tr>
+            </thead>
+            <tbody class="align-baseline">
+                <tr>
+                    <td>
+                        <span>kok-kua</span>
+                        <button class="btn px-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                    </td>
+                    <td><span>隨國有國歌</span>
+                        <button class="btn px-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" aria-hidden="true"><use href="#svg-volume-down"></use></svg>
+                            <span class="visually-hidden">播放音檔XX</span>
+                        </button>
+                    </td>
+                    <td><a href="#!">各個國家有各個國家的國歌</a></td>
+                    <td>
+                        <button class="btn btn-primary">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+</main>
+{% endblock %}
