@@ -2,12 +2,22 @@
 
 {% block tsubun %}
 <main class="container py-3">
-    <h1 id="luebun" class="mb-5">
+    <h1 id="luebun">
         <svg width="48" height="48" aria-hidden="true">
             <use href="#svg-bell"></use>
         </svg>
         通知
     </h1>
+
+    <nav aria-label="麵包屑導航欄" class="d-flex mb-5">
+      <span class="me-2">目前位置：</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'khautso' %}">個人頁面</a></li>
+        <li class="breadcrumb-item active"><p class="d-inline-block mb-0">通知<span class="visually-hidden">（目前頁面）</span></p></li>
+      </ol>
+    </nav>
+
     <ol class="list-group list-group-flush mb-3">
         <li class="list-group-item">
             <strong>Tshua Bunli</strong>
