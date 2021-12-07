@@ -22,17 +22,16 @@ Feature: 查詢辭典
         And 查詢 "辱華"
         And 就有出現符合結果
             | 發問 | 羅馬字 | 漢字 |
-            | 辱華 | jio̍k-huâ | jio̍k-huâ  |
+            | 辱華 | jio̍k-huâ | jio̍k-huâ |
+
+    Scenario: 已經有人公開發問
+        Given 有人代先公開發問 "辱華"
+        When 我來查詢 "辱華"
+        Then 我只能關注無法發問
 
     Scenario: 取消公開發問
-        Given 辭典有
-            | 發問 | 羅馬字 | 漢字 |
-        When 公開發問 "辱華"
-        And 還沒有人關注之前取消發問
-        Then 允許取消發問
-        When 公開發問 "辱華"
-        And 已經有人關注
-        Then 不允許取消發問
+        Given 公開發問 "辱華"
+        Then 無論幾人關注允許取消發問
 
     Scenario: 新回答改為系統自動修正漢字以符合教典用字
         When 有人回答
@@ -59,3 +58,8 @@ Feature: 查詢辭典
             | 花 | hue | 花 |
             | 花 | khai | 開 |
         And 提示相關華語 "花朵" "花費"
+
+    Scenario: 無登入就想回答，得要求登入
+        Given 還沒登入
+         When 想回答
+         Then 要求他先註冊或登入
