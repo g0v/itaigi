@@ -1,0 +1,70 @@
+
+<!-- Modal -->
+<div class="modal fade" id="tshingtuann" tabindex="-1" aria-labelledby="tshingtitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="tshingtitle">收藏到……</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <fieldset>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單" id="flexCheckDefault1">
+                  <label class="form-check-label w-100" for="flexCheckDefault1">
+                    <span class="me-2">學習清單</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-globe2"></use></svg>
+                  </label>
+                </div>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單2" id="flexCheckDefault2">
+                  <label class="form-check-label w-100" for="flexCheckDefault2">
+                    <span class="me-2">
+                    學習清單2
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-lock"></use></svg>
+                  </label>
+                </div>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單3" id="flexCheckDefault3">
+                  <label class="form-check-label w-100" for="flexCheckDefault3">
+                    <span class="me-2">
+                    學習清單3
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-lock"></use></svg>
+                  </label>
+                </div>
+                <div class="form-check py-1">
+                  <input class="form-check-input" type="checkbox" value="學習清單4" id="flexCheckDefault4">
+                  <label class="form-check-label w-100" for="flexCheckDefault4">
+                    <span class="me-2">
+                    學習清單4
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-label="權限為私人"><use href="#svg-lock"></use></svg>
+                  </label>
+                </div>
+            </fieldset>
+        </form>
+        <form class="border-top mt-2 pt-2 row g-2">
+            <p class="fw-bold mb-0">建立新清單</p>
+            <div>
+                <label class="form-label" for="sintuannmia">新清單名</label>
+                <input class="form-control" type="text" name="sintuannmia" id="sintuannmia"/>
+            </div>
+            <div>
+                <label class="form-label" for="khuanhan">權限</label>
+                <select class="form-select" id="khuanhan" name="khuanhan">
+                    <option>公開</option>
+                    <option>私人</option>
+                </select>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">收藏</button>
+      </div>
+    </div>
+  </div>
+</div>
