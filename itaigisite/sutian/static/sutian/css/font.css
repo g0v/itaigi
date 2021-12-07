@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'GenYoGothicTW';
+    font-weight: 700;
+    font-display: swap;
+    src: local("GenYoGothicTW-B"), url(../font/GenYoGothic_woff2/GenYoGothicTW-B-01.woff2) format("woff2");
+}
+@font-face {
+    font-family: 'GenYoGothicTW';
+    font-weight: 500;
+    font-display: swap;
+    src: local("GenYoGothicTW-M"), url(../font/GenYoGothic_woff2/GenYoGothicTW-M-01.woff2) format("woff2");
+}
+@font-face {
+    font-family: 'GenYoGothicTW';
+    font-weight: 400;
+    font-display: swap;
+    src: local("GenYoGothicTW-N"), url(../font/GenYoGothic_woff2/GenYoGothicTW-N-01.woff2) format("woff2");
+}
