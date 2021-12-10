@@ -1,10 +1,14 @@
-Feature: 關注
+Feature: 我關注的發問
 
-    @Koh-ài參詳
-    Scenario: 關注有可能被原發問者取消發問而消失
+    @參詳好勢，猶未做
+    Scenario: 可以取消關注
+        Given 我關注發問 "辱華"
+        Then "辱華" 關注數是1
+        When 我取消關注 "辱華"
+        Then "辱華" 關注數是0
 
-    @Koh-ài參詳
-    Scenario: ？顯示此發問關注數
-        Given 公開發問 "辱華"
-        When 有人關注這問題
-        Then 這發問會顯示有1人關注
+    @參詳好勢，猶未做
+    Scenario: 原發問者可取消發問而提示無法關注
+        Given 我關注發問 "辱華"
+        When 發問者取消發問 "辱華"
+        Then 我關注的發問會顯示此發問已經取消

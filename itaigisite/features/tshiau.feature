@@ -12,7 +12,7 @@ Feature: 查詢辭典
     @參詳好勢，猶未做
     Scenario: 公開發問和回答
         Given 公開發問 "辱華"
-        When 有人回答
+        When 有人回答 "辱華"
             | 羅馬字 | 漢字 |
             | jio̍k-huâ | jio̍k-huâ |
         Then 查詢 "辱華"
@@ -33,14 +33,14 @@ Feature: 查詢辭典
     @參詳好勢，猶未做
     Scenario: 禁止取消有回答的公開發問
         Given 公開發問 "辱華"
-        When 有人回答這問題
+        When 有人回答 "辱華"
             | 羅馬字 | 漢字 |
             | jio̍k-huâ | jio̍k-huâ |
         Then 不允許取消發問
 
     @參詳好勢，猶未做
     Scenario: 新回答從正規化團隊改由系統自動修正漢字以符合教典用字，以便即時新增詞
-        When 有人回答
+        When 有人回答 "溜走"
             | 羅馬字 | 漢字 |
             | làng-káng | 浪槓 |
         And 系統修正
@@ -67,3 +67,21 @@ Feature: 查詢辭典
         Given 還沒登入
          When 想回答
          Then 要求他先註冊或登入
+
+    @參詳好勢，猶未做
+    Scenario: 會照讚排先後
+        Given 公開發問 "辱華"
+        And 有人回答
+            | 羅馬字 | 漢字 |
+            | jio̍k-huâ | jio̍k-huâ |
+        And 又有人回答
+            | 羅馬字 | 漢字 |
+            | lin-ku̍t | 奶滑 |
+        When 有人覺得這個回答讚
+            | 羅馬字 | 漢字 |
+            | jio̍k-huâ | jio̍k-huâ |
+        When 查詢 "花"
+        Then 回答先後是
+            | 羅馬字 | 漢字 | 讚 |
+            | jio̍k-huâ | jio̍k-huâ | 1 |
+            | lin-ku̍t | 奶滑 | 0 |
