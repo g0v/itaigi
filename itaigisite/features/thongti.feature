@@ -1,37 +1,35 @@
 Feature: 通知清單
+    決定啥物ài通知，而且ta̍k筆通知ē-sái做啥物操作。
+    我的發問
+    我的回答
+    
+    我關注的發問
+    我收藏的回答
 
-    @Koh-ài參詳
-    Scenario: 通知我的發問狀態
-        Given 公開發問 "辱華"
-        When 有人回答
+    免通知：對方取消發問使得我無法關注、別人取消關注我的發問、別人取消收藏我的回答
+
+    Scenario: 通知有人回答我的發問
+        Given 我公開發問 "辱華"
+        When 有人回答 "辱華"
             | 羅馬字 | 漢字 |
             | jio̍k-huâ | jio̍k-huâ |
-        Then 通知有人回答
+        Then 通知我有人回答我
+
+    Scenario: 通知別人關注我的發問
+        Given 我公開發問 "辱華"
         When 有人關注 "辱華"
         Then 通知有人關注
-        When ？有人取消關注
-        Then ？不需通知取消關注
-        When ？有多少人也查詢過此發問
-        Then ？通知很多人也查過
 
-    @Koh-ài參詳
-    Scenario: ？通知我的回答狀態
+    Scenario: 通知別人收藏我的回答
+        Given 我回答 "辱華" 是
+            | 羅馬字 | 漢字 |
+            | jio̍k-huâ | jio̍k-huâ |
+        When 有人收藏
+        Then 通知有人收藏
+        
+    Scenario: 通知別人讚我的回答
         Given 我回答 "辱華" 是
             | 羅馬字 | 漢字 |
             | jio̍k-huâ | jio̍k-huâ |
         When 有人讚
-        Then ？通知有人讚
-        When 有人收藏
-        Then ？通知有人收藏
-        When 有人取消收藏
-        Then ？通知有人取消收藏
-
-    @Koh-ài參詳
-    Scenario: ？通知關注被原發問者移除
-
-    @Koh-ài參詳
-    Scenario: ？參考面冊通知操作選項
-        ？標示已讀
-        ？移除此通知
-        ？關閉該粉專相關通知
-        ？向工程團隊檢舉問題
+        Then 通知有人讚
