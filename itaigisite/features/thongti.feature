@@ -14,11 +14,13 @@ Feature: 通知清單
             | 羅馬字 | 漢字 |
             | jio̍k-huâ | jio̍k-huâ |
         Then 通知我有人回答我
+        And 通知連結到公開發問 "辱華" 的頁面
 
     Scenario: 通知別人關注我的發問
         Given 我公開發問 "辱華"
         When 有人關注 "辱華"
         Then 通知有人關注
+        And 通知連結到公開發問 "辱華" 的頁面
 
     Scenario: 通知別人收藏我的回答
         Given 我回答 "辱華" 是
@@ -26,6 +28,7 @@ Feature: 通知清單
             | jio̍k-huâ | jio̍k-huâ |
         When 有人收藏
         Then 通知有人收藏
+        And 通知連結到公開發問 "辱華" 的頁面
         
     Scenario: 通知別人讚我的回答
         Given 我回答 "辱華" 是
@@ -33,3 +36,4 @@ Feature: 通知清單
             | jio̍k-huâ | jio̍k-huâ |
         When 有人讚
         Then 通知有人讚
+        And 通知連結到公開發問 "辱華" 的頁面
