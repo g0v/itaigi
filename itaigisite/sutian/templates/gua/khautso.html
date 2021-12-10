@@ -2,15 +2,19 @@
 
 {% block tsubun %}
 <main class="container py-3">    
-    <h1 id="luebun" class="mb-5">
-        <svg width="48" height="48" aria-hidden="true">
-            <use href="#svg-person-fill"></use>
-        </svg>
-        a8568730個人頁面
-    </h1>
+    {% include 'gua/tuathau.html' with piaute='a8568730個人頁面' %}
+
+    <nav aria-label="麵包屑導航欄" class="d-flex mb-5">
+      <span class="me-2">目前位置：</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
+        <li class="breadcrumb-item active"><p class="d-inline-block mb-0">個人頁面<span class="visually-hidden">（目前頁面）</span></p></li>
+      </ol>
+    </nav>
+
 
     <div class="row mb-5">
-        <section class="col-12 col-md-4 mb-4 mb-md-0">
+        <section class="col-12 col-md-4 mb-5 mb-md-0">
             <h2>統計</h2>
             <div class="border pt-2">
             <ul class="list-unstyled row gy-1">
@@ -41,7 +45,7 @@
                 <li><a href="#!">清單2</a></li>
                 <li><a href="#!">清單3</a></li>
             </ul>
-            <p class="text-secondary">查看全部<a href="">我收藏的回答</a></p>
+            <p class="text-secondary">查看全部<a href="{% url 'siutsong' %}">我收藏的回答</a></p>
         </section>
     </div>
 
@@ -62,7 +66,7 @@
                 </tr>
             </tbody>
         </table>
-        <p class="text-secondary">查看完整清單<a href="">我的發問</a></p>
+        <p class="text-secondary">查看完整清單<a href="{% url 'mng' %}">我的發問</a></p>
     </section>
 
     <section class="mb-5">
