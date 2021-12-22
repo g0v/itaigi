@@ -1,3 +1,24 @@
 .ui.menu {
   justify-content:center;
 }
+.list-unstyled {
+  list-style: none !important;
+}
+.padding-s-0 {
+  padding-left: 0;
+}
+/*.text-white {
+  color: #ddd;
+}
+
+a.text-white:hover {
+  color: #999;
+}
+*/
+a.text-yellow {
+  color: #fbbd08;
+}
+
+a.text-yellow:hover {
+  color: #eaae00;
+}
