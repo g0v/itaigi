@@ -11,8 +11,8 @@ class Unsu extends React.Component {
 
 <p>iTaigi公民華台辭典（以下簡稱iTaigi）作為民眾查詢以及交流台語語詞之非盈利開源網站，iTaigi絕對遵守個人資料保護法及相關法令之規定，保護用戶的個人隱私權。為了協助您清楚地瞭解iTaigi如何蒐集、應用及保護您所提供的個人資料，請您詳細閱讀iTaigi隱私權保護政策。 </p>
 
-<nav>
-  <b>條款索引</b>
+<nav aria-labelledby="tiaukhuann-sohin">
+  <b id="tiaukhuann-sohin">隱私權保護條款索引</b>
   <ul>
     <li><a href="#huanui">適用範圍</a></li>
     <li><a href="#luihing">蒐集的資料類型、蒐集目的及使用方式</a></li>
@@ -23,7 +23,6 @@ class Unsu extends React.Component {
     <li><a href="#kati">自我保護措施</a></li>
     <li><a href="#siu">隱私權保護政策修訂</a></li>
     <li><a href="#tsiohmng">與我們聯絡</a></li>
-    
   </ul>
 </nav>
 
