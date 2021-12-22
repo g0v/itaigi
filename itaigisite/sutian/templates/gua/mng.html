@@ -4,6 +4,15 @@
 <main class="container py-3">
     {% include 'gua/tuathau.html' with piaute='我的發問' %}
 
+    <nav aria-label="麵包屑導航欄" class="d-flex mb-5">
+      <span class="me-2">目前位置：</span>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'khautso' %}">個人頁面</a></li>
+        <li class="breadcrumb-item active"><p class="d-inline-block mb-0">我的發問<span class="visually-hidden">（目前頁面）</span></p></li>
+      </ol>
+    </nav>
+
     <p class="mb-4">共發問 72 次</p>
     <table class="table">
         <caption>第 1 頁我的發問</caption>

@@ -4,9 +4,9 @@
     <h1 id="luebun">
         {{ piaute }}
     </h1>
-    <nav aria-label="麵包屑" class="d-flex">
-        <span>目前位置：</span>
-        <ul class="breadcrumb">
+    <nav aria-label="麵包屑導航欄" class="d-flex">
+        <span class="me-2">目前位置：</span>
+        <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'tiann' %}">首頁</a></li>
             <li class="breadcrumb-item">
                 <a href="{% url 'pokam' %}">台語寶鑑</a>
@@ -14,17 +14,14 @@
             <li class="breadcrumb-item">
                 <a href="{% url 'pokam_list' 1 %}">抱去摸</a>
             </li>
-            <li class="breadcrumb-item">
-                <a href="{% url 'pokam_item' 1 11 %}" class="text-secondary text-decoration-none" aria-current="page">
-                    {{ piaute }}
-                </a>
-            </li>
+            <li class="breadcrumb-item active"><p class="d-inline-block mb-0">{{ piaute }}<span class="visually-hidden">（目前頁面）</span></p></li>
         </ul>
     </nav>
 
     {% include 'tshiau/tshiau_item.html' with sutin=sutin %}
     {% include 'tshiau/sinsu.html' %}
     {% include 'pokam/sohin.html' %}
+    {% include 'tshiau/modal.html' %}
     <a href="{% url 'pokam' %}"><span aria-hidden="true">←</span> 返回台語寶鑑</a>
 </main>
 {% endblock %}
