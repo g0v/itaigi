@@ -1,5 +1,9 @@
-<a href="https://itaigi.tw/"><img src="https://itaigi.tw/121c4ed080e9127a72d31ae85d1458fc.svg" width="100"></a>新台語·運動
+警告: 此為舊專案，目前已遷到新專案[i3thuan5/itaigi](https://github.com/i3thuan5/itaigi) ，由工程團隊支付Travis CI自動化測試費用並維護專案。
+
+<a href="https://itaigi.tw/"><img src="https://raw.githubusercontent.com/g0v/itaigi/master/design/logo.svg" width="100"></a>
+iTaigi 愛台語
 ===========
+
 [![Build Status](https://travis-ci.org/g0v/itaigi.svg?branch=master)](https://travis-ci.org/g0v/itaigi)
 [![devDependency Status](https://david-dm.org/g0v/itaigi/dev-status.svg)](https://david-dm.org/g0v/itaigi?type=dev)
 [![made in taiwan](https://img.shields.io/badge/made%20in-taiwan-blue.svg)](https://itaigi.tw)
