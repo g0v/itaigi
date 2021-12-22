@@ -20,6 +20,8 @@ import 金融尬台語 from './Ogilvy/主題/金融尬台語';
 import KuahPau from './GuanKiann/TshiuKiSuanTuann/KuahPau';
 import TshiuKiSuanTuann from './GuanKiann/TshiuKiSuanTuann/TshiuKiSuanTuann';
 import 名姓 from './Iah/名姓/名姓';
+import Unsu from './Iah/About/Unsu';
+import Hokbu from './Iah/About/Hokbu';
 
 Debug.enable('itaigi:*');
 
@@ -45,6 +47,8 @@ render(
         <Route path="tsu-te/pho-khi-bong" component={抱去摸} />
         <Route path="tsu-te/kim-iong-kah-tai-gi" component={金融尬台語} />
         <Route path="name(/:senn)(/:mia)(/)" component={名姓} />
+        <Route path="unsu" component={Unsu} />
+        <Route path="hokbu" component={Hokbu} />
         <Route path="*" component={Kong} />
       </Route>
     </Router>
